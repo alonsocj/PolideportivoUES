@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">PolideportivoUES</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="Horaidentificador">Id de Hora:</string>
+    <string name="InicioHora">Hora Inicio:</string>
+    <string name="FinHora">Hora Fin:</string>
+    <string name="hintId">Ingrese el Numero de Hora</string>
+    <string name="hintHI">Ingrese la hora de inicio</string>
+    <string name="hintHF">Ingrese la hora de finalización</string>}
+    <string name="botonAgregar">Agregar</string>
+    <string name="botonAgregarHoraInicio">Hora</string>
+    <string name="inicioH">Hora de Inicio</string>
+    <string name="finH">Hora de Finalización</string>
+    <string name="botonConsultar">Consultar</string>
+    <string name="botonActualizar">Actualizar</string>
+    //Local
+    <string name="agregarLocal">Agregar Local</string>
+    <string name="idLocaltxt">Id de local</string>
+    <string name="hintIdLocal">Ingrese el Id del local</string>
+    <string name="nombreLocaltxt">Nombre del local</string>
+    <string name="hintnombreLocal">Ingrese el nombre del local</string>
+    <string name="cupoLocaltxt">Cupo del local</string>
+    <string name="hintcupoLocal">Ingrese el cupo del local</string>
+    <string name="actualizarLocal">Actualizar Local</string>
+    <string name="eliminarLocal">Eliminar Local</string>
+    <string name="botonEliminar">Eliminar</string>
+    <string name="consultarLocal">Consultar Local</string>
+    <string-array name="cupoLocal">
+        <item>Disponible</item>
+        <item>Ocupado</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PolideportivoUES">
+
+        <activity
+            android:name=".William.TipoReservacion.TipoReservacionEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.TipoReservacion.TipoReservacionConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.TipoReservacion.TipoReservacionActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.TipoReservacion.TipoReservacionInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.TipoReservacion.TipoReservacionMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.Local.LocalMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.Local.LocalEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.Local.LocalConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.Local.LocalActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.Local.LocalInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.TipoPago.TipoPagoInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.Hora.HoraConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.Hora.HoraInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.Hora.HoraEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.Hora.HoraActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.Evento.EventoConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.Evento.EventoEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.Evento.EventoInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.TipoEvento.TipoEventoEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.TipoEvento.TipoEventoConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.TipoEvento.TipoEventoMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.TipoEvento.TipoEventoActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.TipoEvento.TipoEventoInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Dia.DiaMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Dia.DiaEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Dia.DiaConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Dia.DiaActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Dia.DiaInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Cobro.CobroMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Cobro.CobroActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Cobro.CobroEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Cobro.CobroConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Alonso.Cobro.CobroInsertarActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.PolideportivoUES.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

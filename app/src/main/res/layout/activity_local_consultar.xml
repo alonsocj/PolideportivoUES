@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".William.Local.LocalConsultarActivity"
+    android:padding="30dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/consultarLocal"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/idLocaltxt"/>
+
+    <EditText
+        android:id="@+id/EditIdLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintIdLocal"
+        android:maxLength="5"/>
+
+    <Button
+        android:id="@+id/botonConsultarLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/botonConsultar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombreLocaltxt"/>
+
+    <EditText
+        android:id="@+id/EditNombreLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cupoLocaltxt"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/EditCupoLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        />
+
+
+</LinearLayout>

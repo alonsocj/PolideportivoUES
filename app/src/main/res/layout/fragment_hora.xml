@@ -15,25 +15,25 @@
         android:id="@+id/botonAgregarHora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agregar" />
+        android:text="@string/AgregarHoraFragment" />
 
     <Button
        android:id="@+id/botonConsultarHora"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="Consultar" />
+       android:text="@string/ConsultarHoraFragment" />
 
      <Button
          android:id="@+id/botonModificarHora"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:text="Modificar" />
+         android:text="@string/ActualizarHoraFragment" />
 
      <Button
          android:id="@+id/botonEliminarHora"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:text="Eliminar" />
+         android:text="@string/EliminarHoraFragment" />
 
     </LinearLayout>
 

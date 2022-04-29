@@ -34,5 +34,10 @@
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.local.LocalFragment"
         android:label="Local"
         tools:layout="@layout/fragment_local" />
+    <fragment
+        android:id="@+id/nav_tipoevento"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.tipoevento.TipoEventoFragment"
+        android:label="@string/tipoEvento"
+        tools:layout="@layout/fragment_tipo_evento" />
 
 </navigation>

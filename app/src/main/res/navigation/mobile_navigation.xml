@@ -35,4 +35,10 @@
         android:label="Local"
         tools:layout="@layout/fragment_local" />
 
+    <fragment
+        android:id="@+id/nav_tipoPago"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.tipoPago.tipoPagoFragment"
+        android:label="tipoPago"
+        tools:layout="@layout/fragment_tipo_pago"/>
+
 </navigation>

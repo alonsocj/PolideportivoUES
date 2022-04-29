@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //tabla TipoEvento
             db.execSQL("CREATE TABLE tipoevento (idTipoE VARCHAR(1) PRIMARY KEY, nomTipoE VARCHAR(50));");
             //tabla TipoPago
-            db.execSQL("CREATE TABLE tipopago(idPago VARCHAR(2) PRIMARY KEY, tipo VARCHAR(20) NOT NULL);");
+            db.execSQL("CREATE TABLE tipopago(idPago VARCHAR(2) NOT NULL PRIMARY KEY, tipo VARCHAR(20) NOT NULL);");
             //Tabla Cobro
             db.execSQL("CREATE TABLE cobro (idCobro INTEGER NOT NULL PRIMARY KEY , idPago VARCHAR(2) NOT NULL, cantPersonas INTEGER, duracion FLOAT, precio FLOAT," +
                     " CONSTRAINT fk_cobro_tipopago FOREIGN KEY (idPago) REFERENCES tipopago(idPago) ON DELETE RESTRICT);");

@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraActualizarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraConsultarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentHoraBinding;
 
@@ -57,6 +58,17 @@ public class HoraFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent (HoraFragment.this.getContext(), HoraActualizarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*Eliminar Hora*/
+
+        final Button buttonEliminarHora = binding.botonEliminarHora;
+        buttonEliminarHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HoraFragment.this.getContext(), HoraEliminarActivity.class);
                 startActivity(intent);
             }
         });

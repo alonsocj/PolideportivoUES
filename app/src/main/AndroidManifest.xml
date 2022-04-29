@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PolideportivoUES">
-
+        <activity
+            android:name=".Chris.TipoPago.TipoPagoEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.TipoPago.TipoPagoActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.TipoPago.TipoPagoConsultarActivity"
+            android:exported="false" />
         <activity
             android:name=".William.TipoReservacion.TipoReservacionEliminarActivity"
             android:exported="false" />
@@ -109,7 +117,6 @@
         <activity
             android:name=".Alonso.Cobro.CobroInsertarActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true"

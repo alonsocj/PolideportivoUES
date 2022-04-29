@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPagoConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPagoInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentTipoPagoBinding;
 
@@ -33,6 +34,16 @@ public class tipoPagoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(tipoPagoFragment.this.getContext(), TipoPagoInsertarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*Consultar Tipo de Pago*/
+        final Button buttonConsultarTipoPago = binding.botonConsultarTipoPago;
+        buttonConsultarTipoPago.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(tipoPagoFragment.this.getContext(), TipoPagoConsultarActivity.class);
                 startActivity(intent);
             }
         });

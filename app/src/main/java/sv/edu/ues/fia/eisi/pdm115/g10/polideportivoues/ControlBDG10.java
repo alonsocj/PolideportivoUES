@@ -8,12 +8,14 @@ import android.database.sqlite.SQLiteDatabase;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPagoActualizarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
 public class ControlBDG10 {
 
     /*Tabla Hora*/
     private static final String[] camposHora = new String[]{"idhora","horaInicio","horaFin"};
+    private static final String[] camposTipoPago = new String[]{"idPago","tipo"};
 
     private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
     private SQLiteDatabase db;
@@ -112,6 +114,20 @@ public class ControlBDG10 {
 
         return pagosInsertados;
     }
+
+    public TipoPago consultarTipoPago (String tipoPago){
+        String[] id = {tipoPago};
+        Cursor cursor = db.query("tipopago", camposTipoPago, "idPago = ?",id,null,null,null,null);
+        if(cursor.moveToFirst()){
+            TipoPago tPago = new TipoPago();
+            tPago.setIdPago(cursor.getString(0));
+            tPago.setTipo(cursor.getString(1));
+            return tPago;
+        }else{
+            return null;
+        }
+    }
+
 
     //Metodos para tabla local
     public String ingresarLocal(Local local){

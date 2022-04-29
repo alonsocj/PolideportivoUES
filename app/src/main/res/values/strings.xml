@@ -23,7 +23,16 @@
     <string name="finH">Hora de Finalización</string>
     <string name="botonConsultar">Consultar</string>
     <string name="botonActualizar">Actualizar</string>
-    //Local
+    <string name="btnGuardar">Guardar</string>
+    <!-- TIPO EVENTO -->
+    <string name="tipoEvento">Tipo de Evento</string>
+    <string name="titulo_tipo_evento_insertar">Agergar tipo de Evento</string>
+    <string name="titulo_tipo_evento_consultar">Consultar tipo de Evento</string>
+    <string name="titulo_tipo_evento_actualizar">Actualizar tipo de Evento</string>
+    <string name="titulo_tipo_evento_eliminar">Eliminar tipo de Evento</string>
+    <string name="idTipoEvento">Id del tipo evento:</string>
+    <string name="NomTipoEvento">Nombre del tipo de evento:</string>
+    <!--Local-->
     <string name="agregarLocal">Agregar Local</string>
     <string name="idLocaltxt">Id de local</string>
     <string name="hintIdLocal">Ingrese el Id del local</string>

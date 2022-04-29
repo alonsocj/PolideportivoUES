@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
 public class ControlBDG10 {
@@ -91,6 +92,26 @@ public class ControlBDG10 {
         return registrosAfec;
     }
 
+
+    /*Funcionalidades de TipoPago*/
+
+    public String insertarTipoPago (TipoPago tipoPago){
+        String pagosInsertados = "Pago Insertado";
+        long contador = 0;
+
+        ContentValues contentpago = new ContentValues();
+        contentpago.put("idPago",tipoPago.getIdPago());
+        contentpago.put("tipo",tipoPago.getTipo());
+        contador = db.insert("tipopago",null,contentpago);
+
+        if(contador==-1 || contador == 0){
+            pagosInsertados = "Error al insertar el pago";
+        }else{
+            pagosInsertados = pagosInsertados + contador;
+        }
+
+        return pagosInsertados;
+    }
 
     //Metodos para tabla local
     public String ingresarLocal(Local local){

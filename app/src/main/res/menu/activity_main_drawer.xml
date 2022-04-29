@@ -27,6 +27,11 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Local" /> <!--Strings-->
 
+        <item
+            android:id="@+id/nav_tipoPago"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Tipo de Pago" /> <!--Strings-->
+
 
     </group>
 </menu>

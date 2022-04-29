@@ -196,7 +196,7 @@ public class ControlBDG10 {
     }
 
     public String actualizar(TipoEvento tipoEvento){
-        if (verificarIntegridadDeDatos(tipoEvento,2)) {
+        if (verificarIntegridadDeDatos(tipoEvento,5)) {
             String[] id = {tipoEvento.getIdTipoE()};
             ContentValues values = new ContentValues();
             values.put("nomTipoE", tipoEvento.getNombreTipoE());

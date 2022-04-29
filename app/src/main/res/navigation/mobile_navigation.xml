@@ -41,4 +41,10 @@
         android:label="tipoPago"
         tools:layout="@layout/fragment_tipo_pago"/>
 
+    <fragment
+        android:id="@+id/nav_evento"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.evento.EventoFragment"
+        android:label="Evento"
+        tools:layout="@layout/fragment_evento"/>
+
 </navigation>

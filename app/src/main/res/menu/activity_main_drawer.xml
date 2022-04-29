@@ -18,6 +18,11 @@
             android:title="@string/menu_slideshow" />
 
         <item
+            android:id="@+id/nav_evento"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Evento"/> <!--Strings-->
+
+        <item
             android:id="@+id/nav_hora"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Hora" /> <!--Strings-->

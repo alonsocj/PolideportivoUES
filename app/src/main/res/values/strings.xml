@@ -54,6 +54,12 @@
     <string name="hintIdePago">Ingrese el codigo del tipo pago</string>
     <string name="hintTipoPago">Ingrese el tipo de pago</string>
 
+    <string name="AgregarEventoFragment">Agregar Evento</string>
+    <string name="ConsultarEventoFragment">Consultar Evento</string>
+    <string name="EliminarEventoFragment">Eliminar Evento</string>
+    <string name="ActualizarEventoFragment">Actualizar Evento</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

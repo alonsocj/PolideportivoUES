@@ -21,6 +21,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE dia (nombreDia VARCHAR(10) PRIMARY KEY);");
             //tabla TipoEvento
             db.execSQL("CREATE TABLE tipoevento (idTipoE VARCHAR(1) PRIMARY KEY, nomTipoE VARCHAR(50));");
+            //tabla Evento
+            db.execSQL("CREATE TABLE evento(idEvento VARCHAR(6) NOT NULL , idTipoE VARCHAR(1) NOT NULL, " +
+                    " nomEvento VARCHAR(100) NOT NULL, costoEvento FLOAT(12,2) NOT NULL, PRIMARY KEY(idEvento), " +
+                    " CONSTRAINT fk_TipoEvento_Evento FOREIGN KEY (idTipoE) REFERENCES TipoEvento(idTipoE) ON DELETE RESTRICT )");
             //tabla TipoPago
             db.execSQL("CREATE TABLE tipopago(idPago VARCHAR(2) NOT NULL PRIMARY KEY, tipo VARCHAR(20) NOT NULL);");
             //Tabla Cobro
@@ -32,6 +36,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE local (idLocal VARCHAR(5) NOT NULL PRIMARY KEY, nomLocal VARCHAR(50) NOT NULL, cupo INTEGER NOT NULL);");
             //Tabla TipoReservacion
             db.execSQL("CREATE TABLE tipoReservacion (idTipoR VARCHAR(1) NOT NULL PRIMARY KEY, nomTipoR VARCHAR(10) NOT NULL);");
+
+            //Trigger de relacion de llaves foraneas de la tabla Evento con tipoevento
+            db.execSQL("CREATE TRIGGER fk_evento_tipoevento " +
+                        "BEFORE INSERT ON evento " +
+                        "FOR EACH ROW " +
+                        "BEGIN " +
+                        "SELECT CASE " +
+                        "WHEN ((SELECT idTipoE FROM tipoevento WHERE idTipoE  = NEW.idTipoE ) IS NULL)" +
+                        "THEN RAISE(ABORT, 'No existe el tipo de evento')" +
+                        "END;" +
+                        "END;");
+
         }catch (SQLException e){
             e.printStackTrace();
         }

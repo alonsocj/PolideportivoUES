@@ -81,7 +81,14 @@ public class ControlBDG10 {
     }
 
     public String eliminarHora(Hora hora){
-        return null;
+        String registrosAfec = "Horas eliminadas = ";
+        int cuenta = 0;
+        if(verificarIntegridadDeDatos(hora,4)){
+            cuenta +=db.delete("hora","idHora='"+hora.getIdHora()+"'",null);
+        }
+        cuenta+=db.delete("hora","idHora='"+hora.getIdHora()+"'",null);
+        registrosAfec = registrosAfec + cuenta;
+        return registrosAfec;
     }
 
 
@@ -154,6 +161,19 @@ public class ControlBDG10 {
                 if (cursor.moveToFirst()){
                     return true;
                 }else{
+                    return false;
+                }
+            }
+
+            /*2 y 3 los tomo williamn*/
+
+            //obtener la hora a eliminar
+            case 4:{
+                Hora hora = (Hora) valor;
+                Cursor cursor = db.query(true,"hora", new String[]{"idHora"},"idHora='"+hora.getIdHora()+"'",null,null,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }else {
                     return false;
                 }
             }

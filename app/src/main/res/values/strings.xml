@@ -2,8 +2,8 @@
     <string name="app_name">PolideportivoUES</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Polideportivo UES</string>
+    <string name="nav_header_subtitle">PDM115-2022-G10</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -48,6 +48,20 @@
         <item>Disponible</item>
         <item>Ocupado</item>
     </string-array>
+
+    <string name="AgregarHoraFragment">Agregar Hora</string>
+    <string name="ConsultarHoraFragment">Consultar Hora</string>
+    <string name="EliminarHoraFragment">Eliminar Hora</string>
+    <string name="ActualizarHoraFragment">Actualizar Hora</string>
+
+    <string name="AgregarTipoPagoFragment">Agregar Tipo de Pago</string>
+    <string name="EliminarTipoPagoFragment">Eliminar Tipo de Pago</string>
+    <string name="ActualizarTipoPagoFragment">Actualizar Tipo de Pago</string>
+    <string name="ConsultarTipoPagoFragment">Eliminar Tipo Pago</string>
+    <string name="TipoPagoIdentificador">Codigo Tipo de Pago</string>
+    <string name="TipoPagoNombreTipo">Tipo de Pago</string>
+    <string name="hintIdePago">Ingrese el codigo del tipo pago</string>
+    <string name="hintTipoPago">Ingrese el tipo de pago</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

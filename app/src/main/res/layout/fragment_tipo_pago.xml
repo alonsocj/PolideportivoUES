@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.tipoPago.tipoPagoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/botonAgregarTipoPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AgregarTipoPagoFragment" />
+
+        <Button
+            android:id="@+id/botonConsultarTipoPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ConsultarTipoPagoFragment" />
+
+        <Button
+            android:id="@+id/botonModificarTipoPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ActualizarTipoPagoFragment" />
+
+        <Button
+            android:id="@+id/botonEliminarTipoPago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/EliminarTipoPagoFragment" />
+
+    </LinearLayout>
+
+</FrameLayout>

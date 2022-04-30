@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_dia_insertar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_dia_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_hora_insertar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_actualizar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_menu.xml" value="0.27218934911242604" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_consultar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_insertar.xml" value="0.33" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/fragment_hora.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/app/src/main/res/layout/activity_persona_insertar.xml" value="0.36666666666666664" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_hora_consultar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_hora_insertar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_tipo_evento_actualizar.xml" value="0.358695652173913" />

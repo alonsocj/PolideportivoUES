@@ -24,6 +24,18 @@
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
+        android:id="@+id/nav_reservacion"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.reservacion.ReservacionFragment"
+        android:label="@string/label_reservacion"
+        tools:layout="@layout/fragment_reservacion" />
+
+    <fragment
+        android:id="@+id/nav_periodoReserva"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.periodoReserva.PeriodoReservaFragment"
+        android:label="@string/label_periodoReserva"
+        tools:layout="@layout/fragment_periodo_reserva" />
+
+    <fragment
         android:id="@+id/nav_hora"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.hora.HoraFragment"
         android:label="Hora"
@@ -34,6 +46,11 @@
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.local.LocalFragment"
         android:label="Local"
         tools:layout="@layout/fragment_local" />
+    <fragment
+        android:id="@+id/nav_tipoevento"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.tipoevento.TipoEventoFragment"
+        android:label="tipoEvento"
+        tools:layout="@layout/fragment_tipo_evento" />
 
     <fragment
         android:id="@+id/nav_tipoPago"
@@ -46,5 +63,16 @@
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.evento.EventoFragment"
         android:label="Evento"
         tools:layout="@layout/fragment_evento"/>
+    <fragment
+        android:id="@+id/nav_tipoReservacion"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.tipoReservacion.tipoReservacionFragment"
+        android:label="Tipo de Reservacion"
+        tools:layout="@layout/fragment_tipo_reservacion"/>
+
+    <fragment
+        android:id="@+id/nav_localEvento"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.localEvento.LocalEventoFragment"
+        android:label="@string/label_localEvento"
+        tools:layout="@layout/fragment_local_evento"/>
 
 </navigation>

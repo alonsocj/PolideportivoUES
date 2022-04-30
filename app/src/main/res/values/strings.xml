@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">PolideportivoUES</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
@@ -23,7 +23,17 @@
     <string name="finH">Hora de Finalización</string>
     <string name="botonConsultar">Consultar</string>
     <string name="botonActualizar">Actualizar</string>
-    //Local
+    <string name="btnGuardar">Guardar</string>
+
+    <!-- TIPO EVENTO -->
+    <string name="tipoEvento">Tipo de Evento</string>
+    <string name="titulo_tipo_evento_insertar">Agergar tipo de Evento</string>
+    <string name="titulo_tipo_evento_consultar">Consultar tipo de Evento</string>
+    <string name="titulo_tipo_evento_actualizar">Actualizar tipo de Evento</string>
+    <string name="titulo_tipo_evento_eliminar">Eliminar tipo de Evento</string>
+    <string name="idTipoEvento">Id del tipo evento:</string>
+    <string name="NomTipoEvento">Nombre del tipo de evento:</string>
+    <!--Local-->
     <string name="agregarLocal">Agregar Local</string>
     <string name="idLocaltxt">Id de local</string>
     <string name="hintIdLocal">Ingrese el Id del local</string>
@@ -58,9 +68,36 @@
     <string name="ConsultarEventoFragment">Consultar Evento</string>
     <string name="EliminarEventoFragment">Eliminar Evento</string>
     <string name="ActualizarEventoFragment">Actualizar Evento</string>
-
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agregarTipoReservacion">Agregar tipo de reservacion</string>
+    <string name="consultarTipoReservacion">Consultar tipo de reservacion</string>
+    <string name="actualizarTipoReservacion">Actualizar tipo de reservacion</string>
+    <string name="eliminarTipoReservacion">Eliminar tipo de reservacion</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TABLA RESERVACION-->
+    <string name="titulo_nav_reservacion">Reservación</string>
+    <string name="label_reservacion">Reservación</string>
+
+    <!-- TABLA Reservacion-->
+    <string name="titulo_nav_periodoReserva">Periodo de Reserva</string>
+    <string name="label_periodoReserva">Periodo de Reserva</string>
+
+    <!-- TABLA LocalEvento-->
+    <string name="titulo_nav_localEvento">Local Evento</string>
+    <string name="label_localEvento">Local Evento</string>
+
+    <string name="title_activity_alumno_insertar">AlumnoInsertarActivity</string>
+    <string name="title_activity_alumno_eliminar">AlumnoEliminarActivity</string>
+    <string name="title_activity_alumno_actualizar">AlumnoActualizarActivity</string>
+    <string name="title_activity_alumno_consultar">AlumnoConsultarActivity</string>
+
+    <string name="insertar_registro">Insertar Registro</string>
+    <string name="eliminar_registro">Eliminar Registro</string>
+    <string name="consultar_registro">Consultar Registro</string>
+    <string name="actualizar_registro">Actualizar Registro</string>
+
+    <string name="carnet">Carnet</string>
 
 </resources>

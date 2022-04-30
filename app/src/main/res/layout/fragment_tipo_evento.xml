@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.tipoevento.TipoEventoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/botonAgregarTipoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/botonAgregar" />
+
+        <Button
+            android:id="@+id/botonConsultarTipoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/botonConsultar" />
+
+        <Button
+            android:id="@+id/botonActualizarTipoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/botonActualizar" />
+
+        <Button
+            android:id="@+id/botonEliminarTipoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/botonEliminar" />
+
+    </LinearLayout>
+
+</FrameLayout>

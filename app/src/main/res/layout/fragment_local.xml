@@ -6,10 +6,40 @@
     tools:context=".ui.local.LocalFragment"
     android:padding="30dp">
 
-    <Button
-        android:id="@+id/botonGestionarLocal"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gestionar Local" />
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/botonAgregarLocalF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/agregarLocal"
+            />
+
+        <Button
+            android:id="@+id/botonConsultarLocalF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/consultarLocal"
+            />
+
+        <Button
+            android:id="@+id/botonActualizarLocalF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/actualizarLocal"
+            />
+
+        <Button
+            android:id="@+id/botonEliminarLocalF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eliminarLocal"
+            />
+
+    </LinearLayout>
 
 </FrameLayout>

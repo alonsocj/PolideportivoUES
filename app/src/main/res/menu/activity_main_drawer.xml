@@ -18,14 +18,14 @@
             android:title="@string/menu_slideshow" />
 
         <item
+            android:id="@+id/nav_reservacion"
+            android:icon="@drawable/ic_menu_reservacion"
+            android:title="@string/titulo_nav_reservacion"/>
+
+        <item
             android:id="@+id/nav_evento"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Evento"/> <!--Strings-->
-
-        <item
-            android:id="@+id/nav_hora"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Hora" /> <!--Strings-->
 
         <item
             android:id="@+id/nav_local"
@@ -33,9 +33,36 @@
             android:title="Local" /> <!--Strings-->
 
         <item
+            android:id="@+id/nav_periodoReserva"
+            android:icon="@drawable/ic_menu_periodoreserva"
+            android:title="@string/titulo_nav_periodoReserva"/>
+
+        <item
+            android:id="@+id/nav_hora"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Hora" /> <!--Strings-->
+
+        <item
+            android:id="@+id/nav_localEvento"
+            android:icon="@drawable/ic_menu_localevento"
+            android:title="@string/titulo_nav_localEvento"/>
+
+        <item
+            android:id="@+id/nav_tipoevento"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/tipoEvento" />
+        <item
             android:id="@+id/nav_tipoPago"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Tipo de Pago" /> <!--Strings-->
+        <item
+            android:id="@+id/nav_tipoReservacion"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Tipo de Reservacion" /> <!--Strings-->
+
+
+
+
 
 
     </group>

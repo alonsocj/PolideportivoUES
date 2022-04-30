@@ -8,6 +8,38 @@
     android:orientation="vertical"
     tools:context=".Chris.TipoPago.TipoPagoActualizarActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TipoPagoIdentificador"/>
+
+    <EditText
+        android:id="@+id/EditIdPagoActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintIdePago"
+        android:inputType="text"
+        android:maxLength="2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TipoPagoNombreTipo"/>
+
+    <EditText
+        android:id="@+id/EditTipoActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintTipoPago"
+        android:inputType="text"
+        android:maxLength="20"/>
+
+    <Button
+        android:id="@+id/botonActualizarTipoP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/botonActualizar"/>
 
 
 </LinearLayout>

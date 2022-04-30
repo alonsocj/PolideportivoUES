@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_hora_consultar.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_tipo_evento_insertar.xml" value="0.2563405797101449" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_tipo_pago_actualizar.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_tipo_pago_consultar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_tipo_pago_eliminar.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_tipo_pago_insertar.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/fragment_tipo_pago.xml" value="0.20108695652173914" />
       </map>

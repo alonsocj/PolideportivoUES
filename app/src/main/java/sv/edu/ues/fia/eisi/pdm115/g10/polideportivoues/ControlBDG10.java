@@ -106,10 +106,10 @@ public class ControlBDG10 {
         contentpago.put("tipo",tipoPago.getTipo());
         contador = db.insert("tipopago",null,contentpago);
 
-        if(contador==-1 || contador == 0){
+        if(contador == -1 || contador == 0){
             pagosInsertados = "Error al insertar el pago";
         }else{
-            pagosInsertados = pagosInsertados + contador;
+            pagosInsertados = pagosInsertados + contador + " Registrado";
         }
 
         return pagosInsertados;
@@ -126,6 +126,29 @@ public class ControlBDG10 {
         }else{
             return null;
         }
+    }
+
+    public String actualizarTipoPago (TipoPago tipoPago){
+        if(verificarIntegridadDeDatos(tipoPago,6)){
+            String[] id = {tipoPago.getIdPago()};
+            ContentValues contentValues =  new ContentValues();
+            contentValues.put("tipo", tipoPago.getTipo());
+            db.update("tipopago", contentValues, "idPago = ?", id);
+            return "Tipo de pago actualizado correctamente";
+        }else{
+            return "Tipo de pago inexistente";
+        }
+    }
+
+    public String eliminarTipoPago (TipoPago tipoPago){
+        String tiposdepagosafectados = "Tipo de pago eliminados = ";
+        int cuenta = 0;
+        if(verificarIntegridadDeDatos(tipoPago,7)){
+            cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
+        }
+        cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
+        tiposdepagosafectados+=cuenta;
+        return tiposdepagosafectados;
     }
 
 
@@ -213,6 +236,25 @@ public class ControlBDG10 {
                 }else {
                     return false;
                 }
+            } case 6:{
+                //Verificar si existe el tipoPago
+                TipoPago p = (TipoPago) valor;
+                String[] id = {p.getIdPago()};
+                Cursor cursor = db.query("tipopago",null,"idPago = ?",id,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
+            } case 7:{
+                //Obtener el tipodePago a eliminar
+                TipoPago tipoPago = (TipoPago) valor;
+                Cursor cursor = db.query(true,"tipopago",new String[]{"idPago"},"idPago='"+tipoPago.getIdPago()+"'",null,null,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
             }
             default:
                 return false;
@@ -224,7 +266,7 @@ public class ControlBDG10 {
         open();
         db.execSQL("DELETE FROM dia");
         db.execSQL("DELETE FROM tipoevento");
-        db.execSQL("DELETE FROM tipopago");
+        /*db.execSQL("DELETE FROM tipopago");*/
         db.execSQL("DELETE FROM cobro");
        /* db.execSQL("DELETE FROM hora");*/
 

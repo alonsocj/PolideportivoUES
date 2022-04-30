@@ -9,7 +9,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PolideportivoUES">
-
+        <activity
+            android:name=".Carolina.PeriodoReserva.PeriodoReservaInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.PeriodoReserva.PeriodoReservaEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.PeriodoReserva.PeriodoReservaConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.PeriodoReserva.PeriodoReservaActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.Reservacion.ReservacionInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.Reservacion.ReservacionEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.Reservacion.ReservacionConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.Reservacion.ReservacionActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.LocalEvento.LocalEventoInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.LocalEvento.LocalEventoEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.LocalEvento.LocalEventoConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.LocalEvento.LocalEventoActualizarActivity"
+            android:exported="false" />
         <activity
             android:name=".William.TipoReservacion.TipoReservacionEliminarActivity"
             android:exported="false" />
@@ -109,7 +144,6 @@
         <activity
             android:name=".Alonso.Cobro.CobroInsertarActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true"

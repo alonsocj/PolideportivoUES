@@ -63,7 +63,7 @@
     <string name="AgregarTipoPagoFragment">Agregar Tipo de Pago</string>
     <string name="EliminarTipoPagoFragment">Eliminar Tipo de Pago</string>
     <string name="ActualizarTipoPagoFragment">Actualizar Tipo de Pago</string>
-    <string name="ConsultarTipoPagoFragment">Eliminar Tipo Pago</string>
+    <string name="ConsultarTipoPagoFragment">Consultar Tipo Pago</string>
     <string name="TipoPagoIdentificador">Codigo Tipo de Pago</string>
     <string name="TipoPagoNombreTipo">Tipo de Pago</string>
     <string name="hintIdePago">Ingrese el codigo del tipo pago</string>
@@ -73,6 +73,12 @@
     <string name="ConsultarEventoFragment">Consultar Evento</string>
     <string name="EliminarEventoFragment">Eliminar Evento</string>
     <string name="ActualizarEventoFragment">Actualizar Evento</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agregarTipoReservacion">Agregar tipo de reservacion</string>
+    <string name="consultarTipoReservacion">Consultar tipo de reservacion</string>
+    <string name="actualizarTipoReservacion">Actualizar tipo de reservacion</string>
+    <string name="eliminarTipoReservacion">Eliminar tipo de reservacion</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- TABLA RESERVACION-->
@@ -87,7 +93,7 @@
     <string name="titulo_nav_localEvento">Local Evento</string>
     <string name="label_localEvento">Local Evento</string>
 
-    <!-- <string name="title_activity_alumno_insertar">AlumnoInsertarActivity</string>
+    <string name="title_activity_alumno_insertar">AlumnoInsertarActivity</string>
     <string name="title_activity_alumno_eliminar">AlumnoEliminarActivity</string>
     <string name="title_activity_alumno_actualizar">AlumnoActualizarActivity</string>
     <string name="title_activity_alumno_consultar">AlumnoConsultarActivity</string>

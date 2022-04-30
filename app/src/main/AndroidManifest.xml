@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PolideportivoUES">
         <activity
+            android:name=".Chris.TipoPago.TipoPagoEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.TipoPago.TipoPagoActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chris.TipoPago.TipoPagoConsultarActivity"
+            android:exported="false" />
+        <activity
             android:name=".Carolina.PeriodoReserva.PeriodoReservaInsertarActivity"
             android:exported="false" />
         <activity
@@ -80,12 +89,6 @@
             android:exported="false" />
         <activity
             android:name=".William.TipoReservacion.TipoReservacionInsertarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".William.TipoReservacion.TipoReservacionMenuActivity"
-            android:exported="false" />
-        <activity
-            android:name=".William.Local.LocalMenuActivity"
             android:exported="false" />
         <activity
             android:name=".William.Local.LocalEliminarActivity"

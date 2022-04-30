@@ -65,6 +65,10 @@
             android:id="@+id/nav_tipoPago"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Tipo de Pago" /> <!--Strings-->
+        <item
+            android:id="@+id/nav_tipoReservacion"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Tipo de Reservacion" /> <!--Strings-->
 
     </group>
 </menu>

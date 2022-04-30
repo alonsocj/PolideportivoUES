@@ -11,19 +11,24 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    <!-- Botones CRUD -->
+    <string name="botonConsultar">Consultar</string>
+    <string name="botonActualizar">Actualizar</string>
+    <string name="botonAgregar">Agregar</string>
+    <string name="botonVaciar">Vaciar</string>
+    <string name="btnGuardar">Guardar</string>
+    <string name="botonEliminar">Eliminar</string>
+
+
     <string name="Horaidentificador">Id de Hora:</string>
     <string name="InicioHora">Hora Inicio:</string>
     <string name="FinHora">Hora Fin:</string>
     <string name="hintId">Ingrese el Numero de Hora</string>
     <string name="hintHI">Ingrese la hora de inicio</string>
     <string name="hintHF">Ingrese la hora de finalización</string>}
-    <string name="botonAgregar">Agregar</string>
     <string name="botonAgregarHoraInicio">Hora</string>
     <string name="inicioH">Hora de Inicio</string>
     <string name="finH">Hora de Finalización</string>
-    <string name="botonConsultar">Consultar</string>
-    <string name="botonActualizar">Actualizar</string>
-    <string name="btnGuardar">Guardar</string>
 
     <!-- TIPO EVENTO -->
     <string name="tipoEvento">Tipo de Evento</string>
@@ -33,6 +38,7 @@
     <string name="titulo_tipo_evento_eliminar">Eliminar tipo de Evento</string>
     <string name="idTipoEvento">Id del tipo evento:</string>
     <string name="NomTipoEvento">Nombre del tipo de evento:</string>
+
     <!--Local-->
     <string name="agregarLocal">Agregar Local</string>
     <string name="idLocaltxt">Id de local</string>
@@ -43,7 +49,6 @@
     <string name="hintcupoLocal">Ingrese el cupo del local</string>
     <string name="actualizarLocal">Actualizar Local</string>
     <string name="eliminarLocal">Eliminar Local</string>
-    <string name="botonEliminar">Eliminar</string>
     <string name="consultarLocal">Consultar Local</string>
     <string-array name="cupoLocal">
         <item>Disponible</item>
@@ -100,7 +105,12 @@
     <string name="EliminarHorararioDisponibleFragment">Eliminar Disponibilidad</string>
     <string name="ConsultarHorararioDisponibleFragment">Consultar Disponibilidad</string>
     <string name="ActualizarHorararioDisponibleFragment">Actualizar Disponibilidad</string>
-
+    <string name="idHorario">Id Disponibilidad</string>
+    <string name="hintIdHorario">Ingrese el id de la disponibilidad</string>
+    <string name="idHora">Id Hora</string>
+    <string name="hintIdHora">Ingrese el id de la hora</string>
+    <string name="nombreDia">Día</string>
+    <string name="hintNombreDia">Ingrese el día</string>
 
     <!-- Persona -->
     <string name="titulo_nav_persona">Persona</string>

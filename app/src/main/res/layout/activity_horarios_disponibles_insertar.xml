@@ -1,9 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Gustavo.HorariosDisponibles.HorariosDisponiblesInsertarActivity">
+    android:orientation="vertical" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/linearLayoutAgregar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="20dp"
+            android:text="@string/AgregarHorararioDisponibleFragment"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/idHorario"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/EditIdHorariosDisponibles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintIdHorario"
+            android:inputType="text"
+            android:maxLength="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/idHora"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/EditApellidoPersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintIdHora"
+            android:inputType="text"
+            android:maxLength="4"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombreDia"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/EditGeneroPersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintNombreDia"
+            android:inputType="text"
+            android:maxLength="10"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
+            <Button
+                android:id="@+id/botonAgregarHorarioDisponible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/botonAgregar"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones" />
+            <Button
+                android:id="@+id/botonVaciarPersona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/botonVaciar"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

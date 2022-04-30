@@ -58,7 +58,7 @@
     <string name="AgregarTipoPagoFragment">Agregar Tipo de Pago</string>
     <string name="EliminarTipoPagoFragment">Eliminar Tipo de Pago</string>
     <string name="ActualizarTipoPagoFragment">Actualizar Tipo de Pago</string>
-    <string name="ConsultarTipoPagoFragment">Eliminar Tipo Pago</string>
+    <string name="ConsultarTipoPagoFragment">Consultar Tipo Pago</string>
     <string name="TipoPagoIdentificador">Codigo Tipo de Pago</string>
     <string name="TipoPagoNombreTipo">Tipo de Pago</string>
     <string name="hintIdePago">Ingrese el codigo del tipo pago</string>

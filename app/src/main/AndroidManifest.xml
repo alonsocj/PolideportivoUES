@@ -58,12 +58,6 @@
             android:name=".William.TipoReservacion.TipoReservacionInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".William.TipoReservacion.TipoReservacionMenuActivity"
-            android:exported="false" />
-        <activity
-            android:name=".William.Local.LocalMenuActivity"
-            android:exported="false" />
-        <activity
             android:name=".William.Local.LocalEliminarActivity"
             android:exported="false" />
         <activity

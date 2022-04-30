@@ -68,6 +68,12 @@
     <string name="ConsultarEventoFragment">Consultar Evento</string>
     <string name="EliminarEventoFragment">Eliminar Evento</string>
     <string name="ActualizarEventoFragment">Actualizar Evento</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agregarTipoReservacion">Agregar tipo de reservacion</string>
+    <string name="consultarTipoReservacion">Consultar tipo de reservacion</string>
+    <string name="actualizarTipoReservacion">Actualizar tipo de reservacion</string>
+    <string name="eliminarTipoReservacion">Eliminar tipo de reservacion</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- TABLA RESERVACION-->

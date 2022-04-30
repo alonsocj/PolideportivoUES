@@ -63,6 +63,11 @@
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.evento.EventoFragment"
         android:label="Evento"
         tools:layout="@layout/fragment_evento"/>
+    <fragment
+        android:id="@+id/nav_tipoReservacion"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.tipoReservacion.tipoReservacionFragment"
+        android:label="Tipo de Reservacion"
+        tools:layout="@layout/fragment_tipo_reservacion"/>
 
     <fragment
         android:id="@+id/nav_localEvento"

@@ -95,6 +95,7 @@
     <string name="carnet">Carnet</string>-->
 
     <!-- Horario Disponible -->
+    <string name="titulo_nav_horariosDisponibles">Horarios Disponibles</string>
     <string name="AgregarHorararioDisponibleFragment">Agregar Disponibilidad</string>
     <string name="EliminarHorararioDisponibleFragment">Eliminar Disponibilidad</string>
     <string name="ConsultarHorararioDisponibleFragment">Consultar Disponibilidad</string>
@@ -102,6 +103,7 @@
 
 
     <!-- Persona -->
+    <string name="titulo_nav_persona">Persona</string>
     <string name="AgregarPersonaFragment">Agregar Persona</string>
     <string name="EliminarPersonaFragment">Eliminar Persona</string>
     <string name="ConsultarPersonaFragment">Consultar Persona</string>

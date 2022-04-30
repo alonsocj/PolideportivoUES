@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.hora.HoraFragment">
+    tools:context=".ui.persona.PersonaFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,27 +15,33 @@
             android:id="@+id/botonAgregarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AgregarPersonaFragment" />
+            android:text="@string/AgregarPersonaFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
             android:id="@+id/botonConsultarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ConsultarPersonaFragment" />
+            android:text="@string/ConsultarPersonaFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonModificarPersona"
+            android:id="@+id/botonActualizarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ActualizarPersonaFragment" />
+            android:text="@string/ActualizarPersonaFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
             android:id="@+id/botonEliminarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/EliminarPersonaFragment" />
+            android:text="@string/EliminarPersonaFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
     </LinearLayout>
-
-
 </FrameLayout>

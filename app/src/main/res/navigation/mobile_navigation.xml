@@ -69,5 +69,15 @@
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.localEvento.LocalEventoFragment"
         android:label="@string/label_localEvento"
         tools:layout="@layout/fragment_local_evento"/>
+    <fragment
+        android:id="@+id/nav_persona"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.persona.PersonaFragment"
+        android:label="@string/titulo_nav_persona"
+        tools:layout="@layout/fragment_persona" />
+    <fragment
+        android:id="@+id/nav_horarios_disponibles"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.horariosdisponibles.HorariosDisponiblesFragment"
+        android:label="@string/titulo_nav_horariosDisponibles"
+        tools:layout="@layout/fragment_horarios_disponibles" />
 
 </navigation>

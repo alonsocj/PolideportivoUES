@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,25 +16,33 @@
             android:id="@+id/botonAgregarHorarioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AgregarHorararioDisponibleFragment" />
+            android:text="@string/AgregarHorararioDisponibleFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
             android:id="@+id/botonConsultarHorarioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ConsultarHorararioDisponibleFragment" />
+            android:text="@string/ConsultarHorararioDisponibleFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
             android:id="@+id/botonActualizarHorararioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ActualizarHorararioDisponibleFragment" />
+            android:text="@string/ActualizarHorararioDisponibleFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
             android:id="@+id/botonEliminarHorararioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/EliminarHorararioDisponibleFragment" />
+            android:text="@string/EliminarHorararioDisponibleFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
     </LinearLayout>
 </FrameLayout>

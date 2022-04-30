@@ -3,27 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_local_evento.xml" value="0.1762917933130699" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_local_evento_actualizar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_local_evento_consultar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_main.xml" value="0.2848731884057971" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_actualizar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_consultar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_eliminar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_insertar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_reservacion_actualizar.xml" value="0.1762917933130699" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_reservacion_consultar.xml" value="0.1762917933130699" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/app_bar_main.xml" value="0.2848731884057971" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/content_main.xml" value="0.2848731884057971" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/fragment_hora.xml" value="0.2848731884057971" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/fragment_local.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/fragment_local_evento.xml" value="0.25" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/fragment_periodo_reserva.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/fragment_reservacion.xml" value="0.19972826086956522" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/fragment_tipo_evento.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/menu/activity_main_drawer.xml" value="0.3569230769230769" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_dia_insertar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_dia_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_hora_insertar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_actualizar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_menu.xml" value="0.27218934911242604" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_local_evento_consultar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_consultar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_insertar.xml" value="0.1" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_tipo_evento_insertar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/app_bar_main.xml" value="0.17831813576494426" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/content_main.xml" value="0.17831813576494426" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/fragment_hora.xml" value="0.22" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/fragment_horarios_disponibles.xml" value="0.1" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/fragment_persona.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/fragment_reservacion.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/fragment_tipo_pago.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/nav_header_main.xml" value="0.17831813576494426" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/app/src/main/res/layout/activity_persona_insertar.xml" value="0.36666666666666664" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_hora_consultar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_hora_insertar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_tipo_evento_actualizar.xml" value="0.358695652173913" />
@@ -58,9 +58,6 @@
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2535" />
       </map>
     </option>
-  </component>
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_local_evento.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

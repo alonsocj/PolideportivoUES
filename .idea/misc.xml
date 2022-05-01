@@ -32,6 +32,7 @@
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/menu/activity_main_drawer.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/menu/main.xml" value="0.2" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_dia_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_evento_consultar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_evento_insertar.xml" value="0.33" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_hora_consultar.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_hora_insertar.xml" value="0.17426545086119555" />
@@ -40,8 +41,10 @@
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_tipo_pago_consultar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_tipo_pago_eliminar.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/activity_tipo_pago_insertar.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/fragment_evento.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/fragment_reservacion.xml" value="0.3088768115942029" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/fragment_tipo_pago.xml" value="0.20108695652173914" />
+        <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/fragment_tipo_reservacion.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/menu/activity_main_drawer.xml" value="0.24489795918367346" />
       </map>
     </option>

@@ -20,7 +20,7 @@ public class ControlBDG10 {
     private static final String[] camposTipoPago = new String[]{"idPago","tipo"};
 
     private static final String[] camposTipoEvento = new String[]{"idTipoE","nomTipoE"};
-
+    private static final String[] camposEvento = new String[]{"idEvento", "idTipoE", "nomEvento", "costoEvento"};
 
     private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
     private SQLiteDatabase db;
@@ -297,6 +297,20 @@ public class ControlBDG10 {
 
     }
 
+    public Evento consultarEvento(String idEvento){
+        String[]id = {idEvento};
+        Cursor cursor = db.query("evento", camposEvento, "idEvento = ?", id, null,null,null);
+        if(cursor.moveToFirst()){
+            Evento evento = new Evento();
+            evento.setIdEvento(cursor.getString(0));
+            evento.setIdTipoE(cursor.getString(1));
+            evento.setNomEvento(cursor.getString(2));
+            evento.setCostoEvento(cursor.getFloat(3));
+            return evento;
+        }else{
+            return null;
+        }
+    }
 
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){

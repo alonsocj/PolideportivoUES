@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.evento.EventoFragment">
+    tools:context=".ui.tipoReservacion.tipoReservacionFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,28 +12,32 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/botonAgregarEvento"
+            android:id="@+id/botonAgregarTipoReservacionF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AgregarEventoFragment" />
+            android:text="@string/agregarTipoReservacion"
+            />
 
         <Button
-            android:id="@+id/botonConsultarEvento"
+            android:id="@+id/botonConsultarTipoReservacionF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ConsultarEventoFragment" />
+            android:text="@string/consultarTipoReservacion"
+            />
 
         <Button
-            android:id="@+id/botonActualizarEvento"
+            android:id="@+id/botonActualizarTipoReservacionF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ActualizarEventoFragment" />
+            android:text="@string/actualizarTipoReservacion"
+            />
 
         <Button
-            android:id="@+id/botonEliminarEvento"
+            android:id="@+id/botonEliminarTipoReservacionF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/EliminarEventoFragment" />
+            android:text="@string/eliminarTipoReservacion"
+            />
 
     </LinearLayout>
 

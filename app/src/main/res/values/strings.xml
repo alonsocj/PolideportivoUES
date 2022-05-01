@@ -11,19 +11,27 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+
+    <!--Tabla Hora-->
+    <!-- Botones CRUD -->
+    <string name="botonConsultar">Consultar</string>
+    <string name="botonActualizar">Actualizar</string>
+    <string name="botonAgregar">Agregar</string>
+    <string name="botonVaciar">Vaciar</string>
+    <string name="btnGuardar">Guardar</string>
+    <string name="botonEliminar">Eliminar</string>
+
+
+
     <string name="Horaidentificador">Id de Hora:</string>
     <string name="InicioHora">Hora Inicio:</string>
     <string name="FinHora">Hora Fin:</string>
     <string name="hintId">Ingrese el Numero de Hora</string>
     <string name="hintHI">Ingrese la hora de inicio</string>
     <string name="hintHF">Ingrese la hora de finalización</string>}
-    <string name="botonAgregar">Agregar</string>
     <string name="botonAgregarHoraInicio">Hora</string>
     <string name="inicioH">Hora de Inicio</string>
     <string name="finH">Hora de Finalización</string>
-    <string name="botonConsultar">Consultar</string>
-    <string name="botonActualizar">Actualizar</string>
-    <string name="btnGuardar">Guardar</string>
 
     <!-- TIPO EVENTO -->
     <string name="tipoEvento">Tipo de Evento</string>
@@ -33,6 +41,7 @@
     <string name="titulo_tipo_evento_eliminar">Eliminar tipo de Evento</string>
     <string name="idTipoEvento">Id del tipo evento:</string>
     <string name="NomTipoEvento">Nombre del tipo de evento:</string>
+
     <!--Local-->
     <string name="agregarLocal">Agregar Local</string>
     <string name="idLocaltxt">Id de local</string>
@@ -43,7 +52,6 @@
     <string name="hintcupoLocal">Ingrese el cupo del local</string>
     <string name="actualizarLocal">Actualizar Local</string>
     <string name="eliminarLocal">Eliminar Local</string>
-    <string name="botonEliminar">Eliminar</string>
     <string name="consultarLocal">Consultar Local</string>
     <string-array name="cupoLocal">
         <item>Disponible</item>
@@ -55,21 +63,38 @@
     <string name="EliminarHoraFragment">Eliminar Hora</string>
     <string name="ActualizarHoraFragment">Actualizar Hora</string>
 
+
+    <!--Tabla Tipo Pago-->
     <string name="AgregarTipoPagoFragment">Agregar Tipo de Pago</string>
     <string name="EliminarTipoPagoFragment">Eliminar Tipo de Pago</string>
     <string name="ActualizarTipoPagoFragment">Actualizar Tipo de Pago</string>
-    <string name="ConsultarTipoPagoFragment">Eliminar Tipo Pago</string>
+    <string name="ConsultarTipoPagoFragment">Consultar Tipo Pago</string>
     <string name="TipoPagoIdentificador">Codigo Tipo de Pago</string>
     <string name="TipoPagoNombreTipo">Tipo de Pago</string>
     <string name="hintIdePago">Ingrese el codigo del tipo pago</string>
     <string name="hintTipoPago">Ingrese el tipo de pago</string>
 
+
+    <!--Tabla Evento-->
     <string name="AgregarEventoFragment">Agregar Evento</string>
     <string name="ConsultarEventoFragment">Consultar Evento</string>
     <string name="EliminarEventoFragment">Eliminar Evento</string>
     <string name="ActualizarEventoFragment">Actualizar Evento</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="NumEvenTxt">N° de Evento</string>
+    <string name="TiEventTxt">Tipo de Evento</string>
+    <string name="NomEventTxt">Nombre del Evento</string>
+    <string name="costoEventTxt">Costo del Evento</string>
+    <string name="NumeroEventoHint">Ingrese el numero de evento</string>
+    <string name="NombreEventoHint">Ingrese el nombre del evento</string>
+    <string name="CostoEventoHint">Ingrese el costo del evento</string>
+
+
+    <string name="agregarTipoReservacion">Agregar tipo de reservacion</string>
+    <string name="consultarTipoReservacion">Consultar tipo de reservacion</string>
+    <string name="actualizarTipoReservacion">Actualizar tipo de reservacion</string>
+    <string name="eliminarTipoReservacion">Eliminar tipo de reservacion</string>
+
     <!-- TABLA RESERVACION-->
     <string name="btnLimpiar">Limpiar</string>
 
@@ -135,6 +160,55 @@
     <string name="title_activity_alumno_eliminar">AlumnoEliminarActivity</string>
     <string name="title_activity_alumno_actualizar">AlumnoActualizarActivity</string>
     <string name="title_activity_alumno_consultar">AlumnoConsultarActivity</string>
+
+
+    <string name="insertar_registro">Insertar Registro</string>
+    <string name="eliminar_registro">Eliminar Registro</string>
+    <string name="consultar_registro">Consultar Registro</string>
+    <string name="actualizar_registro">Actualizar Registro</string>
+
+    <string name="carnet">Carnet</string>-->
+
+    <!-- Horario Disponible -->
+    <string name="titulo_nav_horariosDisponibles">Horarios Disponibles</string>
+    <string name="AgregarHorararioDisponibleFragment">Agregar Disponibilidad</string>
+    <string name="EliminarHorararioDisponibleFragment">Eliminar Disponibilidad</string>
+    <string name="ConsultarHorararioDisponibleFragment">Consultar Disponibilidad</string>
+    <string name="ActualizarHorararioDisponibleFragment">Actualizar Disponibilidad</string>
+    <string name="idHorario">Id Disponibilidad</string>
+    <string name="hintIdHorario">Ingrese el id de la disponibilidad</string>
+    <string name="idHora">Hora</string>
+    <string name="hintIdHora">Ingrese el id de la hora</string>
+    <string name="nombreDia">Día</string>
+    <string name="hintNombreDia">Ingrese el día</string>
+
+    <!-- Persona -->
+    <string name="titulo_nav_persona">Persona</string>
+    <string name="AgregarPersonaFragment">Agregar Persona</string>
+    <string name="EliminarPersonaFragment">Eliminar Persona</string>
+    <string name="ConsultarPersonaFragment">Consultar Persona</string>
+    <string name="ActualizarPersonaFragment">Actualizar Persona</string>
+    <string name="NombrePersona">Nombre:</string>
+    <string name="hintNombrePersona">Ingrese el nombre</string>
+    <string name="ApellidoPersona">Apellido:</string>
+    <string name="hintApellidoPersona">Ingrese el apellido</string>
+    <string name="GeneroPersona">Género:</string>
+    <string name="GeneroMasculino">M</string>
+    <string name="GeneroFemenino">F</string>
+    <string name="DUIPersona">DUI:</string>
+    <string name="hintDUIPersona">Ingrese el DUI</string>
+    <string name="NacimientoPersona">Fecha de Nacimiento:</string>
+    <string name="hintNacimientoPersona">Ingrese la fecha de nacimiento</string>
+    <string name="DireccionPersona">Dirección:</string>
+    <string name="hintDireccionPersona">Ingrese la dirección</string>
+    <string name="EmailPersona">Correo eléctronico:</string>
+    <string name="hintEmailPersona">Ingrese el correo eléctronico</string>
+    <string name="TelefonoPersona">Teléfono:</string>
+    <string name="hintTelefonoPersona">Ingrese el teléfono</string>
+    <string name="idTipoReservaciontxt">Id del tipo de reservacion</string>
+    <string name="hintIdTipoReservacion">Ingrese el Id del tipo de reservacion</string>
+    <string name="nombreTipoReservaciontxt">Nombre del tipo de reservacion</string>
+    <string name="hintnombreTipoReservacion">Ingrese el nombre del tipo de reservacion</string>
 
 
 </resources>

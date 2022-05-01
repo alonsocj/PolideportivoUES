@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.evento.EventoFragment">
+    tools:context=".ui.persona.PersonaFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,29 +12,36 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/botonAgregarEvento"
+            android:id="@+id/botonAgregarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AgregarEventoFragment" />
+            android:text="@string/AgregarPersonaFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonConsultarEvento"
+            android:id="@+id/botonConsultarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ConsultarEventoFragment" />
+            android:text="@string/ConsultarPersonaFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonActualizarEvento"
+            android:id="@+id/botonActualizarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ActualizarEventoFragment" />
+            android:text="@string/ActualizarPersonaFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonEliminarEvento"
+            android:id="@+id/botonEliminarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/EliminarEventoFragment" />
+            android:text="@string/EliminarPersonaFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
 
     </LinearLayout>
-
 </FrameLayout>

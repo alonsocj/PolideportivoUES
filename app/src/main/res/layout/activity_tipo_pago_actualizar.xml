@@ -4,44 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".William.TipoReservacion.TipoReservacionInsertarActivity"
     android:padding="30dp"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/agregarTipoReservacion"
-        android:gravity="center"/>
+    android:orientation="vertical"
+    tools:context=".Chris.TipoPago.TipoPagoActualizarActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/idTipoReservaciontxt"/>
+        android:text="@string/TipoPagoIdentificador"/>
 
     <EditText
-        android:id="@+id/EditIdLocal"
+        android:id="@+id/EditIdPagoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintIdTipoReservacion"
-        android:maxLength="1"/>
+        android:hint="@string/hintIdePago"
+        android:inputType="text"
+        android:maxLength="2"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nombreTipoReservaciontxt"/>
+        android:text="@string/TipoPagoNombreTipo"/>
 
     <EditText
-        android:id="@+id/EditNombreLocal"
+        android:id="@+id/EditTipoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintnombreTipoReservacion"
-        android:maxLength="50"
-        />
+        android:hint="@string/hintTipoPago"
+        android:inputType="text"
+        android:maxLength="20"/>
+
     <Button
-        android:id="@+id/botonAgregarTipoReservacion"
+        android:id="@+id/botonActualizarTipoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:text="@string/botonAgregar"/>
+        android:text="@string/botonActualizar"/>
+
+
 </LinearLayout>

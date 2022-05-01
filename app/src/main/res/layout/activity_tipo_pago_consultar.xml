@@ -4,43 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".William.TipoReservacion.TipoReservacionConsultarActivity"
     android:padding="30dp"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/consultarTipoReservacion"
-        android:gravity="center"/>
+    android:orientation="vertical"
+    tools:context=".Chris.TipoPago.TipoPagoConsultarActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/idTipoReservaciontxt"/>
+        android:text="@string/TipoPagoIdentificador"/>
 
     <EditText
-        android:id="@+id/EditIdLocal"
+        android:id="@+id/EditIdPagoConsultar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintIdTipoReservacion"
-        android:maxLength="1"/>
+        android:hint="@string/hintIdePago"
+        android:inputType="text"
+        android:maxLength="2"/>
+
     <Button
-        android:id="@+id/botonConsultarTipoReservacion"
+        android:id="@+id/consultar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:text="@string/botonConsultar"/>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nombreTipoReservaciontxt"/>
+        android:text="@string/TipoPagoNombreTipo"/>
 
     <EditText
-        android:id="@+id/EditNombreLocal"
+        android:id="@+id/EditTipoConsultar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLength="50"
-        android:enabled="false"
-        />
+        android:hint="@string/hintTipoPago"
+        android:inputType="text"
+        android:maxLength="20"
+        android:enabled="false"/>
 
 </LinearLayout>

@@ -4,31 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".William.TipoReservacion.TipoReservacionEliminarActivity"
     android:padding="30dp"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/consultarTipoReservacion"
-        android:gravity="center"/>
+    android:orientation="vertical"
+    tools:context=".Chris.TipoPago.TipoPagoEliminarActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/idTipoReservaciontxt"/>
+        android:text="@string/TipoPagoIdentificador"/>
 
     <EditText
-        android:id="@+id/EditIdLocal"
+        android:id="@+id/EditIdPagoEliminar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintIdTipoReservacion"
-        android:maxLength="1"/>
+        android:hint="@string/hintIdePago"
+        android:inputType="text"
+        android:maxLength="2"/>
+
     <Button
-        android:id="@+id/botonEliminarTipoReservacion"
+        android:id="@+id/botonEliminarTipoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:text="@string/botonEliminar"/>
+
+
 
 </LinearLayout>

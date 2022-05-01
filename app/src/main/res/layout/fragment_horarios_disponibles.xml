@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.horariosdisponibles.HorariosDisponiblesFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/botonAgregarHorarioDisponible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AgregarHorararioDisponibleFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
+
+        <Button
+            android:id="@+id/botonConsultarHorarioDisponible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ConsultarHorararioDisponibleFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
+
+        <Button
+            android:id="@+id/botonActualizarHorararioDisponible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ActualizarHorararioDisponibleFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
+
+        <Button
+            android:id="@+id/botonEliminarHorararioDisponible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/EliminarHorararioDisponibleFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones" />
+
+    </LinearLayout>
+</FrameLayout>

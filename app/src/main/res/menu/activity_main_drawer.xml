@@ -23,6 +23,11 @@
             android:title="@string/titulo_nav_reservacion"/>
 
         <item
+            android:id="@+id/nav_persona"
+            android:icon="@drawable/ic_menu_persona"
+            android:title="@string/titulo_nav_persona"/>
+
+        <item
             android:id="@+id/nav_evento"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Evento"/> <!--Strings-->
@@ -36,6 +41,11 @@
             android:id="@+id/nav_periodoReserva"
             android:icon="@drawable/ic_menu_periodoreserva"
             android:title="@string/titulo_nav_periodoReserva"/>
+
+        <item
+            android:id="@+id/nav_horarios_disponibles"
+            android:icon="@drawable/ic_menu_horarios_disponibles"
+            android:title="@string/titulo_nav_horariosDisponibles"/>
 
         <item
             android:id="@+id/nav_hora"
@@ -55,11 +65,10 @@
             android:id="@+id/nav_tipoPago"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Tipo de Pago" /> <!--Strings-->
-
-
-
-
-
+        <item
+            android:id="@+id/nav_tipoReservacion"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Tipo de Reservacion" /> <!--Strings-->
 
     </group>
 </menu>

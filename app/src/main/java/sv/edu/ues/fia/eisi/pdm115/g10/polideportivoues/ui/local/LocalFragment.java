@@ -9,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.MainActivity;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalMenuActivity;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentHoraBinding;
+
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalActualizarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalConsultarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalEliminarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentLocalBinding;
 
 public class LocalFragment extends Fragment {
@@ -26,17 +28,42 @@ public class LocalFragment extends Fragment {
 
         binding = FragmentLocalBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        /*Funcionamiento con Boton Gestionar*/
-        final Button buttonGestionarLocal = binding.botonGestionarLocal;
-        buttonGestionarLocal.setOnClickListener(new View.OnClickListener() {
+        final Button buttonAgregarlocal = binding.botonAgregarLocalF;
+        buttonAgregarlocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LocalFragment.this.getContext(), LocalMenuActivity.class);
+                Intent intent = new Intent(LocalFragment.this.getContext(), LocalInsertarActivity.class);
                 startActivity(intent);
             }
         });
 
+        final Button buttonConsultarlocal = binding.botonConsultarLocalF;
+        buttonConsultarlocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LocalFragment.this.getContext(), LocalConsultarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button buttonActualizarlocal = binding.botonActualizarLocalF;
+        buttonActualizarlocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LocalFragment.this.getContext(), LocalActualizarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button buttonEliminarlocal = binding.botonEliminarLocalF;
+        buttonEliminarlocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LocalFragment.this.getContext(), LocalEliminarActivity.class);
+                startActivity(intent);
+            }
+        });
         return root;
     }
+
 }

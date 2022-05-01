@@ -7,8 +7,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
 public class ControlBDG10 {
@@ -16,6 +18,8 @@ public class ControlBDG10 {
     /*Tabla Hora*/
     private static final String[] camposHora = new String[]{"idhora","horaInicio","horaFin"};
     private static final String[] camposTipoEvento = new String[]{"idTipoE","nomTipoE"};
+    private static final String[] camposEvento = new String[]{"idEvento", "idTipoE", "nomEvento", "costoEvento"};
+
 
     private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
     private SQLiteDatabase db;
@@ -114,6 +118,44 @@ public class ControlBDG10 {
 
         return pagosInsertados;
     }
+
+
+    public TipoPago consultarTipoPago (String tipoPago){
+        String[] id = {tipoPago};
+        Cursor cursor = db.query("tipopago", camposTipoPago, "idPago = ?",id,null,null,null,null);
+        if(cursor.moveToFirst()){
+            TipoPago tPago = new TipoPago();
+            tPago.setIdPago(cursor.getString(0));
+            tPago.setTipo(cursor.getString(1));
+            return tPago;
+        }else{
+            return null;
+        }
+    }
+
+    public String actualizarTipoPago (TipoPago tipoPago){
+        if(verificarIntegridadDeDatos(tipoPago,6)){
+            String[] id = {tipoPago.getIdPago()};
+            ContentValues contentValues =  new ContentValues();
+            contentValues.put("tipo", tipoPago.getTipo());
+            db.update("tipopago", contentValues, "idPago = ?", id);
+            return "Tipo de pago actualizado correctamente";
+        }else{
+            return "Tipo de pago inexistente";
+        }
+    }
+
+    public String eliminarTipoPago (TipoPago tipoPago){
+        String tiposdepagosafectados = "Tipo de pago eliminados = ";
+        int cuenta = 0;
+        if(verificarIntegridadDeDatos(tipoPago,7)){
+            cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
+        }
+        cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
+        tiposdepagosafectados+=cuenta;
+        return tiposdepagosafectados;
+    }
+
 
     //Metodos para tabla local
     public String ingresarLocal(Local local){
@@ -233,6 +275,58 @@ public class ControlBDG10 {
      * FINAL de las funcionalidades de TIPO EVENTO
      */
 
+
+    public String agregarEvento(Evento evento){
+        String eventosRegistrados =  "Evento N°: ";
+        long numeroEventos=0;
+
+       if (verificarIntegridadDeDatos(evento, 8)) {
+            ContentValues eventos = new ContentValues();
+            eventos.put("idEvento", evento.getIdEvento());
+            eventos.put("idTipoE", evento.getIdTipoE()); //Llave Foranea
+            eventos.put("nomEvento", evento.getNomEvento());
+            eventos.put("costoEvento",evento.getCostoEvento());
+            numeroEventos = db.insert("evento",null,eventos);
+       }
+
+        if (numeroEventos == -1 || numeroEventos == 0){
+            eventosRegistrados = "Error al insertar el evento, verificar inserción";
+        }else{
+            eventosRegistrados =  eventosRegistrados + numeroEventos + " Registrado";
+        }
+
+        return eventosRegistrados;
+
+    }
+
+    public Evento consultarEvento(String idEvento){
+        String[]id = {idEvento};
+        Cursor cursor = db.query("evento", camposEvento, "idEvento = ?", id, null,null,null);
+        if(cursor.moveToFirst()){
+            Evento evento = new Evento();
+            evento.setIdEvento(cursor.getString(0));
+            evento.setIdTipoE(cursor.getString(1));
+            evento.setNomEvento(cursor.getString(2));
+            evento.setCostoEvento(cursor.getFloat(3));
+            return evento;
+        }else{
+            return null;
+        }
+    }
+
+
+    public String actualizarTipoPago(TipoPago tipoEvento){
+        return "";
+    }
+    public TipoPago consultarTipoPago(String tipoEvento){
+        TipoPago tipoPago=new TipoPago();
+        return tipoPago;
+    }
+    public String eliminarTipoPago(TipoPago tipoEvento){
+        return "";
+    }
+
+
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
             //Verifica si existe la hora
@@ -270,19 +364,52 @@ public class ControlBDG10 {
                 Cursor tev = db.query("tipoevento",camposTipoEvento,"idTipoE = ?", id,null,null,null);
                 return tev.moveToFirst();
             }
+
+            case 6:{
+                //Verificar si existe el tipoPago
+                TipoPago p = (TipoPago) valor;
+                String[] id = {p.getIdPago()};
+                Cursor cursor = db.query("tipopago",null,"idPago = ?",id,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
+            } case 7:{
+                //Obtener el tipodePago a eliminar
+                TipoPago tipoPago = (TipoPago) valor;
+                Cursor cursor = db.query(true,"tipopago",new String[]{"idPago"},"idPago='"+tipoPago.getIdPago()+"'",null,null,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
+            } case 8:{
+                //Verificar que al insertar el Evento exista el tipoDeEvento
+                Evento evento = (Evento)valor;
+                String[] idTipoEvento = {evento.getIdTipoE()};
+                Cursor cursor = db.query("tipoevento", null, "idTipoE = ?",idTipoEvento,null,null,null);
+                if(cursor.moveToFirst()){
+                    //Se encontraron datos de tipoEvento
+                    return true;
+                }
+                return false;
+            }
+
             default:
                 return false;
         }
     }
-
     public String llenarBDG10(){
         //Metodo para llenar la base de datos con sentencias SQL
         open();
-        db.execSQL("DELETE FROM dia");
-        db.execSQL("DELETE FROM tipoevento");
-        db.execSQL("DELETE FROM tipopago");
-        db.execSQL("DELETE FROM cobro");
+
+        /*db.execSQL("DELETE FROM dia");*/
+        /*db.execSQL("DELETE FROM tipoevento");*/
+        /*db.execSQL("DELETE FROM tipopago");*/
+        /*db.execSQL("DELETE FROM cobro");*/
        /* db.execSQL("DELETE FROM hora");*/
+
 
         //Se llenan las tablas con datos
 

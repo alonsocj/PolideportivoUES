@@ -234,6 +234,18 @@ public class ControlBDG10 {
      * FINAL de las funcionalidades de TIPO EVENTO
      */
 
+    public String actualizarTipoPago(TipoPago tipoEvento){
+        return "";
+    }
+    public TipoPago consultarTipoPago(String tipoEvento){
+        TipoPago tipoPago=new TipoPago();
+        return tipoPago;
+    }
+    public String eliminarTipoPago(TipoPago tipoEvento){
+        return "";
+    }
+
+
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
             //Verifica si existe la hora

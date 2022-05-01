@@ -66,6 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "  idHora VARCHAR(4) NOT NULL,\n" +
                     "  nombreDia VARCHAR(10) NOT NULL\n" +
                     ");");
+
         }catch (SQLException e){
             e.printStackTrace();
         }

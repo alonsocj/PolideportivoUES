@@ -11,11 +11,8 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 
 
 public class ControlBDGustavo {
-    /*Tabla Hora*/
-    private static final String[] camposHora = new String[]{"idhora","horaInicio","horaFin"};
-    private static final String[] camposTipoEvento = new String[]{"idTipoE","nomTipoE"};
 
-    private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
+    private final DatabaseHelper DBhelper;
     private SQLiteDatabase db;
 
     public ControlBDGustavo(Context ctx) {
@@ -29,49 +26,6 @@ public class ControlBDGustavo {
 
     public void close() {
         DBhelper.close();
-    }
-
-
-    private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
-        switch (relacion){
-            //Verifica si existe la hora
-            case 1: {
-                Hora horaV = (Hora) valor;
-                String[]id = {horaV.getIdHora()};
-                open();
-                Cursor cursor = db.query("hora",null,"idHora = ?", id,null,null,null);
-                if (cursor.moveToFirst()){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-
-            /*2 y 3 los tomo williamn*/
-
-            //obtener la hora a eliminar
-            case 4:{
-                Hora hora = (Hora) valor;
-                Cursor cursor = db.query(true,"hora", new String[]{"idHora"},"idHora='"+hora.getIdHora()+"'",null,null,null,null,null);
-                if(cursor.moveToFirst()){
-                    return true;
-                }else {
-                    return false;
-                }
-
-            }
-
-            //Verifica que existe el tipo evento
-            case 5: {
-                TipoEvento tipoEventoV = (TipoEvento) valor;
-                String[] id = {tipoEventoV.getIdTipoE()};
-                open();
-                Cursor tev = db.query("tipoevento",camposTipoEvento,"idTipoE = ?", id,null,null,null);
-                return tev.moveToFirst();
-            }
-            default:
-                return false;
-        }
     }
 
     /* Funcionalidades de persona*/
@@ -89,15 +43,16 @@ public class ControlBDGustavo {
         values.put("direccion", persona.getDireccion());
         values.put("email", persona.getEmail());
         values.put("telefono", persona.getTelefono());
-        contador = db.insert("tipoevento",null,values);
+        contador = db.insert("persona",null,values);
+
         if(contador==-1 || contador==0){
-            regInsertados="Error al Insertar el registro!, Registro Duplicado.";
+            regInsertados="Registro de persona duplicado.";
         }else {
             regInsertados=regInsertados+" "+contador;
         }
-
         return regInsertados;
     }
+
     public Persona consultarPersona (String idPersona){
         String[] id = {idPersona};
         Cursor cursor = db.query("persona",new String []{"idPersona","nombre", "apellido", "genero", "nacimiento", "direccion", "email", "telefono"}, "idPersona = ?", id, null, null, null);
@@ -116,11 +71,37 @@ public class ControlBDGustavo {
             return null;
         }
     }
-    public String eliminarPersona (String persona){
-        return "";
+
+    public String eliminarPersona (Persona persona){
+        String registros = "Personas eliminadas Nº= ";
+        int contador = 0;
+
+        if(verificarIntegridadDeDatos(persona,1)){
+            contador+=db.delete("persona","idPersona='"+persona.getIdPersona()+"'",null);
+            registros = registros + contador;
+            return registros;
+        }else{
+            registros="Registro de persona no existe!";
+            return registros;
+        }
     }
-    public String actualizarPersona (String persona){
-        return "";
+
+    public String actualizarPersona (Persona persona){
+        if (verificarIntegridadDeDatos(persona,1)) {
+            String[] id = {persona.getIdPersona()};
+            ContentValues values = new ContentValues();
+            values.put("nombre", persona.getNombre());
+            values.put("apellido", persona.getApellido());
+            values.put("genero", persona.getGenero());
+            values.put("nacimiento", persona.getNacimiento());
+            values.put("direccion", persona.getDireccion());
+            values.put("email", persona.getEmail());
+            values.put("telefono", persona.getTelefono());
+            db.update("persona", values, "idPersona=?", id);
+            return "Registo de persona actualizado correctamente!";
+        }else{
+            return "Registro de persona no existe!";
+        }
     }
 
     /* Funcionalidades de horarios disponibles*/
@@ -138,20 +119,34 @@ public class ControlBDGustavo {
         return "";
     }
 
+    private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
+        switch (relacion){
+            //Verifica si existe la persona
+            case 1: {
+                Persona persona = (Persona) valor;
+                String[]id = {persona.getIdPersona()};
+                open();
+                Cursor cursor = db.query("persona",null,"idPersona = ?", id,null,null,null);
+                if (cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
 
-    public String llenarBDG10(){
-        //Metodo para llenar la base de datos con sentencias SQL
-        open();
-        db.execSQL("DELETE FROM dia");
-        db.execSQL("DELETE FROM tipoevento");
-        db.execSQL("DELETE FROM tipopago");
-        db.execSQL("DELETE FROM cobro");
-        /* db.execSQL("DELETE FROM hora");*/
+            //Obtener la persona a eliminar
+            case 2:{
+                Persona persona = (Persona) valor;
+                Cursor cursor = db.query(true,"persona", new String[]{"idPersona"},"idPersona='"+persona.getIdPersona()+"'",null,null,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }else {
+                    return false;
+                }
 
-        //Se llenan las tablas con datos
-
-        close();
-
-        return "Llenado correctamente";
+            }
+            default:
+                return false;
+        }
     }
 }

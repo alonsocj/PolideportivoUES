@@ -11,7 +11,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class PersonaConsultarActivity extends AppCompatActivity {
 
-    ControlBDGustavo controlBDG10;
+    ControlBDGustavo controlBDGustavo;
     EditText editIdPersona, editNombre, editApellido, editGenero, editNacimiento, editDireccion, editEmail, editTelefono;
     Button botonConsultar, botonVaciar;
 
@@ -21,7 +21,7 @@ public class PersonaConsultarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_persona_consultar);
 
         //Control de la base de datos
-        controlBDG10 = new ControlBDGustavo(this);
+        controlBDGustavo = new ControlBDGustavo(this);
 
         //Persona
         editIdPersona= (EditText) findViewById(R.id.EditDUIPersona);
@@ -38,13 +38,13 @@ public class PersonaConsultarActivity extends AppCompatActivity {
         botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controlBDG10.open();
-                Persona persona = controlBDG10.consultarPersona(editIdPersona.getText().toString());
-                controlBDG10.close();
+                controlBDGustavo.open();
+                Persona persona = controlBDGustavo.consultarPersona(editIdPersona.getText().toString());
+                controlBDGustavo.close();
 
                 /*Verificación que exista la Persona*/
                 if(persona == null){
-                    Toast.makeText(PersonaConsultarActivity.this, "Persona con DUI: " + editIdPersona.getText().toString() + " No encontrada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PersonaConsultarActivity.this, "Persona con DUI: " + editIdPersona.getText().toString() + " no encontrada", Toast.LENGTH_SHORT).show();
                 }else{
                     editNombre.setText(persona.getNombre());
                     editApellido.setText(persona.getApellido());

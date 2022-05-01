@@ -128,12 +128,8 @@
     <string name="ApellidoPersona">Apellido:</string>
     <string name="hintApellidoPersona">Ingrese el apellido</string>
     <string name="GeneroPersona">Género:</string>
-    <string name="hintGeneroPersona">Seleccione el género</string>
-    <string-array name="GeneroPersona">
-        <item></item>
-        <item>M</item>
-        <item>F</item>
-    </string-array>
+    <string name="GeneroMasculino">M</string>
+    <string name="GeneroFemenino">F</string>
     <string name="DUIPersona">DUI:</string>
     <string name="hintDUIPersona">Ingrese el DUI</string>
     <string name="NacimientoPersona">Fecha de Nacimiento:</string>

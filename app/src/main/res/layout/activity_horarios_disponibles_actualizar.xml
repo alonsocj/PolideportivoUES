@@ -58,13 +58,23 @@
             android:text="@string/GeneroPersona"
             android:textColor="@color/black"/>
 
-        <EditText
-            android:id="@+id/EditGeneroPersona"
+        <LinearLayout
+            android:id="@+id/linearLayoutRadioButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hintGeneroPersona"
-            android:inputType="text"
-            android:maxLength="1"/>
+            android:layout_height="match_parent"
+            android:gravity="left">
+            <RadioButton
+                android:id="@+id/rbMasculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/GeneroMasculino"/>
+
+            <RadioButton
+                android:id="@+id/rbFemenino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/GeneroFemenino"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"

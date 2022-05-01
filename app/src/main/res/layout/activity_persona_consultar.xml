@@ -33,8 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hintDUIPersona"
-            android:inputType="text"
-            android:maxLength="8"/>
+            android:inputType="number"
+            android:maxLength="9"/>
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"
@@ -69,7 +69,6 @@
             android:id="@+id/EditNombrePersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintNombrePersona"
             android:inputType="text"
             android:maxLength="50"
             android:enabled ="false"
@@ -88,7 +87,6 @@
             android:id="@+id/EditApellidoPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintApellidoPersona"
             android:inputType="text"
             android:maxLength="50"
             android:enabled ="false"
@@ -107,7 +105,6 @@
             android:id="@+id/EditGeneroPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintGeneroPersona"
             android:inputType="text"
             android:maxLength="1"
             android:enabled ="false"
@@ -126,8 +123,12 @@
             android:id="@+id/EditNacimientoPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintNacimientoPersona"
-            android:inputType="date" />
+            android:inputType="text"
+            android:enabled ="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:cursorVisible="false"
+            android:longClickable="false"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -139,7 +140,6 @@
             android:id="@+id/EditDireccionPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintDireccionPersona"
             android:inputType="text"
             android:maxLength="100"
             android:enabled ="false"
@@ -158,7 +158,6 @@
             android:id="@+id/EditEmailPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintEmailPersona"
             android:inputType="text"
             android:maxLength="50"
             android:enabled ="false"
@@ -177,7 +176,6 @@
             android:id="@+id/EditTelefonoPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintTelefonoPersona"
             android:inputType="text"
             android:maxLength="8"
             android:enabled ="false"

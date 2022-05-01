@@ -48,6 +48,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "END;" +
                         "END;");
 
+            //tabla Persona
+            db.execSQL("CREATE TABLE persona  (\n" +
+                    "  idPersona VARCHAR(9) NOT NULL PRIMARY KEY,\n" +
+                    "  nombre VARCHAR(50) NOT NULL,\n" +
+                    "  apellido VARCHAR(50) NOT NULL,\n" +
+                    "  genero VARCHAR(1) NOT NULL,\n" +
+                    "  nacimiento DATE NOT NULL,\n" +
+                    "  direccion VARCHAR(100) NOT NULL,\n" +
+                    "  email VARCHAR(50) NOT NULL,\n" +
+                    "  telefono VARCHAR(8) NOT NULL\n" +
+                    ");");
+
+            //tabla horarios Disponibles
+            db.execSQL("CREATE TABLE horariosDisponibles  (\n" +
+                    "  idHorario VARCHAR(2) NOT NULL PRIMARY KEY,\n" +
+                    "  idHora VARCHAR(4) NOT NULL,\n" +
+                    "  nombreDia VARCHAR(10) NOT NULL\n" +
+                    ");");
         }catch (SQLException e){
             e.printStackTrace();
         }

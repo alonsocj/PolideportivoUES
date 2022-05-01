@@ -58,7 +58,7 @@
             android:text="@string/GeneroPersona"
             android:textColor="@color/black"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/EditGeneroPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,7 +77,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hintNacimientoPersona"
-            android:inputType="date" />
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -90,8 +92,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hintDUIPersona"
-            android:inputType="text"
-            android:maxLength="8"/>
+            android:inputType="number"
+            android:maxLength="9"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -132,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hintTelefonoPersona"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="8"/>
 
         <LinearLayout

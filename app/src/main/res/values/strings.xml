@@ -112,10 +112,14 @@
     <string name="ActualizarHorararioDisponibleFragment">Actualizar Disponibilidad</string>
     <string name="idHorario">Id Disponibilidad</string>
     <string name="hintIdHorario">Ingrese el id de la disponibilidad</string>
-    <string name="idHora">Id Hora</string>
-    <string name="hintIdHora">Ingrese el id de la hora</string>
+    <string name="idHora">Hora</string>
+    <string-array name="arrayHoras">
+        <options>Seleccione una hora</options>
+    </string-array>
     <string name="nombreDia">Día</string>
-    <string name="hintNombreDia">Ingrese el día</string>
+    <string-array name="arrayDias">
+        <options>Seleccione un día</options>
+    </string-array>
 
     <!-- Persona -->
     <string name="titulo_nav_persona">Persona</string>

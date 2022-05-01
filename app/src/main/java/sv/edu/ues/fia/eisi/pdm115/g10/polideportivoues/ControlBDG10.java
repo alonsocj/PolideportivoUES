@@ -19,6 +19,7 @@ public class ControlBDG10 {
     /*Tabla Hora*/
     private static final String[] camposHora = new String[]{"idhora","horaInicio","horaFin"};
     private static final String[] camposTipoEvento = new String[]{"idTipoE","nomTipoE"};
+    private static final String[] camposTipoPago = new String[]{"idTipoP","nomTipoP"};
     private static final String[] camposEvento = new String[]{"idEvento", "idTipoE", "nomEvento", "costoEvento"};
 
 
@@ -370,16 +371,7 @@ public class ControlBDG10 {
     }
 
 
-    public String actualizarTipoPago(TipoPago tipoEvento){
-        return "";
-    }
-    public TipoPago consultarTipoPago(String tipoEvento){
-        TipoPago tipoPago=new TipoPago();
-        return tipoPago;
-    }
-    public String eliminarTipoPago(TipoPago tipoEvento){
-        return "";
-    }
+
 
 
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{

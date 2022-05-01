@@ -29,7 +29,7 @@
             android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonActualizarHorararioDisponible"
+            android:id="@+id/botonActualizarHorarioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ActualizarHorararioDisponibleFragment"
@@ -37,7 +37,7 @@
             android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonEliminarHorararioDisponible"
+            android:id="@+id/botonEliminarHorarioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/EliminarHorararioDisponibleFragment"

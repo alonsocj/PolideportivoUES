@@ -27,7 +27,7 @@ public class HorariosDisponiblesFragment extends Fragment {
 
         /*Funcionamiento con botones*/
 
-        /*Agregar Persona*/
+        /*Agregar Horario Disponible*/
         final Button buttonAgregarHorariosDisponibles = binding.botonAgregarHorarioDisponible;
         buttonAgregarHorariosDisponibles.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,7 +37,7 @@ public class HorariosDisponiblesFragment extends Fragment {
             }
         });
 
-        /*Consultar Persona*/
+        /*Consultar Horario Disponible*/
 
         final Button buttonConsultarHorariosDisponibles = binding.botonConsultarHorarioDisponible;
         buttonConsultarHorariosDisponibles.setOnClickListener(new View.OnClickListener() {
@@ -48,9 +48,9 @@ public class HorariosDisponiblesFragment extends Fragment {
             }
         });
 
-        /*Modificar Persona*/
+        /*Modificar Horario Disponible*/
 
-        final Button buttonActualizarHorariosDisponibles = binding.botonActualizarHorararioDisponible;
+        final Button buttonActualizarHorariosDisponibles = binding.botonActualizarHorarioDisponible;
         buttonActualizarHorariosDisponibles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,9 +59,9 @@ public class HorariosDisponiblesFragment extends Fragment {
             }
         });
 
-        /*Eliminar Persona*/
+        /*Eliminar Horario Disponible*/
 
-        final Button buttonEliminarHorariosDisponibles = binding.botonEliminarHorararioDisponible;
+        final Button buttonEliminarHorariosDisponibles = binding.botonEliminarHorarioDisponible;
         buttonEliminarHorariosDisponibles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

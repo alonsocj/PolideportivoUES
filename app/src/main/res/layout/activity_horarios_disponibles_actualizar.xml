@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/linearLayoutActulizar"
+        android:id="@+id/linearLayoutAgregar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="30dp"
@@ -20,130 +18,51 @@
             android:layout_gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="20dp"
-                android:text="@string/ActualizarHorararioDisponibleFragment"
+            android:text="@string/ActualizarHorararioDisponibleFragment"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/NombrePersona"
+            android:text="@string/idHorario"
             android:textColor="@color/black"/>
 
         <EditText
-            android:id="@+id/EditNombrePersona"
+            android:id="@+id/EditIdHorariosDisponibles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintNombrePersona"
+            android:hint="@string/hintIdHorario"
             android:inputType="text"
-            android:maxLength="50"/>
+            android:maxLength="2"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ApellidoPersona"
+            android:text="@string/idHora"
             android:textColor="@color/black"/>
 
         <EditText
-            android:id="@+id/EditApellidoPersona"
+            android:id="@+id/EditHora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintApellidoPersona"
+            android:hint="@string/hintIdHora"
             android:inputType="text"
-            android:maxLength="50"/>
+            android:maxLength="4" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/GeneroPersona"
-            android:textColor="@color/black"/>
-
-        <LinearLayout
-            android:id="@+id/linearLayoutRadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="left">
-            <RadioButton
-                android:id="@+id/rbMasculino"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/GeneroMasculino"/>
-
-            <RadioButton
-                android:id="@+id/rbFemenino"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/GeneroFemenino"/>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/NacimientoPersona"
+            android:text="@string/nombreDia"
             android:textColor="@color/black"/>
 
         <EditText
-            android:id="@+id/EditNacimientoPersona"
+            android:id="@+id/EditDia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintNacimientoPersona"
-            android:inputType="date" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/DUIPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditDUIPersona"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hintDUIPersona"
+            android:hint="@string/hintNombreDia"
             android:inputType="text"
-            android:maxLength="8"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/DireccionPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditDireccionPersona"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hintDireccionPersona"
-            android:inputType="text"
-            android:maxLength="100"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/EmailPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditEmailPersona"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hintEmailPersona"
-            android:inputType="text"
-            android:maxLength="50"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TelefonoPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditTelefonoPersona"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hintTelefonoPersona"
-            android:inputType="text"
-            android:maxLength="8"/>
+            android:maxLength="10" />
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"
@@ -151,7 +70,7 @@
             android:layout_height="match_parent"
             android:gravity="right">
             <Button
-                android:id="@+id/botonAgregarPersona"
+                android:id="@+id/botonActualizarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/botonActualizar"
@@ -159,7 +78,7 @@
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />
             <Button
-                android:id="@+id/botonVaciarPersona"
+                android:id="@+id/botonVaciarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

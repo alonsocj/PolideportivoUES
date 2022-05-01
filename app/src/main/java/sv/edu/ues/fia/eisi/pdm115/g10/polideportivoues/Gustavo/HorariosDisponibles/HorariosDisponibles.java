@@ -5,13 +5,13 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 
 public class HorariosDisponibles {
     String idHorario;
-    Dia dia;
-    Hora hora;
+    String dia;
+    String hora;
 
     public HorariosDisponibles() {
     }
 
-    public HorariosDisponibles(String idHorario, Dia dia, Hora hora) {
+    public HorariosDisponibles(String idHorario, String dia, String hora) {
         this.idHorario = idHorario;
         this.dia = dia;
         this.hora = hora;
@@ -25,19 +25,19 @@ public class HorariosDisponibles {
         this.idHorario = idHorario;
     }
 
-    public Dia getDia() {
+    public String getDia() {
         return dia;
     }
 
-    public void setDia(Dia dia) {
+    public void setDia(String dia) {
         this.dia = dia;
     }
 
-    public Hora getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Hora hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 }

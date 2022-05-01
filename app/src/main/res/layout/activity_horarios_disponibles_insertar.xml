@@ -42,11 +42,13 @@
             android:text="@string/idHora"
             android:textColor="@color/black"/>
 
-        <Spinner
+        <EditText
             android:id="@+id/EditHora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:hint="@string/hintIdHora"
+            android:inputType="text"
+            android:maxLength="4" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,11 +56,13 @@
             android:text="@string/nombreDia"
             android:textColor="@color/black"/>
 
-        <Spinner
+        <EditText
             android:id="@+id/EditDia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:hint="@string/hintNombreDia"
+            android:inputType="text"
+            android:maxLength="10" />
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"

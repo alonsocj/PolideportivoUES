@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".William.TipoReservacion.TipoReservacionInsertarActivity">
+    tools:context=".William.TipoReservacion.TipoReservacionInsertarActivity"
+    android:padding="30dp"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agregarTipoReservacion"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/idTipoReservaciontxt"/>
+
+    <EditText
+        android:id="@+id/EditIdLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintIdTipoReservacion"
+        android:maxLength="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombreTipoReservaciontxt"/>
+
+    <EditText
+        android:id="@+id/EditNombreLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hintnombreTipoReservacion"
+        android:maxLength="50"
+        />
+    <Button
+        android:id="@+id/botonAgregarTipoReservacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/botonAgregar"/>
+</LinearLayout>

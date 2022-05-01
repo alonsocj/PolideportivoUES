@@ -51,8 +51,9 @@ public class PersonaInsertarActivity extends AppCompatActivity {
         botonAgregar = (Button) findViewById(R.id.botonAgregarPersona);
         botonVaciar = (Button) findViewById(R.id.botonVaciarPersona);
 
-        //Cargamos los generos
-       // ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this)
+        //Cargamos los géneros
+       ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.GeneroPersona, android.R.layout.simple_spinner_item);
+       editGenero.setAdapter(adapter);
 
         botonAgregar.setOnClickListener(new View.OnClickListener() {
             @Override

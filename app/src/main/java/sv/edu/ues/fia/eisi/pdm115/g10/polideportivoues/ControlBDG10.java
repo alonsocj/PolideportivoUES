@@ -12,6 +12,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
 
 public class ControlBDG10 {
 
@@ -215,6 +216,60 @@ public class ControlBDG10 {
         return regAfectados;
     }
 
+    //Metodos para tabla local
+    public String ingresarTipoReservacion(TipoReservacion tipoReservacion){
+        String TipoReservacionInsertado = "Tipo de reservacion ";
+        long cuenta = 0;
+
+        ContentValues locales = new ContentValues();
+        locales.put("idTipoR", tipoReservacion.getIdTipoR());
+        locales.put("nomTipoR", tipoReservacion.getNomTipoR());
+        cuenta = db.insert("local",null,locales);
+
+        if(cuenta == -1 || cuenta == 0){
+            TipoReservacionInsertado = "Error al ingresar el tipo de reservacion, Verificar su inserción";
+        }else{
+            TipoReservacionInsertado = TipoReservacionInsertado + cuenta + " Registrado";
+        }
+
+        return TipoReservacionInsertado;
+    }
+
+    public String actualizarTipoReservacion(TipoReservacion tipoReservacion){
+        //if(verificarIntegridadDeDatos(tipoReservacion,2)){
+        String[] id={tipoReservacion.getIdTipoR()};
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nomTipoR", tipoReservacion.getNomTipoR());
+        db.update("tipoReservacion",contentValues, "idTipoR = ?",id);
+        return "Tipo de reservacion Actualizado";
+        //}else{
+        //return "El Tipo de reservacion no existe";
+        //}
+    }
+
+    public TipoReservacion consultarTipoReservacion(String idTipoR){
+        String[] id = {idTipoR};
+        Cursor cursor = db.query("tipoReservacion", new String [] {"idTipoR","nomTipoR"}, "idTipoR = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            TipoReservacion tipoReservacion = new TipoReservacion();
+            tipoReservacion.setIdTipoR(cursor.getString(0));
+            tipoReservacion.setNomTipoR(cursor.getString(1));
+            return tipoReservacion;
+        }else{
+            return null;
+        }
+    }
+
+    public String eliminarTipoReservacion(String idTipoR){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        //if (verificarIntegridad(alumno,3)) {
+        //contador+=db.delete("nota", "carnet='"+alumno.getCarnet()+"'", null);
+        //}
+        contador+=db.delete("tipoReservacion", "idTipoR='"+idTipoR+"'", null);
+        regAfectados+=contador;
+        return regAfectados;
+    }
     /*
      * Inicio de funcionalidades de TIPO EVENTO
      */

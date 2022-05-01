@@ -277,6 +277,7 @@ public class ControlBDG10 {
     }
 
     /* Funcionalidades de persona*/
+
     public String insertarPersona (Persona persona){
         String regInsertados="Persona Agregada Nº= ";
         long contador=0;
@@ -325,6 +326,7 @@ public class ControlBDG10 {
     }
 
     /* Funcionalidades de horarios disponibles*/
+
     public String insertarHorarioDisponible (String persona){
         return "";
     }

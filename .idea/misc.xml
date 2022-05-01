@@ -8,12 +8,21 @@
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_hora_consultar.xml" value="0.36666666666666664" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_hora_insertar.xml" value="0.36666666666666664" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_actualizar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_consultar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_consultar.xml" value="0.25" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_eliminar.xml" value="0.36666666666666664" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_insertar.xml" value="0.36666666666666664" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_horarios_disponibles_menu.xml" value="0.27218934911242604" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_local_consultar.xml" value="0.1778115501519757" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_local_evento_consultar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_local_evento_insertar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_local_insertar.xml" value="0.20471014492753623" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_insertar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_actualizar.xml" value="0.5" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_consultar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_eliminar.xml" value="0.1" />
+
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_actualizar.xml" value="0.33" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_consultar.xml" value="0.36666666666666664" />
         <entry key="..\:/Servidores/PolideportivoUES/app/src/main/res/layout/activity_persona_eliminar.xml" value="0.27218934911242604" />

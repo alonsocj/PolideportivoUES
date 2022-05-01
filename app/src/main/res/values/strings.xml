@@ -79,7 +79,6 @@
     <string name="actualizarTipoReservacion">Actualizar tipo de reservacion</string>
     <string name="eliminarTipoReservacion">Eliminar tipo de reservacion</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- TABLA RESERVACION-->
     <string name="titulo_nav_reservacion">Reservación</string>
     <string name="label_reservacion">Reservación</string>
@@ -112,7 +111,7 @@
     <string name="ActualizarHorararioDisponibleFragment">Actualizar Disponibilidad</string>
     <string name="idHorario">Id Disponibilidad</string>
     <string name="hintIdHorario">Ingrese el id de la disponibilidad</string>
-    <string name="idHora">Id Hora</string>
+    <string name="idHora">Hora</string>
     <string name="hintIdHora">Ingrese el id de la hora</string>
     <string name="nombreDia">Día</string>
     <string name="hintNombreDia">Ingrese el día</string>
@@ -128,7 +127,8 @@
     <string name="ApellidoPersona">Apellido:</string>
     <string name="hintApellidoPersona">Ingrese el apellido</string>
     <string name="GeneroPersona">Género:</string>
-    <string name="hintGeneroPersona">Ingrese el género</string>
+    <string name="GeneroMasculino">M</string>
+    <string name="GeneroFemenino">F</string>
     <string name="DUIPersona">DUI:</string>
     <string name="hintDUIPersona">Ingrese el DUI</string>
     <string name="NacimientoPersona">Fecha de Nacimiento:</string>

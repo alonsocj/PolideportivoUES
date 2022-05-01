@@ -42,13 +42,11 @@
             android:text="@string/idHora"
             android:textColor="@color/black"/>
 
-        <EditText
-            android:id="@+id/EditApellidoPersona"
+        <Spinner
+            android:id="@+id/EditHora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintIdHora"
-            android:inputType="text"
-            android:maxLength="4"/>
+            android:inputType="text" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,13 +54,11 @@
             android:text="@string/nombreDia"
             android:textColor="@color/black"/>
 
-        <EditText
-            android:id="@+id/EditGeneroPersona"
+        <Spinner
+            android:id="@+id/EditDia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintNombreDia"
-            android:inputType="text"
-            android:maxLength="10"/>
+            android:inputType="text" />
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"
@@ -78,7 +74,7 @@
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />
             <Button
-                android:id="@+id/botonVaciarPersona"
+                android:id="@+id/botonVaciarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

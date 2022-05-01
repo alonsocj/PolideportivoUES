@@ -1,23 +1,23 @@
 package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion;
 
 public class TipoReservacion {
-    private String idTipo;
+    private String idTipoR;
     private String nomTipoR;
 
     public TipoReservacion() {
     }
 
-    public TipoReservacion(String idTipo, String nomTipoR) {
-        this.idTipo = idTipo;
+    public TipoReservacion(String idTipoR, String nomTipoR) {
+        this.idTipoR = idTipoR;
         this.nomTipoR = nomTipoR;
     }
 
-    public String getIdTipo() {
-        return idTipo;
+    public String getIdTipoR() {
+        return idTipoR;
     }
 
-    public void setIdTipo(String idTipo) {
-        this.idTipo = idTipo;
+    public void setIdTipoR(String idTipoR) {
+        this.idTipoR = idTipoR;
     }
 
     public String getNomTipoR() {

@@ -44,7 +44,14 @@ public class PersonaConsultarActivity extends AppCompatActivity {
 
                 /*Verificación que exista la Persona*/
                 if(persona == null){
-                    Toast.makeText(PersonaConsultarActivity.this, "Persona con DUI: " + editIdPersona.getText().toString() + " no encontrada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PersonaConsultarActivity.this, "Registro no encontrado!", Toast.LENGTH_SHORT).show();
+                    editNombre.setText("");
+                    editApellido.setText("");
+                    editGenero.setText("");
+                    editNacimiento.setText("");
+                    editDireccion.setText("");
+                    editEmail.setText("");
+                    editTelefono.setText("");
                 }else{
                     editNombre.setText(persona.getNombre());
                     editApellido.setText(persona.getApellido());

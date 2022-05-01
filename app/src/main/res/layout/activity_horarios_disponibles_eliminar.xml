@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:gravity="right">
             <Button
-                android:id="@+id/botonEliminarHorararioDisponible"
+                android:id="@+id/botonEliminarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/botonEliminar"
@@ -50,7 +50,7 @@
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />
             <Button
-                android:id="@+id/botonVaciarPersona"
+                android:id="@+id/botonVaciarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

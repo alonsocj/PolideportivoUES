@@ -287,4 +287,19 @@ public class ControlBDG10 {
                 return false;
         }
     }
+    public String llenarBDG10(){
+        //Metodo para llenar la base de datos con sentencias SQL
+        open();
+        db.execSQL("DELETE FROM dia");
+        db.execSQL("DELETE FROM tipoevento");
+        db.execSQL("DELETE FROM tipopago");
+        db.execSQL("DELETE FROM cobro");
+        /* db.execSQL("DELETE FROM hora");*/
+
+        //Se llenan las tablas con datos
+
+        close();
+
+        return "Llenado correctamente";
+    }
 }

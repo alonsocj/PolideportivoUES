@@ -113,13 +113,9 @@
     <string name="idHorario">Id Disponibilidad</string>
     <string name="hintIdHorario">Ingrese el id de la disponibilidad</string>
     <string name="idHora">Hora</string>
-    <string-array name="arrayHoras">
-        <options>Seleccione una hora</options>
-    </string-array>
+    <string name="hintIdHora">Ingrese el id de la hora</string>
     <string name="nombreDia">Día</string>
-    <string-array name="arrayDias">
-        <options>Seleccione un día</options>
-    </string-array>
+    <string name="hintNombreDia">Ingrese el día</string>
 
     <!-- Persona -->
     <string name="titulo_nav_persona">Persona</string>

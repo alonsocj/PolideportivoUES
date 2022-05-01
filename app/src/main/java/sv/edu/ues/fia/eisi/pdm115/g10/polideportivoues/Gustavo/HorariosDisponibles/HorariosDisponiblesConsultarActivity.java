@@ -66,22 +66,18 @@ public class HorariosDisponiblesConsultarActivity extends AppCompatActivity {
                 }else{
                     //Recuperamos la hora
                     for (int i=0;i<arrayHoras.size();i++) {
-                        Hora horasArray=new Hora();
+                        Hora horasArray;
                         horasArray=arrayHoras.get(i);
                         if(horasArray.getIdHora().equals(horariosDisponibles.getHora())){
                             String horario=horasArray.getHoraInicio()+" - "+horasArray.getHoraFin();
                             editHora.setText(horario);
+                            editDia.setText(horariosDisponibles.getDia());
                         }
-
                     }
 
                     //Recuperamos el día
                     for (int i=0;i<arrayDias.size();i++) {
-                        Dia diasArray=new Dia();
-                        diasArray=arrayDias.get(i);
-                        if(diasArray.getNombreDia().equals(horariosDisponibles.getDia())){
-                            editDia.setText(diasArray.getNombreDia());
-                        }
+
                     }
                     editDia.setText(horariosDisponibles.getDia());
                 }

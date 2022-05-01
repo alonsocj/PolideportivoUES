@@ -11,7 +11,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Horaidentificador"/>
+        android:text="@string/Horaidentificador"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditIdHoraE"
@@ -26,6 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:text="@string/botonEliminar" />
 
 </LinearLayout>

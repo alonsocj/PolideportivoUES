@@ -10,7 +10,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Horaidentificador"/>
+        android:text="@string/Horaidentificador"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditIdHoraC"
@@ -25,7 +26,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:text="@string/botonConsultar" />
+        android:text="@string/botonConsultar"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +40,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/InicioHora"/>
+        android:text="@string/InicioHora"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditHoraInicioC"
@@ -49,7 +54,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/FinHora"/>
+        android:text="@string/FinHora"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditHoraFinC"

@@ -11,7 +11,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/NumEvenTxt"/>
+        android:text="@string/NumEvenTxt"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditIdNumeroEventoConsulta"
@@ -25,12 +26,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:text="@string/botonConsultar"/>
+        android:text="@string/botonConsultar"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TiEventTxt"/>
+        android:text="@string/TiEventTxt"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditTipoEventoConsulta"
@@ -42,7 +46,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/NomEventTxt"/>
+        android:text="@string/NomEventTxt"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditNombreEventoConsulta"
@@ -54,7 +59,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/costoEventTxt"/>
+        android:text="@string/costoEventTxt"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditCostoEventoConsulta"

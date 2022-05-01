@@ -15,25 +15,33 @@
             android:id="@+id/botonAgregarTipoPago"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AgregarTipoPagoFragment" />
+            android:text="@string/AgregarTipoPagoFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"/>
 
         <Button
             android:id="@+id/botonConsultarTipoPago"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ConsultarTipoPagoFragment" />
+            android:text="@string/ConsultarTipoPagoFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"/>
 
         <Button
             android:id="@+id/botonModificarTipoPago"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ActualizarTipoPagoFragment" />
+            android:text="@string/ActualizarTipoPagoFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"/>
 
         <Button
             android:id="@+id/botonEliminarTipoPago"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/EliminarTipoPagoFragment" />
+            android:text="@string/EliminarTipoPagoFragment"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"/>
 
     </LinearLayout>
 

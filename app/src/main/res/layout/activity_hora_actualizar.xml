@@ -10,6 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:text="@string/Horaidentificador"/>
 
     <EditText
@@ -23,6 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:text="@string/InicioHora"/>
 
     <EditText
@@ -38,19 +40,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:text="@string/inicioH"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/FinHora"/>
+        android:text="@string/FinHora"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditHoraFinActualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hintHF"
-        android:inputType="time"
         android:enabled="false"/>
 
     <Button
@@ -58,6 +62,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:text="@string/finH"/>
 
     <Button
@@ -65,6 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:text="@string/botonActualizar"/>
 
 

@@ -5,6 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.Dia;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
@@ -15,6 +20,7 @@ public class ControlBDGustavo {
 
     private final DatabaseHelper DBhelper;
     private SQLiteDatabase db;
+    private SQLiteDatabase db2;
 
     public ControlBDGustavo(Context ctx) {
         DBhelper = new DatabaseHelper(ctx);
@@ -22,6 +28,7 @@ public class ControlBDGustavo {
 
     public void open() throws SQLException {
         db = DBhelper.getWritableDatabase();
+        db2 = DBhelper.getReadableDatabase();
         return;
     }
 
@@ -165,6 +172,66 @@ public class ControlBDGustavo {
         }else{
             return "Registro no existe!";
         }
+    }
+
+    //Extraemos todas las horas registradas en la base de datos
+    public List<Hora> consultarHoras(){
+        List<Hora> arrayHoras=new ArrayList<>();
+        Cursor cursor = db.query("hora",null, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            Hora horarioDisponible = new Hora();
+            horarioDisponible.setIdHora(cursor.getString(0));
+            horarioDisponible.setHoraInicio(cursor.getString(1));
+            horarioDisponible.setHoraFin(cursor.getString(2));
+            arrayHoras.add(horarioDisponible);
+            while(cursor.moveToNext()) {
+                Hora horariosDisponibles = new Hora();
+                horariosDisponibles.setIdHora(cursor.getString(0));
+                horariosDisponibles.setHoraInicio(cursor.getString(1));
+                horariosDisponibles.setHoraFin(cursor.getString(2));
+                arrayHoras.add(horariosDisponibles);
+            }
+        }
+       return arrayHoras;
+    }
+
+    public List<String> consultarHorasString(List<Hora> arrayHoras){
+        List<String>arrayHorasString=new ArrayList<>();
+        arrayHorasString.add("Seleccione una hora");
+        for (int i=0;i<arrayHoras.size();i++) {
+            Hora horariosArray=new Hora();
+            horariosArray=arrayHoras.get(i);
+            arrayHorasString.add(horariosArray.getHoraInicio()+" - "+horariosArray.getHoraFin());
+        }
+        return arrayHorasString;
+    }
+
+    //Extraemos todas los días registrados en la base de datos
+    public List<Dia> consultarDias(){
+        List<Dia> arrayDias=new ArrayList<>();
+        Cursor cursor = db.query("dia",null, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            Dia diaDisponible = new Dia();
+            diaDisponible.setNombreDia(cursor.getString(0));
+            arrayDias.add(diaDisponible);
+            while(cursor.moveToNext()) {
+                Dia diaDisponibles = new Dia();
+                diaDisponibles.setNombreDia(cursor.getString(0));
+                arrayDias.add(diaDisponibles);
+            }
+        }
+        return arrayDias;
+    }
+
+    public List<String> consultarDiasString(List<Dia> arrayDias){
+        List<String>arrayDiasString=new ArrayList<>();
+        arrayDiasString.add("Seleccione un día");
+        for (int i=0;i<arrayDias.size();i++) {
+            Dia diasArray=new Dia();
+            diasArray=arrayDias.get(i);
+            arrayDiasString.add(diasArray.getNombreDia());
+        }
+        return arrayDiasString;
     }
 
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{

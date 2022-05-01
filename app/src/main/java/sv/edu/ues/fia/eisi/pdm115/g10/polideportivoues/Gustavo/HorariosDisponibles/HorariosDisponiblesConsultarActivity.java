@@ -2,10 +2,17 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponib
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.Dia;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDGustavo;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
@@ -14,6 +21,10 @@ public class HorariosDisponiblesConsultarActivity extends AppCompatActivity {
     ControlBDGustavo controlBDGustavo;
     EditText editIdHora,editDia, editHora;
     Button botonConsultar, botonVaciar;
+    List<Hora> arrayHoras=new ArrayList<Hora>();
+    List<String> arrayHorasString=new ArrayList<String>();
+    List<Dia> arrayDias=new ArrayList<Dia>();
+    List<String> arrayDiasString=new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +41,16 @@ public class HorariosDisponiblesConsultarActivity extends AppCompatActivity {
         botonConsultar = (Button) findViewById(R.id.botonConsultarHorarioDisponible);
         botonVaciar = (Button) findViewById(R.id.botonVaciarHorarioDisponible);
 
+        //Llenado del spinner de horas
+        controlBDGustavo.open();
+        arrayHoras=controlBDGustavo.consultarHoras();
+        arrayHorasString=controlBDGustavo.consultarHorasString(arrayHoras);
+
+        //Llenado del spinner de dias
+        controlBDGustavo.open();
+        arrayDias=controlBDGustavo.consultarDias();
+        arrayDiasString=controlBDGustavo.consultarDiasString(arrayDias);
+
         botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,8 +64,26 @@ public class HorariosDisponiblesConsultarActivity extends AppCompatActivity {
                     editHora.setText("");
                     editDia.setText("");
                 }else{
+                    //Recuperamos la hora
+                    for (int i=0;i<arrayHoras.size();i++) {
+                        Hora horasArray=new Hora();
+                        horasArray=arrayHoras.get(i);
+                        if(horasArray.getIdHora().equals(horariosDisponibles.getHora())){
+                            String horario=horasArray.getHoraInicio()+" - "+horasArray.getHoraFin();
+                            editHora.setText(horario);
+                        }
+
+                    }
+
+                    //Recuperamos el día
+                    for (int i=0;i<arrayDias.size();i++) {
+                        Dia diasArray=new Dia();
+                        diasArray=arrayDias.get(i);
+                        if(diasArray.getNombreDia().equals(horariosDisponibles.getDia())){
+                            editDia.setText(diasArray.getNombreDia());
+                        }
+                    }
                     editDia.setText(horariosDisponibles.getDia());
-                    editHora.setText(horariosDisponibles.getHora());
                 }
             }
         });

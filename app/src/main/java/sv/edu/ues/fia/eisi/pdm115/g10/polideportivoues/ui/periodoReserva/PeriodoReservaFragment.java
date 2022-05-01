@@ -1,5 +1,6 @@
 package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.periodoReserva;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,60 +8,76 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReservaActualizarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReservaConsultarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReservaEliminarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReservaInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentPeriodoReservaBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PeriodoReservaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class PeriodoReservaFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PeriodoReservaFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PeriodoReservaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PeriodoReservaFragment newInstance(String param1, String param2) {
-        PeriodoReservaFragment fragment = new PeriodoReservaFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private FragmentPeriodoReservaBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_periodo_reserva, container, false);
+
+        binding = FragmentPeriodoReservaBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        /*Funcionamiento con botones*/
+
+        /*Agregar PeriodoReserva*/
+        final Button buttonAgregarPeriodoReserva = binding.botonAgregarPeriodoReserva;
+        buttonAgregarPeriodoReserva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PeriodoReservaFragment.this.getContext(), PeriodoReservaInsertarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*Consultar PeriodoReserva*/
+
+        final Button buttonConsultarPeriodoReserva = binding.botonConsultarPeriodoReserva;
+        buttonConsultarPeriodoReserva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (PeriodoReservaFragment.this.getContext(), PeriodoReservaConsultarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*Modificar PeriodoReserva*/
+
+        final Button buttonActualizarPeriodoReserva = binding.botonActualizarPeriodoReserva;
+        buttonActualizarPeriodoReserva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (PeriodoReservaFragment.this.getContext(), PeriodoReservaActualizarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*Eliminar PeriodoReserva*/
+
+        final Button buttonEliminarPeriodoReserva = binding.botonEliminarPeriodoReserva;
+        buttonEliminarPeriodoReserva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PeriodoReservaFragment.this.getContext(), PeriodoReservaEliminarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        return root;
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

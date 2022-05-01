@@ -96,21 +96,71 @@
     <string name="eliminarTipoReservacion">Eliminar tipo de reservacion</string>
 
     <!-- TABLA RESERVACION-->
+    <string name="btnLimpiar">Limpiar</string>
+
     <string name="titulo_nav_reservacion">Reservación</string>
     <string name="label_reservacion">Reservación</string>
 
-    <!-- TABLA Reservacion-->
+    <string name="titulo_reservacion_insertar">Agregar Reservación</string>
+    <string name="titulo_reservacion_consultar">Consultar Reservación</string>
+    <string name="titulo_reservacion_eliminar">Eliminar Reservación</string>
+    <string name="titulo_reservacion_actualizar">Actualizar Reservación</string>
+
+    <string name="id_Reservacion">Id de la reservación:</string>
+    <string name="id_Cobro">Id del cobro:</string>
+    <string name="id_Persona">Id de la persona:</string>
+    <string name="TipoReservacion">Id del tipo de reservación:</string>
+    <string name="id_Evento">Id del evento:</string>
+    <string name="id_PeriodoReserva">Id del periodo de reserva:</string>
+    <string name="fechaRegistro">Fecha de registro:</string>
+
+    <string name="Hint_idReservacion">Ingrese el id de la reservación</string>
+    <string name="Hint_id_Cobro">Ingrese el id del cobro</string>
+    <string name="Hint_id_Persona">Ingrese el id de la persona</string>
+    <string name="Hint_TipoReservacion">Ingrese el id del tipo de reservación</string>
+    <string name="Hint_id_Evento">Ingrese el id del evento</string>
+    <string name="Hint_id_PeriodoReserva">Ingrese el id del periodo de reserva</string>
+    <string name="Hint_fechaRegistro">Ingrese la fecha de registro</string>
+
+    <!-- TABLA PeriodoReserva-->
     <string name="titulo_nav_periodoReserva">Periodo de Reserva</string>
     <string name="label_periodoReserva">Periodo de Reserva</string>
+
+    <string name="titulo_periodoreserva_insertar">Agregar Periodo de Reserva</string>
+    <string name="titulo_periodoreserva_consultar">Consultar Periodo de Reserva</string>
+    <string name="titulo_periodoreserva_eliminar">Eliminar Periodo de Reserva</string>
+    <string name="titulo_periodoreserva_actualizar">Actualizar Periodo de Reserva</string>
+
+    <string name="id_periodoReserva">Id del periodo de reserva:</string>
+    <string name="fechaInicio">Fecha de inicio del periodo de reserva:</string>
+    <string name="fechaFin">Fecha fin del periodo de reserva:</string>
+
+    <string name="Hint_idperiodoReserva">Ingresar id del periodo de reserva</string>
+    <string name="Hint_fechaInicio">Ingresar fecha de inicio del periodo de reserva</string>
+    <string name="Hint_fechaFin">Ingresar fecha fin del periodo de reserva</string>
 
     <!-- TABLA LocalEvento-->
     <string name="titulo_nav_localEvento">Local Evento</string>
     <string name="label_localEvento">Local Evento</string>
 
+    <string name="titulo_LocalEvento_insertar">Agregar Local Evento</string>
+    <string name="titulo_LocalEvento_consultar">Consultar Local Evento</string>
+    <string name="titulo_LocalEvento_eliminar">Eliminar Local Evento</string>
+    <string name="titulo_LocalEvento_actualizar">Actualizar Local Evento</string>
+
+    <string name="id_LocalEvento">Id de local evento:</string>
+    <string name="id_Local">Id de local:</string>
+    <string name="cantAutorizada">Cantidad autorizada:</string>
+
+    <string name="Hint_idLocalEvento">Ingrese el id de local evento</string>
+    <string name="Hint_id_Local">Ingrese el id de local</string>
+    <string name="Hint_cantAutorizada">Ingrese la cantidad autorizada</string>
+
     <string name="title_activity_alumno_insertar">AlumnoInsertarActivity</string>
     <string name="title_activity_alumno_eliminar">AlumnoEliminarActivity</string>
     <string name="title_activity_alumno_actualizar">AlumnoActualizarActivity</string>
     <string name="title_activity_alumno_consultar">AlumnoConsultarActivity</string>
+
 
     <string name="insertar_registro">Insertar Registro</string>
     <string name="eliminar_registro">Eliminar Registro</string>

@@ -5,12 +5,12 @@ public class Evento {
     private String idEvento;
     private String idTipoE;
     private String nomEvento;
-    private double costoEvento;
+    private float costoEvento;
 
     public Evento() {
     }
 
-    public Evento(String idEvento, String idTipoE, String nomEvento, double costoEvento) {
+    public Evento(String idEvento, String idTipoE, String nomEvento, float costoEvento) {
         this.idEvento = idEvento;
         this.idTipoE = idTipoE;
         this.nomEvento = nomEvento;
@@ -41,11 +41,11 @@ public class Evento {
         this.nomEvento = nomEvento;
     }
 
-    public double getCostoEvento() {
+    public float getCostoEvento() {
         return costoEvento;
     }
 
-    public void setCostoEvento(double costoEvento) {
+    public void setCostoEvento(float costoEvento) {
         this.costoEvento = costoEvento;
     }
 }

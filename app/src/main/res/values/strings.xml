@@ -11,6 +11,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    <!--Tabla Hora-->
+
     <string name="Horaidentificador">Id de Hora:</string>
     <string name="InicioHora">Hora Inicio:</string>
     <string name="FinHora">Hora Fin:</string>
@@ -55,6 +57,8 @@
     <string name="EliminarHoraFragment">Eliminar Hora</string>
     <string name="ActualizarHoraFragment">Actualizar Hora</string>
 
+
+    <!--Tabla Tipo Pago-->
     <string name="AgregarTipoPagoFragment">Agregar Tipo de Pago</string>
     <string name="EliminarTipoPagoFragment">Eliminar Tipo de Pago</string>
     <string name="ActualizarTipoPagoFragment">Actualizar Tipo de Pago</string>
@@ -64,18 +68,25 @@
     <string name="hintIdePago">Ingrese el codigo del tipo pago</string>
     <string name="hintTipoPago">Ingrese el tipo de pago</string>
 
+
+    <!--Tabla Evento-->
     <string name="AgregarEventoFragment">Agregar Evento</string>
     <string name="ConsultarEventoFragment">Consultar Evento</string>
     <string name="EliminarEventoFragment">Eliminar Evento</string>
     <string name="ActualizarEventoFragment">Actualizar Evento</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="NumEvenTxt">N° de Evento</string>
+    <string name="TiEventTxt">Tipo de Evento</string>
+    <string name="NomEventTxt">Nombre del Evento</string>
+    <string name="costoEventTxt">Costo del Evento</string>
+    <string name="NumeroEventoHint">Ingrese el numero de evento</string>
+    <string name="NombreEventoHint">Ingrese el nombre del evento</string>
+    <string name="CostoEventoHint">Ingrese el costo del evento</string>
+
     <string name="agregarTipoReservacion">Agregar tipo de reservacion</string>
     <string name="consultarTipoReservacion">Consultar tipo de reservacion</string>
     <string name="actualizarTipoReservacion">Actualizar tipo de reservacion</string>
     <string name="eliminarTipoReservacion">Eliminar tipo de reservacion</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- TABLA RESERVACION-->
     <string name="titulo_nav_reservacion">Reservación</string>
     <string name="label_reservacion">Reservación</string>
@@ -99,5 +110,6 @@
     <string name="actualizar_registro">Actualizar Registro</string>
 
     <string name="carnet">Carnet</string>
+
 
 </resources>

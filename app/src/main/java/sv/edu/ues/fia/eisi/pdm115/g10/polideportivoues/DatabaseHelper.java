@@ -22,9 +22,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //tabla TipoEvento
             db.execSQL("CREATE TABLE tipoevento (idTipoE VARCHAR(1) PRIMARY KEY, nomTipoE VARCHAR(50));");
             //tabla Evento
-            db.execSQL("CREATE TABLE evento(idEvento VARCHAR(6) NOT NULL , idTipoE VARCHAR(1) NOT NULL, " +
-                    " nomEvento VARCHAR(100) NOT NULL, costoEvento FLOAT(12,2) NOT NULL, PRIMARY KEY(idEvento), " +
-                    " CONSTRAINT fk_TipoEvento_Evento FOREIGN KEY (idTipoE) REFERENCES TipoEvento(idTipoE) ON DELETE RESTRICT )");
+            db.execSQL("CREATE TABLE evento(idEvento VARCHAR(6) NOT NULL PRIMARY KEY, idTipoE VARCHAR(1) NOT NULL, " +
+                    " nomEvento VARCHAR(100) NOT NULL, costoEvento REAL NOT NULL," +
+                    " CONSTRAINT fk_evento_tipoevento FOREIGN KEY (idTipoE) REFERENCES tipoevento(idTipoE) ON DELETE RESTRICT);");
             //tabla TipoPago
             db.execSQL("CREATE TABLE tipopago(idPago VARCHAR(2) NOT NULL PRIMARY KEY, tipo VARCHAR(20) NOT NULL);");
             //Tabla Cobro
@@ -43,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "FOR EACH ROW " +
                         "BEGIN " +
                         "SELECT CASE " +
-                        "WHEN ((SELECT idTipoE FROM tipoevento WHERE idTipoE  = NEW.idTipoE ) IS NULL)" +
+                        "WHEN ((SELECT idTipoE FROM tipoevento WHERE idTipoE = NEW.idTipoE ) IS NULL)" +
                         "THEN RAISE(ABORT, 'No existe el tipo de evento')" +
                         "END;" +
                         "END;");

@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPagoActualizarActivity;
@@ -155,7 +156,6 @@ public class ControlBDG10 {
         return tiposdepagosafectados;
     }
 
-
     //Metodos para tabla local
     public String ingresarLocal(Local local){
         String localInsertado = "Local ";
@@ -274,6 +274,30 @@ public class ControlBDG10 {
      * FINAL de las funcionalidades de TIPO EVENTO
      */
 
+    public String agregarEvento(Evento evento){
+        String eventosRegistrados =  "Evento N°: ";
+        long numeroEventos=0;
+
+       if (verificarIntegridadDeDatos(evento, 8)) {
+            ContentValues eventos = new ContentValues();
+            eventos.put("idEvento", evento.getIdEvento());
+            eventos.put("idTipoE", evento.getIdTipoE()); //Llave Foranea
+            eventos.put("nomEvento", evento.getNomEvento());
+            eventos.put("costoEvento",evento.getCostoEvento());
+            numeroEventos = db.insert("evento",null,eventos);
+       }
+
+        if (numeroEventos == -1 || numeroEventos == 0){
+            eventosRegistrados = "Error al insertar el evento, verificar inserción";
+        }else{
+            eventosRegistrados =  eventosRegistrados + numeroEventos + " Registrado";
+        }
+
+        return eventosRegistrados;
+
+    }
+
+
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
             //Verifica si existe la hora
@@ -328,8 +352,17 @@ public class ControlBDG10 {
                 }else{
                     return false;
                 }
+            } case 8:{
+                //Verificar que al insertar el Evento exista el tipoDeEvento
+                Evento evento = (Evento)valor;
+                String[] idTipoEvento = {evento.getIdTipoE()};
+                Cursor cursor = db.query("tipoevento", null, "idTipoE = ?",idTipoEvento,null,null,null);
+                if(cursor.moveToFirst()){
+                    //Se encontraron datos de tipoEvento
+                    return true;
+                }
+                return false;
             }
-           
             default:
                 return false;
         }
@@ -338,10 +371,10 @@ public class ControlBDG10 {
     public String llenarBDG10(){
         //Metodo para llenar la base de datos con sentencias SQL
         open();
-        db.execSQL("DELETE FROM dia");
-        db.execSQL("DELETE FROM tipoevento");
+        /*db.execSQL("DELETE FROM dia");*/
+        /*db.execSQL("DELETE FROM tipoevento");*/
         /*db.execSQL("DELETE FROM tipopago");*/
-        db.execSQL("DELETE FROM cobro");
+        /*db.execSQL("DELETE FROM cobro");*/
        /* db.execSQL("DELETE FROM hora");*/
 
         //Se llenan las tablas con datos

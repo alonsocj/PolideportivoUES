@@ -127,6 +127,9 @@
             android:name=".Chris.Evento.EventoInsertarActivity"
             android:exported="false" />
         <activity
+            android:name=".Chris.Evento.EventoActualizarActivity"
+            android:exported="false" />
+        <activity
             android:name=".Alonso.TipoEvento.TipoEventoEliminarActivity"
             android:exported="false" />
         <activity

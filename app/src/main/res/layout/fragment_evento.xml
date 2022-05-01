@@ -17,6 +17,24 @@
             android:layout_height="wrap_content"
             android:text="@string/AgregarEventoFragment" />
 
+        <Button
+            android:id="@+id/botonConsultarEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ConsultarEventoFragment" />
+
+        <Button
+            android:id="@+id/botonActualizarEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ActualizarEventoFragment" />
+
+        <Button
+            android:id="@+id/botonEliminarEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/EliminarEventoFragment" />
+
     </LinearLayout>
 
 </FrameLayout>

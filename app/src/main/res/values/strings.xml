@@ -11,6 +11,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+
+    <!--Tabla Hora-->
     <!-- Botones CRUD -->
     <string name="botonConsultar">Consultar</string>
     <string name="botonActualizar">Actualizar</string>
@@ -18,6 +20,7 @@
     <string name="botonVaciar">Vaciar</string>
     <string name="btnGuardar">Guardar</string>
     <string name="botonEliminar">Eliminar</string>
+
 
 
     <string name="Horaidentificador">Id de Hora:</string>
@@ -60,6 +63,8 @@
     <string name="EliminarHoraFragment">Eliminar Hora</string>
     <string name="ActualizarHoraFragment">Actualizar Hora</string>
 
+
+    <!--Tabla Tipo Pago-->
     <string name="AgregarTipoPagoFragment">Agregar Tipo de Pago</string>
     <string name="EliminarTipoPagoFragment">Eliminar Tipo de Pago</string>
     <string name="ActualizarTipoPagoFragment">Actualizar Tipo de Pago</string>
@@ -69,10 +74,21 @@
     <string name="hintIdePago">Ingrese el codigo del tipo pago</string>
     <string name="hintTipoPago">Ingrese el tipo de pago</string>
 
+
+    <!--Tabla Evento-->
     <string name="AgregarEventoFragment">Agregar Evento</string>
     <string name="ConsultarEventoFragment">Consultar Evento</string>
     <string name="EliminarEventoFragment">Eliminar Evento</string>
     <string name="ActualizarEventoFragment">Actualizar Evento</string>
+
+    <string name="NumEvenTxt">N° de Evento</string>
+    <string name="TiEventTxt">Tipo de Evento</string>
+    <string name="NomEventTxt">Nombre del Evento</string>
+    <string name="costoEventTxt">Costo del Evento</string>
+    <string name="NumeroEventoHint">Ingrese el numero de evento</string>
+    <string name="NombreEventoHint">Ingrese el nombre del evento</string>
+    <string name="CostoEventoHint">Ingrese el costo del evento</string>
+
 
     <string name="agregarTipoReservacion">Agregar tipo de reservacion</string>
     <string name="consultarTipoReservacion">Consultar tipo de reservacion</string>
@@ -143,5 +159,6 @@
     <string name="hintIdTipoReservacion">Ingrese el Id del tipo de reservacion</string>
     <string name="nombreTipoReservaciontxt">Nombre del tipo de reservacion</string>
     <string name="hintnombreTipoReservacion">Ingrese el nombre del tipo de reservacion</string>
+
 
 </resources>

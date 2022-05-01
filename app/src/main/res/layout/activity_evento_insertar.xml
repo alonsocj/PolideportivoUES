@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
+    android:orientation="vertical"
     tools:context=".Chris.Evento.EventoInsertarActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NumEvenTxt"/>
+
+    <EditText
+        android:id="@+id/EditIdNumeroEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/NumeroEventoHint"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TiEventTxt"/>
+
+    <Spinner
+        android:id="@+id/spinnerTipoEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NomEventTxt"/>
+
+    <EditText
+        android:id="@+id/EditNombreEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/NombreEventoHint"
+        android:inputType="text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/costoEventTxt"/>
+
+    <EditText
+        android:id="@+id/EditCostoEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/CostoEventoHint"
+        android:inputType="numberDecimal"
+        android:maxLength="4"/>
+
+    <Button
+        android:id="@+id/botonAgregarNuevoEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/botonAgregar"/>
+
+
+</LinearLayout>

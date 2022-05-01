@@ -5,19 +5,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Calendar;
-
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraConsultarActivity;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDGustavo;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class PersonaConsultarActivity extends AppCompatActivity {
 
-    ControlBDG10 controlBDG10;
+    ControlBDGustavo controlBDG10;
     EditText editIdPersona, editNombre, editApellido, editGenero, editNacimiento, editDireccion, editEmail, editTelefono;
     Button botonConsultar, botonVaciar;
 
@@ -27,7 +21,7 @@ public class PersonaConsultarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_persona_consultar);
 
         //Control de la base de datos
-        controlBDG10 = new ControlBDG10(this);
+        controlBDG10 = new ControlBDGustavo(this);
 
         //Persona
         editIdPersona= (EditText) findViewById(R.id.EditDUIPersona);

@@ -3,23 +3,19 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Calendar;
-
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDGustavo;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class PersonaInsertarActivity extends AppCompatActivity {
 
-    ControlBDG10 controlBDG10;
+    ControlBDGustavo controlBDGustavo;
     EditText editIdPersona, editNombre, editApellido, editNacimiento, editDireccion, editEmail, editTelefono;
     Spinner editGenero;
     Button botonAgregar, botonVaciar;
@@ -31,7 +27,7 @@ public class PersonaInsertarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_persona_insertar);
 
         //Control de la base de datos
-        controlBDG10 = new ControlBDG10(this);
+        controlBDGustavo = new ControlBDGustavo(this);
 
         //Fecha de nacimiento
         Calendar calendar= Calendar.getInstance();
@@ -50,10 +46,6 @@ public class PersonaInsertarActivity extends AppCompatActivity {
         editTelefono = (EditText) findViewById(R.id.EditTelefonoPersona);
         botonAgregar = (Button) findViewById(R.id.botonAgregarPersona);
         botonVaciar = (Button) findViewById(R.id.botonVaciarPersona);
-
-        //Cargamos los géneros
-       ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.GeneroPersona, android.R.layout.simple_spinner_item);
-       editGenero.setAdapter(adapter);
 
         botonAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +78,9 @@ public class PersonaInsertarActivity extends AppCompatActivity {
                         persona.setDireccion(direccion);
                         persona.setEmail(email);
                         persona.setTelefono(telefono);
-                        controlBDG10.open();
-                        insertarRegistros = controlBDG10.insertarPersona(persona);
-                        controlBDG10.close();
+                        controlBDGustavo.open();
+                        insertarRegistros = controlBDGustavo.insertarPersona(persona);
+                        controlBDGustavo.close();
                         Toast.makeText(PersonaInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
 
                         //Limpiamos los campos

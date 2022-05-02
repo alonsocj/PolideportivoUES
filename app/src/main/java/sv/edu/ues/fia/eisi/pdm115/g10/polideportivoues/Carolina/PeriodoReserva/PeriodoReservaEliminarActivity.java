@@ -15,7 +15,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.PersonaEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
-public class PeriodoReservaEliminarActivity extends AppCompatActivity {
+public class PeriodoReservaEliminarActivity extends AppCompatActivity  {
     ControlBDCarolina helper;
     EditText editPR;
     Button botonEliminar;

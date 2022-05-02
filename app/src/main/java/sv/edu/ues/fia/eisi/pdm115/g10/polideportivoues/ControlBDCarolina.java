@@ -46,7 +46,6 @@ public class ControlBDCarolina {
         value.put("fechaFin", periodoReserva.getFechaFin());
         contador = db.insert("periodoReserva",null,value);
 
-
         /*ContentValues values = new ContentValues();
         values.put("idPeriodoReserva", "CAROLI");
         values.put("fechaInicio", "17/04/2022");

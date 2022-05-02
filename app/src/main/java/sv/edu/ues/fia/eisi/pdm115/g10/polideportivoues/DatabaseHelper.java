@@ -48,7 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "idTipoR VARCHAR  (1) NOT NULL,\n" +
                     "idEvento VARCHAR (6) NOT NULL,\n" +
                     "idPeriodoReserva VARCHAR (6) NOT NULL,\n" +
-                    "fechaRegistro VARCHAR(10) NOT NULL,\n" +
+                    "fechaRegistro VARCHAR(11) NOT NULL,\n" +
                     "CONSTRAINT fk_reservacion_cobro FOREIGN KEY (idCobro) REFERENCES cobro(idCobro) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_persona FOREIGN KEY (idPersona) REFERENCES persona(idPersona) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_tipoReservacion FOREIGN KEY (idTipoR) REFERENCES tipoReservacion(idTipoR) ON DELETE RESTRICT,\n" +

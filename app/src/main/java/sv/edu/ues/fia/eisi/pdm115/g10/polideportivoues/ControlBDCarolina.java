@@ -234,14 +234,14 @@ public class ControlBDCarolina {
             Local local = new Local();
             local.setIdLocal(cursor.getString(0));
             local.setNomLocal(cursor.getString(1));
-            local.setCupo(Integer.parseInt(cursor.getString(2)));
+            local.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
             arrayLocales.add(local);
 
             while(cursor.moveToNext()) {
                 Local locals = new Local();
                 locals.setIdLocal(cursor.getString(0));
                 locals.setNomLocal(cursor.getString(1));
-                locals.setCupo(Integer.parseInt(cursor.getString(2)));
+                locals.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
                 arrayLocales.add(locals);
             }
         }

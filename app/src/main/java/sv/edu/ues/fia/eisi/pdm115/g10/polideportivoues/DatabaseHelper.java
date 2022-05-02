@@ -17,6 +17,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         try{
             //Consultas para crear las tablas y triggers de la base de datos
+            //tabla PeriodoReserva
+            db.execSQL("CREATE TABLE periodoReserva (idPeriodoReserva VARCHAR(6) NOT NULL PRIMARY KEY,fechaInicio DATE NOT NULL,fechaFin DATE NOT NULL);");
             //tabla Dia
             db.execSQL("CREATE TABLE dia (nombreDia VARCHAR(10) PRIMARY KEY);");
             //tabla TipoEvento
@@ -36,6 +38,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE local (idLocal VARCHAR(5) NOT NULL PRIMARY KEY, nomLocal VARCHAR(50) NOT NULL, cupo INTEGER NOT NULL);");
             //Tabla TipoReservacion
             db.execSQL("CREATE TABLE tipoReservacion (idTipoR VARCHAR(1) NOT NULL PRIMARY KEY, nomTipoR VARCHAR(10) NOT NULL);");
+            //Tabla Reservacion
+            db.execSQL("CREATE TABLE reservacion(\n" +
+                    "idReservacion VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
+                    "idCobro VARCHAR (6) NOT NULL,\n" +
+                    "idPersona VARCHAR(6) NOT NULL,\n" +
+                    "idTipoR VARCHAR  (1) NOT NULL,\n" +
+                    "idEvento VARCHAR (6) NOT NULL,\n" +
+                    "idPeriodoReserva VARCHAR (6) NOT NULL,\n" +
+                    "fechaRegistro DATE NOT NULL);");
+
 
             //Trigger de relacion de llaves foraneas de la tabla Evento con tipoevento
             db.execSQL("CREATE TRIGGER fk_evento_tipoevento " +

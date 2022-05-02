@@ -48,6 +48,7 @@
                 android:backgroundTint="@color/botones"/>
             <Button
                 android:id="@+id/botonLimpiar"
+                android:onClick="limpiar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

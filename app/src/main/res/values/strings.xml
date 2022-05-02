@@ -12,7 +12,7 @@
     <string name="menu_slideshow">Slideshow</string>
 
 
-    <!--Tabla Hora-->
+
     <!-- Botones CRUD -->
     <string name="botonConsultar">Consultar</string>
     <string name="botonActualizar">Actualizar</string>
@@ -21,8 +21,7 @@
     <string name="btnGuardar">Guardar</string>
     <string name="botonEliminar">Eliminar</string>
 
-
-
+    <!--Tabla Hora-->
     <string name="Horaidentificador">Id de Hora:</string>
     <string name="InicioHora">Hora Inicio:</string>
     <string name="FinHora">Hora Fin:</string>
@@ -35,12 +34,25 @@
 
     <!-- TIPO EVENTO -->
     <string name="tipoEvento">Tipo de Evento</string>
-    <string name="titulo_tipo_evento_insertar">Agergar tipo de Evento</string>
-    <string name="titulo_tipo_evento_consultar">Consultar tipo de Evento</string>
-    <string name="titulo_tipo_evento_actualizar">Actualizar tipo de Evento</string>
-    <string name="titulo_tipo_evento_eliminar">Eliminar tipo de Evento</string>
+    <string name="titulo_tipo_evento_insertar">Insertar Tipo Evento</string>
+    <string name="titulo_tipo_evento_consultar">Consultar Tipo Evento</string>
+    <string name="titulo_tipo_evento_actualizar">Actualizar Tipo Evento</string>
+    <string name="titulo_tipo_evento_eliminar">Eliminar Tipo Evento</string>
     <string name="idTipoEvento">Id del tipo evento:</string>
     <string name="NomTipoEvento">Nombre del tipo de evento:</string>
+
+    <!-- COBRO -->
+    <string name="cobro">Cobro</string>
+    <string name="titulo_cobro_insertar">Insertar cobro</string>
+    <string name="titulo_cobro_consultar">Consultar cobro</string>
+    <string name="titulo_cobro_actualizar">Actualizar cobro</string>
+    <string name="titulo_cobro_eliminar">Eliminar cobro</string>
+    <string name="idCobro">Id del cobro:</string>
+    <string name="TipoPago">Tipo de pago:</string>
+    <string name="duracion">Duración:</string>
+    <string name="precios">Precio:</string>
+
+
 
     <!--Local-->
     <string name="agregarLocal">Agregar Local</string>
@@ -209,6 +221,8 @@
     <string name="hintIdTipoReservacion">Ingrese el Id del tipo de reservacion</string>
     <string name="nombreTipoReservaciontxt">Nombre del tipo de reservacion</string>
     <string name="hintnombreTipoReservacion">Ingrese el nombre del tipo de reservacion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -8,14 +8,6 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
 
         <item
             android:id="@+id/nav_reservacion"
@@ -49,7 +41,7 @@
 
         <item
             android:id="@+id/nav_hora"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_time"
             android:title="Hora" /> <!--Strings-->
 
         <item
@@ -61,9 +53,15 @@
             android:id="@+id/nav_tipoevento"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/tipoEvento" />
+
+        <item
+            android:id="@+id/nav_cobro"
+            android:icon="@drawable/ic_money"
+            android:title="@string/cobro"/>
+
         <item
             android:id="@+id/nav_tipoPago"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_tp"
             android:title="Tipo de Pago" /> <!--Strings-->
         <item
             android:id="@+id/nav_tipoReservacion"

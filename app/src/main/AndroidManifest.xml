@@ -136,16 +136,10 @@
             android:name=".Alonso.TipoEvento.TipoEventoConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".Alonso.TipoEvento.TipoEventoMenuActivity"
-            android:exported="false" />
-        <activity
             android:name=".Alonso.TipoEvento.TipoEventoActualizarActivity"
             android:exported="false" />
         <activity
             android:name=".Alonso.TipoEvento.TipoEventoInsertarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Alonso.Dia.DiaMenuActivity"
             android:exported="false" />
         <activity
             android:name=".Alonso.Dia.DiaEliminarActivity"
@@ -158,9 +152,6 @@
             android:exported="false" />
         <activity
             android:name=".Alonso.Dia.DiaInsertarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Alonso.Cobro.CobroMenuActivity"
             android:exported="false" />
         <activity
             android:name=".Alonso.Cobro.CobroActualizarActivity"

@@ -15,25 +15,33 @@
         android:id="@+id/botonAgregarHora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/AgregarHoraFragment" />
+        android:text="@string/AgregarHoraFragment"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"/>
 
     <Button
        android:id="@+id/botonConsultarHora"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="@string/ConsultarHoraFragment" />
+       android:text="@string/ConsultarHoraFragment"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"/>
 
      <Button
          android:id="@+id/botonModificarHora"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:text="@string/ActualizarHoraFragment" />
+         android:text="@string/ActualizarHoraFragment"
+         android:textColor="@color/black"
+         android:backgroundTint="@color/botones"/>
 
      <Button
          android:id="@+id/botonEliminarHora"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:text="@string/EliminarHoraFragment" />
+         android:text="@string/EliminarHoraFragment"
+         android:textColor="@color/black"
+         android:backgroundTint="@color/botones"/>
 
     </LinearLayout>
 

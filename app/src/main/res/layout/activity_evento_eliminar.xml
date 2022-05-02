@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
+    android:orientation="vertical"
     tools:context=".Chris.Evento.EventoEliminarActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/NumEvenTxt"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/EditIdNumeroEventoEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/NumeroEventoHint"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/botonEliminarEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="@string/botonEliminar"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"/>
+
+</LinearLayout>

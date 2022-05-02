@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
@@ -53,22 +54,25 @@ public class EventoInsertarActivity extends AppCompatActivity {
             cursor.moveToNext();
         }
         //Definición del adapter que almacena los datos del spinner
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,arrayidTE);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,arrayTiposdeEventos);
         spinnerTiposEventos.setAdapter(arrayAdapter);
 
         //Boton Agregar evento
         agregarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String eventosRegistrados, posicion;
+                String eventosRegistrados;
                 String idEvento = IdEvento.getText().toString();
-                String idTipoEvento = spinnerTiposEventos.getSelectedItem().toString() ;
                 String nombreEvento = NombreEvento.getText().toString();
                 Float costo = Float.valueOf(CostoEvento.getText().toString());
 
                 Evento event = new Evento();
                 event.setIdEvento(idEvento);
-                event.setIdTipoE(idTipoEvento);
+                for (int i=0; i< arrayidTE.length; i++){
+                    if(spinnerTiposEventos.getSelectedItem().toString() == arrayTiposdeEventos[i]){
+                        event.setIdTipoE(arrayidTE[i]);
+                    }
+                }
                 event.setNomEvento(nombreEvento);
                 event.setCostoEvento(costo);
                 controlBDG10.open();

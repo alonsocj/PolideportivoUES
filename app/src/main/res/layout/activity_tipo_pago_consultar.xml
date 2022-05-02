@@ -11,7 +11,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TipoPagoIdentificador"/>
+        android:text="@string/TipoPagoIdentificador"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditIdPagoConsultar"
@@ -26,13 +27,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:text="@string/botonConsultar"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TipoPagoNombreTipo"/>
+        android:text="@string/TipoPagoNombreTipo"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/EditTipoConsultar"

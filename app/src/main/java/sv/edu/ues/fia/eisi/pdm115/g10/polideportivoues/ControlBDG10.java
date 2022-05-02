@@ -19,7 +19,7 @@ public class ControlBDG10 {
     /*Tabla Hora*/
     private static final String[] camposHora = new String[]{"idhora","horaInicio","horaFin"};
     private static final String[] camposTipoEvento = new String[]{"idTipoE","nomTipoE"};
-    private static final String[] camposTipoPago = new String[]{"idTipoP","nomTipoP"};
+    private static final String[] camposTipoPago = new String[]{"idPago","tipo"};
     private static final String[] camposEvento = new String[]{"idEvento", "idTipoE", "nomEvento", "costoEvento"};
 
 
@@ -370,9 +370,30 @@ public class ControlBDG10 {
         }
     }
 
+    public String actualizarEvento(Evento evento){
+       if(verificarIntegridadDeDatos(evento,9)){
+            String[] id = {evento.getIdEvento()};
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("idTipoE",evento.getIdTipoE());
+            contentValues.put("nomEvento",evento.getNomEvento());
+            contentValues.put("costoEvento", evento.getCostoEvento());
+            db.update("evento",contentValues, "idEvento = ?",id);
+            return "Evento actualizado correctamente";
+        }else{
+            return "No existe el evento";
+       }
+    }
 
-
-
+    public String eliminarEvento(Evento evento){
+        String eventosEliminados = "Evento eliminado: ";
+        int contador = 0;
+        if(verificarIntegridadDeDatos(evento,10)){
+            contador+=db.delete("evento","idEvento='"+evento.getIdEvento()+"'",null);
+        }
+        contador+=db.delete("evento","idEvento='"+evento.getIdEvento()+"'",null);
+        eventosEliminados += contador;
+        return eventosEliminados;
+    }
 
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
@@ -439,10 +460,32 @@ public class ControlBDG10 {
                 if(cursor.moveToFirst()){
                     //Se encontraron datos de tipoEvento
                     return true;
+                }else{
+                    return false;
                 }
-                return false;
+            } case 9:{
+                //Verificar que existe el Evento
+                Evento evento1 = (Evento)valor;
+                String[] idEven = {evento1.getIdEvento()};
+                open();
+                Cursor cursor = db.query("evento",camposEvento,"idEvento = ?",idEven, null,null,null);
+                if(cursor.moveToFirst()){
+                    //Se encontro el evento
+                    return true;
+                }else{
+                    return false;
+                }
+            } case 10:{
+                //Obtener el evento para eliminarlo
+                Evento evento = (Evento) valor;
+                Cursor cursor = db.query(true,"evento", new String[]{"idEvento"},"idEvento='"+evento.getIdEvento()+"'",null,null,null,null,null);
+                if(cursor.moveToFirst()){
+                    //Se encontro el evento
+                    return true;
+                }else{
+                    return false;
+                }
             }
-
             default:
                 return false;
         }

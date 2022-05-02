@@ -238,14 +238,13 @@
     <string name="actualizarTipoReservacion">Actualizar tipo de reservacion</string>
     <string name="eliminarTipoReservacion">Eliminar tipo de reservacion</string>
 
-    <!-- detalle periodo reservados -->
-    <string name="titulo_nav_detallePeriodoReservados">Detalle de Periodos Reservados</string>
-    <string name="agregarDetallePeriodoRerservados">Agregar detalle de periodos reservados</string>
-    <string name="consultarDetallePeriodoRerservados">Consultar detalle de periodos reservados</string>
-    <string name="actualizarDetallePeriodoRerservados">Actualizar detalle de periodos reservados</string>
-    <string name="eliminarDetallePeriodoRerservados">Eliminar detalle de periodos reservados</string>
-    <string name="fechaDetalle">Ingrese la fecha de creacion del detalle</string>
-    <string name="Hint_fechadetalle">Ingrese la fecha de creacion del detalle</string>
+    <!-- horariosLocales -->
+    <string name="titulo_nav_horariosLocales">Horarios Locales</string>
+    <string name="agregarHorariosLocales">Agregar horario del local</string>
+    <string name="disponibilidadHorariosDisponibles">Estado del horario</string>
+    <string name="consultarHorariosLocales">Consultar horario del local</string>
+    <string name="eliminarHorariosLocales">Eliminar horario del local</string>
+    <string name="actualizarHorariosLocales">Actualizar horario del local</string>
 
 
 </resources>

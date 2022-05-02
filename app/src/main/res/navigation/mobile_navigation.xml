@@ -80,9 +80,9 @@
         tools:layout="@layout/fragment_horarios_disponibles" />
 
     <fragment
-        android:id="@+id/nav_detalle_periodos_reservados"
-        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.detallePeriodoReservados.DetallePeriodoReservadosFragment"
-        android:label="@string/titulo_nav_detallePeriodoReservados"
-        tools:layout="@layout/fragment_detalle_periodo_reservados" />
+        android:id="@+id/nav_horarios_locales"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.HorariosLocales.HorariosLocalesFragment"
+        android:label="@string/titulo_nav_horariosLocales"
+        tools:layout="@layout/fragment_horarios_locales" />
 
 </navigation>

@@ -37,7 +37,7 @@ public class ControlBDG10William {
         ContentValues locales = new ContentValues();
         locales.put("idLocal", local.getIdLocal());
         locales.put("nomLocal", local.getNomLocal());
-        locales.put("cupo", local.getCupo());
+        locales.put("cantidadPersonas", local.getCantidadPersonas());
         cuenta = db.insert("local",null,locales);
 
         if(cuenta == -1 || cuenta == 0){
@@ -54,7 +54,7 @@ public class ControlBDG10William {
             String[] id={local.getIdLocal()};
             ContentValues contentValues = new ContentValues();
             contentValues.put("nomLocal", local.getNomLocal());
-            contentValues.put("cupo",local.getCupo());
+            contentValues.put("cantidadPersonas",local.getCantidadPersonas());
             db.update("local",contentValues, "idLocal = ?",id);
             return "Local Actualizado";
         }else{
@@ -64,12 +64,12 @@ public class ControlBDG10William {
 
     public Local consultarLocal(String idlocal){
         String[] id = {idlocal};
-        Cursor cursor = db.query("local", new String [] {"idLocal","nomLocal","cupo"}, "idLocal = ?", id, null, null, null);
+        Cursor cursor = db.query("local", new String [] {"idLocal","nomLocal","cantidadPersonas"}, "idLocal = ?", id, null, null, null);
         if(cursor.moveToFirst()){
             Local local = new Local();
             local.setIdLocal(cursor.getString(0));
             local.setNomLocal(cursor.getString(1));
-            local.setCupo(Integer.parseInt(cursor.getString(2)));
+            local.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
             return local;
         }else{
             return null;

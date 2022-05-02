@@ -58,7 +58,7 @@ public class LocalInsertarActivity extends AppCompatActivity implements AdapterV
             Local local = new Local();
             local.setIdLocal(idLocal);
             local.setNomLocal(nombreLocal);
-            local.setCupo(indiceCupo);
+            local.setCantidadPersonas(indiceCupo);
             helper.open();
             regInsertados = helper.ingresarLocal(local);
             helper.close();

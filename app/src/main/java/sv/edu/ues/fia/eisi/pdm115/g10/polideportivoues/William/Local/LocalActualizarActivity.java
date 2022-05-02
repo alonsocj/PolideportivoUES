@@ -56,7 +56,7 @@ public class LocalActualizarActivity extends AppCompatActivity implements Adapte
             Local local = new Local();
             local.setIdLocal(idLocal);
             local.setNomLocal(nombreLocal);
-            local.setCupo(indiceCupo);
+            local.setCantidadPersonas(indiceCupo);
             helper.open();
             regInsertados = helper.actualizarLocal(local);
             helper.close();

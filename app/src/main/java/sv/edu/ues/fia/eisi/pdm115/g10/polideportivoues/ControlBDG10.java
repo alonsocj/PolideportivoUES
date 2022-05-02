@@ -35,7 +35,7 @@ public class ControlBDG10 {
         DBhelper.close();
     }
 
-   
+
     /*
      * Inicio de funcionalidades de TIPO EVENTO
      */

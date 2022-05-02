@@ -39,13 +39,11 @@
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:text="@string/id_Evento"/>
-        <EditText
+
+        <Spinner
             android:id="@+id/idEvento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="6"
-            android:hint="@string/Hint_id_Evento"/>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,14 +52,10 @@
             android:textSize="20sp"
             android:text="@string/id_Local"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/idLocal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="5"
-            android:minHeight="48dp"
-            android:hint="@string/Hint_id_Local"/>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,6 +87,7 @@
                 android:backgroundTint="@color/botones"/>
             <Button
                 android:id="@+id/botonLimpiar"
+                android:onClick="limpiar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

@@ -32,6 +32,12 @@
     <string name="inicioH">Hora de Inicio</string>
     <string name="finH">Hora de Finalización</string>
 
+    <string name="titulo_hora_insertar">Insertar Hora</string>
+    <string name="titulo_hora_editar">Actualizar Hora</string>
+    <string name="titulo_hora_consultar">Consultar Hora</string>
+    <string name="titulo_hora_eliminar">Eliminar Hora</string>
+
+
     <!-- TIPO EVENTO -->
     <string name="tipoEvento">Tipo de Evento</string>
     <string name="titulo_tipo_evento_insertar">Insertar Tipo Evento</string>
@@ -86,6 +92,11 @@
     <string name="hintIdePago">Ingrese el codigo del tipo pago</string>
     <string name="hintTipoPago">Ingrese el tipo de pago</string>
 
+    <string name="titulo_tipoPago_insertar">Insertar Tipo Pago</string>
+    <string name="titulo_tipoPago_editar">Actualizar Tipo Pago</string>
+    <string name="titulo_tipoPago_consultar">Consultar Tipo Pago</string>
+    <string name="titulo_tipoPago_eliminar">Eliminar Tipo Pago</string>
+
 
     <!--Tabla Evento-->
     <string name="AgregarEventoFragment">Agregar Evento</string>
@@ -97,9 +108,16 @@
     <string name="TiEventTxt">Tipo de Evento</string>
     <string name="NomEventTxt">Nombre del Evento</string>
     <string name="costoEventTxt">Costo del Evento</string>
+    <string name="cantAutEventTxt">Cantidad Autorizada para el evento</string>
     <string name="NumeroEventoHint">Ingrese el numero de evento</string>
     <string name="NombreEventoHint">Ingrese el nombre del evento</string>
     <string name="CostoEventoHint">Ingrese el costo del evento</string>
+    <string name="CantidadAutorizadaHint">Ingrese la cantidad de personas autorizadas</string>
+
+    <string name="titulo_evento_insertar">Insertar Evento</string>
+    <string name="titulo_evento_editar">Actualizar Evento</string>
+    <string name="titulo_evento_consultar">Consultar Evento</string>
+    <string name="titulo_evento_eliminar">Eliminar Evento</string>
 
 
     <string name="agregarTipoReservacion">Agregar tipo de reservacion</string>

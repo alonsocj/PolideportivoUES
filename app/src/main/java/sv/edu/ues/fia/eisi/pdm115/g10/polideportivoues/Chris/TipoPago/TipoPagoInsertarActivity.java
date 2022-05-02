@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
@@ -15,14 +16,14 @@ public class TipoPagoInsertarActivity extends AppCompatActivity {
 
     EditText editIdPago, editTipoPago;
     Button agregarTipoPago;
-    ControlBDG10 helper;
+    ControlBDChristian helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_pago_insertar);
 
-        helper = new ControlBDG10(this);
+        helper = new ControlBDChristian(this);
         editIdPago = (EditText) findViewById(R.id.EditIdPago);
         editTipoPago = (EditText) findViewById(R.id.EditTipo);
         agregarTipoPago = (Button) findViewById(R.id.botonAgregarTipoP);
@@ -34,13 +35,21 @@ public class TipoPagoInsertarActivity extends AppCompatActivity {
                 String tipoPago = editTipoPago.getText().toString();
                 String pagosRegistrados;
 
-                    TipoPago tipoPago1 = new TipoPago();
-                    tipoPago1.setIdPago(idPago);
-                    tipoPago1.setTipo(tipoPago);
-                    helper.open();
-                    pagosRegistrados = helper.insertarTipoPago(tipoPago1);
-                    helper.close();
-                Toast.makeText(TipoPagoInsertarActivity.this, pagosRegistrados, Toast.LENGTH_SHORT).show();
+                if(idPago.isEmpty() || tipoPago.isEmpty()){
+                    Toast.makeText(TipoPagoInsertarActivity.this, "Debe de completar todos los campos para registrar un tipo de pago", Toast.LENGTH_SHORT).show();
+                }else{
+                    if(idPago.length() != 2){
+                        Toast.makeText(TipoPagoInsertarActivity.this, "El id debe de contener dos caracteres", Toast.LENGTH_SHORT).show();
+                    }else{
+                        TipoPago tipoPago1 = new TipoPago();
+                        tipoPago1.setIdPago(idPago);
+                        tipoPago1.setTipo(tipoPago);
+                        helper.open();
+                        pagosRegistrados = helper.insertarTipoPago(tipoPago1);
+                        helper.close();
+                        Toast.makeText(TipoPagoInsertarActivity.this, pagosRegistrados, Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
 

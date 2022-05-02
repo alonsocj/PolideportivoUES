@@ -17,13 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class EventoActualizarActivity extends AppCompatActivity {
 
-    ControlBDG10 helper;
-    EditText editIdEve, editNom, editCost;
+    ControlBDChristian helper;
+    EditText editIdEve, editNom, editCost, editCantAutorizada;
     Button actualizareventos;
     Spinner spinner;
     SQLiteDatabase db;
@@ -36,11 +37,12 @@ public class EventoActualizarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento_actualizar);
 
-        helper = new ControlBDG10(this);
+        helper = new ControlBDChristian(this);
         editIdEve = findViewById(R.id.EditIdNumeroEventoActu);
         editNom = findViewById(R.id.EditNombreEventoActu);
         editCost = findViewById(R.id.EditCostoEventoActu);
         actualizareventos = findViewById(R.id.botonActualizarEvent);
+        editCantAutorizada = findViewById(R.id.EditCantAutorEventoActu);
         spinner = findViewById(R.id.spinnerTipoEventoActu);
 
 
@@ -72,6 +74,7 @@ public class EventoActualizarActivity extends AppCompatActivity {
                 }
                 event.setNomEvento(editNom.getText().toString());
                 event.setCostoEvento(Float.valueOf(editCost.getText().toString()));
+                event.setCantidadAutorizada(Integer.valueOf(editCantAutorizada.getText().toString()));
                 helper.open();
                 String actu = helper.actualizarEvento(event);
                 helper.close();

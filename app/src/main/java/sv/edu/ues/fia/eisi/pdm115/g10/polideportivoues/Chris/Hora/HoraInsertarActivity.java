@@ -13,12 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class HoraInsertarActivity extends AppCompatActivity {
 
-    ControlBDG10 controlBDG10;
+    ControlBDChristian controlBDChristian;
     EditText editId, editInicio, editFin;
     Button botonAgregar, botonHoradeInicio, botonHoraFinalizacion;
     int horas, minutos;
@@ -28,7 +29,7 @@ public class HoraInsertarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hora_insertar);
 
-        controlBDG10 = new ControlBDG10(this);
+        controlBDChristian = new ControlBDChristian(this);
         editId = (EditText) findViewById(R.id.EditIdHora);
         editInicio = (EditText) findViewById(R.id.EditHoraInicio);
         editFin = (EditText) findViewById(R.id.EditHoraFin);
@@ -83,15 +84,27 @@ public class HoraInsertarActivity extends AppCompatActivity {
                 String inicio = editInicio.getText().toString();
                 String fin = editFin.getText().toString();
                 String insertarRegistros;
+                boolean verdadero=true;
 
-                Hora hora = new Hora();
-                hora.setIdHora(id);
-                hora.setHoraInicio(inicio);
-                hora.setHoraFin(fin);
-                controlBDG10.open();
-                insertarRegistros = controlBDG10.insertarHora(hora);
-                controlBDG10.close();
-                Toast.makeText(HoraInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+                if(id.isEmpty() || inicio.isEmpty() || fin.isEmpty()){
+                    Toast.makeText(HoraInsertarActivity.this, "Para agregar una hora debe de llenar todos los campos", Toast.LENGTH_SHORT).show();
+                }else{
+                    if(inicio.equals(fin)){
+                        Toast.makeText(HoraInsertarActivity.this, "Debe de ingresar horas diferentes!", Toast.LENGTH_SHORT).show();
+                    } else if(inicio.compareTo(fin) > 0){
+                        Toast.makeText(HoraInsertarActivity.this, "La hora de inicio debe ser anterior a la hora de finalizacion", Toast.LENGTH_SHORT).show();
+                        verdadero=false;
+                    }else{
+                        Hora hora = new Hora();
+                        hora.setIdHora(id);
+                        hora.setHoraInicio(inicio);
+                        hora.setHoraFin(fin);
+                        controlBDChristian.open();
+                        insertarRegistros = controlBDChristian.insertarHora(hora);
+                        controlBDChristian.close();
+                        Toast.makeText(HoraInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
 

@@ -6,15 +6,17 @@ public class Evento {
     private String idTipoE;
     private String nomEvento;
     private float costoEvento;
+    private int cantidadAutorizada;
 
     public Evento() {
     }
 
-    public Evento(String idEvento, String idTipoE, String nomEvento, float costoEvento) {
+    public Evento(String idEvento, String idTipoE, String nomEvento, float costoEvento, int cantidadAutorizada) {
         this.idEvento = idEvento;
         this.idTipoE = idTipoE;
         this.nomEvento = nomEvento;
         this.costoEvento = costoEvento;
+        this.cantidadAutorizada = cantidadAutorizada;
     }
 
     public String getIdEvento() {
@@ -47,5 +49,13 @@ public class Evento {
 
     public void setCostoEvento(float costoEvento) {
         this.costoEvento = costoEvento;
+    }
+
+    public int getCantidadAutorizada() {
+        return cantidadAutorizada;
+    }
+
+    public void setCantidadAutorizada(int cantidadAutorizada) {
+        this.cantidadAutorizada = cantidadAutorizada;
     }
 }

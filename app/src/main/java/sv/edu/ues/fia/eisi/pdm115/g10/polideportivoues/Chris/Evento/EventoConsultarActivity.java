@@ -13,14 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.lang.reflect.Array;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class EventoConsultarActivity extends AppCompatActivity {
 
-    EditText editIdEven, editIdTE, editNom, editCost;
+    EditText editIdEven, editIdTE, editNom, editCost, editCantAuto;
     Button consultarEvent;
-    ControlBDG10 helper;
+    ControlBDChristian helper;
     private SQLiteDatabase db;
     String nombreTipoEvento[];
     String idEvento[];
@@ -30,11 +31,12 @@ public class EventoConsultarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento_consultar);
-        helper = new ControlBDG10(this);
+        helper = new ControlBDChristian(this);
         editIdEven = findViewById(R.id.EditIdNumeroEventoConsulta);
         editIdTE = findViewById(R.id.EditTipoEventoConsulta);
         editNom = findViewById(R.id.EditNombreEventoConsulta);
         editCost = findViewById(R.id.EditCostoEventoConsulta);
+        editCantAuto = findViewById(R.id.EditCantAutorEventoConsulta);
 
         consultarEvent = findViewById(R.id.botonConsultarEvent);
 
@@ -67,6 +69,7 @@ public class EventoConsultarActivity extends AppCompatActivity {
                     editIdTE.setText(evento.getIdTipoE());
                     editNom.setText(evento.getNomEvento());
                     editCost.setText(String.valueOf(evento.getCostoEvento()));
+                    editCantAuto.setText(String.valueOf(evento.getCantidadAutorizada()));
                 }
             }
         });

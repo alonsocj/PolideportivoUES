@@ -1,9 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".William.DetallePeriodosReservados.DetallePeriodosReservadosActualizarActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="@string/actualizarDetallePeriodoRerservados"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:text="@string/id_PeriodoReserva"/>
+
+        <EditText
+            android:id="@+id/EditIdPeriodoReservaD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Hint_id_PeriodoReserva"
+            android:minHeight="48dp"
+            android:maxLength="6"
+            android:inputType="text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:text="@string/idHorario"/>
+
+        <EditText
+            android:id="@+id/EditIdHorariosDisponiblesD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintIdHorario"
+            android:inputType="text"
+            android:maxLength="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fechaDetalle"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/EditFechaDetalle"
+            android:hint="@string/Hint_fechadetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
+            android:maxLines="1" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
+            <Button
+                android:id="@+id/botonActualizarDetallePeriodosR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="actualizarDetallePeriodosR"
+                android:layout_margin="8dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones"
+                android:text="@string/botonActualizar"/>
+
+            <Button
+                android:id="@+id/botonLimpiar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/btnLimpiar"
+                android:onClick="limpiar"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

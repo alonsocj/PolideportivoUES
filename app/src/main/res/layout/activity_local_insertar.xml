@@ -49,6 +49,8 @@
         android:hint="@string/hintnombreLocal"
         android:maxLength="50"
         android:minHeight="48dp"
+        android:inputType="text"
+        android:maxLines="1"
         />
     <TextView
         android:layout_width="wrap_content"

@@ -70,7 +70,8 @@
         android:id="@+id/EditNombreTipoReservacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLength="50"
+        android:maxLength="10"
+        android:maxLines="1"
         android:enabled="false"
         android:minHeight="48dp"
         />

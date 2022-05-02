@@ -226,6 +226,8 @@
     <string name="consultarDetallePeriodoRerservados">Consultar detalle de periodos reservados</string>
     <string name="actualizarDetallePeriodoRerservados">Actualizar detalle de periodos reservados</string>
     <string name="eliminarDetallePeriodoRerservados">Eliminar detalle de periodos reservados</string>
+    <string name="fechaDetalle">Ingrese la fecha de creacion del detalle</string>
+    <string name="Hint_fechadetalle">Ingrese la fecha de creacion del detalle</string>
 
 
 </resources>

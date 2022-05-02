@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.tipoevento.TipoEventoFragment">
+    tools:context=".ui.cobro.CobroFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,36 +12,36 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/botonAgregarTipoEvento"
+            android:id="@+id/botonAgregarCobro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/botones"
             android:textColor="@color/black"
-            android:text="@string/titulo_tipo_evento_insertar" />
+            android:text="@string/titulo_cobro_insertar" />
 
         <Button
-            android:id="@+id/botonConsultarTipoEvento"
+            android:id="@+id/botonConsultarCobro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/botones"
             android:textColor="@color/black"
-            android:text="@string/titulo_tipo_evento_consultar" />
+            android:text="@string/titulo_cobro_consultar" />
 
         <Button
-            android:id="@+id/botonActualizarTipoEvento"
+            android:id="@+id/botonActualizarCobro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/botones"
             android:textColor="@color/black"
-            android:text="@string/titulo_tipo_evento_actualizar" />
+            android:text="@string/titulo_cobro_actualizar" />
 
         <Button
-            android:id="@+id/botonEliminarTipoEvento"
+            android:id="@+id/botonEliminarCobro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/botones"
             android:textColor="@color/black"
-            android:text="@string/titulo_tipo_evento_eliminar" />
+            android:text="@string/titulo_cobro_eliminar" />
 
     </LinearLayout>
 

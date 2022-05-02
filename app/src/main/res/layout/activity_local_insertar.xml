@@ -62,7 +62,6 @@
         android:id="@+id/SpinnerCupoLocal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/cupoLocal"
         android:minHeight="48dp"/>
 
     <LinearLayout

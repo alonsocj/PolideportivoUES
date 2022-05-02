@@ -48,6 +48,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "idPeriodoReserva VARCHAR (6) NOT NULL,\n" +
                     "fechaRegistro DATE NOT NULL);");
 
+            db.execSQL("CREATE TABLE detallePeriodosReservados( idPeriodoReserva VARCHAR(6) NOT NULL, idHorario VARCHAR(2) NOT NULL, fechaDetalle DATE NOT NULL," +
+                        "PRIMARY KEY (idPeriodoReserva, idHorario)," +
+                        "CONSTRAINT FK_DETALLEP_PERIODOR FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva (idPeriodoReserva) ON DELETE RESTRICT," +
+                        "CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT);");
+
 
             //Trigger de relacion de llaves foraneas de la tabla Evento con tipoevento
             db.execSQL("CREATE TRIGGER fk_evento_tipoevento " +

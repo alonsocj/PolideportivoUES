@@ -6,10 +6,16 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.LocalEvento.LocalEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReserva;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.Reservacion;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
 public class ControlBDCarolina {
     /*Tabla PeriodoReserva*/
@@ -40,19 +46,19 @@ public class ControlBDCarolina {
         value.put("fechaFin", periodoReserva.getFechaFin());
         contador = db.insert("periodoReserva",null,value);
 
-        /*PeriodoReserva p= new PeriodoReserva();
-        ContentValues values = new ContentValues();
+
+        /*ContentValues values = new ContentValues();
         values.put("idPeriodoReserva", "CAROLI");
         values.put("fechaInicio", "17/04/2022");
         values.put("fechaFin", "02/05/2022");
-        contador += db.insert("periodoReserva",null,values);
+        db.insert("periodoReserva",null,values);
 
         ContentValues l=new ContentValues();
         l.put("idReservacion", "R00001");
         l.put("idCobro","C00001");
         l.put("idPersona","P00001");
         l.put("idTipoR","P");
-        l.put("idEvento","E00001");
+        l.put("idEvento","000001");
         l.put("idPeriodoReserva","CAROLI");
         l.put("fechaRegistro","05/05/2022");
         db.insert("reservacion",null, l);*/
@@ -103,7 +109,7 @@ public class ControlBDCarolina {
         }
     }
     public Boolean verificarPeriodosReservaCascada(PeriodoReserva periodoReserva){
-        //verifica si hay registros de periodo reserva en la tabla reservacion y en la tabla detallePeriodosReservados
+        //verifica si hay registros de periodo reserva en la tabla reservacion
         PeriodoReserva periodo = (PeriodoReserva)periodoReserva;
         Cursor c=db.query(true, "reservacion", new String[] {"idPeriodoReserva" }, "idperiodoReserva='"+periodo.getIdPeriodoReserva()+"'",null,null, null, null, null);
         if(c.moveToFirst()){
@@ -111,15 +117,6 @@ public class ControlBDCarolina {
         }else{
             return false;
         }
-
-        /*Cursor c1=db.query(true, "detallePeriodosReservados", new String[] {"idPeriodoReserva" }, "idperiodoReserva='"+periodo.getIdPeriodoReserva()+"'",null,null, null, null, null);
-
-        if(c.moveToFirst()||c1.moveToFirst()){
-            return true;
-        }else{
-            return false;
-        }*/
-
     }
     public String eliminarPeriodoReserva(PeriodoReserva periodoReserva){
         String regAfectados="Filas afectadas= ";
@@ -132,20 +129,16 @@ public class ControlBDCarolina {
     public String eliminarPeriodoReservaCascada(PeriodoReserva periodoReserva){
         String regAfectados1="Filas afectadas en la tabla reservación= ";
         String regAfectados2="Filas afectadas en la tabla periodo reserva= ";
-        String regAfectados3="Filas afectadas en la tabla detalle de periodos reservados= ";
         String suma;
         int contador1=0;
         int contador2=0;
-        int contador3=0;
 
         contador1+=db.delete("reservacion","idPeriodoReserva='"+periodoReserva.getIdPeriodoReserva()+"'",null);
         regAfectados1 = regAfectados1 + contador1;
         contador2+=db.delete("periodoReserva","idPeriodoReserva='"+periodoReserva.getIdPeriodoReserva()+"'",null);
         regAfectados2 = regAfectados2 + contador2;
-        /*contador3+=db.delete("detallePeriodosReservados","idPeriodoReserva='"+periodoReserva.getIdPeriodoReserva()+"'",null);*/
-        regAfectados3 = regAfectados3 + contador3;
 
-        suma=regAfectados2+"\n"+regAfectados1+"\n"+regAfectados3;
+        suma=regAfectados2+"\n"+regAfectados1;
         return suma;
     }
     /*public String eliminarPeriodoReserva(PeriodoReserva periodoReserva){
@@ -196,6 +189,74 @@ public class ControlBDCarolina {
     public String eliminarReservacion(Reservacion reservacion){
 
         return null;
+    }
+
+    //Extraer listado de todos los eventos
+    public List<Evento> consultarEventos(){
+        List<Evento> arrayEventos=new ArrayList<>();
+        Cursor cursor = db.query("evento",null, null, null, null, null, null);
+
+        if(cursor.moveToFirst()){
+            Evento evento = new Evento();
+            evento.setIdEvento(cursor.getString(0));
+            evento.setIdTipoE(cursor.getString(1));
+            evento.setNomEvento(cursor.getString(2));
+            evento.setCostoEvento(cursor.getFloat(3));
+            arrayEventos.add(evento);
+
+            while(cursor.moveToNext()) {
+                Evento eventos = new Evento();
+                eventos.setIdEvento(cursor.getString(0));
+                eventos.setIdTipoE(cursor.getString(1));
+                eventos.setNomEvento(cursor.getString(2));
+                eventos.setCostoEvento(cursor.getFloat(3));
+                arrayEventos.add(eventos);
+            }
+        }
+        return arrayEventos;
+    }
+    public List<String> consultarEventosString(List<Evento> arrayEventos){
+        List<String>arrayEventosString=new ArrayList<>();
+        arrayEventosString.add("Seleccione un evento");
+        for (int i=0;i<arrayEventos.size();i++) {
+            Evento eventosArray=new Evento();
+            eventosArray=arrayEventos.get(i);
+            arrayEventosString.add(eventosArray.getNomEvento());
+        }
+        return arrayEventosString;
+    }
+
+    //Extraer listado de todos los locales
+    public List<Local> consultarLocales(){
+        List<Local> arrayLocales=new ArrayList<>();
+        Cursor cursor = db.query("local",null, null, null, null, null, null);
+
+        if(cursor.moveToFirst()){
+            Local local = new Local();
+            local.setIdLocal(cursor.getString(0));
+            local.setNomLocal(cursor.getString(1));
+            local.setCupo(Integer.parseInt(cursor.getString(2)));
+            arrayLocales.add(local);
+
+            while(cursor.moveToNext()) {
+                Local locals = new Local();
+                locals.setIdLocal(cursor.getString(0));
+                locals.setNomLocal(cursor.getString(1));
+                locals.setCupo(Integer.parseInt(cursor.getString(2)));
+                arrayLocales.add(locals);
+            }
+        }
+        return arrayLocales;
+    }
+    public List<String> consultarLocalesString(List<Local> arrayLocales){
+        List<String>arrayLocalesString=new ArrayList<>();
+        arrayLocalesString.add("Seleccione un local");
+        for (int i=0;i<arrayLocales.size();i++) {
+            Local localessArray=new Local();
+            localessArray=arrayLocales.get(i);
+            arrayLocalesString.add(localessArray.getNomLocal());
+        }
+        return arrayLocalesString;
     }
 
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
@@ -302,3 +363,25 @@ public class ControlBDCarolina {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

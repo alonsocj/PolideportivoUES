@@ -180,16 +180,16 @@ public class ControlBDG10 {
     }
 
     public String actualizarLocal(Local local){
-        //if(verificarIntegridadDeDatos(local,2)){
+        if(verificarIntegridadDeDatos(local,2)){
             String[] id={local.getIdLocal()};
             ContentValues contentValues = new ContentValues();
             contentValues.put("nomLocal", local.getNomLocal());
             contentValues.put("cupo",local.getCupo());
             db.update("local",contentValues, "idLocal = ?",id);
             return "Local Actualizado";
-        //}else{
-            //return "El local no existe";
-        //}
+        }else{
+            return "El local no existe";
+        }
     }
 
     public Local consultarLocal(String idlocal){
@@ -209,12 +209,17 @@ public class ControlBDG10 {
     public String eliminarLocal(Local local){
         String regAfectados="filas afectadas= ";
         int contador=0;
-        //if (verificarIntegridad(alumno,3)) {
-            //contador+=db.delete("nota", "carnet='"+alumno.getCarnet()+"'", null);
-        //}
-        contador+=db.delete("local", "carnet='"+local.getIdLocal()+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
+        if (verificarIntegridadDeDatos(local,2)) {
+            //if (verificarIntegridadDeDatos(local,3)) {
+                //return "El local no puede ser eliminado porque existen registros de local evento con este local.";
+            //}else{
+                contador+=db.delete("local", "idLocal='"+local.getIdLocal()+"'", null);
+                regAfectados+=contador;
+                return regAfectados;
+            //}
+        }else{
+            return "El local no existe";
+        }
     }
 
     //Metodos para tabla local
@@ -222,10 +227,10 @@ public class ControlBDG10 {
         String TipoReservacionInsertado = "Tipo de reservacion ";
         long cuenta = 0;
 
-        ContentValues locales = new ContentValues();
-        locales.put("idTipoR", tipoReservacion.getIdTipoR());
-        locales.put("nomTipoR", tipoReservacion.getNomTipoR());
-        cuenta = db.insert("local",null,locales);
+        ContentValues tipoR = new ContentValues();
+        tipoR.put("idTipoR", tipoReservacion.getIdTipoR());
+        tipoR.put("nomTipoR", tipoReservacion.getNomTipoR());
+        cuenta = db.insert("tipoReservacion",null,tipoR);
 
         if(cuenta == -1 || cuenta == 0){
             TipoReservacionInsertado = "Error al ingresar el tipo de reservacion, Verificar su inserción";
@@ -261,15 +266,21 @@ public class ControlBDG10 {
         }
     }
 
-    public String eliminarTipoReservacion(String idTipoR){
+    public String eliminarTipoReservacion(TipoReservacion tipoReservacion){
         String regAfectados="filas afectadas= ";
         int contador=0;
-        //if (verificarIntegridad(alumno,3)) {
-        //contador+=db.delete("nota", "carnet='"+alumno.getCarnet()+"'", null);
+        //if (verificarIntegridadDeDatos(tipoReservacion,2)) {
+            //if (verificarIntegridadDeDatos(tipoReservacion,3)) {
+            //return "El tipo de reservacion no puede ser eliminado porque existen registros de reservacion con este tipo.";
+            //}else{
+            contador+=db.delete("tipoReservacion", "idTipoR='"+tipoReservacion.getIdTipoR()+"'", null);
+            regAfectados+=contador;
+            return regAfectados;
+            //}
+        //}else{
+            //return "El tipo de reservacion no existe";
         //}
-        contador+=db.delete("tipoReservacion", "idTipoR='"+idTipoR+"'", null);
-        regAfectados+=contador;
-        return regAfectados;
+
     }
     /*
      * Inicio de funcionalidades de TIPO EVENTO
@@ -388,9 +399,26 @@ public class ControlBDG10 {
                     return false;
                 }
             }
-
-            /*2 y 3 los tomo williamn*/
-
+            case 2: {
+                //Verifica si existe el local a actualizar
+                Local localV = (Local) valor;
+                String[]id = {localV.getIdLocal()};
+                open();
+                Cursor cursor = db.query("local",null,"idLocal = ?", id,null,null,null);
+                if (cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            case 3:{
+                Local local = (Local) valor;
+                Cursor c=db.query(true, "localEvento", new String[] {"idLocal" }, "idLocal='"+local.getIdLocal()+"'",null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }
             //obtener la hora a eliminar
             case 4:{
                 Hora hora = (Hora) valor;

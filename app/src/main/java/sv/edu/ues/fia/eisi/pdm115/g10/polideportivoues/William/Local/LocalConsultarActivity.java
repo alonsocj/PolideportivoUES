@@ -43,7 +43,7 @@ public class LocalConsultarActivity extends AppCompatActivity {
                 Toast.makeText(LocalConsultarActivity.this, "Local con Id " + idLocal + " No encontrado", Toast.LENGTH_SHORT).show();
             }else{
                 editnomLocal.setText(local.getNomLocal());
-                editcupoLocal.setText(cupo[local.getCupo()]);
+                editcupoLocal.setText(cupo[local.getCantidadPersonas()]);
             }
         }
     }

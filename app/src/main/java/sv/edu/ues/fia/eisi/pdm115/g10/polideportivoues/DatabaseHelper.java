@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //Tabla Hora
             db.execSQL("CREATE TABLE hora (idHora VARCHAR(4) NOT NULL PRIMARY KEY, horaInicio VARCHAR(25) NOT NULL , horaFin VARCHAR(25) NOT NULL);");
             //Tabla Local
-            db.execSQL("CREATE TABLE local (idLocal VARCHAR(5) NOT NULL PRIMARY KEY, nomLocal VARCHAR(50) NOT NULL, cupo INTEGER NOT NULL);");
+            db.execSQL("CREATE TABLE local (idLocal VARCHAR(5) NOT NULL PRIMARY KEY, nomLocal VARCHAR(50) NOT NULL, cantidadPersonas INTEGER NOT NULL);");
             //Tabla LocalEvento
             db.execSQL("CREATE TABLE localEvento (idEvento VARCHAR(6) NOT NULL ,idLocal VARCHAR(5) NOT NULL ,idLocalEvento VARCHAR(5) ,cantAutorizada INTEGER NOT NULL , PRIMARY KEY(idEvento,idLocal,idLocalEvento));");
             //Tabla TipoReservacion
@@ -61,6 +61,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "CONSTRAINT FK_DETALLEP_PERIODOR FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva (idPeriodoReserva) ON DELETE RESTRICT," +
                         "CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT);");
 
+            db.execSQL("CREATE TABLE horariosLocales(\n" +
+                    "   idHorario VARCHAR(2) NOT NULL,\n" +
+                    "   idLocal VARCHAR(5) NOT NULL,\n" +
+                    "   disponibilidad INTEGER NOT NULL,\n" +
+                    "   PRIMARY KEY (idHorario, idLocal),\n" +
+                    "   CONSTRAINT FK_DETALLEP_PERIODOR FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT,\n" +
+                    "   CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idLocal) REFERENCES Local (idLocal) ON DELETE RESTRICT\n" +
+                    ");\n");
 
             //Trigger de relacion de llaves foraneas de la tabla Evento con tipoevento
             db.execSQL("CREATE TRIGGER fk_evento_tipoevento " +

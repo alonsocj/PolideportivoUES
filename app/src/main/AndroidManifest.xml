@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PolideportivoUES">
         <activity
-            android:name=".William.DetallePeriodosReservados.DetallePeriodosReservadosEliminarActivity"
+            android:name=".William.HorariosLocales.HorariosLocalesEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".William.DetallePeriodosReservados.DetallePeriodosReservadosConsultarActivity"
+            android:name=".William.HorariosLocales.HorariosLocalesConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".William.DetallePeriodosReservados.DetallePeriodosReservadosActualizarActivity"
+            android:name=".William.HorariosLocales.HoariosLocalesActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".William.DetallePeriodosReservados.DetallePeriodosReservadosInsertarActivity"
+            android:name=".William.HorariosLocales.HorariosLocalesInsertarActivity"
             android:exported="false" />
         <activity
             android:name=".Chris.TipoPago.TipoPagoEliminarActivity"

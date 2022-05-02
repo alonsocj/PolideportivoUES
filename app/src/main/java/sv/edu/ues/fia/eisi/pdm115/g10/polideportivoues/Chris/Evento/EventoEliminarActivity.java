@@ -8,12 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class EventoEliminarActivity extends AppCompatActivity {
 
-    ControlBDG10 helper;
+    ControlBDChristian helper;
     Button eliminarevent;
     EditText editIdEv;
 
@@ -22,7 +23,7 @@ public class EventoEliminarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento_eliminar);
 
-        helper = new ControlBDG10(this);
+        helper = new ControlBDChristian(this);
         editIdEv = findViewById(R.id.EditIdNumeroEventoEliminar);
         eliminarevent = findViewById(R.id.botonEliminarEvent);
 

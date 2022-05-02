@@ -6,23 +6,20 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
 
-public class ControlBDG10 {
+public class ControlBDChristian {
 
-
-   private static final String[] camposTipoEvento = new String[]{"idTipoE","nomTipoE"};
+    private static final String[] camposHora = new String[]{"idhora","horaInicio","horaFin"};
+    private static final String[] camposTipoPago = new String[]{"idPago","tipo"};
+    private static final String[] camposEvento = new String[]{"idEvento", "idTipoE", "nomEvento", "costoEvento","cantidadAutorizada"};
 
     private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
     private SQLiteDatabase db;
 
-    public ControlBDG10(Context ctx) {
+    public ControlBDChristian(Context ctx) {
         DBhelper = new DatabaseHelper(ctx);
     }
 
@@ -154,97 +151,118 @@ public class ControlBDG10 {
         return tiposdepagosafectados;
     }
 
-    /*
-     * Inicio de funcionalidades de TIPO EVENTO
-     */
+    /*Funcionalidades del Evento*/
 
-    public String insertar(TipoEvento tipoEvento){
+    public String agregarEvento(Evento evento){
+        String eventosRegistrados =  "Evento N°: ";
+        long numeroEventos=0;
 
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
-
-        ContentValues values = new ContentValues();
-        values.put("idTipoE", tipoEvento.getIdTipoE());
-        values.put("nomTipoE", tipoEvento.getNombreTipoE());
-        contador = db.insert("tipoevento",null,values);
-        if(contador==-1 || contador==0){
-            regInsertados="Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }else {
-            regInsertados=regInsertados+contador;
+        if (verificarIntegridadDeDatos(evento, 8)) {
+            ContentValues eventos = new ContentValues();
+            eventos.put("idEvento", evento.getIdEvento());
+            eventos.put("idTipoE", evento.getIdTipoE()); //Llave Foranea
+            eventos.put("nomEvento", evento.getNomEvento());
+            eventos.put("costoEvento",evento.getCostoEvento());
+            eventos.put("cantidadAutorizada",evento.getCantidadAutorizada());
+            numeroEventos = db.insert("evento",null,eventos);
         }
 
-        return regInsertados;
-    }
-
-    public String actualizar(TipoEvento tipoEvento){
-        if (verificarIntegridadDeDatos(tipoEvento,5)) {
-            String[] id = {tipoEvento.getIdTipoE()};
-            ContentValues values = new ContentValues();
-            values.put("nomTipoE", tipoEvento.getNombreTipoE());
-            db.update("tipoevento", values, "idTipoE=?", id);
-            return "Registro de Tipo Evento actualizado correctamente";
+        if (numeroEventos == -1 || numeroEventos == 0){
+            eventosRegistrados = "Error al insertar el evento, verificar inserción";
         }else{
-            return "Registro de Tipo Evento inexistente";
+            eventosRegistrados =  eventosRegistrados + numeroEventos + " Registrado";
         }
+
+        return eventosRegistrados;
+
     }
 
-    public String eliminar(TipoEvento tipoEvento) {
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        String where = "idTipoE = '"+tipoEvento.getIdTipoE()+"'";
-        contador+=db.delete("tipoevento", where, null);
-        regAfectados+=contador;
-        return regAfectados;
-    }
-
-    public TipoEvento consultar(String idTipoE){
-        String[] id = {idTipoE};
-        Cursor cursor = db.query("tipoevento", camposTipoEvento, "idTipoE = ?", id, null, null, null);
+    public Evento consultarEvento(String idEvento){
+        String[]id = {idEvento};
+        Cursor cursor = db.query("evento", camposEvento, "idEvento = ?", id, null,null,null);
         if(cursor.moveToFirst()){
-            TipoEvento tipoEvento = new TipoEvento();
-            tipoEvento.setIdTipoE(cursor.getString(0));
-            tipoEvento.setNombreTipoE(cursor.getString(1));
-            return tipoEvento;
-        }else {
+            Evento evento = new Evento();
+            evento.setIdEvento(cursor.getString(0));
+            evento.setIdTipoE(cursor.getString(1));
+            evento.setNomEvento(cursor.getString(2));
+            evento.setCostoEvento(cursor.getFloat(3));
+            evento.setCantidadAutorizada(cursor.getInt(4));
+            return evento;
+        }else{
             return null;
         }
     }
 
-    /*
-     * FINAL de las funcionalidades de TIPO EVENTO
-     */
+    public String actualizarEvento(Evento evento){
+        if(verificarIntegridadDeDatos(evento,9)){
+            String[] id = {evento.getIdEvento()};
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("idTipoE",evento.getIdTipoE());
+            contentValues.put("nomEvento",evento.getNomEvento());
+            contentValues.put("costoEvento", evento.getCostoEvento());
+            contentValues.put("cantidadAutorizada",evento.getCantidadAutorizada());
+            db.update("evento",contentValues, "idEvento = ?",id);
+            return "Evento actualizado correctamente";
+        }else{
+            return "No existe el evento";
+        }
+    }
 
-
+    public String eliminarEvento(Evento evento){
+        String eventosEliminados = "Evento eliminado: ";
+        int contador = 0;
+        if(verificarIntegridadDeDatos(evento,10)){
+            contador+=db.delete("evento","idEvento='"+evento.getIdEvento()+"'",null);
+        }
+        contador+=db.delete("evento","idEvento='"+evento.getIdEvento()+"'",null);
+        eventosEliminados += contador;
+        return eventosEliminados;
+    }
 
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
-            case 2: {
-                //Verifica si existe el local a actualizar
-                Local localV = (Local) valor;
-                String[]id = {localV.getIdLocal()};
+            //Verifica si existe la hora
+            case 1: {
+                Hora horaV = (Hora) valor;
+                String[]id = {horaV.getIdHora()};
                 open();
-                Cursor cursor = db.query("local",null,"idLocal = ?", id,null,null,null);
+                Cursor cursor = db.query("hora",null,"idHora = ?", id,null,null,null);
                 if (cursor.moveToFirst()){
                     return true;
                 }else{
                     return false;
                 }
             }
-            case 3:{
-                Local local = (Local) valor;
-                Cursor c=db.query(true, "localEvento", new String[] {"idLocal" }, "idLocal='"+local.getIdLocal()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
+            //obtener la hora a eliminar
+            case 4:{
+                Hora hora = (Hora) valor;
+                Cursor cursor = db.query(true,"hora", new String[]{"idHora"},"idHora='"+hora.getIdHora()+"'",null,null,null,null,null);
+                if(cursor.moveToFirst()){
                     return true;
-                else
+                }else {
                     return false;
+                }
+
             }
-            //Verifica que existe el tipo evento
-            case 5: {
-                TipoEvento tipoEventoV = (TipoEvento) valor;
-                String[] id = {tipoEventoV.getIdTipoE()};
-                open();
-                Cursor tev = db.query("tipoevento",camposTipoEvento,"idTipoE = ?", id,null,null,null);
-                return tev.moveToFirst();
+            case 6:{
+                //Verificar si existe el tipoPago
+                TipoPago p = (TipoPago) valor;
+                String[] id = {p.getIdPago()};
+                Cursor cursor = db.query("tipopago",null,"idPago = ?",id,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
+            } case 7:{
+                //Obtener el tipodePago a eliminar
+                TipoPago tipoPago = (TipoPago) valor;
+                Cursor cursor = db.query(true,"tipopago",new String[]{"idPago"},"idPago='"+tipoPago.getIdPago()+"'",null,null,null,null,null);
+                if(cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
             } case 8:{
                 //Verificar que al insertar el Evento exista el tipoDeEvento
                 Evento evento = (Evento)valor;
@@ -256,26 +274,33 @@ public class ControlBDG10 {
                 }else{
                     return false;
                 }
+            } case 9:{
+                //Verificar que existe el Evento
+                Evento evento1 = (Evento)valor;
+                String[] idEven = {evento1.getIdEvento()};
+                open();
+                Cursor cursor = db.query("evento",camposEvento,"idEvento = ?",idEven, null,null,null);
+                if(cursor.moveToFirst()){
+                    //Se encontro el evento
+                    return true;
+                }else{
+                    return false;
+                }
+            } case 10:{
+                //Obtener el evento para eliminarlo
+                Evento evento = (Evento) valor;
+                Cursor cursor = db.query(true,"evento", new String[]{"idEvento"},"idEvento='"+evento.getIdEvento()+"'",null,null,null,null,null);
+                if(cursor.moveToFirst()){
+                    //Se encontro el evento
+                    return true;
+                }else{
+                    return false;
+                }
             }
             default:
                 return false;
         }
     }
-    public String llenarBDG10(){
-        //Metodo para llenar la base de datos con sentencias SQL
-        open();
-
-        /*db.execSQL("DELETE FROM dia");*/
-        /*db.execSQL("DELETE FROM tipoevento");*/
-        /*db.execSQL("DELETE FROM tipopago");*/
-        /*db.execSQL("DELETE FROM cobro");*/
-       /* db.execSQL("DELETE FROM hora");*/
 
 
-        //Se llenan las tablas con datos
-
-        close();
-
-        return "Llenado correctamente";
-    }
 }

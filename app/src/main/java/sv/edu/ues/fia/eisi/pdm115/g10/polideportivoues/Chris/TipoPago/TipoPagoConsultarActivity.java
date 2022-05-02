@@ -8,12 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class TipoPagoConsultarActivity extends AppCompatActivity {
 
-    ControlBDG10 helper;
+    ControlBDChristian helper;
     EditText editIdPago, editTipo;
     Button consultarTipoPago;
 
@@ -22,7 +23,7 @@ public class TipoPagoConsultarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_pago_consultar);
 
-        helper = new ControlBDG10(this);
+        helper = new ControlBDChristian(this);
         editIdPago = findViewById(R.id.EditIdPagoConsultar);
         editTipo = findViewById(R.id.EditTipoConsultar);
         consultarTipoPago = findViewById(R.id.consultar);

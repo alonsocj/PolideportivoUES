@@ -8,12 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class TipoPagoEliminarActivity extends AppCompatActivity {
 
-    ControlBDG10 helper;
+    ControlBDChristian helper;
     EditText editIdTipoPago;
     Button eliminarTipoPago;
 
@@ -22,7 +23,7 @@ public class TipoPagoEliminarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_pago_eliminar);
 
-        helper = new ControlBDG10(this);
+        helper = new ControlBDChristian(this);
         editIdTipoPago = findViewById(R.id.EditIdPagoEliminar);
         eliminarTipoPago = findViewById(R.id.botonEliminarTipoP);
 

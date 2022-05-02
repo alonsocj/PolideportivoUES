@@ -8,13 +8,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class HoraEliminarActivity extends AppCompatActivity {
 
     EditText EditidHoraE;
-    ControlBDG10 helper;
+    ControlBDChristian helper;
     Button btnEliminarHora;
 
 
@@ -23,7 +24,7 @@ public class HoraEliminarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hora_eliminar);
 
-        helper = new ControlBDG10(this);
+        helper = new ControlBDChristian(this);
         EditidHoraE = (EditText) findViewById(R.id.EditIdHoraE);
         btnEliminarHora = (Button) findViewById(R.id.botonEliminarHora);
 

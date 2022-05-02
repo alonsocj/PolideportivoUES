@@ -13,12 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class HoraActualizarActivity extends AppCompatActivity {
 
-    ControlBDG10 controlBDG10;
+    ControlBDChristian controlBDChristian;
     EditText editHoraid, editHoraInicio, editHoraFin;
     Button botonActualizarHora, botonActualizarHoradeInicio, getBotonActualizarHoradeFin;
     int horas, minutos;
@@ -27,7 +28,7 @@ public class HoraActualizarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hora_actualizar);
-        controlBDG10 = new ControlBDG10(this);
+        controlBDChristian = new ControlBDChristian(this);
 
         editHoraid = (EditText) findViewById(R.id.EditIdHoraActualizar);
         editHoraInicio = (EditText) findViewById(R.id.EditHoraInicioActualizar);
@@ -79,20 +80,36 @@ public class HoraActualizarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Hora hora = new Hora();
-                hora.setIdHora(editHoraid.getText().toString());
-                hora.setHoraInicio(editHoraInicio.getText().toString());
-                hora.setHoraFin(editHoraFin.getText().toString());
 
-                controlBDG10.open();
-                String actuEstado = controlBDG10.modificarHora(hora);
-                controlBDG10.close();
+                String id = editHoraid.getText().toString();
+                String inicio = editHoraInicio.getText().toString();
+                String fin = editHoraFin.getText().toString();
 
-                Toast.makeText(HoraActualizarActivity.this, actuEstado, Toast.LENGTH_SHORT).show();
+                boolean verdadero=true;
+                if(id.isEmpty() || inicio.isEmpty() || fin.isEmpty()){
+                    Toast.makeText(HoraActualizarActivity.this, "Para agregar una hora debe de llenar todos los campos", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (inicio.equals(fin)) {
+                        Toast.makeText(HoraActualizarActivity.this, "Debe de ingresar horas diferentes!", Toast.LENGTH_SHORT).show();
+                    } else if (inicio.compareTo(fin) > 0) {
+                        Toast.makeText(HoraActualizarActivity.this, "La hora de inicio debe ser anterior a la hora de finalizacion", Toast.LENGTH_SHORT).show();
+                        verdadero = false;
+                    } else {
+                        hora.setIdHora(id);
+                        hora.setHoraInicio(inicio);
+                        hora.setHoraFin(fin);
+
+                        controlBDChristian.open();
+                        String actuEstado = controlBDChristian.modificarHora(hora);
+                        controlBDChristian.close();
+
+                        Toast.makeText(HoraActualizarActivity.this, actuEstado, Toast.LENGTH_SHORT).show();
+                    }
+
+                }
 
             }
         });
-
-
 
     }
 }

@@ -8,12 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class TipoPagoActualizarActivity extends AppCompatActivity {
 
-    ControlBDG10 controlBDG10;
+    ControlBDChristian controlBDChristian;
     EditText editIdTPag , editTipoPag;
     Button actualizarTipoPago;
 
@@ -22,7 +23,7 @@ public class TipoPagoActualizarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_pago_actualizar);
 
-        controlBDG10 = new ControlBDG10(this);
+        controlBDChristian = new ControlBDChristian(this);
         editIdTPag = findViewById(R.id.EditIdPagoActu);
         editTipoPag = findViewById(R.id.EditTipoActu);
         actualizarTipoPago = findViewById(R.id.botonActualizarTipoP);
@@ -30,17 +31,27 @@ public class TipoPagoActualizarActivity extends AppCompatActivity {
         actualizarTipoPago.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TipoPago tipoPago = new TipoPago();
-                tipoPago.setIdPago(editIdTPag.getText().toString());
-                tipoPago.setTipo(editTipoPag.getText().toString());
 
-                controlBDG10.open();
-                String estado = controlBDG10.actualizarTipoPago(tipoPago);
-                controlBDG10.close();
-                Toast.makeText(TipoPagoActualizarActivity.this, estado, Toast.LENGTH_SHORT).show();
+               String idtipopago = editIdTPag.getText().toString();
+               String nomtippag =  editTipoPag.getText().toString();
+
+                if(idtipopago.isEmpty() || nomtippag.isEmpty()){
+                    Toast.makeText(TipoPagoActualizarActivity.this, "Debe de completar todos los campos para registrar un tipo de pago", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (idtipopago.length() != 2) {
+                        Toast.makeText(TipoPagoActualizarActivity.this, "El id debe de contener dos caracteres", Toast.LENGTH_SHORT).show();
+                    } else {
+                        TipoPago tipoPago = new TipoPago();
+                        tipoPago.setIdPago(idtipopago);
+                        tipoPago.setTipo(nomtippag);
+
+                        controlBDChristian.open();
+                        String estado = controlBDChristian.actualizarTipoPago(tipoPago);
+                        controlBDChristian.close();
+                        Toast.makeText(TipoPagoActualizarActivity.this, estado, Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
-
-
     }
 }

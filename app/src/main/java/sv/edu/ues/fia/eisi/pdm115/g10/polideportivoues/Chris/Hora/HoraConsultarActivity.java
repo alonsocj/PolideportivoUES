@@ -8,12 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class HoraConsultarActivity extends AppCompatActivity {
 
-    ControlBDG10 controlBDG10;
+    ControlBDChristian controlBDChristian;
     EditText editIdHora, editHoraI, editHoraF;
     Button consultarHora;
 
@@ -22,7 +23,7 @@ public class HoraConsultarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hora_consultar);
 
-        controlBDG10 = new ControlBDG10(this);
+        controlBDChristian = new ControlBDChristian(this);
         editIdHora = (EditText) findViewById(R.id.EditIdHoraC);
         editHoraI = (EditText) findViewById(R.id.EditHoraInicioC);
         editHoraF = (EditText) findViewById(R.id.EditHoraFinC);
@@ -31,9 +32,9 @@ public class HoraConsultarActivity extends AppCompatActivity {
         consultarHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controlBDG10.open();
-                Hora hora = controlBDG10.ConsultarHora(editIdHora.getText().toString());
-                controlBDG10.close();
+                controlBDChristian.open();
+                Hora hora = controlBDChristian.ConsultarHora(editIdHora.getText().toString());
+                controlBDChristian.close();
 
                 /*Verificación que exista la Hora*/
                 if(hora == null){

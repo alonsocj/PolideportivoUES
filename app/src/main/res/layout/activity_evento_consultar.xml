@@ -9,6 +9,16 @@
     tools:context=".Chris.Evento.EventoConsultarActivity">
 
     <TextView
+        android:id="@+id/textView_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="@string/titulo_evento_consultar"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/NumEvenTxt"
@@ -67,9 +77,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:maxLength="4"
         android:enabled="false"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cantAutEventTxt"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/EditCantAutorEventoConsulta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"/>
 
 
 

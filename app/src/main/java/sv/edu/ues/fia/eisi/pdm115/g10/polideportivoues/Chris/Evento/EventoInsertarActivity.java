@@ -15,13 +15,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class EventoInsertarActivity extends AppCompatActivity {
 
-    ControlBDG10 controlBDG10;
-    EditText IdEvento, NombreEvento, CostoEvento;
+    ControlBDChristian controlBDChristian;
+    EditText IdEvento, NombreEvento, CostoEvento, cantAutorizada;
     Button agregarEvento;
     Spinner spinnerTiposEventos;
     SQLiteDatabase db;
@@ -34,11 +35,12 @@ public class EventoInsertarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento_insertar);
 
-        controlBDG10 = new ControlBDG10(this);
+        controlBDChristian = new ControlBDChristian(this);
         IdEvento = findViewById(R.id.EditIdNumeroEvento);
 
         NombreEvento = findViewById(R.id.EditNombreEvento);
         CostoEvento = findViewById(R.id.EditCostoEvento);
+        cantAutorizada = findViewById(R.id.EditCantAutorEvento);
         agregarEvento = findViewById(R.id.botonAgregarNuevoEvento);
         spinnerTiposEventos = findViewById(R.id.spinnerTipoEvento);
 
@@ -65,6 +67,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
                 String idEvento = IdEvento.getText().toString();
                 String nombreEvento = NombreEvento.getText().toString();
                 Float costo = Float.valueOf(CostoEvento.getText().toString());
+                Integer cantAuto = Integer.valueOf(cantAutorizada.getText().toString());
 
                 Evento event = new Evento();
                 event.setIdEvento(idEvento);
@@ -75,9 +78,10 @@ public class EventoInsertarActivity extends AppCompatActivity {
                 }
                 event.setNomEvento(nombreEvento);
                 event.setCostoEvento(costo);
-                controlBDG10.open();
-                eventosRegistrados = controlBDG10.agregarEvento(event);
-                controlBDG10.close();
+                event.setCantidadAutorizada(cantAuto);
+                controlBDChristian.open();
+                eventosRegistrados = controlBDChristian.agregarEvento(event);
+                controlBDChristian.close();
                 Toast.makeText(EventoInsertarActivity.this, eventosRegistrados, Toast.LENGTH_SHORT).show();
 
             }

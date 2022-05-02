@@ -51,6 +51,11 @@ public class LocalInsertarActivity extends AppCompatActivity implements AdapterV
         Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
     }
 
+    public void limpiar(View v){
+        editIdLocal.setText("");
+        editnomLocal.setText("");
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 

@@ -69,7 +69,11 @@
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_actualizar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_consultar.xml" value="0.2" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_eliminar.xml" value="0.2" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_evento_actualizar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_evento_consultar.xml" value="0.2" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_evento_eliminar.xml" value="0.2" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_evento_insertar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_insertar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_menu.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_tipo_reservacion_actualizar.xml" value="0.2" />

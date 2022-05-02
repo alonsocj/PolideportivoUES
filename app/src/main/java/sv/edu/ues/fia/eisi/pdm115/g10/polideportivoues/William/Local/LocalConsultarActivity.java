@@ -42,4 +42,9 @@ public class LocalConsultarActivity extends AppCompatActivity {
             editcupoLocal.setText(cupo[local.getCupo()]);
         }
     }
+    public void limpiar(View v){
+        editIdLocal.setText("");
+        editnomLocal.setText("");
+        editcupoLocal.setText("");
+    }
 }

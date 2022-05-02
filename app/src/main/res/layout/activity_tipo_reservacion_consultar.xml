@@ -1,46 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".William.TipoReservacion.TipoReservacionConsultarActivity"
-    android:padding="30dp"
     android:orientation="vertical">
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/consultarTipoReservacion"
-        android:gravity="center"/>
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="@string/consultarTipoReservacion"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
         android:text="@string/idTipoReservaciontxt"/>
 
     <EditText
-        android:id="@+id/EditIdLocal"
+        android:id="@+id/EditIdTipoReservacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hintIdTipoReservacion"
+        android:minHeight="48dp"
         android:maxLength="1"/>
-    <Button
-        android:id="@+id/botonConsultarTipoReservacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="@string/botonConsultar"/>
+    <LinearLayout
+        android:id="@+id/linearLayoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right">
+        <Button
+            android:id="@+id/botonConsultarTipoReservacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:onClick="consultarTipoReservacion"
+            android:text="@string/botonConsultar"/>
+        <Button
+            android:id="@+id/botonLimpiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/btnLimpiar"
+            android:onClick="limpiar"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"/>
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
         android:text="@string/nombreTipoReservaciontxt"/>
 
     <EditText
-        android:id="@+id/EditNombreLocal"
+        android:id="@+id/EditNombreTipoReservacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLength="50"
         android:enabled="false"
+        android:minHeight="48dp"
         />
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

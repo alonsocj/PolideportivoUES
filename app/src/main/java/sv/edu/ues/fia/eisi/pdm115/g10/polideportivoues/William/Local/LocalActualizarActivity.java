@@ -48,6 +48,10 @@ public class LocalActualizarActivity extends AppCompatActivity implements Adapte
         regInsertados = helper.actualizarLocal(local);
         Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
     }
+    public void limpiar(View v){
+        editIdLocal.setText("");
+        editnomLocal.setText("");
+    }
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 

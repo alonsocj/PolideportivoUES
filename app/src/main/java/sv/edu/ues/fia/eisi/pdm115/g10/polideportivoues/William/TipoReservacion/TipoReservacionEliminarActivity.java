@@ -7,29 +7,35 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalEliminarActivity;
+
 
 public class TipoReservacionEliminarActivity extends AppCompatActivity {
-    ControlBDG10 helper;
+    ControlBDG10William helper;
     EditText editIdTipoReservacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_reservacion_eliminar);
-        helper = new ControlBDG10(this);
+        helper = new ControlBDG10William(this);
         editIdTipoReservacion = findViewById(R.id.EditIdTipoReservacion);
     }
     public void eliminarTipoReservacion(View v){
-        String registrosEliminados;
-        TipoReservacion tipoReservacion = new TipoReservacion();
-        tipoReservacion.setIdTipoR(editIdTipoReservacion.getText().toString());
-        helper.open();
-        registrosEliminados = helper.eliminarTipoReservacion(tipoReservacion);
-        helper.close();
-        Toast.makeText(TipoReservacionEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+        String idTipoR = editIdTipoReservacion.getText().toString();
+        if (idTipoR.isEmpty()){
+            String mensaje;
+            mensaje = "Los campos estan vacios, por favor completelos";
+            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+        }else {
+            String registrosEliminados;
+            TipoReservacion tipoReservacion = new TipoReservacion();
+            tipoReservacion.setIdTipoR(editIdTipoReservacion.getText().toString());
+            helper.open();
+            registrosEliminados = helper.eliminarTipoReservacion(tipoReservacion);
+            helper.close();
+            Toast.makeText(TipoReservacionEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+        }
     }
     public void limpiar(View v){
         editIdTipoReservacion.setText("");

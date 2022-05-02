@@ -35,129 +35,125 @@ public class ControlBDG10 {
         DBhelper.close();
     }
 
-    //Metodos para tabla local
-    public String ingresarLocal(Local local){
-        String localInsertado = "Local ";
+    /*Funcionalidades de Hora*/
+
+    public String insertarHora(Hora hora){
+        String horaInsertada = "Hora ";
         long cuenta = 0;
 
-        ContentValues locales = new ContentValues();
-        locales.put("idLocal", local.getIdLocal());
-        locales.put("nomLocal", local.getNomLocal());
-        locales.put("cupo", local.getCupo());
-        cuenta = db.insert("local",null,locales);
+        ContentValues horas = new ContentValues();
+        horas.put("idHora", hora.getIdHora());
+        horas.put("horaInicio", hora.getHoraInicio());
+        horas.put("horaFin", hora.getHoraFin());
+        cuenta = db.insert("hora",null,horas);
 
         if(cuenta == -1 || cuenta == 0){
-            localInsertado = "Error al ingresar el local, Verificar su inserción";
+            horaInsertada = "Error al ingresar la Hora, Verificar su inserción";
         }else{
-            localInsertado = localInsertado + cuenta + " Registrado";
+            horaInsertada = horaInsertada + cuenta + " Registrada";
         }
 
-        return localInsertado;
+        return horaInsertada;
+
     }
 
-    public String actualizarLocal(Local local){
-        if(verificarIntegridadDeDatos(local,2)){
-            String[] id={local.getIdLocal()};
+    public Hora ConsultarHora(String hora){
+        String[] id = {hora};
+        Cursor cursor = db.query("hora",camposHora,"idHora = ?",id,null,null,null);
+        if(cursor.moveToFirst()){
+            Hora identificadorH = new Hora();
+            identificadorH.setIdHora(cursor.getString(0));
+            identificadorH.setHoraInicio(cursor.getString(1));
+            identificadorH.setHoraFin(cursor.getString(2));
+            return identificadorH;
+        }else{
+            return null;
+        }
+
+    }
+
+    public String modificarHora(Hora hora){
+        if(verificarIntegridadDeDatos(hora,1)){
+            String[] id={hora.getIdHora()};
             ContentValues contentValues = new ContentValues();
-            contentValues.put("nomLocal", local.getNomLocal());
-            contentValues.put("cupo",local.getCupo());
-            db.update("local",contentValues, "idLocal = ?",id);
-            return "Local Actualizado";
+            contentValues.put("horaInicio", hora.getHoraInicio());
+            contentValues.put("horaFin",hora.getHoraFin());
+            db.update("hora",contentValues, "idHora = ?",id);
+            return "Hora Actualizada";
         }else{
-            return "El local no existe";
+            return "La hora no existe";
         }
     }
 
-    public Local consultarLocal(String idlocal){
-        String[] id = {idlocal};
-        Cursor cursor = db.query("local", new String [] {"idLocal","nomLocal","cupo"}, "idLocal = ?", id, null, null, null);
+    public String eliminarHora(Hora hora){
+        String registrosAfec = "Horas eliminadas = ";
+        int cuenta = 0;
+        if(verificarIntegridadDeDatos(hora,4)){
+            cuenta +=db.delete("hora","idHora='"+hora.getIdHora()+"'",null);
+        }
+        cuenta+=db.delete("hora","idHora='"+hora.getIdHora()+"'",null);
+        registrosAfec = registrosAfec + cuenta;
+        return registrosAfec;
+    }
+
+
+    /*Funcionalidades de TipoPago*/
+
+    public String insertarTipoPago (TipoPago tipoPago){
+        String pagosInsertados = "Pago Insertado";
+        long contador = 0;
+
+        ContentValues contentpago = new ContentValues();
+        contentpago.put("idPago",tipoPago.getIdPago());
+        contentpago.put("tipo",tipoPago.getTipo());
+        contador = db.insert("tipopago",null,contentpago);
+
+        if(contador==-1 || contador == 0){
+            pagosInsertados = "Error al insertar el pago";
+        }else{
+            pagosInsertados = pagosInsertados + contador;
+        }
+
+        return pagosInsertados;
+    }
+
+
+    public TipoPago consultarTipoPago (String tipoPago){
+        String[] id = {tipoPago};
+        Cursor cursor = db.query("tipopago", camposTipoPago, "idPago = ?",id,null,null,null,null);
         if(cursor.moveToFirst()){
-            Local local = new Local();
-            local.setIdLocal(cursor.getString(0));
-            local.setNomLocal(cursor.getString(1));
-            local.setCupo(Integer.parseInt(cursor.getString(2)));
-            return local;
+            TipoPago tPago = new TipoPago();
+            tPago.setIdPago(cursor.getString(0));
+            tPago.setTipo(cursor.getString(1));
+            return tPago;
         }else{
             return null;
         }
     }
 
-    public String eliminarLocal(Local local){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        if (verificarIntegridadDeDatos(local,2)) {
-            //if (verificarIntegridadDeDatos(local,3)) {
-                //return "El local no puede ser eliminado porque existen registros de local evento con este local.";
-            //}else{
-                contador+=db.delete("local", "idLocal='"+local.getIdLocal()+"'", null);
-                regAfectados+=contador;
-                return regAfectados;
-            //}
+    public String actualizarTipoPago (TipoPago tipoPago){
+        if(verificarIntegridadDeDatos(tipoPago,6)){
+            String[] id = {tipoPago.getIdPago()};
+            ContentValues contentValues =  new ContentValues();
+            contentValues.put("tipo", tipoPago.getTipo());
+            db.update("tipopago", contentValues, "idPago = ?", id);
+            return "Tipo de pago actualizado correctamente";
         }else{
-            return "El local no existe";
+            return "Tipo de pago inexistente";
         }
     }
 
-    //Metodos para tabla local
-    public String ingresarTipoReservacion(TipoReservacion tipoReservacion){
-        String TipoReservacionInsertado = "Tipo de reservacion ";
-        long cuenta = 0;
-
-        ContentValues tipoR = new ContentValues();
-        tipoR.put("idTipoR", tipoReservacion.getIdTipoR());
-        tipoR.put("nomTipoR", tipoReservacion.getNomTipoR());
-        cuenta = db.insert("tipoReservacion",null,tipoR);
-
-        if(cuenta == -1 || cuenta == 0){
-            TipoReservacionInsertado = "Error al ingresar el tipo de reservacion, Verificar su inserción";
-        }else{
-            TipoReservacionInsertado = TipoReservacionInsertado + cuenta + " Registrado";
+    public String eliminarTipoPago (TipoPago tipoPago){
+        String tiposdepagosafectados = "Tipo de pago eliminados = ";
+        int cuenta = 0;
+        if(verificarIntegridadDeDatos(tipoPago,7)){
+            cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
         }
-
-        return TipoReservacionInsertado;
+        cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
+        tiposdepagosafectados+=cuenta;
+        return tiposdepagosafectados;
     }
 
-    public String actualizarTipoReservacion(TipoReservacion tipoReservacion){
-        //if(verificarIntegridadDeDatos(tipoReservacion,2)){
-        String[] id={tipoReservacion.getIdTipoR()};
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("nomTipoR", tipoReservacion.getNomTipoR());
-        db.update("tipoReservacion",contentValues, "idTipoR = ?",id);
-        return "Tipo de reservacion Actualizado";
-        //}else{
-        //return "El Tipo de reservacion no existe";
-        //}
-    }
-
-    public TipoReservacion consultarTipoReservacion(String idTipoR){
-        String[] id = {idTipoR};
-        Cursor cursor = db.query("tipoReservacion", new String [] {"idTipoR","nomTipoR"}, "idTipoR = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
-            TipoReservacion tipoReservacion = new TipoReservacion();
-            tipoReservacion.setIdTipoR(cursor.getString(0));
-            tipoReservacion.setNomTipoR(cursor.getString(1));
-            return tipoReservacion;
-        }else{
-            return null;
-        }
-    }
-
-    public String eliminarTipoReservacion(TipoReservacion tipoReservacion){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        //if (verificarIntegridadDeDatos(tipoReservacion,2)) {
-            //if (verificarIntegridadDeDatos(tipoReservacion,3)) {
-            //return "El tipo de reservacion no puede ser eliminado porque existen registros de reservacion con este tipo.";
-            //}else{
-            contador+=db.delete("tipoReservacion", "idTipoR='"+tipoReservacion.getIdTipoR()+"'", null);
-            regAfectados+=contador;
-            return regAfectados;
-            //}
-        //}else{
-            //return "El tipo de reservacion no existe";
-        //}
-
-    }
     /*
      * Inicio de funcionalidades de TIPO EVENTO
      */

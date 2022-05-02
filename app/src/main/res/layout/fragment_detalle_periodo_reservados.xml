@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.tipoReservacion.tipoReservacionFragment">
+    tools:context=".ui.detallePeriodoReservados.DetallePeriodoReservadosFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,41 +12,40 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/botonAgregarTipoReservacionF"
+            android:id="@+id/botonAgregarDetallePeriodosRF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones"
-            android:text="@string/agregarTipoReservacion"
+            android:text="@string/agregarDetallePeriodoRerservados"
             />
 
         <Button
-            android:id="@+id/botonConsultarTipoReservacionF"
+            android:id="@+id/botonConsultarDetallePeriodosRF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones"
-            android:text="@string/consultarTipoReservacion"
+            android:text="@string/consultarDetallePeriodoRerservados"
             />
 
         <Button
-            android:id="@+id/botonActualizarTipoReservacionF"
+            android:id="@+id/botonActualizarDetallePeriodosRF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones"
-            android:text="@string/actualizarTipoReservacion"
+            android:text="@string/actualizarDetallePeriodoRerservados"
             />
 
         <Button
-            android:id="@+id/botonEliminarTipoReservacionF"
+            android:id="@+id/botonEliminarDetallePeriodosRF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones"
-            android:text="@string/eliminarTipoReservacion"
+            android:text="@string/eliminarDetallePeriodoRerservados"
             />
 
     </LinearLayout>
-
 </FrameLayout>

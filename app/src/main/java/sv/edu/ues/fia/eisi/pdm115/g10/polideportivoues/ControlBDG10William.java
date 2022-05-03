@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.HorariosLocales.HorariosLocales;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
 
@@ -154,8 +155,69 @@ public class ControlBDG10William {
         //}else{
         //return "El tipo de reservacion no existe";
         //}
-
     }
+
+    public String ingresarHorariosLocales(HorariosLocales horariosLocales){
+        String localInsertado = "Horario del Local ";
+        long cuenta = 0;
+
+        ContentValues horarios = new ContentValues();
+        horarios.put("idHorario", horariosLocales.getIdHorario());
+        horarios.put("nomLocal", horariosLocales.getIdLocal());
+        horarios.put("disponibilidad", horariosLocales.getDisponibilidad());
+        cuenta = db.insert("horariosLocales",null,horarios);
+
+        if(cuenta == -1 || cuenta == 0){
+            localInsertado = "Error al ingresar un horario de local que ya existe, Verificar su inserción";
+        }else{
+            localInsertado = localInsertado + cuenta + " Registrado";
+        }
+
+        return localInsertado;
+    }
+
+    public String actualizarHorariosLocales(HorariosLocales horariosLocales){
+        //if(verificarIntegridadDeDatos(local,1)){
+            String[] id={horariosLocales.getIdHorario(), horariosLocales.getIdLocal()};
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("disponibilidad", horariosLocales.getDisponibilidad());
+            db.update("horariosLocales",contentValues, "idHorario = ? and idLocal = ?",id);
+            return "Horario del local Actualizado";
+        //}else{
+            //return "El local no existe";
+        //}
+    }
+
+    public HorariosLocales consultarHorariosLocales(String idHorario, String idlocal){
+        String[] id = {idHorario, idlocal};
+        Cursor cursor = db.query("horariosLocales", new String [] {"idHorario","idlocal","disponibilidad"}, "idHorario = ? and idLocal = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            HorariosLocales horariosLocales = new HorariosLocales();
+            horariosLocales.setIdHorario(cursor.getString(0));
+            horariosLocales.setIdLocal(cursor.getString(1));
+            horariosLocales.setDisponibilidad(Integer.parseInt(cursor.getString(2)));
+            return horariosLocales;
+        }else{
+            return null;
+        }
+    }
+
+    public String eliminarHorariosLocales(HorariosLocales horariosLocales){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+         //if (verificarIntegridadDeDatos(local,1)) {
+            //if (verificarIntegridadDeDatos(local,2)) {
+            //return "El local no puede ser eliminado porque existen registros de local evento con este local.";
+            //}else{
+            contador+=db.delete("horariosLocales", "idHorario = '"+ horariosLocales.getIdHorario()+"' and idLocal = '"+ horariosLocales.getIdLocal()+"'", null);
+            regAfectados+=contador;
+            return regAfectados;
+            //}
+        //}else{
+            //return "El local no existe";
+        //}
+    }
+
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
             case 1: {
@@ -209,7 +271,7 @@ public class ControlBDG10William {
         for (int i=0;i<arrayHorarios.size();i++) {
             HorariosDisponibles  horariosArray = new HorariosDisponibles();
             horariosArray = arrayHorarios.get(i);
-                arrayHorariosString.add(horariosArray.getHora()+horariosArray.getDia()+horariosArray.getIdHorario());
+                arrayHorariosString.add(horariosArray.getHora()+" "+horariosArray.getIdHorario());
             }
         return arrayHorariosString;
     }

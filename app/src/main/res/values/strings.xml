@@ -249,6 +249,8 @@
     <string name="disponible">Disponible</string>
     <string name="ocupado">Ocupado</string>
     <string name="Local">Local</string>
+    <string name="cantidadPersonas">Cantidad de personas</string>
+    <string name="hintCantidadPersonas">Ingrese la cantidad de personas permitidas</string>
 
 
 </resources>

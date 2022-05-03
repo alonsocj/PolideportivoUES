@@ -50,10 +50,10 @@
             android:layout_height="match_parent"
             android:gravity="right">
             <Button
-                android:id="@+id/botonConsultarDetallePeriodosR"
+                android:id="@+id/botonConsultarHorariosLocales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="consultarDetallePeriodosR"
+                android:onClick="consultarHorariosLocales"
                 android:layout_margin="10dp"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones"

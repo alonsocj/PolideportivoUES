@@ -62,10 +62,10 @@
             android:layout_height="match_parent"
             android:gravity="right">
             <Button
-                android:id="@+id/botonActualizarDetallePeriodosR"
+                android:id="@+id/botonActualizarHorariosLocales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="actualizarDetallePeriodosR"
+                android:onClick="actualizarHorariosLocales"
                 android:layout_margin="8dp"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones"

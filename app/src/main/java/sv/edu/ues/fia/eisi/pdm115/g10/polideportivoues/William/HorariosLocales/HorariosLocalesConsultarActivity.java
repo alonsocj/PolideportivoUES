@@ -24,7 +24,7 @@ public class HorariosLocalesConsultarActivity extends AppCompatActivity {
 
 
 
-    public void consultarDetallePeriodosR(View v){
+    public void consultarHorariosLocales(View v){
 
     }
     public void limpiar(View v){

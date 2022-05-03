@@ -64,11 +64,6 @@
         tools:layout="@layout/fragment_tipo_reservacion"/>
 
     <fragment
-        android:id="@+id/nav_localEvento"
-        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.localEvento.LocalEventoFragment"
-        android:label="@string/label_localEvento"
-        tools:layout="@layout/fragment_local_evento"/>
-    <fragment
         android:id="@+id/nav_persona"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.persona.PersonaFragment"
         android:label="@string/titulo_nav_persona"
@@ -84,5 +79,10 @@
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.HorariosLocales.HorariosLocalesFragment"
         android:label="@string/titulo_nav_horariosLocales"
         tools:layout="@layout/fragment_horarios_locales" />
+    <fragment
+        android:id="@+id/nav_nacionalidad"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.nacionalidad.NacionalidadFragment"
+        android:label="@string/titulo_nav_nacionalidad"
+        tools:layout="@layout/fragment_nacionalidad" />
 
 </navigation>

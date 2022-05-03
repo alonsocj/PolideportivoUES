@@ -23,7 +23,7 @@ public class HoraInsertarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
     TextInputEditText editId, editInicio, editFin;
-    Button botonAgregar, botonHoradeInicio, botonHoraFinalizacion;
+    Button botonAgregar, botonLimpiar, botonHoradeInicio, botonHoraFinalizacion;
     int horas, minutos;
 
     @Override
@@ -36,6 +36,7 @@ public class HoraInsertarActivity extends AppCompatActivity {
         editInicio = findViewById(R.id.EditHoraInicio);
         editFin = findViewById(R.id.EditHoraFin);
         botonAgregar = (Button) findViewById(R.id.botonAgregarHora);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
         /*botonHoradeInicio = (Button) findViewById(R.id.horaInicioPicker);
         botonHoraFinalizacion = (Button) findViewById(R.id.horaFinalizarPicker);*/
 
@@ -110,6 +111,14 @@ public class HoraInsertarActivity extends AppCompatActivity {
             }
         });
 
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editId.setText("");
+                editInicio.setText("");
+                editFin.setText("");
+            }
+        });
 
     }
 }

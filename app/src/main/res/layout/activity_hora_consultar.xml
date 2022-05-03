@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
@@ -39,16 +43,30 @@
         android:maxLength="4"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/botonBuscarHora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="@string/botonConsultar"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/botones"
-        />
+    <LinearLayout
+        android:id="@+id/linearLayoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/botonBuscarHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/botonConsultar"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"/>
+
+        <Button
+            android:id="@+id/botonLimpiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/btnLimpiar"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +83,7 @@
         android:id="@+id/Input_EditHoraInicioC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:enabled="false"
         app:startIconDrawable="@drawable/ic_hora_inicio"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -102,3 +120,4 @@
     </LinearLayout>
 
 </LinearLayout>
+</ScrollView>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
@@ -105,18 +109,29 @@
         android:backgroundTint="@color/botones"
         android:text="@string/finH"/>-->
 
-    <Button
-        android:id="@+id/botonAgregarHora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:textColor="@color/black"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/botones"
-        android:text="@string/botonAgregar"/>
+    <LinearLayout
+        android:id="@+id/linearLayoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right">
 
+        <Button
+            android:id="@+id/botonAgregarHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/botonAgregar"/>
 
-
-
-
+        <Button
+            android:id="@+id/botonLimpiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/btnLimpiar"/>
+    </LinearLayout>
 </LinearLayout>
+</ScrollView>

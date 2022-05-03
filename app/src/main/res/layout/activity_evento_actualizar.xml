@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -124,15 +129,31 @@
         android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:layout_marginTop="10dp"
-        android:id="@+id/botonActualizarEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/botones"
-        android:text="@string/botonActualizar"/>
+    <LinearLayout
+        android:id="@+id/linearLayoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/botonActualizarEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/botonActualizar"/>
+
+        <Button
+            android:id="@+id/botonLimpiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/btnLimpiar"/>
+    </LinearLayout>
 
 
 </LinearLayout>
+</ScrollView>

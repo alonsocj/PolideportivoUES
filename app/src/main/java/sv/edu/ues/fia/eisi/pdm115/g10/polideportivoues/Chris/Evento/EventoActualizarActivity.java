@@ -28,7 +28,7 @@ public class EventoActualizarActivity extends AppCompatActivity {
 
     ControlBDChristian helper;
     TextInputEditText editIdEve, editNom, editCost, editCantAutorizada;
-    Button actualizareventos;
+    Button actualizareventos, botonLimpiar;
     MaterialAutoCompleteTextView spinner;
     SQLiteDatabase db;
     String arrayidTE[];
@@ -47,6 +47,7 @@ public class EventoActualizarActivity extends AppCompatActivity {
         actualizareventos = findViewById(R.id.botonActualizarEvent);
         editCantAutorizada = findViewById(R.id.EditCantAutorEventoActu);
         spinner = findViewById(R.id.spinnerTipoEventoActu);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
 
         /*Obtención de datos de la base de datos y traerlos al spinner*/
@@ -100,6 +101,17 @@ public class EventoActualizarActivity extends AppCompatActivity {
                         Toast.makeText(EventoActualizarActivity.this, actu, Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdEve.setText("");
+                editNom.setText("");
+                editCost.setText("");
+                editCantAutorizada.setText("");
+                spinner.setText("");
             }
         });
 

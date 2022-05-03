@@ -22,7 +22,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class EventoConsultarActivity extends AppCompatActivity {
 
     TextInputEditText editIdEven, editIdTE, editNom, editCost, editCantAuto;
-    Button consultarEvent;
+    Button consultarEvent, botonLimpiar;
     ControlBDChristian helper;
     private SQLiteDatabase db;
     String nombreTipoEvento[];
@@ -39,6 +39,7 @@ public class EventoConsultarActivity extends AppCompatActivity {
         editNom = findViewById(R.id.EditNombreEventoConsulta);
         editCost = findViewById(R.id.EditCostoEventoConsulta);
         editCantAuto = findViewById(R.id.EditCantAutorEventoConsulta);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         consultarEvent = findViewById(R.id.botonConsultarEvent);
 
@@ -74,6 +75,17 @@ public class EventoConsultarActivity extends AppCompatActivity {
                     editCost.setText(String.valueOf(evento.getCostoEvento()));
                     editCantAuto.setText(String.valueOf(evento.getCantidadAutorizada()));
                 }
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdEven.setText("");
+                editIdTE.setText("");
+                editNom.setText("");
+                editCost.setText("");
+                editCantAuto.setText("");
             }
         });
 

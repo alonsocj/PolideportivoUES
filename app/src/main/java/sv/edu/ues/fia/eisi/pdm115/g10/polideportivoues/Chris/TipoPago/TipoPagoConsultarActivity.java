@@ -18,7 +18,7 @@ public class TipoPagoConsultarActivity extends AppCompatActivity {
 
     ControlBDChristian helper;
     TextInputEditText editIdPago, editTipo;
-    Button consultarTipoPago;
+    Button consultarTipoPago, botonLimpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class TipoPagoConsultarActivity extends AppCompatActivity {
         editIdPago = findViewById(R.id.EditIdPagoConsultar);
         editTipo = findViewById(R.id.EditTipoConsultar);
         consultarTipoPago = findViewById(R.id.consultar);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         consultarTipoPago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +42,14 @@ public class TipoPagoConsultarActivity extends AppCompatActivity {
                 }else{
                     editTipo.setText(tipoPago.getTipo());
                 }
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdPago.setText("");
+                editTipo.setText("");
             }
         });
 

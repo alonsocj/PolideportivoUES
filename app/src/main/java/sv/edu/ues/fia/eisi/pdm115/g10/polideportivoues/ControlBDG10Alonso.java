@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.Cobro;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.Dia;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
 
 public class ControlBDG10Alonso {
@@ -90,7 +91,6 @@ public class ControlBDG10Alonso {
     /*
      * FINAL de las funcionalidades de TIPO EVENTO
      */
-
 
     /*
         * INICIO DE FUNCIONALIDADES DE COBRO

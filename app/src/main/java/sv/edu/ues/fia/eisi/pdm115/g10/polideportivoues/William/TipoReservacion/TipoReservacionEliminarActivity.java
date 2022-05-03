@@ -7,13 +7,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 
 public class TipoReservacionEliminarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    EditText editIdTipoReservacion;
+    TextInputEditText editIdTipoReservacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,7 @@ public class TipoReservacionEliminarActivity extends AppCompatActivity {
             registrosEliminados = helper.eliminarTipoReservacion(tipoReservacion);
             helper.close();
             Toast.makeText(TipoReservacionEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+            editIdTipoReservacion.setText("");
         }
     }
     public void limpiar(View v){

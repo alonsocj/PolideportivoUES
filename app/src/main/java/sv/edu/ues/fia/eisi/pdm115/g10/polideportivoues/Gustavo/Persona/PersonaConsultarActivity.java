@@ -6,13 +6,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDGustavo;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class PersonaConsultarActivity extends AppCompatActivity {
 
     ControlBDGustavo controlBDGustavo;
-    EditText editIdPersona, editNombre, editApellido, editGenero, editNacimiento, editDireccion, editEmail, editTelefono;
+    TextInputEditText editIdPersona, editNombre, editApellido, editGenero, editNacimiento, editDireccion, editEmail, editTelefono;
     Button botonConsultar, botonVaciar;
 
     @Override
@@ -24,14 +27,14 @@ public class PersonaConsultarActivity extends AppCompatActivity {
         controlBDGustavo = new ControlBDGustavo(this);
 
         //Persona
-        editIdPersona= (EditText) findViewById(R.id.EditDUIPersona);
-        editNombre = (EditText) findViewById(R.id.EditNombrePersona);
-        editApellido = (EditText) findViewById(R.id.EditApellidoPersona);
-        editGenero = (EditText) findViewById(R.id.EditGeneroPersona);
-        editNacimiento = (EditText) findViewById(R.id.EditNacimientoPersona);
-        editDireccion = (EditText) findViewById(R.id.EditDireccionPersona);
-        editEmail = (EditText) findViewById(R.id.EditEmailPersona);
-        editTelefono = (EditText) findViewById(R.id.EditTelefonoPersona);
+        editIdPersona= findViewById(R.id.EditDUIPersona);
+        editNombre = findViewById(R.id.EditNombrePersona);
+        editApellido = findViewById(R.id.EditApellidoPersona);
+        editGenero =  findViewById(R.id.EditGeneroPersona);
+        editNacimiento = findViewById(R.id.EditNacimientoPersona);
+        editDireccion = findViewById(R.id.EditDireccionPersona);
+        editEmail = findViewById(R.id.EditEmailPersona);
+        editTelefono = findViewById(R.id.EditTelefonoPersona);
         botonConsultar = (Button) findViewById(R.id.botonConsultarPersona);
         botonVaciar = (Button) findViewById(R.id.botonVaciarPersona);
 

@@ -11,6 +11,7 @@ import java.util.List;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.Dia;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReserva;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
@@ -197,7 +198,6 @@ public class ControlBDGustavo {
 
     public List<String> consultarHorasString(List<Hora> arrayHoras){
         List<String>arrayHorasString=new ArrayList<>();
-        arrayHorasString.add("Seleccione una hora");
         for (int i=0;i<arrayHoras.size();i++) {
             Hora horariosArray=new Hora();
             horariosArray=arrayHoras.get(i);
@@ -225,7 +225,6 @@ public class ControlBDGustavo {
 
     public List<String> consultarDiasString(List<Dia> arrayDias){
         List<String>arrayDiasString=new ArrayList<>();
-        arrayDiasString.add("Seleccione un día");
         for (int i=0;i<arrayDias.size();i++) {
             Dia diasArray=new Dia();
             diasArray=arrayDias.get(i);
@@ -234,6 +233,85 @@ public class ControlBDGustavo {
         return arrayDiasString;
     }
 
+    //Verificamos la eliminación en cascada de persona
+    public Boolean verificarExisPersona(Persona valor){
+        //verifica la existencia del id periodo reserva
+        Persona persona = (Persona) valor;
+        String[]id = {persona.getIdPersona()};
+        open();
+        Cursor cursor = db.query("persona",null,"idPersona = ?", id,null,null,null);
+        if (cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public Boolean verificarPersonasCascada(Persona valor){
+        //verifica si hay registros de persona en la tabla reservación
+        Persona persona = (Persona)valor;
+        Cursor c=db.query(true, "reservacion", new String[] {"idPersona" }, "idPersona='"+persona.getIdPersona()+"'",null,null, null, null, null);
+        if(c.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public String eliminarPersonasCascada(Persona persona){
+        String regAfectados1="Registros eliminados en reservación = ";
+        String regAfectados2="Registros eliminados en persona = ";
+        String suma;
+        int contador1=0;
+        int contador2=0;
+
+        contador1+=db.delete("reservacion","idPersona='"+persona.getIdPersona()+"'",null);
+        regAfectados1 = regAfectados1 + contador1;
+        contador2+=db.delete("persona","idPersona='"+persona.getIdPersona()+"'",null);
+        regAfectados2 = regAfectados2 + contador2;
+
+        suma=regAfectados2+"\n"+regAfectados1;
+        return suma;
+    }
+
+    //Verificamos la eliminación en cascada de horarios disponibles
+    public Boolean verificarExiHorariosDisponibles(HorariosDisponibles valor){
+        //verifica la existencia del id periodo reserva
+        HorariosDisponibles horariosDisponibles = (HorariosDisponibles) valor;
+        String[]id = {horariosDisponibles.getIdHorario()};
+        open();
+        Cursor cursor = db.query("horariosDisponibles",null,"idHorario = ?", id,null,null,null);
+        if (cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public Boolean verificarHorariosDisponiblesCascada(HorariosDisponibles valor){
+        //verifica si hay registros de persona en la tabla horarios locales
+        HorariosDisponibles horariosDisponibles = (HorariosDisponibles) valor;
+        Cursor c=db.query(true, "horariosLocales", new String[] {"idHorario" }, "idHorario='"+horariosDisponibles.getIdHorario()+"'",null,null, null, null, null);
+        if(c.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public String eliminarHorariosDisponiblesCascada(HorariosDisponibles horariosDisponibles){
+        String regAfectados1="Registros eliminados en reservación = ";
+        String regAfectados2="Registros eliminados en horarios disponibles = ";
+        String suma;
+        int contador1=0;
+        int contador2=0;
+
+        contador1+=db.delete("horariosLocales","idHorario='"+horariosDisponibles.getIdHorario()+"'",null);
+        regAfectados1 = regAfectados1 + contador1;
+        contador2+=db.delete("horariosDisponibles","idHorario='"+horariosDisponibles.getIdHorario()+"'",null);
+        regAfectados2 = regAfectados2 + contador2;
+
+        suma=regAfectados2+"\n"+regAfectados1;
+        return suma;
+    }
+
+    //Verificar integridad
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
             //Verificar si existe la persona

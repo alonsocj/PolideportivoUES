@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT);");
 
             db.execSQL("CREATE TABLE horariosLocales(\n" +
-                    "   idHorario VARCHAR(2) NOT NULL,\n" +
+                    "   idHorario VARCHAR(6) NOT NULL,\n" +
                     "   idLocal VARCHAR(5) NOT NULL,\n" +
                     "   disponibilidad INTEGER NOT NULL,\n" +
                     "   PRIMARY KEY (idHorario, idLocal),\n" +
@@ -162,7 +162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "  nombre VARCHAR(50) NOT NULL,\n" +
                     "  apellido VARCHAR(50) NOT NULL,\n" +
                     "  genero VARCHAR(1) NOT NULL,\n" +
-                    "  nacimiento DATE NOT NULL,\n" +
+                    "  nacimiento VARCHAR(10) NOT NULL,\n" +
                     "  direccion VARCHAR(100) NOT NULL,\n" +
                     "  email VARCHAR(50) NOT NULL,\n" +
                     "  telefono VARCHAR(8) NOT NULL\n" +
@@ -170,7 +170,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             //tabla horarios Disponibles
             db.execSQL("CREATE TABLE horariosDisponibles  (\n" +
-                    "  idHorario VARCHAR(2) NOT NULL PRIMARY KEY,\n" +
+                    "  idHorario VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
                     "  idHora VARCHAR(4) NOT NULL,\n" +
                     "  nombreDia VARCHAR(10) NOT NULL\n" +
                     ");");

@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,12 +26,13 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponiblesInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
 public class HorariosLocalesInsertarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    Spinner SHoras, SLocales, SDisponibilidad;
+    MaterialAutoCompleteTextView SHoras, SLocales, SDisponibilidad;
     List<HorariosDisponibles> arrayHoras=new ArrayList<HorariosDisponibles>();
     List<String> arrayHorasString=new ArrayList<String>();
     List<Local> arrayLocales=new ArrayList<Local>();
@@ -39,9 +43,9 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horarios_locales_insertar);
         helper = new ControlBDG10William(this);
-        SHoras = findViewById(R.id.SpinnerHoras);
-        SLocales = findViewById(R.id.SpinnerLocales);
-        SDisponibilidad = findViewById(R.id.SpinnerDisponibilidad);
+        SHoras = findViewById(R.id.list_id_horario);
+        SLocales = findViewById(R.id.list_locales);
+        SDisponibilidad = findViewById(R.id.list_disponibiliad);
 
         helper.open();
         arrayHoras=helper.consultarHorarioDisponibles();
@@ -57,13 +61,42 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
     }
 
 
-
     public void insertarHorariosLocales(View v){
+        String idHorario = SHoras.getText().toString();
+        String idLocal = SLocales.getText().toString();
+        String disponibilidad = SDisponibilidad.getText().toString();
+        String insertarRegistros;
+        if(idHorario.isEmpty()||idLocal.isEmpty()||disponibilidad.isEmpty()){
+            Toast.makeText(HorariosLocalesInsertarActivity.this, "Debe completar los campos para registrar un horario!", Toast.LENGTH_SHORT).show();
+        }else{
 
-    }
+                HorariosLocales horariolocal = new HorariosLocales();
+                int posidHorarioSeleccionado= arrayHorasString.indexOf((idHorario));
+                String idHorarioSeleccionado= arrayHoras.get(posidHorarioSeleccionado).getIdHorario();
+                int posidLocalSeleccionado= arrayLocalesString.indexOf((idLocal));
+                String idLocalSeleccionado= arrayLocales.get(posidLocalSeleccionado).getIdLocal();
+                horariolocal.setIdHorario(idHorarioSeleccionado);
+                horariolocal.setIdLocal(idLocalSeleccionado);
+                if(disponibilidad.equals("Disponible")){
+                    horariolocal.setDisponibilidad(0);
+                }else{
+                    horariolocal.setDisponibilidad(1);
+                }
+                helper.open();
+                insertarRegistros = helper.ingresarHorariosLocales(horariolocal);
+                helper.close();
+                Toast.makeText(HorariosLocalesInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+                //Limpiamos los campos
+                SHoras.setText("");
+                SLocales.setText("");
+                SDisponibilidad.setText("");
+
+                 }
+        }
+
     public void limpiar(View v){
-        SHoras.setSelection(0);
-        SLocales.setSelection(0);
-        SDisponibilidad.setSelection(0);
+        SHoras.setText("");
+        SLocales.setText("");
+        SDisponibilidad.setText("");
     }
 }

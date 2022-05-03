@@ -163,10 +163,9 @@ public class ControlBDG10William {
 
         ContentValues horarios = new ContentValues();
         horarios.put("idHorario", horariosLocales.getIdHorario());
-        horarios.put("nomLocal", horariosLocales.getIdLocal());
+        horarios.put("idLocal", horariosLocales.getIdLocal());
         horarios.put("disponibilidad", horariosLocales.getDisponibilidad());
         cuenta = db.insert("horariosLocales",null,horarios);
-
         if(cuenta == -1 || cuenta == 0){
             localInsertado = "Error al ingresar un horario de local que ya existe, Verificar su inserción";
         }else{
@@ -178,11 +177,16 @@ public class ControlBDG10William {
 
     public String actualizarHorariosLocales(HorariosLocales horariosLocales){
         //if(verificarIntegridadDeDatos(local,1)){
+            long cuenta;
             String[] id={horariosLocales.getIdHorario(), horariosLocales.getIdLocal()};
             ContentValues contentValues = new ContentValues();
             contentValues.put("disponibilidad", horariosLocales.getDisponibilidad());
-            db.update("horariosLocales",contentValues, "idHorario = ? and idLocal = ?",id);
-            return "Horario del local Actualizado";
+            cuenta = db.update("horariosLocales",contentValues, "idHorario = ? and idLocal = ?",id);
+            if(cuenta == -1 || cuenta == 0){
+                return "Horario del local no Actualizado";
+            }else{
+                return "Horario del local Actualizado";
+            }
         //}else{
             //return "El local no existe";
         //}
@@ -267,12 +271,21 @@ public class ControlBDG10William {
     }
     public List<String> consultarHorarioDisponiblesString(List<HorariosDisponibles> arrayHorarios){
         List<String>arrayHorariosString=new ArrayList<>();
-        arrayHorariosString.add("Seleccione una hora");
         for (int i=0;i<arrayHorarios.size();i++) {
-            HorariosDisponibles  horariosArray = new HorariosDisponibles();
+            HorariosDisponibles horariosArray = new HorariosDisponibles();
             horariosArray = arrayHorarios.get(i);
-                arrayHorariosString.add(horariosArray.getHora()+" "+horariosArray.getIdHorario());
+            String[] id = {horariosArray.getHora()};
+            Cursor cursor = db.query("hora", null, "idHora = ?", id, null, null, null);
+            if (cursor.moveToFirst()) {
+                Hora hora = new Hora();
+                hora.setIdHora(cursor.getString(0));
+                hora.setHoraInicio(cursor.getString(1));
+                hora.setHoraFin(cursor.getString(2));
+                arrayHorariosString.add(horariosArray.getDia() + " " + hora.getHoraInicio()+":"+hora.getHoraFin()+""+horariosArray.getIdHorario());
+            } else {
+                arrayHorariosString.add(horariosArray.getHora() + " " + horariosArray.getIdHorario());
             }
+        }
         return arrayHorariosString;
     }
 
@@ -298,7 +311,6 @@ public class ControlBDG10William {
 
     public List<String> consultarLocalesString(List<Local> arrayLocal){
         List<String>arrayLocalString=new ArrayList<>();
-        arrayLocalString.add("Seleccione un local");
         for (int i=0;i<arrayLocal.size();i++) {
             Local localArray=new Local();
             localArray=arrayLocal.get(i);

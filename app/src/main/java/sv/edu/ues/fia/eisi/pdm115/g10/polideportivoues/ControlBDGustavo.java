@@ -54,7 +54,7 @@ public class ControlBDGustavo {
         contador = db.insert("persona",null,values);
 
         if(contador==-1 || contador==0){
-            regInsertados="Registro duplicado.";
+            regInsertados="Registro duplicado!";
         }else {
             regInsertados=regInsertados+" "+contador;
         }

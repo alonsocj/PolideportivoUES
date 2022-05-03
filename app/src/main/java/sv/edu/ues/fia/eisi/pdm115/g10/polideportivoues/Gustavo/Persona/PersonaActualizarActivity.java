@@ -97,14 +97,19 @@ public class PersonaActualizarActivity extends AppCompatActivity {
                             controlBDGustavo.close();
                             Toast.makeText(PersonaActualizarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
 
-                            //Limpiamos los campos
-                            editIdPersona.setText("");
-                            editNombre.setText("");
-                            editApellido.setText("");
-                            editNacimiento.setText("");
-                            editDireccion.setText("");
-                            editEmail.setText("");
-                            editTelefono.setText("");
+                            if(insertarRegistros=="Registro duplicado!"){
+                                //Limpiamos los campos
+                                editIdPersona.setText("");
+                            }else{
+                                //Limpiamos los campos
+                                editIdPersona.setText("");
+                                editNombre.setText("");
+                                editApellido.setText("");
+                                editNacimiento.setText("");
+                                editDireccion.setText("");
+                                editEmail.setText("");
+                                editTelefono.setText("");
+                            }
                         }
                     }
                 }

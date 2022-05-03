@@ -15,7 +15,7 @@
             android:id="@+id/botonAgregarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AgregarPersonaFragment"
+            android:text="@string/botonAgregar"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones" />
 
@@ -23,7 +23,7 @@
             android:id="@+id/botonConsultarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ConsultarPersonaFragment"
+            android:text="@string/botonConsultar"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones" />
 
@@ -31,7 +31,7 @@
             android:id="@+id/botonActualizarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ActualizarPersonaFragment"
+            android:text="@string/botonActualizar"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones" />
 
@@ -39,7 +39,7 @@
             android:id="@+id/botonEliminarPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/EliminarPersonaFragment"
+            android:text="@string/botonEliminar"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones" />
 

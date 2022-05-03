@@ -49,6 +49,7 @@
     <string name="titulo_cobro_eliminar">Eliminar cobro</string>
     <string name="idCobro">Id del cobro:</string>
     <string name="TipoPago">Tipo de pago:</string>
+    <string name="cantPersonas">Cantidad de personas:</string>
     <string name="duracion">Duración:</string>
     <string name="precios">Precio:</string>
 

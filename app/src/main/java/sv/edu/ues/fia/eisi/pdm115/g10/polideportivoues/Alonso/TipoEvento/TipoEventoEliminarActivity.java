@@ -7,19 +7,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10Alonso;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class TipoEventoEliminarActivity extends AppCompatActivity {
 
-    ControlBDG10 helper;
+    ControlBDG10Alonso helper;
     EditText editIdTipoEvento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_evento_eliminar);
-        helper = new ControlBDG10(this);
+        helper = new ControlBDG10Alonso(this);
         editIdTipoEvento = (EditText) findViewById(R.id.editText_id);
     }
     public void eliminarTipoEvento(View view){

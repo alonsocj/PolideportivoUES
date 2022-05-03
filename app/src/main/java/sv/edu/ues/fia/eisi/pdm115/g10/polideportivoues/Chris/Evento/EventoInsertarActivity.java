@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +28,9 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class EventoInsertarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
-    EditText IdEvento, NombreEvento, CostoEvento, cantAutorizada;
+    TextInputEditText IdEvento, NombreEvento, CostoEvento, cantAutorizada;
     Button agregarEvento;
-    Spinner spinnerTiposEventos;
+    MaterialAutoCompleteTextView spinnerTiposEventos;
     SQLiteDatabase db;
     String arrayidTE[];
     String arrayTiposdeEventos[];
@@ -73,7 +76,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
                 String cantidadString = cantAutorizada.getText().toString();
 
                 /*Validaciones*/
-                if(idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty()){
+                if(idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty() || spinnerTiposEventos.getText().toString().isEmpty()){
                     Toast.makeText(EventoInsertarActivity.this, "Debe de llenar todos los campos para poder ingresar un evento", Toast.LENGTH_SHORT).show();
                 }else{
                     Float costo = Float.valueOf(costoString);
@@ -86,7 +89,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
                         Evento event = new Evento();
                         event.setIdEvento(idEvento);
                         for (int i=0; i< arrayidTE.length; i++){
-                            if(spinnerTiposEventos.getSelectedItem().toString() == arrayTiposdeEventos[i]){
+                            if(spinnerTiposEventos.getText().toString().equals(arrayTiposdeEventos[i])){
                                 event.setIdTipoE(arrayidTE[i]);
                             }
                         }

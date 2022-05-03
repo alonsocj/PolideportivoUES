@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -15,7 +17,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class TipoPagoEliminarActivity extends AppCompatActivity {
 
     ControlBDChristian helper;
-    EditText editIdTipoPago;
+    TextInputEditText editIdTipoPago;
     Button eliminarTipoPago;
 
     @Override

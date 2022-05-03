@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_polideportivo"
             android:title="@string/menu_home" />
 
         <item
@@ -21,8 +21,8 @@
 
         <item
             android:id="@+id/nav_evento"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Evento"/> <!--Strings-->
+            android:icon="@drawable/ic_evento"
+            android:title="@string/evento"/>
 
         <item
             android:id="@+id/nav_local"
@@ -42,7 +42,7 @@
         <item
             android:id="@+id/nav_hora"
             android:icon="@drawable/ic_time"
-            android:title="Hora" /> <!--Strings-->
+            android:title="@string/hora" />
 
         <item
             android:id="@+id/nav_localEvento"
@@ -51,7 +51,7 @@
 
         <item
             android:id="@+id/nav_tipoevento"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_tipo_evento"
             android:title="@string/tipoEvento" />
 
         <item
@@ -62,7 +62,7 @@
         <item
             android:id="@+id/nav_tipoPago"
             android:icon="@drawable/ic_tp"
-            android:title="Tipo de Pago" /> <!--Strings-->
+            android:title="@string/tipo_pago" />
         <item
             android:id="@+id/nav_tipoReservacion"
             android:icon="@drawable/ic_menu_tiporeservacion"

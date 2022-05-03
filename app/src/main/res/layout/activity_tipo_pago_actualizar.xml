@@ -18,36 +18,53 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
-    <TextView
+   <!-- <TextView
         android:paddingTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TipoPagoIdentificador"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/> -->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditIdPagoActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_key"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/hintIdePago">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditIdPagoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintIdePago"
         android:inputType="text"
         android:maxLength="2"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TipoPagoNombreTipo"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/> -->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditTipoActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/ic_money"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="15dp"
+        android:hint="@string/hintTipoPago">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditTipoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintTipoPago"
         android:inputType="text"
         android:maxLength="20"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:layout_marginTop="15dp"
         android:id="@+id/botonActualizarTipoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

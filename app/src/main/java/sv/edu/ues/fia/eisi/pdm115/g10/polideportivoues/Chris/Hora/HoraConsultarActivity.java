@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -15,7 +17,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class HoraConsultarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
-    EditText editIdHora, editHoraI, editHoraF;
+    TextInputEditText editIdHora, editHoraI, editHoraF;
     Button consultarHora;
 
     @Override
@@ -24,9 +26,9 @@ public class HoraConsultarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hora_consultar);
 
         controlBDChristian = new ControlBDChristian(this);
-        editIdHora = (EditText) findViewById(R.id.EditIdHoraC);
-        editHoraI = (EditText) findViewById(R.id.EditHoraInicioC);
-        editHoraF = (EditText) findViewById(R.id.EditHoraFinC);
+        editIdHora =  findViewById(R.id.EditIdHoraC);
+        editHoraI = findViewById(R.id.EditHoraInicioC);
+        editHoraF = findViewById(R.id.EditHoraFinC);
         consultarHora = (Button) findViewById(R.id.botonBuscarHora);
 
         consultarHora.setOnClickListener(new View.OnClickListener() {

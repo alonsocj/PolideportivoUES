@@ -18,24 +18,33 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
-    <TextView
+   <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Horaidentificador"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/> -->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditIdHoraE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_key"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/hintId">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditIdHoraE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintId"
         android:inputType="text"
         android:maxLength="4"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/botonEliminarHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_gravity="right"
         android:textColor="@color/black"
         android:backgroundTint="@color/botones"

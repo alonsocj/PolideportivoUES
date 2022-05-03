@@ -8,13 +8,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class TipoPagoInsertarActivity extends AppCompatActivity {
 
-    EditText editIdPago, editTipoPago;
+    TextInputEditText editIdPago, editTipoPago;
     Button agregarTipoPago;
     ControlBDChristian helper;
 
@@ -24,8 +26,8 @@ public class TipoPagoInsertarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tipo_pago_insertar);
 
         helper = new ControlBDChristian(this);
-        editIdPago = (EditText) findViewById(R.id.EditIdPago);
-        editTipoPago = (EditText) findViewById(R.id.EditTipo);
+        editIdPago =  findViewById(R.id.EditIdPago);
+        editTipoPago = findViewById(R.id.EditTipo);
         agregarTipoPago = (Button) findViewById(R.id.botonAgregarTipoP);
 
         agregarTipoPago.setOnClickListener(new View.OnClickListener() {

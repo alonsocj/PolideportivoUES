@@ -18,20 +18,29 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/NumEvenTxt"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/>-->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditIdNumeroEventoEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_key"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/NumeroEventoHint">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditIdNumeroEventoEliminar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/NumeroEventoHint"
         android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:layout_marginTop="10dp"
         android:id="@+id/botonEliminarEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

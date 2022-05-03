@@ -16,7 +16,7 @@ public class HorariosLocalesEliminarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_horarios_locales_eliminar);
 
     }
-    public void eliminarDetallePeriodosR(View v){
+    public void eliminarHorariosLocales(View v){
 
     }
     public void limpiar(View v){

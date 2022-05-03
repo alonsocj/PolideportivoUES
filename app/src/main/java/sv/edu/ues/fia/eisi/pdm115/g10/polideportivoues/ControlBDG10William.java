@@ -6,10 +6,15 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.HorariosLocales.HorariosLocales;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
 
@@ -150,8 +155,69 @@ public class ControlBDG10William {
         //}else{
         //return "El tipo de reservacion no existe";
         //}
-
     }
+
+    public String ingresarHorariosLocales(HorariosLocales horariosLocales){
+        String localInsertado = "Horario del Local ";
+        long cuenta = 0;
+
+        ContentValues horarios = new ContentValues();
+        horarios.put("idHorario", horariosLocales.getIdHorario());
+        horarios.put("nomLocal", horariosLocales.getIdLocal());
+        horarios.put("disponibilidad", horariosLocales.getDisponibilidad());
+        cuenta = db.insert("horariosLocales",null,horarios);
+
+        if(cuenta == -1 || cuenta == 0){
+            localInsertado = "Error al ingresar un horario de local que ya existe, Verificar su inserción";
+        }else{
+            localInsertado = localInsertado + cuenta + " Registrado";
+        }
+
+        return localInsertado;
+    }
+
+    public String actualizarHorariosLocales(HorariosLocales horariosLocales){
+        //if(verificarIntegridadDeDatos(local,1)){
+            String[] id={horariosLocales.getIdHorario(), horariosLocales.getIdLocal()};
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("disponibilidad", horariosLocales.getDisponibilidad());
+            db.update("horariosLocales",contentValues, "idHorario = ? and idLocal = ?",id);
+            return "Horario del local Actualizado";
+        //}else{
+            //return "El local no existe";
+        //}
+    }
+
+    public HorariosLocales consultarHorariosLocales(String idHorario, String idlocal){
+        String[] id = {idHorario, idlocal};
+        Cursor cursor = db.query("horariosLocales", new String [] {"idHorario","idlocal","disponibilidad"}, "idHorario = ? and idLocal = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            HorariosLocales horariosLocales = new HorariosLocales();
+            horariosLocales.setIdHorario(cursor.getString(0));
+            horariosLocales.setIdLocal(cursor.getString(1));
+            horariosLocales.setDisponibilidad(Integer.parseInt(cursor.getString(2)));
+            return horariosLocales;
+        }else{
+            return null;
+        }
+    }
+
+    public String eliminarHorariosLocales(HorariosLocales horariosLocales){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+         //if (verificarIntegridadDeDatos(local,1)) {
+            //if (verificarIntegridadDeDatos(local,2)) {
+            //return "El local no puede ser eliminado porque existen registros de local evento con este local.";
+            //}else{
+            contador+=db.delete("horariosLocales", "idHorario = '"+ horariosLocales.getIdHorario()+"' and idLocal = '"+ horariosLocales.getIdLocal()+"'", null);
+            regAfectados+=contador;
+            return regAfectados;
+            //}
+        //}else{
+            //return "El local no existe";
+        //}
+    }
+
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
             case 1: {
@@ -177,5 +243,67 @@ public class ControlBDG10William {
             default:
                 return false;
         }
+    }
+
+    //Extraemos todas las horas registradas en la base de datos
+    public List<HorariosDisponibles> consultarHorarioDisponibles(){
+        List<HorariosDisponibles> arrayHorarios=new ArrayList<>();
+        Cursor cursor = db.query("horariosDisponibles",null, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            HorariosDisponibles horarioDisponible = new HorariosDisponibles();
+            horarioDisponible.setIdHorario(cursor.getString(0));
+            horarioDisponible.setHora(cursor.getString(1));
+            horarioDisponible.setDia(cursor.getString(2));
+            arrayHorarios.add(horarioDisponible);
+            while(cursor.moveToNext()) {
+                HorariosDisponibles horariosDisponible = new HorariosDisponibles();
+                horariosDisponible.setIdHorario(cursor.getString(0));
+                horariosDisponible.setHora(cursor.getString(1));
+                horariosDisponible.setDia(cursor.getString(2));
+                arrayHorarios.add(horariosDisponible);
+            }
+        }
+        return arrayHorarios;
+    }
+    public List<String> consultarHorarioDisponiblesString(List<HorariosDisponibles> arrayHorarios){
+        List<String>arrayHorariosString=new ArrayList<>();
+        arrayHorariosString.add("Seleccione una hora");
+        for (int i=0;i<arrayHorarios.size();i++) {
+            HorariosDisponibles  horariosArray = new HorariosDisponibles();
+            horariosArray = arrayHorarios.get(i);
+                arrayHorariosString.add(horariosArray.getHora()+" "+horariosArray.getIdHorario());
+            }
+        return arrayHorariosString;
+    }
+
+    public List<Local> consultarLocales(){
+        List<Local> arrayLocales=new ArrayList<>();
+        Cursor cursor = db.query("local",null, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            Local locales = new Local();
+            locales.setIdLocal(cursor.getString(0));
+            locales.setNomLocal(cursor.getString(1));
+            locales.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
+            arrayLocales.add(locales);
+            while(cursor.moveToNext()) {
+                Local Locales = new Local();
+                Locales.setIdLocal(cursor.getString(0));
+                Locales.setNomLocal(cursor.getString(1));
+                Locales.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
+                arrayLocales.add(Locales);
+            }
+        }
+        return arrayLocales;
+    }
+
+    public List<String> consultarLocalesString(List<Local> arrayLocal){
+        List<String>arrayLocalString=new ArrayList<>();
+        arrayLocalString.add("Seleccione un local");
+        for (int i=0;i<arrayLocal.size();i++) {
+            Local localArray=new Local();
+            localArray=arrayLocal.get(i);
+            arrayLocalString.add(localArray.getNomLocal());
+        }
+        return arrayLocalString;
     }
 }

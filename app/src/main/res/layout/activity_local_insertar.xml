@@ -55,16 +55,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cupoLocaltxt"
+        android:text="@string/cantidadPersonas"
         android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:inputType="number"/>
+        android:textSize="20sp" />
 
-    <Spinner
-        android:id="@+id/SpinnerCupoLocal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"/>
+        <EditText
+            android:id="@+id/EditCantidadPersonas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hintCantidadPersonas"
+            android:minHeight="48dp"
+            android:inputType="number"
+            android:maxLines="1"
+            />
 
     <LinearLayout
         android:id="@+id/linearLayoutButton"

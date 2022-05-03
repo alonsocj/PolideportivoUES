@@ -24,7 +24,7 @@ public class HoariosLocalesActualizarActivity extends AppCompatActivity {
 
     }
 
-    public void actualizarDetallePeriodosR(View v){
+    public void actualizarHorariosLocales(View v){
 
     }
     public void limpiar(View v){

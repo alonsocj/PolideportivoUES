@@ -34,6 +34,7 @@ public class LocalEliminarActivity extends AppCompatActivity {
             registrosEliminados = helper.eliminarLocal(local);
             helper.close();
             Toast.makeText(LocalEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+            editIdLocal.setText("");
         }
     }
     public void limpiar(View v){

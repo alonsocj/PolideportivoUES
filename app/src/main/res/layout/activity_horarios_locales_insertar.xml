@@ -20,20 +20,29 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#000000"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:text="@string/idHorarioLocales"/>
+
+        <Spinner
+            android:id="@+id/SpinnerHoras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
-            android:text="@string/idHorario"/>
+            android:text="@string/Local"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/id_PeriodoReserva"/>
+        <Spinner
+            android:id="@+id/SpinnerLocales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,6 +51,10 @@
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             />
+        <Spinner
+            android:id="@+id/SpinnerDisponibilidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"
@@ -49,7 +62,7 @@
             android:layout_height="match_parent"
             android:gravity="right">
             <Button
-                android:id="@+id/botonAgregarDetallePeriodosR"
+                android:id="@+id/botonAgregarHorariosLocales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="insertarHorariosLocales"

@@ -18,7 +18,7 @@ public class TipoPagoActualizarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
     TextInputEditText editIdTPag , editTipoPag;
-    Button actualizarTipoPago;
+    Button actualizarTipoPago, botonLimpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class TipoPagoActualizarActivity extends AppCompatActivity {
         editIdTPag = findViewById(R.id.EditIdPagoActu);
         editTipoPag = findViewById(R.id.EditTipoActu);
         actualizarTipoPago = findViewById(R.id.botonActualizarTipoP);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         actualizarTipoPago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,5 +56,15 @@ public class TipoPagoActualizarActivity extends AppCompatActivity {
                 }
             }
         });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdTPag.setText("");
+                editTipoPag.setText("");
+            }
+        });
+
+
     }
 }

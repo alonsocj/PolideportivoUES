@@ -17,7 +17,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class EventoEliminarActivity extends AppCompatActivity {
 
     ControlBDChristian helper;
-    Button eliminarevent;
+    Button eliminarevent, botonLimpiar;
     TextInputEditText editIdEv;
 
     @Override
@@ -28,6 +28,7 @@ public class EventoEliminarActivity extends AppCompatActivity {
         helper = new ControlBDChristian(this);
         editIdEv = findViewById(R.id.EditIdNumeroEventoEliminar);
         eliminarevent = findViewById(R.id.botonEliminarEvent);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         eliminarevent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,5 +42,13 @@ public class EventoEliminarActivity extends AppCompatActivity {
                 Toast.makeText(EventoEliminarActivity.this, registroseliminados, Toast.LENGTH_SHORT).show();
             }
         });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdEv.setText("");
+            }
+        });
+
     }
 }

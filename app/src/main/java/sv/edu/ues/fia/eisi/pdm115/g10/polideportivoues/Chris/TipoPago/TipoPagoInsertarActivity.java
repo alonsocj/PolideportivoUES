@@ -17,7 +17,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class TipoPagoInsertarActivity extends AppCompatActivity {
 
     TextInputEditText editIdPago, editTipoPago;
-    Button agregarTipoPago;
+    Button agregarTipoPago, botonLimpiar;
     ControlBDChristian helper;
 
     @Override
@@ -28,7 +28,8 @@ public class TipoPagoInsertarActivity extends AppCompatActivity {
         helper = new ControlBDChristian(this);
         editIdPago =  findViewById(R.id.EditIdPago);
         editTipoPago = findViewById(R.id.EditTipo);
-        agregarTipoPago = (Button) findViewById(R.id.botonAgregarTipoP);
+        agregarTipoPago = findViewById(R.id.botonAgregarTipoP);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         agregarTipoPago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +56,13 @@ public class TipoPagoInsertarActivity extends AppCompatActivity {
             }
         });
 
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdPago.setText("");
+                editTipoPago.setText("");
+            }
+        });
 
     }
 }

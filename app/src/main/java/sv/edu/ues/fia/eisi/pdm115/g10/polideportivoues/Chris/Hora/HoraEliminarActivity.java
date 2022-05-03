@@ -18,7 +18,7 @@ public class HoraEliminarActivity extends AppCompatActivity {
 
     TextInputEditText EditidHoraE;
     ControlBDChristian helper;
-    Button btnEliminarHora;
+    Button btnEliminarHora, botonLimpiar;
 
 
     @Override
@@ -29,6 +29,7 @@ public class HoraEliminarActivity extends AppCompatActivity {
         helper = new ControlBDChristian(this);
         EditidHoraE = findViewById(R.id.EditIdHoraE);
         btnEliminarHora = (Button) findViewById(R.id.botonEliminarHora);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         btnEliminarHora.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,13 @@ public class HoraEliminarActivity extends AppCompatActivity {
                 registrosEliminados = helper.eliminarHora(hora);
                 helper.close();
                 Toast.makeText(HoraEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditidHoraE.setText("");
             }
         });
 

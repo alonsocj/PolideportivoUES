@@ -18,7 +18,7 @@ public class TipoPagoEliminarActivity extends AppCompatActivity {
 
     ControlBDChristian helper;
     TextInputEditText editIdTipoPago;
-    Button eliminarTipoPago;
+    Button eliminarTipoPago, botonLimpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class TipoPagoEliminarActivity extends AppCompatActivity {
         helper = new ControlBDChristian(this);
         editIdTipoPago = findViewById(R.id.EditIdPagoEliminar);
         eliminarTipoPago = findViewById(R.id.botonEliminarTipoP);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         eliminarTipoPago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +40,13 @@ public class TipoPagoEliminarActivity extends AppCompatActivity {
                 registrosEliminados = helper.eliminarTipoPago(tipoPago);
                 helper.close();
                 Toast.makeText(TipoPagoEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdTipoPago.setText("");
             }
         });
 

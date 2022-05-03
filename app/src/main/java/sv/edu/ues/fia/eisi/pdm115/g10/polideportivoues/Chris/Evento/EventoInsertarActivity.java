@@ -29,7 +29,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
     TextInputEditText IdEvento, NombreEvento, CostoEvento, cantAutorizada;
-    Button agregarEvento;
+    Button agregarEvento, botonLimpiar;
     MaterialAutoCompleteTextView spinnerTiposEventos;
     SQLiteDatabase db;
     String arrayidTE[];
@@ -49,6 +49,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
         cantAutorizada = findViewById(R.id.EditCantAutorEvento);
         agregarEvento = findViewById(R.id.botonAgregarNuevoEvento);
         spinnerTiposEventos = findViewById(R.id.spinnerTipoEvento);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         /*Obtención de datos de la base de datos y traerlos al spinner*/
         db = openOrCreateDatabase("polideportivo.s3db",SQLiteDatabase.CREATE_IF_NECESSARY,null);
@@ -102,6 +103,17 @@ public class EventoInsertarActivity extends AppCompatActivity {
                         Toast.makeText(EventoInsertarActivity.this, eventosRegistrados, Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IdEvento.setText("");
+                NombreEvento.setText("");
+                CostoEvento.setText("");
+                cantAutorizada.setText("");
+                spinnerTiposEventos.setText("");
             }
         });
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -41,16 +45,30 @@
         android:maxLength="2"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/consultar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="right"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/botones"
-        android:text="@string/botonConsultar"/>
+    <LinearLayout
+        android:id="@+id/linearLayoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right">
 
+        <Button
+            android:id="@+id/consultar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/botonConsultar"/>
+
+        <Button
+            android:id="@+id/botonLimpiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/btnLimpiar"/>
+    </LinearLayout>
 
    <!-- <TextView
         android:layout_width="wrap_content"
@@ -64,7 +82,7 @@
         android:layout_height="wrap_content"
         app:startIconDrawable="@drawable/ic_money"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:hint="@string/TipoPagoIdentificador">
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditTipoConsultar"
@@ -76,3 +94,4 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
+</ScrollView>

@@ -10,7 +10,10 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDGustavo;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -18,7 +21,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class PersonaActualizarActivity extends AppCompatActivity {
 
     ControlBDGustavo controlBDGustavo;
-    EditText editIdPersona, editNombre, editApellido, editNacimiento, editDireccion, editEmail, editTelefono;
+    TextInputEditText editIdPersona, editNombre, editApellido, editNacimiento, editDireccion, editEmail, editTelefono;
     RadioButton editGeneroM,editGeneroF;
     Button botonActualizar, botonVaciar;
     @Override
@@ -36,15 +39,15 @@ public class PersonaActualizarActivity extends AppCompatActivity {
         final int day=calendar.get(Calendar.DAY_OF_MONTH);
 
         //Persona
-        editIdPersona= (EditText) findViewById(R.id.EditDUIPersona);
-        editNombre = (EditText) findViewById(R.id.EditNombrePersona);
-        editApellido = (EditText) findViewById(R.id.EditApellidoPersona);
+        editIdPersona= findViewById(R.id.EditDUIPersona);
+        editNombre = findViewById(R.id.EditNombrePersona);
+        editApellido = findViewById(R.id.EditApellidoPersona);
         editGeneroM = (RadioButton) findViewById(R.id.rbMasculino);
         editGeneroF = (RadioButton) findViewById(R.id.rbFemenino);
-        editNacimiento = (EditText) findViewById(R.id.EditNacimientoPersona);
-        editDireccion = (EditText) findViewById(R.id.EditDireccionPersona);
-        editEmail = (EditText) findViewById(R.id.EditEmailPersona);
-        editTelefono = (EditText) findViewById(R.id.EditTelefonoPersona);
+        editNacimiento = findViewById(R.id.EditNacimientoPersona);
+        editDireccion = findViewById(R.id.EditDireccionPersona);
+        editEmail = findViewById(R.id.EditEmailPersona);
+        editTelefono = findViewById(R.id.EditTelefonoPersona);
         botonActualizar = (Button) findViewById(R.id.botonActualizarPersona);
         botonVaciar = (Button) findViewById(R.id.botonVaciarPersona);
 
@@ -74,6 +77,11 @@ public class PersonaActualizarActivity extends AppCompatActivity {
                     }else if(telefono.length()<8){
                         Toast.makeText(PersonaActualizarActivity.this, "El número de teléfono debe contener 8 dígitos", Toast.LENGTH_SHORT).show();
                         verdadero=false;
+                    }else{
+                        if(!(validarEmail(email))){
+                            Toast.makeText(PersonaActualizarActivity.this, "El email no es válido!", Toast.LENGTH_SHORT).show();
+                            verdadero=false;
+                        }
                     }
                     if(verdadero){
                         String [] fecha=nacimiento.split("/");
@@ -143,5 +151,13 @@ public class PersonaActualizarActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+    }
+    private boolean validarEmail(String email){
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
     }
 }

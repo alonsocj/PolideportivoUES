@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +24,9 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class HorariosDisponiblesActualizarActivity extends AppCompatActivity {
 
     ControlBDGustavo controlBDGustavo;
-    EditText editIdHora;
+    TextInputEditText editIdHora;
     Button botonActualizar, botonVaciar;
-    Spinner editHora,editDia;
+    MaterialAutoCompleteTextView editHora,editDia;
     List<Hora> arrayHoras=new ArrayList<Hora>();
     List<String> arrayHorasString=new ArrayList<String>();
     List<Dia> arrayDias=new ArrayList<Dia>();
@@ -37,9 +40,9 @@ public class HorariosDisponiblesActualizarActivity extends AppCompatActivity {
         //Control de la base de datos
         controlBDGustavo = new ControlBDGustavo(this);
 
-        editIdHora=(EditText) findViewById(R.id.EditIdHorariosDisponibles);
-        editDia=(Spinner) findViewById(R.id.SpinnerDia);
-        editHora=(Spinner) findViewById(R.id.SpinnerHora);
+        editIdHora=findViewById(R.id.EditIdHorariosDisponibles);
+        editDia=findViewById(R.id.SpinnerDia);
+        editHora=findViewById(R.id.SpinnerHora);
         botonActualizar = (Button) findViewById(R.id.botonActualizarHorarioDisponible);
         botonVaciar = (Button) findViewById(R.id.botonVaciarHorarioDisponible);
 
@@ -59,34 +62,38 @@ public class HorariosDisponiblesActualizarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String idHora = editIdHora.getText().toString();
-                String dia = editDia.getSelectedItem().toString();
-                String hora = editHora.getSelectedItem().toString();
+                String dia = editDia.getText().toString();
+                String hora = editHora.getText().toString();
                 String insertarRegistros;
 
-                if(idHora.isEmpty()||dia.equals("Seleccione un día")||hora.equals("Seleccione una hora")){
+                if(idHora.isEmpty()||dia.isEmpty()||hora.isEmpty()){
                     Toast.makeText(HorariosDisponiblesActualizarActivity.this, "Debe completar los campos para registrar un horario!", Toast.LENGTH_SHORT).show();
                 }else{
-                    String idHoraSeleccionada=arrayHoras.get(editHora.getSelectedItemPosition()-1).getIdHora();
-                    String idDiaSeleccionado=arrayDias.get(editDia.getSelectedItemPosition()-1).getNombreDia();
+                    if(idHora.length()!=6){
+                        Toast.makeText(HorariosDisponiblesActualizarActivity.this, "El id debe de ser de 6 carácteres!", Toast.LENGTH_SHORT).show();
+                    }else {
+                        String idHoraSeleccionada = arrayHoras.get(editHora.getTextDirection() - 1).getIdHora();
+                        String idDiaSeleccionado = arrayDias.get(editDia.getTextDirection() - 1).getNombreDia();
 
-                    HorariosDisponibles horarioDisponible = new HorariosDisponibles();
-                    horarioDisponible.setIdHorario(idHora);
-                    horarioDisponible.setHora(idHoraSeleccionada);
-                    horarioDisponible.setDia(idDiaSeleccionado);
+                        HorariosDisponibles horarioDisponible = new HorariosDisponibles();
+                        horarioDisponible.setIdHorario(idHora);
+                        horarioDisponible.setHora(idHoraSeleccionada);
+                        horarioDisponible.setDia(idDiaSeleccionado);
 
-                    controlBDGustavo.open();
-                    insertarRegistros = controlBDGustavo.actualizarHorarioDisponible(horarioDisponible);
-                    controlBDGustavo.close();
-                    Toast.makeText(HorariosDisponiblesActualizarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+                        controlBDGustavo.open();
+                        insertarRegistros = controlBDGustavo.actualizarHorarioDisponible(horarioDisponible);
+                        controlBDGustavo.close();
+                        Toast.makeText(HorariosDisponiblesActualizarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
 
-                    if(insertarRegistros=="Registro duplicado!"){
-                        //Limpiamos los campos
-                        editIdHora.setText("");
-                    }else{
-                        //Limpiamos los campos
-                        editIdHora.setText("");
-                        editHora.setSelection(0);
-                        editDia.setSelection(0);
+                        if(insertarRegistros.equals("Registro duplicado!")){
+                            //Limpiamos los campos
+                            editIdHora.setText("");
+                        }else{
+                            //Limpiamos los campos
+                            editIdHora.setText("");
+                            editHora.setText("");
+                            editDia.setText("");
+                        }
                     }
                 }
             }
@@ -97,8 +104,8 @@ public class HorariosDisponiblesActualizarActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Limpiamos los campos
                 editIdHora.setText("");
-                editHora.setSelection(0);
-                editDia.setSelection(0);
+                editHora.setText("");
+                editDia.setText("");
             }
         });
     }

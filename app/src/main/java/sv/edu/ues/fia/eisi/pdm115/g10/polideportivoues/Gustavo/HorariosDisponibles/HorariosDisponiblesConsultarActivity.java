@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class HorariosDisponiblesConsultarActivity extends AppCompatActivity {
 
     ControlBDGustavo controlBDGustavo;
-    EditText editIdHora,editDia, editHora;
+    TextInputEditText editIdHora,editDia, editHora;
     Button botonConsultar, botonVaciar;
     List<Hora> arrayHoras=new ArrayList<Hora>();
     List<String> arrayHorasString=new ArrayList<String>();
@@ -35,9 +37,9 @@ public class HorariosDisponiblesConsultarActivity extends AppCompatActivity {
         controlBDGustavo = new ControlBDGustavo(this);
 
         //Horario Disponible
-        editIdHora=(EditText) findViewById(R.id.EditIdHorariosDisponibles);
-        editDia=(EditText) findViewById(R.id.EditDia);
-        editHora=(EditText) findViewById(R.id.EditHora);
+        editIdHora=findViewById(R.id.EditIdHorariosDisponibles);
+        editDia=findViewById(R.id.SpinnerDia);
+        editHora= findViewById(R.id.SpinnerHora);
         botonConsultar = (Button) findViewById(R.id.botonConsultarHorarioDisponible);
         botonVaciar = (Button) findViewById(R.id.botonVaciarHorarioDisponible);
 

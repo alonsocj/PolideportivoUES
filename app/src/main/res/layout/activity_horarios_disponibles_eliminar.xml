@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -17,43 +18,43 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingTop="10dp"
-            android:paddingBottom="20dp"
             android:text="@string/EliminarHorararioDisponibleFragment"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/idHorario"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditIdHorariosDisponibles"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintIdHorario"
-            android:inputType="text"
-            android:maxLength="2"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_key"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/idHorario">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditIdHorariosDisponibles"
+                android:inputType="text"
+                android:maxLength="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
             android:gravity="right">
             <Button
                 android:id="@+id/botonEliminarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/botonEliminar"
-                android:layout_margin="10dp"
+                android:layout_marginRight="25dp"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />
             <Button
                 android:id="@+id/botonVaciarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:text="@string/botonVaciar"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />

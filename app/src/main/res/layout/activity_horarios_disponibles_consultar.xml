@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -22,77 +23,80 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/idHorario"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditIdHorariosDisponibles"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintIdHorario"
-            android:inputType="text"
-            android:maxLength="2"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_key"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/idHorario">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditIdHorariosDisponibles"
+                android:inputType="text"
+                android:maxLength="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
             android:gravity="right">
             <Button
                 android:id="@+id/botonConsultarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/botonConsultar"
-                android:layout_margin="10dp"
+                android:layout_marginRight="25dp"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />
             <Button
                 android:id="@+id/botonVaciarHorarioDisponible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:text="@string/botonVaciar"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/idHora"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditHora"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="20"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_time"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/idHora">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SpinnerHora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nombreDia"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditDia"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="10"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_day"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/nombreDia">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/SpinnerDia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 </ScrollView>

@@ -198,11 +198,8 @@
     <string name="ConsultarHorararioDisponibleFragment">Consultar Disponibilidad</string>
     <string name="ActualizarHorararioDisponibleFragment">Actualizar Disponibilidad</string>
     <string name="idHorario">Id Disponibilidad</string>
-    <string name="hintIdHorario">Ingrese el id de la disponibilidad</string>
     <string name="idHora">Hora</string>
-    <string name="hintIdHora">Ingrese el id de la hora</string>
     <string name="nombreDia">Día</string>
-    <string name="hintNombreDia">Ingrese el día</string>
 
     <!-- Persona -->
     <string name="titulo_nav_persona">Persona</string>
@@ -211,22 +208,15 @@
     <string name="ConsultarPersonaFragment">Consultar Persona</string>
     <string name="ActualizarPersonaFragment">Actualizar Persona</string>
     <string name="NombrePersona">Nombre:</string>
-    <string name="hintNombrePersona">Ingrese el nombre</string>
     <string name="ApellidoPersona">Apellido:</string>
-    <string name="hintApellidoPersona">Ingrese el apellido</string>
     <string name="GeneroPersona">Género:</string>
     <string name="GeneroMasculino">M</string>
     <string name="GeneroFemenino">F</string>
     <string name="DUIPersona">DUI:</string>
-    <string name="hintDUIPersona">Ingrese el DUI</string>
     <string name="NacimientoPersona">Fecha de Nacimiento:</string>
-    <string name="hintNacimientoPersona">Ingrese la fecha de nacimiento</string>
     <string name="DireccionPersona">Dirección:</string>
-    <string name="hintDireccionPersona">Ingrese la dirección</string>
     <string name="EmailPersona">Correo eléctronico:</string>
-    <string name="hintEmailPersona">Ingrese el correo eléctronico</string>
     <string name="TelefonoPersona">Teléfono:</string>
-    <string name="hintTelefonoPersona">Ingrese el teléfono</string>
 
     <!-- Tipo Reservacion -->
     <string name="titulo_nav_tipoReservacion">Tipo de Reservacion</string>

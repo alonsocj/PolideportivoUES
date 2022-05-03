@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -22,166 +23,182 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/DUIPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditDUIPersona"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintDUIPersona"
-            android:inputType="number"
-            android:maxLength="9"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_tp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/DUIPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditDUIPersona"
+                android:inputType="number"
+                android:maxLength="9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
             android:gravity="right">
             <Button
                 android:id="@+id/botonConsultarPersona"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/botonConsultar"
-                android:layout_margin="10dp"
+                android:layout_marginRight="25dp"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />
             <Button
                 android:id="@+id/botonVaciarPersona"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:text="@string/botonVaciar"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/NombrePersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditNombrePersona"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="50"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/NombrePersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditNombrePersona"
+                android:inputType="text"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ApellidoPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditApellidoPersona"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="50"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_secondname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/ApellidoPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditApellidoPersona"
+                android:inputType="text"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/GeneroPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditGeneroPersona"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_genere"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/GeneroPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditGeneroPersona"
+                android:inputType="text"
+                android:maxLength="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/NacimientoPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditNacimientoPersona"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="10dp"
+            app:startIconDrawable="@drawable/ic_day"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/NacimientoPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditNacimientoPersona"
+                android:inputType="text"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/DireccionPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditDireccionPersona"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="100"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_localitation"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/DireccionPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditDireccionPersona"
+                android:inputType="text"
+                android:maxLength="100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/EmailPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditEmailPersona"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="50"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/EmailPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditEmailPersona"
+                android:inputType="text"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/TelefonoPersona"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/EditTelefonoPersona"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="8"
-            android:enabled ="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:cursorVisible="false"
-            android:longClickable="false"/>
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_phone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/TelefonoPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditTelefonoPersona"
+                android:inputType="number"
+                android:maxLength="8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled ="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:cursorVisible="false"
+                android:longClickable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 </ScrollView>

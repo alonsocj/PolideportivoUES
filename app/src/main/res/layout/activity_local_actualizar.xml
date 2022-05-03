@@ -18,14 +18,15 @@
         android:textAlignment="center"
         android:text="@string/actualizarLocal"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000"/><com.google.android.material.textfield.TextInputLayout
+        android:textColor="#000000"/>
+        <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_id_local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_key"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:hint="@string/idLocaltxt">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EditIdLocal"
             android:inputType="text"
@@ -39,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_nom_local"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/nombreLocaltxt">
             <com.google.android.material.textfield.TextInputEditText
@@ -55,6 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_personas"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/cantidadPersonas">
             <com.google.android.material.textfield.TextInputEditText

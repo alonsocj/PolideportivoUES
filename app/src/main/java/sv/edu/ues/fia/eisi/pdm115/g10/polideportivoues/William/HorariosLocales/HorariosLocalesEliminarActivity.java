@@ -1,5 +1,6 @@
 package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.HorariosLocales;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
@@ -8,7 +9,9 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibl
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalEliminarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacionEliminarActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -49,6 +52,7 @@ public class HorariosLocalesEliminarActivity extends AppCompatActivity {
     public void eliminarHorariosLocales(View v){
         String idHorario = SHoras.getText().toString();
         String idLocal = SLocales.getText().toString();
+        AlertDialog.Builder confirmacion=new AlertDialog.Builder(HorariosLocalesEliminarActivity.this);
         String registrosEliminados;
         HorariosLocales horarioEliminado = new HorariosLocales();
         if(idHorario.isEmpty()||idLocal.isEmpty()){
@@ -61,9 +65,31 @@ public class HorariosLocalesEliminarActivity extends AppCompatActivity {
             horarioEliminado.setIdHorario(idHorarioSeleccionado);
             horarioEliminado.setIdLocal(idLocalSeleccionado);
             helper.open();
-            registrosEliminados = helper.eliminarHorariosLocales(horarioEliminado);
+            registrosEliminados = helper.eliminarHorariosLocales(horarioEliminado,0);
             helper.close();
-            Toast.makeText(HorariosLocalesEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+            if(registrosEliminados.equals("1")){
+                confirmacion.setMessage("El  horario del local no puede ser eliminado porque existen registros de reservacion relacionados con este local. ¿Desea eliminarlos también?")
+                        .setCancelable(false)
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                helper.open();
+                                String registros = helper.eliminarHorariosLocales(horarioEliminado, 1);
+                                helper.close();
+                                Toast.makeText(HorariosLocalesEliminarActivity.this, registros, Toast.LENGTH_SHORT).show();
+                                SHoras.setText("");
+                                SLocales.setText("");
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(HorariosLocalesEliminarActivity.this, "No se eliminaron los registros", Toast.LENGTH_SHORT).show();
+                            }
+                        }).show();
+            }else{
+                Toast.makeText(HorariosLocalesEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+            }
             SHoras.setText("");
             SLocales.setText("");
         }

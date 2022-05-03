@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_key"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/idTipoReservaciontxt">
             <com.google.android.material.textfield.TextInputEditText
@@ -41,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_nombre_tr"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/nombreTipoReservaciontxt">
             <com.google.android.material.textfield.TextInputEditText

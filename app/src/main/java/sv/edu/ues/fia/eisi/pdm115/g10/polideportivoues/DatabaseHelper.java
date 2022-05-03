@@ -55,7 +55,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "CONSTRAINT fk_reservacion_persona FOREIGN KEY (idPersona) REFERENCES persona(idPersona) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_tipoReservacion FOREIGN KEY (idTipoR) REFERENCES tipoReservacion(idTipoR) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_evento FOREIGN KEY (idEvento) REFERENCES Evento(idEvento) ON DELETE RESTRICT,\n" +
-                    "CONSTRAINT fk_reservacion_horariosLocales FOREIGN KEY (idHorario,idLocal) REFERENCES horariosLocales(idHorario,idLocal) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_periodoReserva FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva(idPeriodoReserva) ON DELETE RESTRICT\n" +
                     ");\n");
 

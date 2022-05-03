@@ -21,9 +21,9 @@
     <string name="botonEliminar">Eliminar</string>
 
     <!--Tabla Hora-->
-    <string name="Horaidentificador">Id de Hora:</string>
-    <string name="InicioHora">Hora Inicio:</string>
-    <string name="FinHora">Hora Fin:</string>
+    <string name="Horaidentificador">Id de Hora</string>
+    <string name="InicioHora">Hora Inicio</string>
+    <string name="FinHora">Hora Fin</string>
     <string name="hintId">Ingrese el Numero de Hora</string>
     <string name="hintHI">Ingrese la hora de inicio</string>
     <string name="hintHF">Ingrese la hora de finalización</string>}
@@ -35,7 +35,7 @@
     <string name="titulo_hora_editar">Actualizar Hora</string>
     <string name="titulo_hora_consultar">Consultar Hora</string>
     <string name="titulo_hora_eliminar">Eliminar Hora</string>
-
+    <string name="hora">Hora</string>
 
     <!-- TIPO EVENTO -->
     <string name="tipoEvento">Tipo de Evento</string>
@@ -93,7 +93,7 @@
     <string name="titulo_tipoPago_editar">Actualizar Tipo Pago</string>
     <string name="titulo_tipoPago_consultar">Consultar Tipo Pago</string>
     <string name="titulo_tipoPago_eliminar">Eliminar Tipo Pago</string>
-
+    <string name="tipo_pago">Tipo Pago</string>
 
     <!--Tabla Evento-->
     <string name="AgregarEventoFragment">Agregar Evento</string>
@@ -115,7 +115,7 @@
     <string name="titulo_evento_editar">Actualizar Evento</string>
     <string name="titulo_evento_consultar">Consultar Evento</string>
     <string name="titulo_evento_eliminar">Eliminar Evento</string>
-
+    <string name="evento">Evento</string>
 
     <!-- TABLA RESERVACION-->
     <string name="btnLimpiar">Limpiar</string>

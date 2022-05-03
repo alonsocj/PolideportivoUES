@@ -17,62 +17,93 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Horaidentificador"/>
+        android:text="@string/Horaidentificador"/>-->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditIdHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_key"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/hintId">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditIdHora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintId"
         android:inputType="text"
         android:maxLength="4"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/InicioHora"/>
+        android:text="@string/InicioHora"/>-->
 
-    <EditText
-        android:id="@+id/EditHoraInicio"
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Input_EditHoraInicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_hora_inicio"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/hintHI">
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EditHoraInicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="time" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    <Button
+            android:layout_marginTop="15dp"
+            android:id="@+id/horaInicioPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:backgroundTint="@color/botones"
+            android:text="@string/inicioH"
+            android:textColor="@color/black" /> -->
+
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/FinHora"/>-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditHoraFin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintHI"
-        android:inputType="time"
-        android:enabled="false"/>
+        android:enabled="true"
+        android:layout_marginTop="15dp"
 
-    <Button
-        android:id="@+id/horaInicioPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/botones"
-        android:text="@string/inicioH"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/FinHora"/>
-
-    <EditText
+        app:startIconDrawable="@drawable/ic_hora_fin"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/hintHF">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditHoraFin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintHF"
-        android:inputType="time"
-        android:enabled="false"/>
+        android:clickable="true"
+        android:focusable="false"
+        android:inputType="time"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <!--<Button
         android:id="@+id/horaFinalizarPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:textColor="@color/black"
+        android:layout_marginTop="15dp"
         android:backgroundTint="@color/botones"
-        android:text="@string/finH"/>
+        android:text="@string/finH"/>-->
 
     <Button
         android:id="@+id/botonAgregarHora"
@@ -80,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:textColor="@color/black"
+        android:layout_marginTop="15dp"
         android:backgroundTint="@color/botones"
         android:text="@string/botonAgregar"/>
 

@@ -18,73 +18,114 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/NumEvenTxt"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/>-->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditIdNumeroEventoActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_key"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/NumeroEventoHint">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditIdNumeroEventoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/NumeroEventoHint"
         android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TiEventTxt"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/>-->
 
-    <Spinner
-        android:id="@+id/spinnerTipoEventoActu"
+    <!--Spínner-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_spinnerTipoEventoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"/>
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_tipo_evento"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:hint="@string/tipoEvento">
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+        android:id="@+id/spinnerTipoEventoActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/NomEventTxt"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/>-->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditNombreEventoActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_evento"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/NombreEventoHint">
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditNombreEventoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/NombreEventoHint"
         android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/costoEventTxt"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/>-->
 
-    <EditText
-        android:id="@+id/EditCostoEventoActu"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditCostoEventoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/CostoEventoHint"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_money"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/CostoEventoHint">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/EditCostoEventoActu"
         android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:maxLength="4"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cantAutEventTxt"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/>-->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditCantAutorEventoActu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_cantidad"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/Hint_cantAutorizada">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditCantAutorEventoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/Hint_cantAutorizada"
         android:inputType="number"/>
-
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:layout_marginTop="10dp"
         android:id="@+id/botonActualizarEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

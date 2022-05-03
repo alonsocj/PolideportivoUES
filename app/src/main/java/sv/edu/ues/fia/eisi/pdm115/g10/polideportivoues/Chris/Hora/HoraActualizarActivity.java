@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Locale;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
@@ -20,7 +22,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class HoraActualizarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
-    EditText editHoraid, editHoraInicio, editHoraFin;
+    TextInputEditText editHoraid, editHoraInicio, editHoraFin;
     Button botonActualizarHora, botonActualizarHoradeInicio, getBotonActualizarHoradeFin;
     int horas, minutos;
 
@@ -30,14 +32,14 @@ public class HoraActualizarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hora_actualizar);
         controlBDChristian = new ControlBDChristian(this);
 
-        editHoraid = (EditText) findViewById(R.id.EditIdHoraActualizar);
-        editHoraInicio = (EditText) findViewById(R.id.EditHoraInicioActualizar);
-        editHoraFin = (EditText) findViewById(R.id.EditHoraFinActualizar);
+        editHoraid =  findViewById(R.id.EditIdHoraActualizar);
+        editHoraInicio = findViewById(R.id.EditHoraInicioActualizar);
+        editHoraFin = findViewById(R.id.EditHoraFinActualizar);
         botonActualizarHora = (Button) findViewById(R.id.botonActualizarHora);
-        botonActualizarHoradeInicio = (Button) findViewById(R.id.horaInicioPickerActualizar);
-        getBotonActualizarHoradeFin = (Button) findViewById(R.id.horaFinalizarPickerActualizar);
+        /*botonActualizarHoradeInicio = (Button) findViewById(R.id.horaInicioPickerActualizar);
+        getBotonActualizarHoradeFin = (Button) findViewById(R.id.horaFinalizarPickerActualizar);*/
 
-        botonActualizarHoradeInicio.setOnClickListener(new View.OnClickListener() {
+        editHoraInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
@@ -55,7 +57,7 @@ public class HoraActualizarActivity extends AppCompatActivity {
             }
         });
 
-        getBotonActualizarHoradeFin.setOnClickListener(new View.OnClickListener() {
+        editHoraFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {

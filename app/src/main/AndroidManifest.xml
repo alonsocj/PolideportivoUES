@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PolideportivoUES">
         <activity
+            android:name=".Carolina.Nacionalidad.NacionalidadEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.Nacionalidad.NacionalidadConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.Nacionalidad.NacionalidadActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Carolina.Nacionalidad.NacionalidadInsertarActivity"
+            android:exported="false" />
+        <activity
             android:name=".William.HorariosLocales.HorariosLocalesEliminarActivity"
             android:exported="false" />
         <activity

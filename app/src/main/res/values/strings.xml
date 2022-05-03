@@ -130,19 +130,20 @@
 
     <string name="id_Reservacion">Id de la reservación:</string>
     <string name="id_Cobro">Cobro:</string>
-    <string name="id_Persona">Persona:</string>
+    <string name="id_Persona">Persona</string>
     <string name="TipoReservacion">Tipo de reservación:</string>
     <string name="id_Evento">Evento:</string>
     <string name="id_PeriodoReserva">Periodo de reserva:</string>
     <string name="fechaRegistro">Fecha de registro:</string>
 
-    <string name="Hint_idReservacion">Ingrese el id de la reservación</string>
-    <string name="Hint_id_Cobro">Ingrese el id del cobro</string>
-    <string name="Hint_id_Persona">Ingrese el id de la persona</string>
-    <string name="Hint_TipoReservacion">Ingrese el id del tipo de reservación</string>
-    <string name="Hint_id_Evento">Ingrese el id del evento</string>
-    <string name="Hint_id_PeriodoReserva">Ingrese el id del periodo de reserva</string>
-    <string name="Hint_fechaRegistro">Ingrese la fecha de registro</string>
+    <string name="Hint_idReservacion">Id de reservación</string>
+    <string name="Hint_id_HorarioLocal">Horario</string>
+    <string name="Hint_id_Cobro">Id del cobro</string>
+    <string name="Hint_id_Persona">Persona</string>
+    <string name="Hint_TipoReservacion">Tipo de reservación</string>
+    <string name="Hint_id_Evento">Evento</string>
+    <string name="Hint_id_PeriodoReserva">Periodo de reserva</string>
+    <string name="Hint_fechaRegistro">Fecha de registro</string>
 
     <!-- TABLA PeriodoReserva-->
     <string name="titulo_nav_periodoReserva">Periodo de Reserva</string>
@@ -161,9 +162,9 @@
     <string name="Hint_fechaInicio">Ingresar fecha de inicio del periodo de reserva</string>
     <string name="Hint_fechaFin">Ingresar fecha fin del periodo de reserva</string>
 
-    <!-- TABLA LocalEvento-->
-    <string name="titulo_nav_localEvento">Local Evento</string>
-    <string name="label_localEvento">Local Evento</string>
+    <!-- TABLA Nacionalidad-->
+    <string name="titulo_nav_nacionalidad">Nacionalidad</string>
+    <string name="label_nacionalidad">Nacionalidad</string>
 
     <string name="titulo_LocalEvento_insertar">Agregar Local Evento</string>
     <string name="titulo_LocalEvento_consultar">Consultar Local Evento</string>
@@ -242,6 +243,17 @@
     <string name="Local">Local</string>
     <string name="cantidadPersonas">Cantidad de personas</string>
     <string name="hintCantidadPersonas">Ingrese la cantidad de personas permitidas</string>
+    <string name="title_activity_nacionalidad_eliminar">NacionalidadEliminarActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 

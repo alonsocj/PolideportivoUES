@@ -35,7 +35,7 @@ public class LocalEventoInsertarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        /*super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_evento_insertar);
         helper = new ControlBDCarolina(this);
 
@@ -105,5 +105,7 @@ public class LocalEventoInsertarActivity extends AppCompatActivity {
         spE.setSelection(0);
         spL.setSelection(0);
         editCA.setText("");
+    }*/
+        super.onCreate(savedInstanceState);
     }
 }

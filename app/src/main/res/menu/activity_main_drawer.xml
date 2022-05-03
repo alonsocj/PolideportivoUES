@@ -45,11 +45,6 @@
             android:title="Hora" /> <!--Strings-->
 
         <item
-            android:id="@+id/nav_localEvento"
-            android:icon="@drawable/ic_menu_localevento"
-            android:title="@string/titulo_nav_localEvento"/>
-
-        <item
             android:id="@+id/nav_tipoevento"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/tipoEvento" />
@@ -71,6 +66,11 @@
             android:id="@+id/nav_horarios_locales"
             android:icon="@drawable/ic_menu_tiporeservacion"
             android:title="@string/titulo_nav_horariosLocales" /> <!--Strings-->
+
+        <item
+            android:id="@+id/nav_nacionalidad"
+            android:icon="@drawable/ic_menu_nacionalidad"
+            android:title="@string/titulo_nav_nacionalidad"/>
 
     </group>
 </menu>

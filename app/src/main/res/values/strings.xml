@@ -245,6 +245,10 @@
     <string name="consultarHorariosLocales">Consultar horario del local</string>
     <string name="eliminarHorariosLocales">Eliminar horario del local</string>
     <string name="actualizarHorariosLocales">Actualizar horario del local</string>
+    <string name="idHorarioLocales">Horas:</string>
+    <string name="disponible">Disponible</string>
+    <string name="ocupado">Ocupado</string>
+    <string name="Local">Local</string>
 
 
 </resources>

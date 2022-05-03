@@ -6,10 +6,14 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.TipoPago.TipoPago;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
 
@@ -177,5 +181,67 @@ public class ControlBDG10William {
             default:
                 return false;
         }
+    }
+
+    //Extraemos todas las horas registradas en la base de datos
+    public List<HorariosDisponibles> consultarHorarioDisponibles(){
+        List<HorariosDisponibles> arrayHorarios=new ArrayList<>();
+        Cursor cursor = db.query("horariosDisponibles",null, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            HorariosDisponibles horarioDisponible = new HorariosDisponibles();
+            horarioDisponible.setIdHorario(cursor.getString(0));
+            horarioDisponible.setHora(cursor.getString(1));
+            horarioDisponible.setDia(cursor.getString(2));
+            arrayHorarios.add(horarioDisponible);
+            while(cursor.moveToNext()) {
+                HorariosDisponibles horariosDisponible = new HorariosDisponibles();
+                horariosDisponible.setIdHorario(cursor.getString(0));
+                horariosDisponible.setHora(cursor.getString(1));
+                horariosDisponible.setDia(cursor.getString(2));
+                arrayHorarios.add(horariosDisponible);
+            }
+        }
+        return arrayHorarios;
+    }
+    public List<String> consultarHorarioDisponiblesString(List<HorariosDisponibles> arrayHorarios){
+        List<String>arrayHorariosString=new ArrayList<>();
+        arrayHorariosString.add("Seleccione una hora");
+        for (int i=0;i<arrayHorarios.size();i++) {
+            HorariosDisponibles  horariosArray = new HorariosDisponibles();
+            horariosArray = arrayHorarios.get(i);
+                arrayHorariosString.add(horariosArray.getHora()+horariosArray.getDia()+horariosArray.getIdHorario());
+            }
+        return arrayHorariosString;
+    }
+
+    public List<Local> consultarLocales(){
+        List<Local> arrayLocales=new ArrayList<>();
+        Cursor cursor = db.query("local",null, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            Local locales = new Local();
+            locales.setIdLocal(cursor.getString(0));
+            locales.setNomLocal(cursor.getString(1));
+            locales.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
+            arrayLocales.add(locales);
+            while(cursor.moveToNext()) {
+                Local Locales = new Local();
+                Locales.setIdLocal(cursor.getString(0));
+                Locales.setNomLocal(cursor.getString(1));
+                Locales.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
+                arrayLocales.add(Locales);
+            }
+        }
+        return arrayLocales;
+    }
+
+    public List<String> consultarLocalesString(List<Local> arrayLocal){
+        List<String>arrayLocalString=new ArrayList<>();
+        arrayLocalString.add("Seleccione un local");
+        for (int i=0;i<arrayLocal.size();i++) {
+            Local localArray=new Local();
+            localArray=arrayLocal.get(i);
+            arrayLocalString.add(localArray.getNomLocal());
+        }
+        return arrayLocalString;
     }
 }

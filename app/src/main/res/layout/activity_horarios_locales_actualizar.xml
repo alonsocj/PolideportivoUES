@@ -25,22 +25,36 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
-            android:text="@string/idHorario"/>
+            android:text="@string/idHorarioLocales"/>
+
+        <Spinner
+            android:id="@+id/SpinnerHoras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
-            android:text="@string/id_PeriodoReserva"/>
+            android:text="@string/Local"/>
+
+        <Spinner
+            android:id="@+id/SpinnerLocales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/disponibilidadHorariosDisponibles"
             android:layout_marginTop="15dp"
-            android:textSize="20sp" />
-
+            android:textSize="20sp"
+            />
+        <Spinner
+            android:id="@+id/SpinnerDisponibilidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"

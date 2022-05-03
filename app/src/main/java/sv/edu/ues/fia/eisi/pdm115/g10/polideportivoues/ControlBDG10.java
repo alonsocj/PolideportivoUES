@@ -153,7 +153,6 @@ public class ControlBDG10 {
         /*db.execSQL("DELETE FROM cobro");*/
        /* db.execSQL("DELETE FROM hora");*/
 
-
         //Se llenan las tablas con datos
 
         close();

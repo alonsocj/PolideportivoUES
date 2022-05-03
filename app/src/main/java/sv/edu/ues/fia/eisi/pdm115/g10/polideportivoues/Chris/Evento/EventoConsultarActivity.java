@@ -48,25 +48,26 @@ public class EventoConsultarActivity extends AppCompatActivity {
         cursor.moveToFirst();
         for(int i=0; i<nombreTipoEvento.length; i++){
             idEvento[i] = cursor.getString(0); //Id de los eventos (Tabla evento)
-            nombreTipoEvento[i] = cursor.getString(5); //Nombre Evento (Tabla tipoevento)
+            nombreTipoEvento[i] = cursor.getString(6); //Nombre Evento (Tabla tipoevento)
             cursor.moveToNext();
         }
 
         consultarEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String idEvent = editIdEven.getText().toString();
                 helper.open();
-                Evento evento = helper.consultarEvento(editIdEven.getText().toString());
+                Evento evento = helper.consultarEvento(idEvent);
                 helper.close();
                 if(evento == null){
                     Toast.makeText(EventoConsultarActivity.this, "No existe el evento", Toast.LENGTH_SHORT).show();
                 }else{
-                  /*  for (int i=0; i< idEvento.length; i++){
-                        if(editIdEven.getText().toString() == idEvento[i]){
+                   for (int i=0; i< idEvento.length; i++){
+                        if(idEvent.equals(idEvento[i])){
                             editIdTE.setText(nombreTipoEvento[i]);
                         }
-                    }*/
-                    editIdTE.setText(evento.getIdTipoE());
+                    }
+                    /*editIdTE.setText(evento.getIdTipoE());*/
                     editNom.setText(evento.getNomEvento());
                     editCost.setText(String.valueOf(evento.getCostoEvento()));
                     editCantAuto.setText(String.valueOf(evento.getCantidadAutorizada()));

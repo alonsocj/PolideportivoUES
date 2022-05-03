@@ -64,21 +64,39 @@ public class EventoActualizarActivity extends AppCompatActivity {
         actualizareventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Evento event = new Evento();
-                event.setIdEvento(editIdEve.getText().toString());
 
-                for (int i=0; i< arrayidTE.length; i++){
-                    if(spinner.getSelectedItem().toString() == arrayTiposdeEventos[i]){
-                        event.setIdTipoE(arrayidTE[i]);
+                String idEvento = editIdEve.getText().toString();
+                String nombreEvento = editNom.getText().toString();
+                String costoString = editCost.getText().toString();
+                String cantidadString = editCantAutorizada.getText().toString();
+
+                /*Validaciones*/
+                if(idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty()){
+                    Toast.makeText(EventoActualizarActivity.this, "Debe de llenar todos los campos para poder ingresar un evento", Toast.LENGTH_SHORT).show();
+                }else{
+                    Float costo = Float.valueOf(costoString);
+                    Integer cantAuto = Integer.valueOf(cantidadString);
+                    if (costo <= 0){
+                        Toast.makeText(EventoActualizarActivity.this, "Debe de ingresar un costo mayor a 0", Toast.LENGTH_SHORT).show();
+                    }else if(cantAuto <= 0){
+                        Toast.makeText(EventoActualizarActivity.this, "La cantidad de personas debe ser mayor a 0", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Evento event = new Evento();
+                        event.setIdEvento(idEvento);
+                        for (int i=0; i< arrayidTE.length; i++){
+                            if(spinner.getSelectedItem().toString() == arrayTiposdeEventos[i]){
+                                event.setIdTipoE(arrayidTE[i]);
+                            }
+                        }
+                        event.setNomEvento(nombreEvento);
+                        event.setCostoEvento(costo);
+                        event.setCantidadAutorizada(cantAuto);
+                        helper.open();
+                        String actu = helper.actualizarEvento(event);
+                        helper.close();
+                        Toast.makeText(EventoActualizarActivity.this, actu, Toast.LENGTH_SHORT).show();
                     }
                 }
-                event.setNomEvento(editNom.getText().toString());
-                event.setCostoEvento(Float.valueOf(editCost.getText().toString()));
-                event.setCantidadAutorizada(Integer.valueOf(editCantAutorizada.getText().toString()));
-                helper.open();
-                String actu = helper.actualizarEvento(event);
-                helper.close();
-                Toast.makeText(EventoActualizarActivity.this, actu, Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -26,8 +26,8 @@
 
         <item
             android:id="@+id/nav_local"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Local" /> <!--Strings-->
+            android:icon="@drawable/ic_menu_local"
+            android:title="@string/titulo_nav_local" /> <!--Strings-->
 
         <item
             android:id="@+id/nav_periodoReserva"
@@ -65,8 +65,12 @@
             android:title="Tipo de Pago" /> <!--Strings-->
         <item
             android:id="@+id/nav_tipoReservacion"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Tipo de Reservacion" /> <!--Strings-->
+            android:icon="@drawable/ic_menu_tiporeservacion"
+            android:title="@string/titulo_nav_tipoReservacion" /> <!--Strings-->
+        <item
+            android:id="@+id/nav_horarios_locales"
+            android:icon="@drawable/ic_menu_tiporeservacion"
+            android:title="@string/titulo_nav_horariosLocales" /> <!--Strings-->
 
     </group>
 </menu>

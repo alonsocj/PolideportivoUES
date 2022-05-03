@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PolideportivoUES">
         <activity
+            android:name=".William.HorariosLocales.HorariosLocalesEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.HorariosLocales.HorariosLocalesConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.HorariosLocales.HoariosLocalesActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".William.HorariosLocales.HorariosLocalesInsertarActivity"
+            android:exported="false" />
+        <activity
             android:name=".Chris.TipoPago.TipoPagoEliminarActivity"
             android:exported="false" />
         <activity
@@ -44,15 +56,6 @@
             android:exported="false" />
         <activity
             android:name=".Carolina.LocalEvento.LocalEventoInsertarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Carolina.LocalEvento.LocalEventoEliminarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Carolina.LocalEvento.LocalEventoConsultarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Carolina.LocalEvento.LocalEventoActualizarActivity"
             android:exported="false" />
         <activity
             android:name=".Gustavo.Persona.PersonaActualizarActivity"

@@ -79,4 +79,10 @@
         android:label="@string/titulo_nav_horariosDisponibles"
         tools:layout="@layout/fragment_horarios_disponibles" />
 
+    <fragment
+        android:id="@+id/nav_horarios_locales"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.HorariosLocales.HorariosLocalesFragment"
+        android:label="@string/titulo_nav_horariosLocales"
+        tools:layout="@layout/fragment_horarios_locales" />
+
 </navigation>

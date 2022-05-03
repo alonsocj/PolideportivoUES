@@ -3,16 +3,17 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local;
 public class Local {
     private String idLocal;
     private String nomLocal;
-    private int cupo;
+    private int cantidadPersonas;
 
     public Local() {
     }
 
-    public Local(String idLocal, String nomLocal, int cupo) {
+    public Local(String idLocal, String nomLocal, int cantidadPersonas) {
         this.idLocal = idLocal;
         this.nomLocal = nomLocal;
-        this.cupo = cupo;
+        this.cantidadPersonas = cantidadPersonas;
     }
+
 
     public String getIdLocal() {
         return idLocal;
@@ -30,11 +31,11 @@ public class Local {
         this.nomLocal = nomLocal;
     }
 
-    public int getCupo() {
-        return cupo;
+    public int getCantidadPersonas() {
+        return cantidadPersonas;
     }
 
-    public void setCupo(int cupo) {
-        this.cupo = cupo;
+    public void setCantidadPersonas(int cupo) {
+        this.cantidadPersonas = cupo;
     }
 }

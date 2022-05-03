@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try{
             //Consultas para crear las tablas y triggers de la base de datos
             //tabla PeriodoReserva
-            db.execSQL("CREATE TABLE periodoReserva (idPeriodoReserva VARCHAR(6) NOT NULL PRIMARY KEY,fechaInicio DATE NOT NULL,fechaFin DATE NOT NULL);");
+            db.execSQL("CREATE TABLE periodoReserva (idPeriodoReserva VARCHAR(6) NOT NULL PRIMARY KEY,fechaInicio VARCHAR(10) NOT NULL,fechaFin VARCHAR(10) NOT NULL);");
             //tabla Dia
             db.execSQL("CREATE TABLE dia (nombreDia VARCHAR(10) PRIMARY KEY);");
             //tabla TipoEvento
@@ -35,7 +35,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //Tabla Hora
             db.execSQL("CREATE TABLE hora (idHora VARCHAR(4) NOT NULL PRIMARY KEY, horaInicio VARCHAR(25) NOT NULL , horaFin VARCHAR(25) NOT NULL);");
             //Tabla Local
-            db.execSQL("CREATE TABLE local (idLocal VARCHAR(5) NOT NULL PRIMARY KEY, nomLocal VARCHAR(50) NOT NULL, cupo INTEGER NOT NULL);");
+            db.execSQL("CREATE TABLE local (idLocal VARCHAR(5) NOT NULL PRIMARY KEY, nomLocal VARCHAR(50) NOT NULL, cantidadPersonas INTEGER NOT NULL);");
+            //Tabla LocalEvento
+            db.execSQL("CREATE TABLE localEvento (idEvento VARCHAR(6) NOT NULL ,idLocal VARCHAR(5) NOT NULL ,idLocalEvento VARCHAR(5) ,cantAutorizada INTEGER NOT NULL , PRIMARY KEY(idEvento,idLocal,idLocalEvento));");
             //Tabla TipoReservacion
             db.execSQL("CREATE TABLE tipoReservacion (idTipoR VARCHAR(1) NOT NULL PRIMARY KEY, nomTipoR VARCHAR(10) NOT NULL);");
             //Tabla Reservacion
@@ -46,8 +48,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "idTipoR VARCHAR  (1) NOT NULL,\n" +
                     "idEvento VARCHAR (6) NOT NULL,\n" +
                     "idPeriodoReserva VARCHAR (6) NOT NULL,\n" +
-                    "fechaRegistro DATE NOT NULL);");
+                    "fechaRegistro VARCHAR(11) NOT NULL,\n" +
+                    "CONSTRAINT fk_reservacion_cobro FOREIGN KEY (idCobro) REFERENCES cobro(idCobro) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_persona FOREIGN KEY (idPersona) REFERENCES persona(idPersona) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_tipoReservacion FOREIGN KEY (idTipoR) REFERENCES tipoReservacion(idTipoR) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_evento FOREIGN KEY (idEvento) REFERENCES Evento(idEvento) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_periodoReserva FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva(idPeriodoReserva) ON DELETE RESTRICT\n" +
+                    ");\n");
 
+            db.execSQL("CREATE TABLE detallePeriodosReservados( idPeriodoReserva VARCHAR(6) NOT NULL, idHorario VARCHAR(2) NOT NULL, fechaDetalle DATE NOT NULL," +
+                        "PRIMARY KEY (idPeriodoReserva, idHorario)," +
+                        "CONSTRAINT FK_DETALLEP_PERIODOR FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva (idPeriodoReserva) ON DELETE RESTRICT," +
+                        "CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT);");
+
+            db.execSQL("CREATE TABLE horariosLocales(\n" +
+                    "   idHorario VARCHAR(2) NOT NULL,\n" +
+                    "   idLocal VARCHAR(5) NOT NULL,\n" +
+                    "   disponibilidad INTEGER NOT NULL,\n" +
+                    "   PRIMARY KEY (idHorario, idLocal),\n" +
+                    "   CONSTRAINT FK_DETALLEP_PERIODOR FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT,\n" +
+                    "   CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idLocal) REFERENCES Local (idLocal) ON DELETE RESTRICT\n" +
+                    ");\n");
 
             //Trigger de relacion de llaves foraneas de la tabla Evento con tipoevento
             db.execSQL("CREATE TRIGGER fk_evento_tipoevento " +
@@ -59,6 +80,78 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "THEN RAISE(ABORT, 'No existe el tipo de evento')" +
                         "END;" +
                         "END;");
+
+            //Triggers de integridad de relación de tabla Reservación
+            db.execSQL("CREATE TRIGGER fk_reservacion_cobro\n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idCobro FROM Cobro WHERE idCobro = NEW.idCobro) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe cobro')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_reservacion_persona\n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idPersona FROM persona WHERE idPersona = NEW.idPersona) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe persona')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_reservacion_tipoReservacion\n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idTipoR FROM tipoReservacion WHERE idTipoR = NEW.idTipoR) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe el tipo de reservacion')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_reservacion_evento\n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idEvento FROM evento WHERE idEvento = NEW.idEvento) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe el evento')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_reservacion_periodoReserva\n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idPeriodoReserva FROM periodoReserva WHERE idPeriodoReserva = NEW.idPeriodoReserva) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe el periodo de reserva')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            //Triggers de integridad de relacion de la tabla LocalEvento
+            db.execSQL("CREATE TRIGGER fk_localEvento_evento\n" +
+                    "BEFORE INSERT ON localEvento\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idEvento FROM evento WHERE idEvento = NEW.idEvento) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe un evento')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_localEvento_local\n" +
+                    "BEFORE INSERT ON localEvento\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idLocal FROM local WHERE idLocal = NEW.idLocal) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe local')\n" +
+                    "END;\n" +
+                    "END;\n");
 
             //tabla Persona
             db.execSQL("CREATE TABLE persona  (\n" +

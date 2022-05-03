@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".William.HorariosLocales.HorariosLocalesConsultarActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="@string/consultarHorariosLocales"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:text="@string/idHorario"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:text="@string/id_PeriodoReserva"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
+            <Button
+                android:id="@+id/botonConsultarDetallePeriodosR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="consultarDetallePeriodosR"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones"
+                android:text="@string/botonConsultar"/>
+
+            <Button
+                android:id="@+id/botonLimpiar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/btnLimpiar"
+                android:onClick="limpiar"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disponibilidadHorariosDisponibles"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp" />
+    </LinearLayout>
+</ScrollView>

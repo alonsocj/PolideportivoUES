@@ -49,6 +49,8 @@
         android:hint="@string/hintnombreLocal"
         android:maxLength="50"
         android:minHeight="48dp"
+        android:inputType="text"
+        android:maxLines="1"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +64,6 @@
         android:id="@+id/SpinnerCupoLocal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/cupoLocal"
         android:minHeight="48dp"/>
 
     <LinearLayout

@@ -85,13 +85,13 @@ public class ControlBDG10William {
         String regAfectados="filas afectadas= ";
         int contador=0;
         if (verificarIntegridadDeDatos(local,1)) {
-            //if (verificarIntegridadDeDatos(local,2)) {
-            //return "El local no puede ser eliminado porque existen registros de local evento con este local.";
-            //}else{
+            if (verificarIntegridadDeDatos(local,2)) {
+            return "El local no puede ser eliminado porque existen registros de horarios con este local.";
+            }else{
             contador+=db.delete("local", "idLocal='"+local.getIdLocal()+"'", null);
             regAfectados+=contador;
             return regAfectados;
-            //}
+            }
         }else{
             return "El local no existe";
         }
@@ -234,7 +234,7 @@ public class ControlBDG10William {
             }
             case 2:{
                 Local local = (Local) valor;
-                Cursor c=db.query(true, "localEvento", new String[] {"idLocal" }, "idLocal='"+local.getIdLocal()+"'",null, null, null, null, null);
+                Cursor c=db.query(true, "horariosLocales", new String[] {"idLocal"}, "idLocal='"+local.getIdLocal()+"'",null, null, null, null, null);
                 if(c.moveToFirst())
                     return true;
                 else

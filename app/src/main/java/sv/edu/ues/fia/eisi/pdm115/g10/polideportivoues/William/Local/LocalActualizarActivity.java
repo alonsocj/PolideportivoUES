@@ -11,14 +11,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class LocalActualizarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    EditText editIdLocal;
-    EditText editnomLocal;
-    EditText editCantLocal;
+    TextInputEditText editIdLocal;
+    TextInputEditText editnomLocal;
+    TextInputEditText editCantLocal;
     Button btnagregarLocal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +42,12 @@ public class LocalActualizarActivity extends AppCompatActivity {
                 mensaje = "Los campos estan vacios, por favor completelos";
             } else {
                 if (idLocal.isEmpty()) {
-                    mensaje = "El local no se puede ingresar, no se ha digitado el id del local";
+                    mensaje = "El local no se puede actualizar, no se ha digitado el id del local";
                 } else {
                     if (nombreLocal.isEmpty()) {
-                        mensaje = "El local no se puede ingresar, no se ha digitado el nombre del local";
+                        mensaje = "El local no se puede actualizar, no se ha digitado el nombre del local";
                     } else {
-                        mensaje = "El local no se puede ingresar, no se ha digitado la cantidad de personas permitidas en el local";
+                        mensaje = "El local no se puede actualizar, no se ha digitado la cantidad de personas permitidas en el local";
                     }
                 }
             }

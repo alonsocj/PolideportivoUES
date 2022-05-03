@@ -11,15 +11,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
 public class LocalInsertarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    EditText editIdLocal;
-    EditText editnomLocal;
-    EditText editCantLocal;
+    TextInputEditText editIdLocal;
+    TextInputEditText editnomLocal;
+    TextInputEditText editCantLocal;
     Button btnagregarLocal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

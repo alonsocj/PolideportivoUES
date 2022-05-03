@@ -16,7 +16,7 @@
             android:id="@+id/botonAgregarHorarioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/AgregarHorararioDisponibleFragment"
+            android:text="@string/botonAgregar"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones" />
 
@@ -24,7 +24,7 @@
             android:id="@+id/botonConsultarHorarioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ConsultarHorararioDisponibleFragment"
+            android:text="@string/botonConsultar"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones" />
 
@@ -32,7 +32,7 @@
             android:id="@+id/botonActualizarHorarioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ActualizarHorararioDisponibleFragment"
+            android:text="@string/botonActualizar"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones" />
 
@@ -40,7 +40,7 @@
             android:id="@+id/botonEliminarHorarioDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/EliminarHorararioDisponibleFragment"
+            android:text="@string/botonEliminar"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones" />
 

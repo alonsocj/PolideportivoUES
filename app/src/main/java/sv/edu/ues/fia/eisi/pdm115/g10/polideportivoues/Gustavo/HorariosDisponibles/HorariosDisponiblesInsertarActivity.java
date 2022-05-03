@@ -75,17 +75,22 @@ public class HorariosDisponiblesInsertarActivity extends AppCompatActivity {
 
                     HorariosDisponibles horarioDisponible = new HorariosDisponibles();
                     horarioDisponible.setIdHorario(idHora);
-                    horarioDisponible.setHora(idDiaSeleccionado);
-                    horarioDisponible.setDia(dia);
+                    horarioDisponible.setHora(idHoraSeleccionada);
+                    horarioDisponible.setDia(idDiaSeleccionado);
                     controlBDGustavo.open();
                     insertarRegistros = controlBDGustavo.insertarHorarioDisponible(horarioDisponible);
                     controlBDGustavo.close();
                     Toast.makeText(HorariosDisponiblesInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
 
-                    //Limpiamos los campos
-                    editIdHora.setText("");
-                    editHora.setSelection(0);
-                    editDia.setSelection(0);
+                    if(insertarRegistros=="Registro duplicado!"){
+                        //Limpiamos los campos
+                        editIdHora.setText("");
+                    }else{
+                        //Limpiamos los campos
+                        editIdHora.setText("");
+                        editHora.setSelection(0);
+                        editDia.setSelection(0);
+                    }
                 }
             }
         });

@@ -74,12 +74,6 @@ public class HorariosDisponiblesConsultarActivity extends AppCompatActivity {
                             editDia.setText(horariosDisponibles.getDia());
                         }
                     }
-
-                    //Recuperamos el día
-                    for (int i=0;i<arrayDias.size();i++) {
-
-                    }
-                    editDia.setText(horariosDisponibles.getDia());
                 }
             }
         });

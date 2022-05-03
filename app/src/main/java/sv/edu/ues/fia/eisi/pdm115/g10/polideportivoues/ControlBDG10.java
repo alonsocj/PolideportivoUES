@@ -17,9 +17,6 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.T
 
 public class ControlBDG10 {
 
-
-   private ControlBDG10Alonso helperAlonso;
-
     private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
     private SQLiteDatabase db;
 

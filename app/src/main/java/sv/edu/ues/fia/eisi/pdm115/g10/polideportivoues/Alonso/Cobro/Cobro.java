@@ -4,12 +4,12 @@ public class Cobro {
     int idCobro;
     String idPago;
     int cantPersonas;
-    float duracion;
+    String duracion;
     float precio;
 
     public Cobro(){
     }
-    public Cobro(int idCobro, String idPago, int cantPersonas, float duracion, float precio){
+    public Cobro(int idCobro, String idPago, int cantPersonas, String duracion, float precio){
         this.idCobro = idCobro;
         this.idPago = idPago;
         this.cantPersonas = cantPersonas;
@@ -41,11 +41,11 @@ public class Cobro {
         this.cantPersonas = cantPersonas;
     }
 
-    public float getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(float duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 

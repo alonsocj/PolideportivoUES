@@ -57,6 +57,7 @@
     <string name="cantPersonas">Cantidad de personas:</string>
     <string name="duracion">Duración:</string>
     <string name="precios">Precio:</string>
+    <string name="time_picker_title">Seleccione la duración</string>
 
 
     <!--Local-->

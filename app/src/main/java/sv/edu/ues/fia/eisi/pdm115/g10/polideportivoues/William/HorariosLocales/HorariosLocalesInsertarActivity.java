@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 
@@ -25,6 +26,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponiblesInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
@@ -59,10 +61,39 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
     }
 
 
-
     public void insertarHorariosLocales(View v){
+        String idHorario = SHoras.getText().toString();
+        String idLocal = SLocales.getText().toString();
+        String disponibilidad = SDisponibilidad.getText().toString();
+        String insertarRegistros;
+        if(idHorario.isEmpty()||idLocal.isEmpty()||disponibilidad.isEmpty()){
+            Toast.makeText(HorariosLocalesInsertarActivity.this, "Debe completar los campos para registrar un horario!", Toast.LENGTH_SHORT).show();
+        }else{
 
-    }
+                HorariosLocales horariolocal = new HorariosLocales();
+                int posidHorarioSeleccionado= arrayHorasString.indexOf((idHorario));
+                String idHorarioSeleccionado= arrayHoras.get(posidHorarioSeleccionado).getIdHorario();
+                int posidLocalSeleccionado= arrayLocalesString.indexOf((idLocal));
+                String idLocalSeleccionado= arrayLocales.get(posidLocalSeleccionado).getIdLocal();
+                horariolocal.setIdHorario(idHorarioSeleccionado);
+                horariolocal.setIdLocal(idLocalSeleccionado);
+                if(disponibilidad.equals("Disponible")){
+                    horariolocal.setDisponibilidad(0);
+                }else{
+                    horariolocal.setDisponibilidad(1);
+                }
+                helper.open();
+                insertarRegistros = helper.ingresarHorariosLocales(horariolocal);
+                helper.close();
+                Toast.makeText(HorariosLocalesInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+                //Limpiamos los campos
+                SHoras.setText("");
+                SLocales.setText("");
+                SDisponibilidad.setText("");
+
+                 }
+        }
+
     public void limpiar(View v){
         SHoras.setText("");
         SLocales.setText("");

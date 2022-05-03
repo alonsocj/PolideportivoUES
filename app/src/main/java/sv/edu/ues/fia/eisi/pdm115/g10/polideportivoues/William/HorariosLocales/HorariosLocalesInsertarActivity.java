@@ -11,6 +11,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,7 +30,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
 public class HorariosLocalesInsertarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    Spinner SHoras, SLocales, SDisponibilidad;
+    MaterialAutoCompleteTextView SHoras, SLocales, SDisponibilidad;
     List<HorariosDisponibles> arrayHoras=new ArrayList<HorariosDisponibles>();
     List<String> arrayHorasString=new ArrayList<String>();
     List<Local> arrayLocales=new ArrayList<Local>();
@@ -39,9 +41,9 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horarios_locales_insertar);
         helper = new ControlBDG10William(this);
-        SHoras = findViewById(R.id.SpinnerHoras);
-        SLocales = findViewById(R.id.SpinnerLocales);
-        SDisponibilidad = findViewById(R.id.SpinnerDisponibilidad);
+        SHoras = findViewById(R.id.list_id_horario);
+        SLocales = findViewById(R.id.list_locales);
+        SDisponibilidad = findViewById(R.id.list_disponibiliad);
 
         helper.open();
         arrayHoras=helper.consultarHorarioDisponibles();
@@ -62,8 +64,8 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
 
     }
     public void limpiar(View v){
-        SHoras.setSelection(0);
-        SLocales.setSelection(0);
-        SDisponibilidad.setSelection(0);
+        SHoras.setText("");
+        SLocales.setText("");
+        SDisponibilidad.setText("");
     }
 }

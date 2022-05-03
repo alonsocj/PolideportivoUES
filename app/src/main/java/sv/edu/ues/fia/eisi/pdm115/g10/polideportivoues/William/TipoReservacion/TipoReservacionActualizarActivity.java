@@ -33,9 +33,9 @@ public class TipoReservacionActualizarActivity extends AppCompatActivity {
                 mensaje = "Los campos estan vacios, por favor completelos";
             }else{
                 if (idTipoReservacion.isEmpty()){
-                    mensaje = "El tipo de reservacion no se puede ingresar, no se ha digitado el id";
+                    mensaje = "El tipo de reservacion no se puede actualizar, no se ha digitado el id";
                 }else{
-                    mensaje = "El tipo de reservacion no se puede ingresar, no se ha digitado el nombre";
+                    mensaje = "El tipo de reservacion no se puede actualizar, no se ha digitado el nombre";
                 }
             }
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();

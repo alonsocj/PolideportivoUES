@@ -1,16 +1,19 @@
 package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalEliminarActivity;
 
 
 public class TipoReservacionEliminarActivity extends AppCompatActivity {
@@ -25,6 +28,7 @@ public class TipoReservacionEliminarActivity extends AppCompatActivity {
     }
     public void eliminarTipoReservacion(View v){
         String idTipoR = editIdTipoReservacion.getText().toString();
+        AlertDialog.Builder confirmacion=new AlertDialog.Builder(TipoReservacionEliminarActivity.this);
         if (idTipoR.isEmpty()){
             String mensaje;
             mensaje = "Los campos estan vacios, por favor completelos";
@@ -34,9 +38,30 @@ public class TipoReservacionEliminarActivity extends AppCompatActivity {
             TipoReservacion tipoReservacion = new TipoReservacion();
             tipoReservacion.setIdTipoR(editIdTipoReservacion.getText().toString());
             helper.open();
-            registrosEliminados = helper.eliminarTipoReservacion(tipoReservacion);
+            registrosEliminados = helper.eliminarTipoReservacion(tipoReservacion,0);
             helper.close();
-            Toast.makeText(TipoReservacionEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+            if(registrosEliminados.equals("1")){
+                confirmacion.setMessage("El tipo de reservacion no puede ser eliminado porque existen registros de reservacion con este tipo. ¿Desea eliminarlos también?")
+                        .setCancelable(false)
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                helper.open();
+                                String registros = helper.eliminarTipoReservacion(tipoReservacion, 1);
+                                helper.close();
+                                Toast.makeText(TipoReservacionEliminarActivity.this, registros, Toast.LENGTH_SHORT).show();
+                                editIdTipoReservacion.setText("");
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(TipoReservacionEliminarActivity.this, "No se eliminaron los registros", Toast.LENGTH_SHORT).show();
+                            }
+                        }).show();
+            }else{
+                Toast.makeText(TipoReservacionEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+            }
             editIdTipoReservacion.setText("");
         }
     }

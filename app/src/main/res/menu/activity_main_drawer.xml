@@ -61,11 +61,11 @@
         <item
             android:id="@+id/nav_tipoReservacion"
             android:icon="@drawable/ic_menu_tiporeservacion"
-            android:title="@string/titulo_nav_tipoReservacion" /> <!--Strings-->
+            android:title="@string/titulo_nav_tipoReservacion" />
         <item
             android:id="@+id/nav_horarios_locales"
-            android:icon="@drawable/ic_menu_tiporeservacion"
-            android:title="@string/titulo_nav_horariosLocales" /> <!--Strings-->
+            android:icon="@drawable/ic_calendario_local"
+            android:title="@string/titulo_nav_horariosLocales" />
 
         <item
             android:id="@+id/nav_nacionalidad"

@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_horario_local"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/idHorarioLocales">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_nom_local"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/Local">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView

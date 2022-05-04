@@ -38,42 +38,46 @@ public class HorariosDisponiblesEliminarActivity extends AppCompatActivity {
         botonEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HorariosDisponibles horariosDisponibles = new HorariosDisponibles();
-                horariosDisponibles.setIdHorario(editIdHora.getText().toString());
-
-                AlertDialog.Builder confirmacion=new AlertDialog.Builder(HorariosDisponiblesEliminarActivity.this);
-                final String[] registrosEliminadosCascada = new String[1];
-
-                if(helper.verificarExiHorariosDisponibles(horariosDisponibles)){
-                    if(helper.verificarHorariosDisponiblesCascada(horariosDisponibles)){
-                        confirmacion.setMessage("Se han encontrado registros asociados a la disponibilidad en la tabla horario de locales. ¿Desea eliminarlos también?")
-                                .setCancelable(false)
-                                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        helper.open();
-                                        registrosEliminadosCascada[0] = helper.eliminarHorariosDisponiblesCascada(horariosDisponibles);
-                                        helper.close();
-
-                                        Toast.makeText(HorariosDisponiblesEliminarActivity.this, registrosEliminadosCascada[0], Toast.LENGTH_SHORT).show();
-                                        editIdHora.setText("");
-                                    }
-                                })
-                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        Toast.makeText(HorariosDisponiblesEliminarActivity.this, "No se eliminaron los registros", Toast.LENGTH_SHORT).show();
-                                    }
-                                }).show();
-                    }else{
-                        helper.open();
-                        registrosEliminadosCascada[0] = helper.eliminarHorarioDisponible(horariosDisponibles);
-                        helper.close();
-                        Toast.makeText(HorariosDisponiblesEliminarActivity.this, registrosEliminadosCascada[0], Toast.LENGTH_SHORT).show();
-                        editIdHora.setText("");
-                    }
+                if(editIdHora.getText().toString().isEmpty()){
+                    Toast.makeText(HorariosDisponiblesEliminarActivity.this, "Debe completar los campos para eliminar una disponibilidad!", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(HorariosDisponiblesEliminarActivity.this, "Registro no existe!", Toast.LENGTH_SHORT).show();
+                    HorariosDisponibles horariosDisponibles = new HorariosDisponibles();
+                    horariosDisponibles.setIdHorario(editIdHora.getText().toString());
+
+                    AlertDialog.Builder confirmacion=new AlertDialog.Builder(HorariosDisponiblesEliminarActivity.this);
+                    final String[] registrosEliminadosCascada = new String[1];
+
+                    if(helper.verificarExiHorariosDisponibles(horariosDisponibles)){
+                        if(helper.verificarHorariosDisponiblesCascada(horariosDisponibles)){
+                            confirmacion.setMessage("Se han encontrado registros asociados a la disponibilidad en la tabla horario de locales. ¿Desea eliminarlos también?")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            helper.open();
+                                            registrosEliminadosCascada[0] = helper.eliminarHorariosDisponiblesCascada(horariosDisponibles);
+                                            helper.close();
+
+                                            Toast.makeText(HorariosDisponiblesEliminarActivity.this, registrosEliminadosCascada[0], Toast.LENGTH_SHORT).show();
+                                            editIdHora.setText("");
+                                        }
+                                    })
+                                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            Toast.makeText(HorariosDisponiblesEliminarActivity.this, "No se eliminaron los registros", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).show();
+                        }else{
+                            helper.open();
+                            registrosEliminadosCascada[0] = helper.eliminarHorarioDisponible(horariosDisponibles);
+                            helper.close();
+                            Toast.makeText(HorariosDisponiblesEliminarActivity.this, registrosEliminadosCascada[0], Toast.LENGTH_SHORT).show();
+                            editIdHora.setText("");
+                        }
+                    }else{
+                        Toast.makeText(HorariosDisponiblesEliminarActivity.this, "Registro no existe!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

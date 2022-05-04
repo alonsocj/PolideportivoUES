@@ -2,6 +2,9 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Genero;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.Nacionalidad;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.NacionalidadEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDGustavo;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.PersonaEliminarActivity;
@@ -35,16 +38,37 @@ public class GeneroEliminarActivity extends AppCompatActivity {
         botonEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String registrosEliminados;
+                String generoString=editIdGenero.getText().toString();
+                final String[] registrosEliminadosCascada = new String[1];
                 Genero genero = new Genero();
                 genero.setIdGenero(editIdGenero.getText().toString());
-                final String[] registrosEliminadosCascada = new String[1];
+                AlertDialog.Builder confirmacion=new AlertDialog.Builder(GeneroEliminarActivity.this);
 
-                helper.open();
-                registrosEliminadosCascada[0] = helper.eliminarGenero(genero);
-                helper.close();
-                Toast.makeText(GeneroEliminarActivity.this, registrosEliminadosCascada[0], Toast.LENGTH_SHORT).show();
-                editIdGenero.setText("");
+                if(generoString.isEmpty()) {
+                    Toast.makeText(GeneroEliminarActivity.this, "Debe completar los campos para eliminar una género!", Toast.LENGTH_SHORT).show();
+                }else if(generoString.length()!=6){
+                     Toast.makeText(GeneroEliminarActivity.this, "El id de género debe contener 6 carácteres", Toast.LENGTH_SHORT).show();
+                }else if(helper.verificarExisGenero(genero)){
+                     if(helper.verificarGeneroCascada(genero)){
+                         confirmacion.setMessage("Se han encontrado registros asociados al género en la tabla persona.\nNo se puede eliminar el género!")
+                                 .setCancelable(false)
+                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                     @Override
+                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                         dialogInterface.dismiss();
+                                         Toast.makeText(GeneroEliminarActivity.this, "No se eliminaron los registros!", Toast.LENGTH_SHORT).show();
+                                     }
+                                 }).show();
+                     }else{
+                         helper.open();
+                         registrosEliminadosCascada[0] = helper.eliminarGenero(genero);
+                         helper.close();
+                         Toast.makeText(GeneroEliminarActivity.this, registrosEliminadosCascada[0], Toast.LENGTH_SHORT).show();
+                         editIdGenero.setText("");
+                     }
+                }else{
+                     Toast.makeText(getApplicationContext(), "El id de género no existe!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         botonVaciar.setOnClickListener(new View.OnClickListener() {

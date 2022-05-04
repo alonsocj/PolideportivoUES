@@ -180,6 +180,63 @@ public class ControlBDGustavo {
         }
     }
 
+    //Funcionalidades de Genero
+    public String insertarGenero (Genero genero){
+        String regInsertados="Registros Insertados Nº= ";
+        long contador=0;
+
+        ContentValues values = new ContentValues();
+        values.put("idGenero",genero.getIdGenero());
+        values.put("genero", genero.getGenero());
+        contador = db.insert("genero",null,values);
+
+        if(contador==-1 || contador==0){
+            regInsertados="Registro duplicado!";
+        }else {
+            regInsertados=regInsertados+" "+contador;
+        }
+        return regInsertados;
+    }
+
+    public Genero consultarGenero (String idGenero){
+        String[] id = {idGenero};
+        Cursor cursor = db.query("genero",new String []{"idGenero","genero"}, "idGenero = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Genero genero = new Genero();
+            genero.setIdGenero(cursor.getString(0));
+            genero.setGenero(cursor.getString(1));
+            return genero;
+        }else {
+            return null;
+        }
+    }
+    public String eliminarGenero (Genero genero){
+        String registros = "Registros Eliminados Nº= ";
+        int contador = 0;
+
+        if(verificarIntegridadDeDatos(genero,5)){
+            contador+=db.delete("genero","idGenero='"+genero.getIdGenero()+"'",null);
+            registros = registros + contador;
+            return registros;
+        }else{
+            registros="Registro no existe!";
+            return registros;
+        }
+    }
+
+    public String actualizarGenero (Genero genero){
+        if (verificarIntegridadDeDatos(genero,5)) {
+            String[] id = {genero.getIdGenero()};
+            ContentValues values = new ContentValues();
+            values.put("idGenero", genero.getIdGenero());
+            values.put("genero", genero.getGenero());
+            db.update("genero", values, "idGenero=?", id);
+            return "Registo actualizado correctamente!";
+        }else{
+            return "Registro no existe!";
+        }
+    }
+
     //Extraemos todas las horas registradas en la base de datos
     public List<Hora> consultarHoras(){
         List<Hora> arrayHoras=new ArrayList<>();
@@ -200,7 +257,6 @@ public class ControlBDGustavo {
         }
        return arrayHoras;
     }
-
     public List<String> consultarHorasString(List<Hora> arrayHoras){
         List<String>arrayHorasString=new ArrayList<>();
         for (int i=0;i<arrayHoras.size();i++) {
@@ -227,7 +283,6 @@ public class ControlBDGustavo {
         }
         return arrayDias;
     }
-
     public List<String> consultarDiasString(List<Dia> arrayDias){
         List<String>arrayDiasString=new ArrayList<>();
         for (int i=0;i<arrayDias.size();i++) {
@@ -257,7 +312,6 @@ public class ControlBDGustavo {
         }
         return arrayNacionalidad;
     }
-
     public List<String> consultarNacionalidadString(List<Nacionalidad> arrayNacionalidad){
         List<String>arrayNacionalidadString=new ArrayList<>();
         for (int i=0;i<arrayNacionalidad.size();i++) {
@@ -286,7 +340,6 @@ public class ControlBDGustavo {
         }
         return arrayGenero;
     }
-
     public List<String> consultarGeneroString(List<Genero> arrayGenero){
         List<String>arrayGeneroString=new ArrayList<>();
         for (int i=0;i<arrayGenero.size();i++) {
@@ -378,60 +431,27 @@ public class ControlBDGustavo {
         return suma;
     }
 
-    //Funcionalidades de Genero
-    public String insertarGenero (Genero genero){
-        String regInsertados="Registros Insertados Nº= ";
-        long contador=0;
-
-        ContentValues values = new ContentValues();
-        values.put("idGenero",genero.getIdGenero());
-        values.put("genero", genero.getGenero());
-        contador = db.insert("genero",null,values);
-
-        if(contador==-1 || contador==0){
-            regInsertados="Registro duplicado!";
-        }else {
-            regInsertados=regInsertados+" "+contador;
-        }
-        return regInsertados;
-    }
-
-    public Genero consultarGenero (String idGenero){
-        String[] id = {idGenero};
-        Cursor cursor = db.query("genero",new String []{"idGenero","genero"}, "idGenero = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
-            Genero genero = new Genero();
-            genero.setIdGenero(cursor.getString(0));
-            genero.setGenero(cursor.getString(1));
-            return genero;
-        }else {
-            return null;
-        }
-    }
-    public String eliminarGenero (Genero genero){
-        String registros = "Registros Eliminados Nº= ";
-        int contador = 0;
-
-        if(verificarIntegridadDeDatos(genero,5)){
-            contador+=db.delete("genero","idGenero='"+genero.getIdGenero()+"'",null);
-            registros = registros + contador;
-            return registros;
+    //Verificamos la eliminación en cascada de persona
+    public Boolean verificarExisGenero(Genero valor){
+        //verifica la existencia del id periodo reserva
+        Genero genero = (Genero) valor;
+        String[]id = {genero.getIdGenero()};
+        open();
+        Cursor cursor = db.query("genero",null,"idGenero = ?", id,null,null,null);
+        if (cursor.moveToFirst()){
+            return true;
         }else{
-            registros="Registro no existe!";
-            return registros;
+            return false;
         }
     }
-
-    public String actualizarGenero (Genero genero){
-        if (verificarIntegridadDeDatos(genero,5)) {
-                String[] id = {genero.getIdGenero()};
-            ContentValues values = new ContentValues();
-            values.put("idGenero", genero.getIdGenero());
-            values.put("genero", genero.getGenero());
-            db.update("genero", values, "idGenero=?", id);
-            return "Registo actualizado correctamente!";
+    public Boolean verificarGeneroCascada(Genero valor){
+        //verifica si hay registros de persona en la tabla reservación
+        Genero genero = (Genero)valor;
+        Cursor c=db.query(true, "genero", new String[] {"idGenero" }, "idGenero='"+genero.getIdGenero()+"'",null,null, null, null, null);
+        if(c.moveToFirst()){
+            return true;
         }else{
-            return "Registro no existe!";
+            return false;
         }
     }
 

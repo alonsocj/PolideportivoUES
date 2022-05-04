@@ -33,18 +33,24 @@ public class GeneroConsultarActivity extends AppCompatActivity {
         botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controlBDGustavo.open();
-                Genero genero = controlBDGustavo.consultarGenero(editIdGenero.getText().toString());
-                controlBDGustavo.close();
+                String generoString=editIdGenero.getText().toString();
 
-                /*Verificación que exista la Persona*/
-                if(genero == null){
-                    Toast.makeText(GeneroConsultarActivity.this, "Registro no encontrado!", Toast.LENGTH_SHORT).show();
-                    //Limpiamos los campos
-                    editIdGenero.setText("");
-                    editGenero.setText("");
+                if(generoString.isEmpty()) {
+                    Toast.makeText(GeneroConsultarActivity.this, "Debe completar los campos para consultar una género!", Toast.LENGTH_SHORT).show();
                 }else{
-                    editGenero.setText(genero.getGenero());
+                    controlBDGustavo.open();
+                    Genero genero = controlBDGustavo.consultarGenero(editIdGenero.getText().toString());
+                    controlBDGustavo.close();
+
+                    /*Verificación que exista la Persona*/
+                    if(genero == null){
+                        Toast.makeText(GeneroConsultarActivity.this, "Registro no encontrado!", Toast.LENGTH_SHORT).show();
+                        //Limpiamos los campos
+                        editIdGenero.setText("");
+                        editGenero.setText("");
+                    }else{
+                        editGenero.setText(genero.getGenero());
+                    }
                 }
             }
         });

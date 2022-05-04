@@ -6,6 +6,7 @@ public class Persona {
     String apellido;
     String genero;
     String nacimiento;
+    String nacionalidad;
     String direccion;
     String email;
     String telefono;
@@ -13,12 +14,13 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String idPersona, String nombre, String apellido, String genero, String nacimiento, String direccion, String email, String telefono) {
+    public Persona(String idPersona, String nombre, String apellido, String genero, String nacimiento, String nacionalidad, String direccion, String email, String telefono) {
         this.idPersona = idPersona;
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
         this.nacimiento = nacimiento;
+        this.nacionalidad = nacionalidad;
         this.direccion = direccion;
         this.email = email;
         this.telefono = telefono;
@@ -64,6 +66,14 @@ public class Persona {
         this.nacimiento = nacimiento;
     }
 
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
     public String getDireccion() {
         return direccion;
     }
@@ -86,19 +96,5 @@ public class Persona {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "idPersona='" + idPersona + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", genero='" + genero + '\'' +
-                ", nacimiento='" + nacimiento + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", email='" + email + '\'' +
-                ", telefono='" + telefono + '\'' +
-                '}';
     }
 }

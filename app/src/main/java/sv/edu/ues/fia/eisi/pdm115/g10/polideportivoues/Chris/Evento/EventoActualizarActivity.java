@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +27,9 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class EventoActualizarActivity extends AppCompatActivity {
 
     ControlBDChristian helper;
-    EditText editIdEve, editNom, editCost, editCantAutorizada;
-    Button actualizareventos;
-    Spinner spinner;
+    TextInputEditText editIdEve, editNom, editCost, editCantAutorizada;
+    Button actualizareventos, botonLimpiar;
+    MaterialAutoCompleteTextView spinner;
     SQLiteDatabase db;
     String arrayidTE[];
     String arrayTiposdeEventos[];
@@ -44,6 +47,7 @@ public class EventoActualizarActivity extends AppCompatActivity {
         actualizareventos = findViewById(R.id.botonActualizarEvent);
         editCantAutorizada = findViewById(R.id.EditCantAutorEventoActu);
         spinner = findViewById(R.id.spinnerTipoEventoActu);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
 
         /*Obtención de datos de la base de datos y traerlos al spinner*/
@@ -71,7 +75,7 @@ public class EventoActualizarActivity extends AppCompatActivity {
                 String cantidadString = editCantAutorizada.getText().toString();
 
                 /*Validaciones*/
-                if(idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty()){
+                if(idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty() || spinner.getText().toString().isEmpty()){
                     Toast.makeText(EventoActualizarActivity.this, "Debe de llenar todos los campos para poder ingresar un evento", Toast.LENGTH_SHORT).show();
                 }else{
                     Float costo = Float.valueOf(costoString);
@@ -84,7 +88,7 @@ public class EventoActualizarActivity extends AppCompatActivity {
                         Evento event = new Evento();
                         event.setIdEvento(idEvento);
                         for (int i=0; i< arrayidTE.length; i++){
-                            if(spinner.getSelectedItem().toString() == arrayTiposdeEventos[i]){
+                            if(spinner.getText().toString().equals(arrayTiposdeEventos[i])){
                                 event.setIdTipoE(arrayidTE[i]);
                             }
                         }
@@ -97,6 +101,17 @@ public class EventoActualizarActivity extends AppCompatActivity {
                         Toast.makeText(EventoActualizarActivity.this, actu, Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdEve.setText("");
+                editNom.setText("");
+                editCost.setText("");
+                editCantAutorizada.setText("");
+                spinner.setText("");
             }
         });
 

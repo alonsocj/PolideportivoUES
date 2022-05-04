@@ -8,14 +8,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class TipoPagoInsertarActivity extends AppCompatActivity {
 
-    EditText editIdPago, editTipoPago;
-    Button agregarTipoPago;
+    TextInputEditText editIdPago, editTipoPago;
+    Button agregarTipoPago, botonLimpiar;
     ControlBDChristian helper;
 
     @Override
@@ -24,9 +26,10 @@ public class TipoPagoInsertarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tipo_pago_insertar);
 
         helper = new ControlBDChristian(this);
-        editIdPago = (EditText) findViewById(R.id.EditIdPago);
-        editTipoPago = (EditText) findViewById(R.id.EditTipo);
-        agregarTipoPago = (Button) findViewById(R.id.botonAgregarTipoP);
+        editIdPago =  findViewById(R.id.EditIdPago);
+        editTipoPago = findViewById(R.id.EditTipo);
+        agregarTipoPago = findViewById(R.id.botonAgregarTipoP);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         agregarTipoPago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +56,13 @@ public class TipoPagoInsertarActivity extends AppCompatActivity {
             }
         });
 
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdPago.setText("");
+                editTipoPago.setText("");
+            }
+        });
 
     }
 }

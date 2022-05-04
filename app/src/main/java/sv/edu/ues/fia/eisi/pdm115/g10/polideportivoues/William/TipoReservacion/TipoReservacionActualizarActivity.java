@@ -7,13 +7,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class TipoReservacionActualizarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    EditText editIdTipoReservacion;
-    EditText editNombreTipoReservacion;
+    TextInputEditText editIdTipoReservacion;
+    TextInputEditText editNombreTipoReservacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +33,9 @@ public class TipoReservacionActualizarActivity extends AppCompatActivity {
                 mensaje = "Los campos estan vacios, por favor completelos";
             }else{
                 if (idTipoReservacion.isEmpty()){
-                    mensaje = "El tipo de reservacion no se puede ingresar, no se ha digitado el id";
+                    mensaje = "El tipo de reservacion no se puede actualizar, no se ha digitado el id";
                 }else{
-                    mensaje = "El tipo de reservacion no se puede ingresar, no se ha digitado el nombre";
+                    mensaje = "El tipo de reservacion no se puede actualizar, no se ha digitado el nombre";
                 }
             }
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
@@ -45,6 +47,8 @@ public class TipoReservacionActualizarActivity extends AppCompatActivity {
             helper.open();
             regInsertados = helper.actualizarTipoReservacion(tipoReservacion);
             Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+            editIdTipoReservacion.setText("");
+            editNombreTipoReservacion.setText("");
         }
     }
     public void limpiar(View v){

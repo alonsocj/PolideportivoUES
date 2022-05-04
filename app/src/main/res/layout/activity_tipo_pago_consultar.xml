@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,44 +22,76 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
-    <TextView
+    <!-- <TextView
         android:paddingTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TipoPagoIdentificador"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/> -->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_EditIdPagoConsultar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_key"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/hintIdePago">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditIdPagoConsultar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintIdePago"
         android:inputType="text"
         android:maxLength="2"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/consultar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/botones"
-        android:text="@string/botonConsultar"/>
+    <LinearLayout
+        android:id="@+id/linearLayoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right">
 
+        <Button
+            android:id="@+id/consultar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/botonConsultar"/>
 
-    <TextView
+        <Button
+            android:id="@+id/botonLimpiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/btnLimpiar"/>
+    </LinearLayout>
+
+   <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TipoPagoNombreTipo"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/> -->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditTipoConsultar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/ic_money"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="5dp"
+        android:hint="@string/TipoPagoIdentificador">
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditTipoConsultar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintTipoPago"
         android:inputType="text"
         android:maxLength="20"
         android:enabled="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
+</ScrollView>

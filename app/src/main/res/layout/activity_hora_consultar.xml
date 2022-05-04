@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
@@ -17,64 +21,103 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Horaidentificador"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/>-->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditIdHoraC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:startIconDrawable="@drawable/ic_key"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/hintId">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditIdHoraC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintId"
         android:inputType="text"
         android:maxLength="4"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/botonBuscarHora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="@string/botonConsultar"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/botones"
-        />
+    <LinearLayout
+        android:id="@+id/linearLayoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/botonBuscarHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/botonConsultar"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"/>
+
+        <Button
+            android:id="@+id/botonLimpiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/botones"
+            android:text="@string/btnLimpiar"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="30dp">
+        android:orientation="vertical">
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/InicioHora"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/> -->
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditHoraInicioC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:enabled="false"
+        app:startIconDrawable="@drawable/ic_hora_inicio"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/InicioHora">
+        <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditHoraInicioC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintHI"
-        android:inputType="time"
-        android:enabled="false"/>
+        android:inputType="time" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+   <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/FinHora"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"/>-->
 
-    <EditText
-        android:id="@+id/EditHoraFinC"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Input_EditHoraFinC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintHF"
+        android:layout_marginTop="15dp"
+        android:enabled="false"
+        app:startIconDrawable="@drawable/ic_hora_fin"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/FinHora">
+        <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/EditHoraFinC"
         android:inputType="time"
-        android:enabled="false"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
 </LinearLayout>
+</ScrollView>

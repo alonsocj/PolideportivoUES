@@ -7,13 +7,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class TipoReservacionConsultarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    EditText editIdTipoReservacion;
-    EditText editNombreTipoReservacion;
+    TextInputEditText editIdTipoReservacion;
+    TextInputEditText editNombreTipoReservacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

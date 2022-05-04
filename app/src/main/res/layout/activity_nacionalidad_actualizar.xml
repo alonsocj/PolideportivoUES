@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -15,71 +16,61 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:text="@string/titulo_LocalEvento_eliminar"
+            android:layout_marginTop="20dp"
+            android:text="@string/titulo_Nacionalidad_actualizar"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#000000" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/id_LocalEvento"/>
-        <EditText
-            android:id="@+id/idLocalEvento"
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="6"
-            android:hint="@string/Hint_idLocalEvento"/>
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/ic_key"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/Hint_codNacionalidad">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/idNacionalidad"
+                android:inputType="text"
+                android:maxLength="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/id_Evento"/>
-        <EditText
-            android:id="@+id/idEvento"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="6"
-            android:hint="@string/Hint_id_Evento"/>
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/ic_nac"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/Hint_nacionalidad">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nacionalidad"
+                android:inputType="text"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/id_Local"/>
-
-        <EditText
-            android:id="@+id/idLocal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="5"
-            android:minHeight="48dp"
-            android:hint="@string/Hint_id_Local"/>
         <LinearLayout
             android:id="@+id/linearLayoutButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="right">
             <Button
-                android:id="@+id/botonEliminarLocalEvento"
+                android:id="@+id/botonActualizarNacionalidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/botonEliminar"
-                android:layout_margin="10dp"
+                android:text="@string/botonActualizar"
+                android:layout_margin="8dp"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones"/>
             <Button
                 android:id="@+id/botonLimpiar"
+                android:onClick="limpiar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 android:text="@string/btnLimpiar"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones"/>

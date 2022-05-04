@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -15,8 +17,8 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class EventoEliminarActivity extends AppCompatActivity {
 
     ControlBDChristian helper;
-    Button eliminarevent;
-    EditText editIdEv;
+    Button eliminarevent, botonLimpiar;
+    TextInputEditText editIdEv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class EventoEliminarActivity extends AppCompatActivity {
         helper = new ControlBDChristian(this);
         editIdEv = findViewById(R.id.EditIdNumeroEventoEliminar);
         eliminarevent = findViewById(R.id.botonEliminarEvent);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         eliminarevent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,5 +42,13 @@ public class EventoEliminarActivity extends AppCompatActivity {
                 Toast.makeText(EventoEliminarActivity.this, registroseliminados, Toast.LENGTH_SHORT).show();
             }
         });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdEv.setText("");
+            }
+        });
+
     }
 }

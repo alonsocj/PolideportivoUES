@@ -21,9 +21,9 @@
     <string name="botonEliminar">Eliminar</string>
 
     <!--Tabla Hora-->
-    <string name="Horaidentificador">Id de Hora:</string>
-    <string name="InicioHora">Hora Inicio:</string>
-    <string name="FinHora">Hora Fin:</string>
+    <string name="Horaidentificador">Id de Hora</string>
+    <string name="InicioHora">Hora Inicio</string>
+    <string name="FinHora">Hora Fin</string>
     <string name="hintId">Ingrese el Numero de Hora</string>
     <string name="hintHI">Ingrese la hora de inicio</string>
     <string name="hintHF">Ingrese la hora de finalización</string>}
@@ -35,7 +35,7 @@
     <string name="titulo_hora_editar">Actualizar Hora</string>
     <string name="titulo_hora_consultar">Consultar Hora</string>
     <string name="titulo_hora_eliminar">Eliminar Hora</string>
-
+    <string name="hora">Hora</string>
 
     <!-- TIPO EVENTO -->
     <string name="tipoEvento">Tipo de Evento</string>
@@ -57,6 +57,7 @@
     <string name="cantPersonas">Cantidad de personas:</string>
     <string name="duracion">Duración:</string>
     <string name="precios">Precio:</string>
+    <string name="time_picker_title">Seleccione la duración</string>
 
 
     <!--Local-->
@@ -93,7 +94,7 @@
     <string name="titulo_tipoPago_editar">Actualizar Tipo Pago</string>
     <string name="titulo_tipoPago_consultar">Consultar Tipo Pago</string>
     <string name="titulo_tipoPago_eliminar">Eliminar Tipo Pago</string>
-
+    <string name="tipo_pago">Tipo Pago</string>
 
     <!--Tabla Evento-->
     <string name="AgregarEventoFragment">Agregar Evento</string>
@@ -115,7 +116,7 @@
     <string name="titulo_evento_editar">Actualizar Evento</string>
     <string name="titulo_evento_consultar">Consultar Evento</string>
     <string name="titulo_evento_eliminar">Eliminar Evento</string>
-
+    <string name="evento">Evento</string>
 
     <!-- TABLA RESERVACION-->
     <string name="btnLimpiar">Limpiar</string>
@@ -130,19 +131,20 @@
 
     <string name="id_Reservacion">Id de la reservación:</string>
     <string name="id_Cobro">Cobro:</string>
-    <string name="id_Persona">Persona:</string>
+    <string name="id_Persona">Persona</string>
     <string name="TipoReservacion">Tipo de reservación:</string>
     <string name="id_Evento">Evento:</string>
     <string name="id_PeriodoReserva">Periodo de reserva:</string>
     <string name="fechaRegistro">Fecha de registro:</string>
 
-    <string name="Hint_idReservacion">Ingrese el id de la reservación</string>
-    <string name="Hint_id_Cobro">Ingrese el id del cobro</string>
-    <string name="Hint_id_Persona">Ingrese el id de la persona</string>
-    <string name="Hint_TipoReservacion">Ingrese el id del tipo de reservación</string>
-    <string name="Hint_id_Evento">Ingrese el id del evento</string>
-    <string name="Hint_id_PeriodoReserva">Ingrese el id del periodo de reserva</string>
-    <string name="Hint_fechaRegistro">Ingrese la fecha de registro</string>
+    <string name="Hint_idReservacion">Id de reservación</string>
+    <string name="Hint_id_HorarioLocal">Horario</string>
+    <string name="Hint_id_Cobro">Id del cobro</string>
+    <string name="Hint_id_Persona">Persona</string>
+    <string name="Hint_TipoReservacion">Tipo de reservación</string>
+    <string name="Hint_id_Evento">Evento</string>
+    <string name="Hint_id_PeriodoReserva">Periodo de reserva</string>
+    <string name="Hint_fechaRegistro">Fecha de registro</string>
 
     <!-- TABLA PeriodoReserva-->
     <string name="titulo_nav_periodoReserva">Periodo de Reserva</string>
@@ -161,35 +163,18 @@
     <string name="Hint_fechaInicio">Ingresar fecha de inicio del periodo de reserva</string>
     <string name="Hint_fechaFin">Ingresar fecha fin del periodo de reserva</string>
 
-    <!-- TABLA LocalEvento-->
-    <string name="titulo_nav_localEvento">Local Evento</string>
-    <string name="label_localEvento">Local Evento</string>
+    <!-- TABLA Nacionalidad-->
+    <string name="titulo_nav_nacionalidad">Nacionalidad</string>
+    <string name="label_nacionalidad">Nacionalidad</string>
 
-    <string name="titulo_LocalEvento_insertar">Agregar Local Evento</string>
-    <string name="titulo_LocalEvento_consultar">Consultar Local Evento</string>
-    <string name="titulo_LocalEvento_eliminar">Eliminar Local Evento</string>
-    <string name="titulo_LocalEvento_actualizar">Actualizar Local Evento</string>
+    <string name="titulo_Nacionalidad_insertar">Agregar Nacionalidad</string>
+    <string name="titulo_Nacionalidad_consultar">Consultar Nacionalidad</string>
+    <string name="titulo_Nacionalidad_eliminar">Eliminar Nacionalidad</string>
+    <string name="titulo_Nacionalidad_actualizar">Actualizar Nacionalidad</string>
 
-    <string name="id_LocalEvento">Id de local evento:</string>
-    <string name="id_Local">Local:</string>
-    <string name="cantAutorizada">Cantidad autorizada:</string>
-
-    <string name="Hint_idLocalEvento">Ingrese el id de local evento</string>
-    <string name="Hint_id_Local">Ingrese el id del local</string>
-    <string name="Hint_cantAutorizada">Ingrese la cantidad autorizada</string>
-
-    <string name="title_activity_alumno_insertar">AlumnoInsertarActivity</string>
-    <string name="title_activity_alumno_eliminar">AlumnoEliminarActivity</string>
-    <string name="title_activity_alumno_actualizar">AlumnoActualizarActivity</string>
-    <string name="title_activity_alumno_consultar">AlumnoConsultarActivity</string>
-
-
-    <string name="insertar_registro">Insertar Registro</string>
-    <string name="eliminar_registro">Eliminar Registro</string>
-    <string name="consultar_registro">Consultar Registro</string>
-    <string name="actualizar_registro">Actualizar Registro</string>
-
-    <string name="carnet">Carnet</string>-->
+    <string name="Hint_codNacionalidad">Ingrese el código del país</string>
+    <string name="Hint_nacionalidad">Nacionalidad</string>
+    <string name="Hint_cantAutorizada">Ingrese cantidad autorizada</string>
 
     <!-- Horario Disponible -->
     <string name="titulo_nav_horariosDisponibles">Horarios Disponibles</string>
@@ -235,6 +220,24 @@
     <string name="consultarHorariosLocales">Consultar horario del local</string>
     <string name="eliminarHorariosLocales">Eliminar horario del local</string>
     <string name="actualizarHorariosLocales">Actualizar horario del local</string>
+    <string name="idHorarioLocales">Horas</string>
+    <string name="disponible">Disponible</string>
+    <string name="ocupado">Ocupado</string>
+    <string name="Local">Local</string>
+    <string name="cantidadPersonas">Cantidad de personas</string>
+    <string name="hintCantidadPersonas">Ingrese la cantidad de personas permitidas</string>
+    <string name="title_activity_nacionalidad_eliminar">NacionalidadEliminarActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 
 </resources>

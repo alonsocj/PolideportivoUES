@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +28,9 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class EventoInsertarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
-    EditText IdEvento, NombreEvento, CostoEvento, cantAutorizada;
-    Button agregarEvento;
-    Spinner spinnerTiposEventos;
+    TextInputEditText IdEvento, NombreEvento, CostoEvento, cantAutorizada;
+    Button agregarEvento, botonLimpiar;
+    MaterialAutoCompleteTextView spinnerTiposEventos;
     SQLiteDatabase db;
     String arrayidTE[];
     String arrayTiposdeEventos[];
@@ -46,6 +49,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
         cantAutorizada = findViewById(R.id.EditCantAutorEvento);
         agregarEvento = findViewById(R.id.botonAgregarNuevoEvento);
         spinnerTiposEventos = findViewById(R.id.spinnerTipoEvento);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         /*Obtención de datos de la base de datos y traerlos al spinner*/
         db = openOrCreateDatabase("polideportivo.s3db",SQLiteDatabase.CREATE_IF_NECESSARY,null);
@@ -73,7 +77,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
                 String cantidadString = cantAutorizada.getText().toString();
 
                 /*Validaciones*/
-                if(idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty()){
+                if(idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty() || spinnerTiposEventos.getText().toString().isEmpty()){
                     Toast.makeText(EventoInsertarActivity.this, "Debe de llenar todos los campos para poder ingresar un evento", Toast.LENGTH_SHORT).show();
                 }else{
                     Float costo = Float.valueOf(costoString);
@@ -86,7 +90,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
                         Evento event = new Evento();
                         event.setIdEvento(idEvento);
                         for (int i=0; i< arrayidTE.length; i++){
-                            if(spinnerTiposEventos.getSelectedItem().toString() == arrayTiposdeEventos[i]){
+                            if(spinnerTiposEventos.getText().toString().equals(arrayTiposdeEventos[i])){
                                 event.setIdTipoE(arrayidTE[i]);
                             }
                         }
@@ -99,6 +103,17 @@ public class EventoInsertarActivity extends AppCompatActivity {
                         Toast.makeText(EventoInsertarActivity.this, eventosRegistrados, Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IdEvento.setText("");
+                NombreEvento.setText("");
+                CostoEvento.setText("");
+                cantAutorizada.setText("");
+                spinnerTiposEventos.setText("");
             }
         });
 

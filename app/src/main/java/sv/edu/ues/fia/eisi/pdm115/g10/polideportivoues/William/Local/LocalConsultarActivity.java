@@ -9,14 +9,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class LocalConsultarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    EditText editIdLocal;
-    EditText editnomLocal;
-    EditText editcupoLocal;
+    TextInputEditText editIdLocal;
+    TextInputEditText editnomLocal;
+    TextInputEditText editCantidadPersonas;
     Button btnconsultarLocal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,10 @@ public class LocalConsultarActivity extends AppCompatActivity {
         helper = new ControlBDG10William(this);
         editIdLocal = findViewById(R.id.EditIdLocal);
         editnomLocal = findViewById(R.id.EditNombreLocal);
-        editcupoLocal = findViewById(R.id.EditCupoLocal);
+        editCantidadPersonas = findViewById(R.id.EditCantidadPersonas);
         btnconsultarLocal = findViewById(R.id.botonConsultarLocal);
     }
     public void consultarLocal(View v){
-        String[] cupo= {"Disponible","Ocupado"};
         String idLocal=editIdLocal.getText().toString();
         if (idLocal.isEmpty()){
             String mensaje;
@@ -43,13 +44,13 @@ public class LocalConsultarActivity extends AppCompatActivity {
                 Toast.makeText(LocalConsultarActivity.this, "Local con Id " + idLocal + " No encontrado", Toast.LENGTH_SHORT).show();
             }else{
                 editnomLocal.setText(local.getNomLocal());
-                editcupoLocal.setText(cupo[local.getCantidadPersonas()]);
+                editCantidadPersonas.setText(String.valueOf(local.getCantidadPersonas()));
             }
         }
     }
     public void limpiar(View v){
         editIdLocal.setText("");
         editnomLocal.setText("");
-        editcupoLocal.setText("");
+        editCantidadPersonas.setText("");
     }
 }

@@ -20,35 +20,40 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:text="@string/idTipoReservaciontxt"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_id_tipoR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_key"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/idTipoReservaciontxt">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditIdTipoReservacion"
+                android:inputType="text"
+                android:maxLength="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/EditIdTipoReservacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hintIdTipoReservacion"
-        android:maxLength="1"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:text="@string/nombreTipoReservaciontxt"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_nombre_tipoR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_nombre_tr"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/nombreTipoReservaciontxt">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditNombreTipoReservacion"
+                android:inputType="text"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/EditNombreTipoReservacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hintnombreTipoReservacion"
-        android:maxLength="10"
-        android:inputType="text"
-        android:maxLines="1"
-        />
         <LinearLayout
             android:id="@+id/linearLayoutButton"
             android:layout_width="match_parent"
@@ -58,7 +63,7 @@
             android:id="@+id/botonActualizarTipoReservacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="8dp"
             android:textColor="@color/black"
             android:backgroundTint="@color/botones"
             android:onClick="actualizarTipoReservacion"
@@ -67,7 +72,7 @@
                 android:id="@+id/botonLimpiar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 android:text="@string/btnLimpiar"
                 android:onClick="limpiar"
                 android:textColor="@color/black"

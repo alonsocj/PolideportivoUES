@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Locale;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
@@ -20,8 +22,8 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class HoraInsertarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
-    EditText editId, editInicio, editFin;
-    Button botonAgregar, botonHoradeInicio, botonHoraFinalizacion;
+    TextInputEditText editId, editInicio, editFin;
+    Button botonAgregar, botonLimpiar, botonHoradeInicio, botonHoraFinalizacion;
     int horas, minutos;
 
     @Override
@@ -30,14 +32,15 @@ public class HoraInsertarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hora_insertar);
 
         controlBDChristian = new ControlBDChristian(this);
-        editId = (EditText) findViewById(R.id.EditIdHora);
-        editInicio = (EditText) findViewById(R.id.EditHoraInicio);
-        editFin = (EditText) findViewById(R.id.EditHoraFin);
+        editId = findViewById(R.id.EditIdHora);
+        editInicio = findViewById(R.id.EditHoraInicio);
+        editFin = findViewById(R.id.EditHoraFin);
         botonAgregar = (Button) findViewById(R.id.botonAgregarHora);
-        botonHoradeInicio = (Button) findViewById(R.id.horaInicioPicker);
-        botonHoraFinalizacion = (Button) findViewById(R.id.horaFinalizarPicker);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
+        /*botonHoradeInicio = (Button) findViewById(R.id.horaInicioPicker);
+        botonHoraFinalizacion = (Button) findViewById(R.id.horaFinalizarPicker);*/
 
-        botonHoradeInicio.setOnClickListener(new View.OnClickListener() {
+        editInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
@@ -56,7 +59,7 @@ public class HoraInsertarActivity extends AppCompatActivity {
         });
 
 
-        botonHoraFinalizacion.setOnClickListener(new View.OnClickListener() {
+        editFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
@@ -108,6 +111,14 @@ public class HoraInsertarActivity extends AppCompatActivity {
             }
         });
 
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editId.setText("");
+                editInicio.setText("");
+                editFin.setText("");
+            }
+        });
 
     }
 }

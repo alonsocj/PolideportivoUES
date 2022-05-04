@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -15,8 +17,8 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class TipoPagoConsultarActivity extends AppCompatActivity {
 
     ControlBDChristian helper;
-    EditText editIdPago, editTipo;
-    Button consultarTipoPago;
+    TextInputEditText editIdPago, editTipo;
+    Button consultarTipoPago, botonLimpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class TipoPagoConsultarActivity extends AppCompatActivity {
         editIdPago = findViewById(R.id.EditIdPagoConsultar);
         editTipo = findViewById(R.id.EditTipoConsultar);
         consultarTipoPago = findViewById(R.id.consultar);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
 
         consultarTipoPago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +42,14 @@ public class TipoPagoConsultarActivity extends AppCompatActivity {
                 }else{
                     editTipo.setText(tipoPago.getTipo());
                 }
+            }
+        });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdPago.setText("");
+                editTipo.setText("");
             }
         });
 

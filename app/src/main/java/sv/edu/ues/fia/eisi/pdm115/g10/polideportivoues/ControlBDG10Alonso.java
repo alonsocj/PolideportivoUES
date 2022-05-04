@@ -12,8 +12,8 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEve
 
 public class ControlBDG10Alonso {
 
-    private static final String[] camposTipoEvento = new String[]{"idTipoE","nomTipoE"};
-    private static final String[] camposCobro = new String[]{"idCobro","idPago","cantPersonas","duracion","precio"};
+    private static final String[] camposTipoEvento = new String[]{"idTipoE", "nomTipoE"};
+    private static final String[] camposCobro = new String[]{"idCobro", "idPago", "cantPersonas", "duracion", "precio","duracionM"};
 
     private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
     private SQLiteDatabase db;
@@ -36,54 +36,54 @@ public class ControlBDG10Alonso {
      * Inicio de funcionalidades de TIPO EVENTO
      */
 
-    public String insertar(TipoEvento tipoEvento){
+    public String insertar(TipoEvento tipoEvento) {
 
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
 
         ContentValues values = new ContentValues();
         values.put("idTipoE", tipoEvento.getIdTipoE());
         values.put("nomTipoE", tipoEvento.getNombreTipoE());
-        contador = db.insert("tipoevento",null,values);
-        if(contador==-1 || contador==0){
-            regInsertados="Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }else {
-            regInsertados=regInsertados+contador;
+        contador = db.insert("tipoevento", null, values);
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
         }
 
         return regInsertados;
     }
 
-    public String actualizar(TipoEvento tipoEvento){
-        if (verificarIntegridadDeDatos(tipoEvento,1)) {
+    public String actualizar(TipoEvento tipoEvento) {
+        if (verificarIntegridadDeDatos(tipoEvento, 1)) {
             String[] id = {tipoEvento.getIdTipoE()};
             ContentValues values = new ContentValues();
             values.put("nomTipoE", tipoEvento.getNombreTipoE());
             db.update("tipoevento", values, "idTipoE=?", id);
             return "Registro de Tipo Evento actualizado correctamente";
-        }else{
+        } else {
             return "Registro de Tipo Evento inexistente";
         }
     }
 
     public String eliminar(TipoEvento tipoEvento) {
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        String where = "idTipoE = '"+tipoEvento.getIdTipoE()+"'";
-        contador+=db.delete("tipoevento", where, null);
-        regAfectados+=contador;
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        String where = "idTipoE = '" + tipoEvento.getIdTipoE() + "'";
+        contador += db.delete("tipoevento", where, null);
+        regAfectados += contador;
         return regAfectados;
     }
 
-    public TipoEvento consultarTipoEvento(String idTipoE){
+    public TipoEvento consultarTipoEvento(String idTipoE) {
         String[] id = {idTipoE};
         Cursor cursor = db.query("tipoevento", camposTipoEvento, "idTipoE = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             TipoEvento tipoEvento = new TipoEvento();
             tipoEvento.setIdTipoE(cursor.getString(0));
             tipoEvento.setNombreTipoE(cursor.getString(1));
             return tipoEvento;
-        }else {
+        } else {
             return null;
         }
     }
@@ -93,13 +93,13 @@ public class ControlBDG10Alonso {
      */
 
     /*
-        * INICIO DE FUNCIONALIDADES DE COBRO
+     * INICIO DE FUNCIONALIDADES DE COBRO
      */
 
-    public String insertar(Cobro cobro){
+    public String insertar(Cobro cobro) {
 
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
 
         ContentValues values = new ContentValues();
         values.put("idCobro", cobro.getIdCobro());
@@ -107,56 +107,57 @@ public class ControlBDG10Alonso {
         values.put("cantPersonas", cobro.getCantPersonas());
         values.put("duracion", cobro.getDuracion());
         values.put("precio", cobro.getPrecio());
+        values.put("duracionM", cobro.getDuracionTexto());
 
-        contador = db.insert("cobro",null,values);
-        if(contador==-1 || contador==0){
-            regInsertados="Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }else {
-            regInsertados=regInsertados+contador;
+        contador = db.insert("cobro", null, values);
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
         }
 
         return regInsertados;
     }
 
-    public Cobro consultarCobro(String idCobro){
+    public Cobro consultarCobro(String idCobro) {
         String[] id = {idCobro};
         Cursor cursor = db.query("cobro", camposCobro, "idCobro = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             Cobro cobro = new Cobro();
             cobro.setIdCobro(cursor.getInt(0));
             cobro.setIdPago(cursor.getString(1));
             cobro.setCantPersonas(cursor.getInt(2));
             cobro.setDuracion(cursor.getFloat(3));
             cobro.setPrecio(cursor.getFloat(4));
+            cobro.setDuracionTexto(cursor.getString(5));
             return cobro;
-        }else {
+        } else {
             return null;
         }
     }
 
-    public String actualizar(Cobro cobro){
+    public String actualizar(Cobro cobro) {
         try {
-
-
             int id = cobro.getIdCobro();
             ContentValues values = new ContentValues();
             values.put("idPago", cobro.getIdPago());
             values.put("cantPersonas", cobro.getCantPersonas());
             values.put("duracion", cobro.getDuracion());
             values.put("precio", cobro.getPrecio());
+            values.put("duracionM", cobro.getDuracionTexto());
             db.update("cobro", values, "idCobro=" + id, null);
             return "Registro de Cobro actualizado correctamente";
-        }catch (Exception e){
+        } catch (Exception e) {
             return "Registro de Cobro inexistente";
         }
     }
 
     public String eliminar(Cobro cobro) {
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        String where = "idCobro = "+cobro.getIdCobro();
-        contador+=db.delete("cobro", where, null);
-        regAfectados+=contador;
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        String where = "idCobro = " + cobro.getIdCobro();
+        contador += db.delete("cobro", where, null);
+        regAfectados += contador;
         return regAfectados;
     }
 
@@ -171,7 +172,7 @@ public class ControlBDG10Alonso {
                 TipoEvento tipoEventoV = (TipoEvento) valor;
                 String[] id = {tipoEventoV.getIdTipoE()};
                 open();
-                Cursor tev = db.query("tipoevento",camposTipoEvento,"idTipoE = ?", id,null,null,null);
+                Cursor tev = db.query("tipoevento", camposTipoEvento, "idTipoE = ?", id, null, null, null);
                 return tev.moveToFirst();
             }
             default:

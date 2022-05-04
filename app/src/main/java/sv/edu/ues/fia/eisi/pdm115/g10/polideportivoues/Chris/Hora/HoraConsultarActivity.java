@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -15,8 +17,8 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class HoraConsultarActivity extends AppCompatActivity {
 
     ControlBDChristian controlBDChristian;
-    EditText editIdHora, editHoraI, editHoraF;
-    Button consultarHora;
+    TextInputEditText editIdHora, editHoraI, editHoraF;
+    Button consultarHora, botonLimpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +26,10 @@ public class HoraConsultarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hora_consultar);
 
         controlBDChristian = new ControlBDChristian(this);
-        editIdHora = (EditText) findViewById(R.id.EditIdHoraC);
-        editHoraI = (EditText) findViewById(R.id.EditHoraInicioC);
-        editHoraF = (EditText) findViewById(R.id.EditHoraFinC);
+        editIdHora =  findViewById(R.id.EditIdHoraC);
+        editHoraI = findViewById(R.id.EditHoraInicioC);
+        editHoraF = findViewById(R.id.EditHoraFinC);
+        botonLimpiar = findViewById(R.id.botonLimpiar);
         consultarHora = (Button) findViewById(R.id.botonBuscarHora);
 
         consultarHora.setOnClickListener(new View.OnClickListener() {
@@ -45,5 +48,15 @@ public class HoraConsultarActivity extends AppCompatActivity {
                 }
             }
         });
+
+        botonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editIdHora.setText("");
+                editHoraI.setText("");
+                editHoraF.setText("");
+            }
+        });
+
     }
 }

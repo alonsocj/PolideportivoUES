@@ -11,18 +11,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 
-public class LocalInsertarActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class LocalInsertarActivity extends AppCompatActivity {
     ControlBDG10William helper;
-    EditText editIdLocal;
-    EditText editnomLocal;
-    Spinner spinnercupoLocal;
+    TextInputEditText editIdLocal;
+    TextInputEditText editnomLocal;
+    TextInputEditText editCantLocal;
     Button btnagregarLocal;
-    ArrayAdapter<String> arrayS;
-    String [] arreglo = new String[]{"Disponible", "ocupado"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,56 +30,59 @@ public class LocalInsertarActivity extends AppCompatActivity implements AdapterV
         helper = new ControlBDG10William(this);
         editIdLocal = findViewById(R.id.EditIdLocal);
         editnomLocal = findViewById(R.id.EditNombreLocal);
-        spinnercupoLocal = findViewById(R.id.SpinnerCupoLocal);
+        editCantLocal = findViewById(R.id.EditCantidadPersonas);
         btnagregarLocal = findViewById(R.id.botonAgregarLocal);
-        spinnercupoLocal.setOnItemSelectedListener(this);
-        arrayS = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,arreglo);
-        spinnercupoLocal.setAdapter(arrayS);
     }
 
     public void insertarLocal(View v){
         String idLocal=editIdLocal.getText().toString();
         String nombreLocal=editnomLocal.getText().toString();
-        int indiceCupo = spinnercupoLocal.getSelectedItemPosition();
-        if (idLocal.isEmpty()||nombreLocal.isEmpty()){
+        String cantPS = editCantLocal.getText().toString();
+        int cantP;
+        if (idLocal.isEmpty()||nombreLocal.isEmpty()||cantPS.isEmpty()){
             String mensaje;
-            if (idLocal.isEmpty()&&nombreLocal.isEmpty()) {
+            if (idLocal.isEmpty()&&nombreLocal.isEmpty()&&cantPS.isEmpty()) {
                 mensaje = "Los campos estan vacios, por favor completelos";
             }else{
                 if (idLocal.isEmpty()){
                     mensaje = "El local no se puede ingresar, no se ha digitado el id del local";
                 }else{
-                    mensaje = "El local no se puede ingresar, no se ha digitado el nombre del local";
+                    if (nombreLocal.isEmpty()){
+                        mensaje = "El local no se puede ingresar, no se ha digitado el nombre del local";
+                    }else{
+                            mensaje = "El local no se puede ingresar, no se ha digitado la cantidad de personas permitidas en el local";
+                    }
                 }
             }
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
         }else{
-            String regInsertados;
-            Local local = new Local();
-            local.setIdLocal(idLocal);
-            local.setNomLocal(nombreLocal);
-            local.setCantidadPersonas(indiceCupo);
-            helper.open();
-            regInsertados = helper.ingresarLocal(local);
-            helper.close();
-            Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
-        }
+            cantP = Integer.parseInt(cantPS);
+            if(cantP<=0) {
+                String mensaje1 = "Digite una cantidad de personas mayor a 0";
+                Toast.makeText(this, mensaje1, Toast.LENGTH_SHORT).show();
+            }
+            else{
+                String regInsertados;
+                Local local = new Local();
+                local.setIdLocal(idLocal);
+                local.setNomLocal(nombreLocal);
+                local.setCantidadPersonas(cantP);
+                helper.open();
+                regInsertados = helper.ingresarLocal(local);
+                helper.close();
+                Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+                editIdLocal.setText("");
+                editnomLocal.setText("");
+                editCantLocal.setText("");
+            }
 
+        }
     }
 
     public void limpiar(View v){
         editIdLocal.setText("");
         editnomLocal.setText("");
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
+        editCantLocal.setText("");
     }
 
 

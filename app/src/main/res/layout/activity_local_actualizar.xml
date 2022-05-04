@@ -19,53 +19,55 @@
         android:text="@string/actualizarLocal"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:text="@string/idLocaltxt"/>
-
-    <EditText
-        android:id="@+id/EditIdLocal"
+        <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_id_local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintIdLocal"
-        android:minHeight="48dp"
-        android:maxLength="5"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:text="@string/nombreLocaltxt"/>
+        android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_key"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/idLocaltxt">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EditIdLocal"
+            android:inputType="text"
+            android:maxLength="5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/EditNombreLocal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hintnombreLocal"
-        android:minHeight="48dp"
-        android:maxLength="50"
-        android:inputType="text"
-        android:maxLines="1"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cupoLocaltxt"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:inputType="number"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_nombre_local"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_nom_local"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/nombreLocaltxt">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditNombreLocal"
+                android:inputType="text"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Spinner
-        android:id="@+id/SpinnerCupoLocal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hintcupoLocal"
-        android:minHeight="48dp"
-        />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_cant_local"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:startIconDrawable="@drawable/ic_personas"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/cantidadPersonas">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditCantidadPersonas"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
     <LinearLayout
         android:id="@+id/linearLayoutButton"
         android:layout_width="match_parent"

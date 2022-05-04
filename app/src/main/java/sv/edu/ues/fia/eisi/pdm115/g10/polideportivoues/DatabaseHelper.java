@@ -17,6 +17,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         try{
             //Consultas para crear las tablas y triggers de la base de datos
+
+            //Tabla Nacionalidad
+            db.execSQL("CREATE TABLE nacionalidad (codNac VARCHAR(2) NOT NULL PRIMARY KEY, nacionalidad VARCHAR(50) NOT NULL);");
             //tabla PeriodoReserva
             db.execSQL("CREATE TABLE periodoReserva (idPeriodoReserva VARCHAR(6) NOT NULL PRIMARY KEY,fechaInicio VARCHAR(10) NOT NULL,fechaFin VARCHAR(10) NOT NULL);");
             //tabla Dia
@@ -30,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //tabla TipoPago
             db.execSQL("CREATE TABLE tipopago(idPago VARCHAR(2) NOT NULL PRIMARY KEY, tipo VARCHAR(20) NOT NULL);");
             //Tabla Cobro
-            db.execSQL("CREATE TABLE cobro (idCobro INTEGER NOT NULL PRIMARY KEY , idPago VARCHAR(2) NOT NULL, cantPersonas INTEGER, duracion FLOAT, precio FLOAT," +
+            db.execSQL("CREATE TABLE cobro (idCobro INTEGER NOT NULL PRIMARY KEY , idPago VARCHAR(2) NOT NULL, cantPersonas INTEGER NOT NULL, duracion FLOAT NOT NULL, precio FLOAT NOT NULL, duracionM VARCHAR(5) NOT NULL," +
                     " CONSTRAINT fk_cobro_tipopago FOREIGN KEY (idPago) REFERENCES tipopago(idPago) ON DELETE RESTRICT);");
             //Tabla Hora
             db.execSQL("CREATE TABLE hora (idHora VARCHAR(4) NOT NULL PRIMARY KEY, horaInicio VARCHAR(25) NOT NULL , horaFin VARCHAR(25) NOT NULL);");
@@ -48,7 +51,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "idTipoR VARCHAR  (1) NOT NULL,\n" +
                     "idEvento VARCHAR (6) NOT NULL,\n" +
                     "idPeriodoReserva VARCHAR (6) NOT NULL,\n" +
-                    "fechaRegistro VARCHAR(11) NOT NULL,\n" +
+                    "idHorario VARCHAR (2) NOT NULL,\n" +
+                    "idLocal VARCHAR (5) NOT NULL,\n" +
+                    "fechaRegistro VARCHAR(10) NOT NULL,\n" +
                     "CONSTRAINT fk_reservacion_cobro FOREIGN KEY (idCobro) REFERENCES cobro(idCobro) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_persona FOREIGN KEY (idPersona) REFERENCES persona(idPersona) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_tipoReservacion FOREIGN KEY (idTipoR) REFERENCES tipoReservacion(idTipoR) ON DELETE RESTRICT,\n" +
@@ -62,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT);");
 
             db.execSQL("CREATE TABLE horariosLocales(\n" +
-                    "   idHorario VARCHAR(2) NOT NULL,\n" +
+                    "   idHorario VARCHAR(6) NOT NULL,\n" +
                     "   idLocal VARCHAR(5) NOT NULL,\n" +
                     "   disponibilidad INTEGER NOT NULL,\n" +
                     "   PRIMARY KEY (idHorario, idLocal),\n" +

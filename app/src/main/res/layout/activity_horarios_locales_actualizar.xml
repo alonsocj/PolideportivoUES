@@ -20,27 +20,50 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#000000"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_id_horario"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/idHorario"/>
+            android:layout_marginTop="30dp"
+            app:startIconDrawable="@drawable/ic_horario_local"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:hint="@string/idHorarioLocales">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/list_id_horario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_locales"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/id_PeriodoReserva"/>
+            android:layout_marginTop="30dp"
+            app:startIconDrawable="@drawable/ic_nom_local"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:hint="@string/Local">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/list_locales"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_disponibilidad"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/disponibilidadHorariosDisponibles"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp" />
-
+            android:layout_marginTop="30dp"
+            app:startIconDrawable="@drawable/ic_estado_horario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:hint="@string/disponibilidadHorariosDisponibles">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/list_disponibiliad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:id="@+id/linearLayoutButton"
@@ -48,10 +71,10 @@
             android:layout_height="match_parent"
             android:gravity="right">
             <Button
-                android:id="@+id/botonActualizarDetallePeriodosR"
+                android:id="@+id/botonActualizarHorariosLocales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="actualizarDetallePeriodosR"
+                android:onClick="actualizarHorariosLocales"
                 android:layout_margin="8dp"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/botones"

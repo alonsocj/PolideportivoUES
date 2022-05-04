@@ -27,6 +27,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_tp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/DUIPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditDUIPersona"
+                android:inputType="number"
+                android:maxLength="9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             app:startIconDrawable="@drawable/ic_name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/NombrePersona">
@@ -65,7 +80,9 @@
                 android:inputType="text"
                 android:maxLength="25"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:cursorVisible="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -98,22 +115,9 @@
                 android:inputType="text"
                 android:maxLength="25"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            app:startIconDrawable="@drawable/ic_tp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="@string/DUIPersona">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/EditDUIPersona"
-                android:inputType="number"
-                android:maxLength="9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:cursorVisible="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

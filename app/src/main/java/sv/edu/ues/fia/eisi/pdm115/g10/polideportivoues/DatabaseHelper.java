@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "END;");
 
             //Triggers de integridad de relación de tabla Reservación
-            db.execSQL("CREATE TRIGGER fk_reservacion_cobro\n" +
+            /*db.execSQL("CREATE TRIGGER fk_reservacion_cobro\n" +
                     "BEFORE INSERT ON reservacion\n" +
                     "FOR EACH ROW\n" +
                     "BEGIN\n" +
@@ -135,7 +135,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "WHEN ((SELECT idPeriodoReserva FROM periodoReserva WHERE idPeriodoReserva = NEW.idPeriodoReserva) IS NULL)\n" +
                     "THEN RAISE(ABORT, 'No existe el periodo de reserva')\n" +
                     "END;\n" +
-                    "END;\n");
+                    "END;\n");*/
 
             //Triggers de integridad de relacion de la tabla LocalEvento
             db.execSQL("CREATE TRIGGER fk_localEvento_evento\n" +

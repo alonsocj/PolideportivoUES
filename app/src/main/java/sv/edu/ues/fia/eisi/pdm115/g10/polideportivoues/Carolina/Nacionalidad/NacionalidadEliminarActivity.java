@@ -50,11 +50,12 @@ public class NacionalidadEliminarActivity extends AppCompatActivity {
                     Toast.makeText(NacionalidadEliminarActivity.this, "El código debe contener 2 carácteres", Toast.LENGTH_SHORT).show();
                 }else if(helper.verificarExisNacionalidad(nacionalidad)){
                     if(helper.verificarNacionalidadCascada(nacionalidad)){
-                        confirmacion.setMessage("Se han encontrado registros asociados a la nacionalidad en la tabla persona. No se puede eliminar lanacionalidad")
+                        confirmacion.setMessage("Se han encontrado registros asociados a la nacionalidad en la tabla persona. No se puede eliminar la nacionalidad")
                                     .setCancelable(false)
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
                                             Toast.makeText(NacionalidadEliminarActivity.this, "No se eliminaron los registros", Toast.LENGTH_SHORT).show();
                                         }
                                     }).show();
@@ -67,7 +68,7 @@ public class NacionalidadEliminarActivity extends AppCompatActivity {
                             editIdNac.setText("");
                         }
                 }else{
-                    Toast.makeText(NacionalidadEliminarActivity.this, "El código de nacionalidad no existe!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "El código de nacionalidad no existe!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDCarolina;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
@@ -16,7 +18,7 @@ public class PeriodoReservaConsultarActivity extends AppCompatActivity {
 
     DatePickerDialog.OnDateSetListener setListener;
     ControlBDCarolina helper;
-    EditText editPR, editFI, editFF;
+    TextInputEditText editPR, editFI, editFF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +26,9 @@ public class PeriodoReservaConsultarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_periodo_reserva_consultar);
 
         helper = new ControlBDCarolina(this);
-        editPR = (EditText) findViewById(R.id.idPeriodoReserva);
-        editFI = (EditText) findViewById(R.id.et_FechaI);
-        editFF = (EditText) findViewById(R.id.et_FechaF);
+        editPR = (TextInputEditText) findViewById(R.id.idPeriodoReserva);
+        editFI = (TextInputEditText) findViewById(R.id.et_FechaI);
+        editFF = (TextInputEditText) findViewById(R.id.et_FechaF);
     }
     public void consultarPeriodoReserva(View v) {
         helper.open();

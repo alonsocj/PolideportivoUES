@@ -201,6 +201,15 @@
     <string name="DireccionPersona">Dirección:</string>
     <string name="EmailPersona">Correo eléctronico:</string>
     <string name="TelefonoPersona">Teléfono:</string>
+    
+    <!-- Género -->
+    <string name="titulo_nav_genero">Género</string>
+    <string name="AgregarGeneroFragment">Agregar Género</string>
+    <string name="EliminarGeneroFragment">Eliminar Género</string>
+    <string name="ConsultarGeneroFragment">Consultar Género</string>
+    <string name="ActualizarGeneroFragment">Actualizar Género</string>
+    <string name="idGenero">Id Género:</string>
+    <string name="genero">Género:</string>
 
     <!-- Tipo Reservacion -->
     <string name="titulo_nav_tipoReservacion">Tipo de Reservacion</string>
@@ -237,7 +246,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
 
 </resources>

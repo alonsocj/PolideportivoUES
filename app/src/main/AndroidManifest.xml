@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PolideportivoUES">
         <activity
+            android:name=".Gustavo.Genero.GeneroActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Gustavo.Genero.GeneroEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Gustavo.Genero.GeneroConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Gustavo.Genero.GeneroInsertarActivity"
+            android:exported="false" />
+        <activity
             android:name=".Carolina.Nacionalidad.NacionalidadEliminarActivity"
             android:exported="false" />
         <activity

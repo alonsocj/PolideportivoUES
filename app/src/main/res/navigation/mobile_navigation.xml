@@ -84,5 +84,10 @@
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.nacionalidad.NacionalidadFragment"
         android:label="@string/titulo_nav_nacionalidad"
         tools:layout="@layout/fragment_nacionalidad" />
+    <fragment
+        android:id="@+id/nav_genero"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.genero.GeneroFragment"
+        android:label="Género"
+        tools:layout="@layout/fragment_genero" />
 
 </navigation>

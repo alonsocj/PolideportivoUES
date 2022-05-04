@@ -68,6 +68,11 @@
             android:title="@string/titulo_nav_horariosLocales" />
 
         <item
+            android:id="@+id/nav_genero"
+            android:icon="@drawable/ic_genere"
+            android:title="@string/titulo_nav_genero"/>
+
+        <item
             android:id="@+id/nav_nacionalidad"
             android:icon="@drawable/ic_menu_nacionalidad"
             android:title="@string/titulo_nav_nacionalidad"/>

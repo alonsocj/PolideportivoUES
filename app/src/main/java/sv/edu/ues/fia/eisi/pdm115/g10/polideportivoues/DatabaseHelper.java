@@ -61,11 +61,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "CONSTRAINT fk_reservacion_periodoReserva FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva(idPeriodoReserva) ON DELETE RESTRICT\n" +
                     ");\n");
 
-            db.execSQL("CREATE TABLE detallePeriodosReservados( idPeriodoReserva VARCHAR(6) NOT NULL, idHorario VARCHAR(2) NOT NULL, fechaDetalle DATE NOT NULL," +
-                        "PRIMARY KEY (idPeriodoReserva, idHorario)," +
-                        "CONSTRAINT FK_DETALLEP_PERIODOR FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva (idPeriodoReserva) ON DELETE RESTRICT," +
-                        "CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT);");
-
             db.execSQL("CREATE TABLE horariosLocales(\n" +
                     "   idHorario VARCHAR(6) NOT NULL,\n" +
                     "   idLocal VARCHAR(5) NOT NULL,\n" +
@@ -134,27 +129,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "SELECT CASE\n" +
                     "WHEN ((SELECT idPeriodoReserva FROM periodoReserva WHERE idPeriodoReserva = NEW.idPeriodoReserva) IS NULL)\n" +
                     "THEN RAISE(ABORT, 'No existe el periodo de reserva')\n" +
-                    "END;\n" +
-                    "END;\n");
-
-            //Triggers de integridad de relacion de la tabla LocalEvento
-            db.execSQL("CREATE TRIGGER fk_localEvento_evento\n" +
-                    "BEFORE INSERT ON localEvento\n" +
-                    "FOR EACH ROW\n" +
-                    "BEGIN\n" +
-                    "SELECT CASE\n" +
-                    "WHEN ((SELECT idEvento FROM evento WHERE idEvento = NEW.idEvento) IS NULL)\n" +
-                    "THEN RAISE(ABORT, 'No existe un evento')\n" +
-                    "END;\n" +
-                    "END;\n");
-
-            db.execSQL("CREATE TRIGGER fk_localEvento_local\n" +
-                    "BEFORE INSERT ON localEvento\n" +
-                    "FOR EACH ROW\n" +
-                    "BEGIN\n" +
-                    "SELECT CASE\n" +
-                    "WHEN ((SELECT idLocal FROM local WHERE idLocal = NEW.idLocal) IS NULL)\n" +
-                    "THEN RAISE(ABORT, 'No existe local')\n" +
                     "END;\n" +
                     "END;\n");
 

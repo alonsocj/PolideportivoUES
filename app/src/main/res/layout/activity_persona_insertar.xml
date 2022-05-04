@@ -89,13 +89,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            app:startIconDrawable="@drawable/ic_nationality"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="@string/GeneroPersona">
-            <com.google.android.material.textfield.TextInputEditText
+            app:startIconDrawable="@drawable/ic_nac"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:hint="@string/NacionalidadPersona">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/EditNacionalidadPersona"
                 android:inputType="text"
-                android:maxLength="50"
+                android:maxLength="10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>

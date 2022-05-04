@@ -19,10 +19,13 @@
         <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_nacionalidad_consultar.xml" value="0.2630208333333333" />
         <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_nacionalidad_eliminar.xml" value="0.2630208333333333" />
         <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_nacionalidad_insertar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_actualizar.xml" value="0.26721014492753625" />
+        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_actualizar.xml" value="0.5" />
         <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_consultar.xml" value="0.36666666666666664" />
         <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_eliminar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_insertar.xml" value="0.25625" />
+        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_insertar.xml" value="0.33" />
+        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_persona_actualizar.xml" value="0.1" />
+        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_persona_consultar.xml" value="0.1" />
+        <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_persona_eliminar.xml" value="0.14311043566362716" />
         <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_persona_insertar.xml" value="0.22" />
         <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_reservacion_actualizar.xml" value="0.22" />
         <entry key="..\:/Documentos/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_reservacion_consultar.xml" value="0.23596014492753623" />

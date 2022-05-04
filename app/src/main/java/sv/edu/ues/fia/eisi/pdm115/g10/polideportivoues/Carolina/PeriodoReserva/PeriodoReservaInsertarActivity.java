@@ -10,6 +10,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,11 +25,11 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class PeriodoReservaInsertarActivity extends AppCompatActivity {
 
-    EditText et_FechaI;
-    EditText et_FechaF;
+    TextInputEditText et_FechaI;
+    TextInputEditText et_FechaF;
     DatePickerDialog.OnDateSetListener setListener;
     ControlBDCarolina helper;
-    EditText editPR, editFI, editFF;
+    TextInputEditText editPR, editFI, editFF;
     Button botonAgregar;
 
     @Override
@@ -79,9 +81,9 @@ public class PeriodoReservaInsertarActivity extends AppCompatActivity {
         //Fin calendario
 
 
-        editPR = (EditText) findViewById(R.id.idPeriodoReserva);
-        editFI = (EditText) findViewById(R.id.et_FechaI);
-        editFF = (EditText) findViewById(R.id.et_FechaF);
+        editPR = (TextInputEditText) findViewById(R.id.idPeriodoReserva);
+        editFI = (TextInputEditText) findViewById(R.id.et_FechaI);
+        editFF = (TextInputEditText) findViewById(R.id.et_FechaF);
         botonAgregar = (Button) findViewById(R.id.botonAgregarPeriodoReserva);
 
         botonAgregar.setOnClickListener(new View.OnClickListener() {

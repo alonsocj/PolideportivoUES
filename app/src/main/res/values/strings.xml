@@ -160,8 +160,8 @@
     <string name="fechaFin">Fecha fin del periodo de reserva:</string>
 
     <string name="Hint_idperiodoReserva">Ingresar id del periodo de reserva</string>
-    <string name="Hint_fechaInicio">Ingresar fecha de inicio del periodo de reserva</string>
-    <string name="Hint_fechaFin">Ingresar fecha fin del periodo de reserva</string>
+    <string name="Hint_fechaInicio">Ingresar fecha de inicio</string>
+    <string name="Hint_fechaFin">Ingresar fecha fin</string>
 
     <!-- TABLA Nacionalidad-->
     <string name="titulo_nav_nacionalidad">Nacionalidad</string>

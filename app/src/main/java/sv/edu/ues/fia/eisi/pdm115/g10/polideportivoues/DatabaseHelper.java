@@ -137,7 +137,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "  idPersona VARCHAR(9) NOT NULL PRIMARY KEY,\n" +
                     "  nombre VARCHAR(50) NOT NULL,\n" +
                     "  apellido VARCHAR(50) NOT NULL,\n" +
-                    "  genero VARCHAR(1) NOT NULL,\n" +
+                    "  idGenero VARCHAR(6) NOT NULL,\n" +
                     "  nacimiento VARCHAR(10) NOT NULL,\n" +
                     "  codNac VARCHAR(2) NOT NULL,\n" +
                     "  direccion VARCHAR(100) NOT NULL,\n" +

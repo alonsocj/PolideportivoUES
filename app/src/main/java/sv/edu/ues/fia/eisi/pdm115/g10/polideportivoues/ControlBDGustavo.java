@@ -49,9 +49,9 @@ public class ControlBDGustavo {
         values.put("idPersona", persona.getIdPersona());
         values.put("nombre", persona.getNombre());
         values.put("apellido", persona.getApellido());
-        values.put("genero", persona.getGenero());
+        values.put("idGenero", persona.getGenero());
         values.put("nacimiento", persona.getNacimiento());
-        values.put("nacionalidad", persona.getNacionalidad());
+        values.put("codNac", persona.getNacionalidad());
         values.put("direccion", persona.getDireccion());
         values.put("email", persona.getEmail());
         values.put("telefono", persona.getTelefono());
@@ -67,7 +67,7 @@ public class ControlBDGustavo {
 
     public Persona consultarPersona (String idPersona){
         String[] id = {idPersona};
-        Cursor cursor = db.query("persona",new String []{"idPersona","nombre", "apellido", "genero", "nacimiento", "nacionalidad", "direccion", "email", "telefono"}, "idPersona = ?", id, null, null, null);
+        Cursor cursor = db.query("persona",new String []{"idPersona","nombre", "apellido", "idGenero", "nacimiento", "codNac", "direccion", "email", "telefono"}, "idPersona = ?", id, null, null, null);
         if(cursor.moveToFirst()){
             Persona persona = new Persona();
             persona.setIdPersona(cursor.getString(0));
@@ -105,9 +105,9 @@ public class ControlBDGustavo {
             ContentValues values = new ContentValues();
             values.put("nombre", persona.getNombre());
             values.put("apellido", persona.getApellido());
-            values.put("genero", persona.getGenero());
+            values.put("idGenero", persona.getGenero());
             values.put("nacimiento", persona.getNacimiento());
-            values.put("nacionalidad", persona.getNacionalidad());
+            values.put("codNac", persona.getNacionalidad());
             values.put("direccion", persona.getDireccion());
             values.put("email", persona.getEmail());
             values.put("telefono", persona.getTelefono());

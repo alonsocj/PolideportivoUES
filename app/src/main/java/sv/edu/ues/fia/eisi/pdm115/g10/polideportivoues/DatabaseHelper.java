@@ -160,6 +160,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "  apellido VARCHAR(50) NOT NULL,\n" +
                     "  genero VARCHAR(1) NOT NULL,\n" +
                     "  nacimiento VARCHAR(10) NOT NULL,\n" +
+                    "  nacionalidad VARCHAR(2) NOT NULL,\n" +
                     "  direccion VARCHAR(100) NOT NULL,\n" +
                     "  email VARCHAR(50) NOT NULL,\n" +
                     "  telefono VARCHAR(8) NOT NULL\n" +

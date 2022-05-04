@@ -76,8 +76,8 @@ public class HorariosDisponiblesInsertarActivity extends AppCompatActivity {
                     if(idHora.length()!=6){
                         Toast.makeText(HorariosDisponiblesInsertarActivity.this, "El id debe de ser de 6 carácteres!", Toast.LENGTH_SHORT).show();
                     }else{
-                        String idHoraSeleccionada=arrayHoras.get(editHora.getTextDirection()-1).getIdHora();
-                        String idDiaSeleccionado=arrayDias.get(editDia.getTextDirection()-1).getNombreDia();
+                        String idHoraSeleccionada=arrayHoras.get(arrayHorasString.indexOf(hora)).getIdHora();
+                        String idDiaSeleccionado=arrayDias.get(arrayDiasString.indexOf(dia)).getNombreDia();
 
                         HorariosDisponibles horarioDisponible = new HorariosDisponibles();
                         horarioDisponible.setIdHorario(idHora);

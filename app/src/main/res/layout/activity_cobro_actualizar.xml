@@ -28,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:hint="@string/id_Cobro">
+            android:hint="@string/id_Cobro"
+            app:startIconDrawable="@drawable/ic_key">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editText_id_cobro"
@@ -83,12 +84,12 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editText_duracion"
-                android:inputType="time"
-                android:maxLength="5"
-                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:focusable="false"
+                android:inputType="time"
+                android:maxLength="5"
                 tools:ignore="KeyboardInaccessibleWidget" />
 
         </com.google.android.material.textfield.TextInputLayout>

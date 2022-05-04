@@ -59,6 +59,13 @@
     <string name="precios">Precio:</string>
     <string name="time_picker_title">Seleccione la duración</string>
 
+    <!-- DIA -->
+    <string name="dia">Dia</string>
+    <string name="titulo_dia_insertar">Insertar dia</string>
+    <string name="titulo_dia_consultar">Consultar dia</string>
+    <string name="titulo_dia_actualizar">Actualizar dia</string>
+    <string name="titulo_dia_eliminar">Eliminar dia</string>
+
 
     <!--Local-->
     <string name="titulo_nav_local">Local</string>
@@ -201,7 +208,7 @@
     <string name="DireccionPersona">Dirección:</string>
     <string name="EmailPersona">Correo eléctronico:</string>
     <string name="TelefonoPersona">Teléfono:</string>
-    
+
     <!-- Género -->
     <string name="titulo_nav_genero">Género</string>
     <string name="AgregarGeneroFragment">Agregar Género</string>

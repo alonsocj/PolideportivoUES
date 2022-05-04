@@ -3,6 +3,7 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -11,21 +12,32 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.PatternsCompat;
 
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.regex.Pattern;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.Dia;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.Nacionalidad;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDGustavo;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Genero.Genero;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class PersonaInsertarActivity extends AppCompatActivity {
 
     ControlBDGustavo controlBDGustavo;
     TextInputEditText editIdPersona, editNombre, editApellido, editNacimiento, editDireccion, editEmail, editTelefono;
-    RadioButton editGeneroM,editGeneroF;
+    MaterialAutoCompleteTextView editGenero, editNacionalidad;
     Button botonAgregar, botonVaciar;
-    DatePickerDialog.OnDateSetListener setListener;
+
+    List<Nacionalidad> arrayNacionalidad=new ArrayList<Nacionalidad>();
+    List<String> arrayNacionalidadString=new ArrayList<String>();
+    List<Genero> arrayGenero=new ArrayList<Genero>();
+    List<String> arrayGeneroString=new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +57,26 @@ public class PersonaInsertarActivity extends AppCompatActivity {
         editIdPersona= findViewById(R.id.EditDUIPersona);
         editNombre = findViewById(R.id.EditNombrePersona);
         editApellido = findViewById(R.id.EditApellidoPersona);
-        editGeneroM = (RadioButton) findViewById(R.id.rbMasculino);
-        editGeneroF = (RadioButton) findViewById(R.id.rbFemenino);
+        editGenero = findViewById(R.id.EditGeneroPersona);
         editNacimiento = findViewById(R.id.EditNacimientoPersona);
+        editNacionalidad = findViewById(R.id.EditNacionalidadPersona);
         editDireccion = findViewById(R.id.EditDireccionPersona);
         editEmail = findViewById(R.id.EditEmailPersona);
         editTelefono = findViewById(R.id.EditTelefonoPersona);
         botonAgregar = (Button) findViewById(R.id.botonAgregarPersona);
         botonVaciar = (Button) findViewById(R.id.botonVaciarPersona);
+
+        //Llenado del spinner de nacionalidad
+        controlBDGustavo.open();
+        arrayNacionalidad=controlBDGustavo.consultarNacionalidad();
+        arrayNacionalidadString=controlBDGustavo.consultarNacionalidadString(arrayNacionalidad);
+        editNacionalidad.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, arrayNacionalidadString));
+
+        //Llenado del spinner de genero
+        controlBDGustavo.open();
+        arrayGenero=controlBDGustavo.consultarGeneros();
+        arrayGeneroString=controlBDGustavo.consultarGeneroString(arrayGenero);
+        editGenero.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, arrayGeneroString));
 
         botonAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,17 +84,15 @@ public class PersonaInsertarActivity extends AppCompatActivity {
                 String idPersona = editIdPersona.getText().toString();
                 String nombre = editNombre.getText().toString();
                 String apellido = editApellido.getText().toString();
-                String generoM = editGeneroM.getText().toString();
-                String generoF = editGeneroF.getText().toString();
+                String genero = editGenero.getText().toString();
                 String nacimiento = editNacimiento.getText().toString();
+                String nacionalidad = editNacionalidad.getText().toString();
                 String direccion = editDireccion.getText().toString();
                 String email = editEmail.getText().toString();
                 String telefono = editTelefono.getText().toString();
                 boolean verdadero=true;
-                String insertarRegistros, genero;
-                genero=generoM+generoF;
-
-                if(nombre.isEmpty()||apellido.isEmpty()||genero.isEmpty()||nacimiento.isEmpty()||direccion.isEmpty()||email.isEmpty()||telefono.isEmpty()){
+                String insertarRegistros;
+                if(nombre.isEmpty()||apellido.isEmpty()||genero.isEmpty()||nacimiento.isEmpty()||nacionalidad.isEmpty()||direccion.isEmpty()||email.isEmpty()||telefono.isEmpty()){
                     Toast.makeText(PersonaInsertarActivity.this, "Debe completar los campos para registrar una persona!", Toast.LENGTH_SHORT).show();
                 }else{
                     if(idPersona.length()!=9){
@@ -96,8 +118,9 @@ public class PersonaInsertarActivity extends AppCompatActivity {
                             persona.setIdPersona(idPersona);
                             persona.setNombre(nombre);
                             persona.setApellido(apellido);
-                            persona.setGenero(genero);
+                            persona.setGenero(arrayGenero.get(arrayGeneroString.indexOf(editGenero.getText().toString())).getIdGenero());
                             persona.setNacimiento(nacimiento);
+                            persona.setNacionalidad(arrayNacionalidad.get(arrayNacionalidadString.indexOf(editNacionalidad.getText().toString())).getCodNac());
                             persona.setDireccion(direccion);
                             persona.setEmail(email);
                             persona.setTelefono(telefono);
@@ -114,7 +137,9 @@ public class PersonaInsertarActivity extends AppCompatActivity {
                                 editIdPersona.setText("");
                                 editNombre.setText("");
                                 editApellido.setText("");
+                                editGenero.setText("");
                                 editNacimiento.setText("");
+                                editNacionalidad.setText("");
                                 editDireccion.setText("");
                                 editEmail.setText("");
                                 editTelefono.setText("");
@@ -131,7 +156,9 @@ public class PersonaInsertarActivity extends AppCompatActivity {
                 editIdPersona.setText("");
                 editNombre.setText("");
                 editApellido.setText("");
+                editGenero.setText("");
                 editNacimiento.setText("");
+                editNacionalidad.setText("");
                 editDireccion.setText("");
                 editEmail.setText("");
                 editTelefono.setText("");

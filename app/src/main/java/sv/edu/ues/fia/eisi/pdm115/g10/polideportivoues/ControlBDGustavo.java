@@ -11,8 +11,10 @@ import java.util.List;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.Dia;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.Nacionalidad;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReserva;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Genero.Genero;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 
@@ -49,6 +51,7 @@ public class ControlBDGustavo {
         values.put("apellido", persona.getApellido());
         values.put("genero", persona.getGenero());
         values.put("nacimiento", persona.getNacimiento());
+        values.put("nacionalidad", persona.getNacionalidad());
         values.put("direccion", persona.getDireccion());
         values.put("email", persona.getEmail());
         values.put("telefono", persona.getTelefono());
@@ -64,7 +67,7 @@ public class ControlBDGustavo {
 
     public Persona consultarPersona (String idPersona){
         String[] id = {idPersona};
-        Cursor cursor = db.query("persona",new String []{"idPersona","nombre", "apellido", "genero", "nacimiento", "direccion", "email", "telefono"}, "idPersona = ?", id, null, null, null);
+        Cursor cursor = db.query("persona",new String []{"idPersona","nombre", "apellido", "genero", "nacimiento", "nacionalidad", "direccion", "email", "telefono"}, "idPersona = ?", id, null, null, null);
         if(cursor.moveToFirst()){
             Persona persona = new Persona();
             persona.setIdPersona(cursor.getString(0));
@@ -72,9 +75,10 @@ public class ControlBDGustavo {
             persona.setApellido(cursor.getString(2));
             persona.setGenero(cursor.getString(3));
             persona.setNacimiento(cursor.getString(4));
-            persona.setDireccion(cursor.getString(5));
-            persona.setEmail(cursor.getString(6));
-            persona.setTelefono(cursor.getString(7));
+            persona.setNacionalidad(cursor.getString(5));
+            persona.setDireccion(cursor.getString(6));
+            persona.setEmail(cursor.getString(7));
+            persona.setTelefono(cursor.getString(8));
             return persona;
         }else {
             return null;
@@ -103,6 +107,7 @@ public class ControlBDGustavo {
             values.put("apellido", persona.getApellido());
             values.put("genero", persona.getGenero());
             values.put("nacimiento", persona.getNacimiento());
+            values.put("nacionalidad", persona.getNacionalidad());
             values.put("direccion", persona.getDireccion());
             values.put("email", persona.getEmail());
             values.put("telefono", persona.getTelefono());
@@ -233,6 +238,64 @@ public class ControlBDGustavo {
         return arrayDiasString;
     }
 
+    //Extraemos todas las nacionalidades registrados en la base de datos
+    public List<Nacionalidad> consultarNacionalidad(){
+        List<Nacionalidad> arrayNacionalidad=new ArrayList<>();
+        Cursor cursor = db.query("nacionalidad",null, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            Nacionalidad nacionalidad = new Nacionalidad();
+            nacionalidad.setCodNac(cursor.getString(0));
+            nacionalidad.setNacionalidad(cursor.getString(1));
+            arrayNacionalidad.add(nacionalidad);
+            while(cursor.moveToNext()) {
+                Nacionalidad nacionalidades = new Nacionalidad();
+                nacionalidades.setCodNac(cursor.getString(0));
+                nacionalidades.setNacionalidad(cursor.getString(1));
+                arrayNacionalidad.add(nacionalidades);
+            }
+        }
+        return arrayNacionalidad;
+    }
+
+    public List<String> consultarNacionalidadString(List<Nacionalidad> arrayNacionalidad){
+        List<String>arrayNacionalidadString=new ArrayList<>();
+        for (int i=0;i<arrayNacionalidad.size();i++) {
+            Nacionalidad nacionalidadArray=new Nacionalidad();
+            nacionalidadArray=arrayNacionalidad.get(i);
+            arrayNacionalidadString.add(nacionalidadArray.getNacionalidad());
+        }
+        return arrayNacionalidadString;
+    }
+
+    //Extraemos todas los generos registrados en la base de datos
+    public List<Genero> consultarGeneros(){
+        List<Genero> arrayGenero=new ArrayList<>();
+        Cursor cursor = db.query("genero",null, null, null, null, null, null);
+        if(cursor.moveToFirst()){
+            Genero genero = new Genero();
+            genero.setIdGenero(cursor.getString(0));
+            genero.setGenero(cursor.getString(1));
+            arrayGenero.add(genero);
+            while(cursor.moveToNext()) {
+                Genero generos = new Genero();
+                generos.setIdGenero(cursor.getString(0));
+                generos.setGenero(cursor.getString(1));
+                arrayGenero.add(generos);
+            }
+        }
+        return arrayGenero;
+    }
+
+    public List<String> consultarGeneroString(List<Genero> arrayGenero){
+        List<String>arrayGeneroString=new ArrayList<>();
+        for (int i=0;i<arrayGenero.size();i++) {
+            Genero generoArray=new Genero();
+            generoArray=arrayGenero.get(i);
+            arrayGeneroString.add(generoArray.getGenero());
+        }
+        return arrayGeneroString;
+    }
+
     //Verificamos la eliminación en cascada de persona
     public Boolean verificarExisPersona(Persona valor){
         //verifica la existencia del id periodo reserva
@@ -311,6 +374,63 @@ public class ControlBDGustavo {
         return suma;
     }
 
+    //Funcionalidades de Genero
+    public String insertarGenero (Genero genero){
+        String regInsertados="Registros Insertados Nº= ";
+        long contador=0;
+
+        ContentValues values = new ContentValues();
+        values.put("idGenero",genero.getIdGenero());
+        values.put("genero", genero.getGenero());
+        contador = db.insert("genero",null,values);
+
+        if(contador==-1 || contador==0){
+            regInsertados="Registro duplicado!";
+        }else {
+            regInsertados=regInsertados+" "+contador;
+        }
+        return regInsertados;
+    }
+
+    public Genero consultarGenero (String idGenero){
+        String[] id = {idGenero};
+        Cursor cursor = db.query("genero",new String []{"idGenero","genero"}, "idGenero = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Genero genero = new Genero();
+            genero.setIdGenero(cursor.getString(0));
+            genero.setGenero(cursor.getString(1));
+            return genero;
+        }else {
+            return null;
+        }
+    }
+    public String eliminarGenero (Genero genero){
+        String registros = "Registros Eliminados Nº= ";
+        int contador = 0;
+
+        if(verificarIntegridadDeDatos(genero,5)){
+            contador+=db.delete("genero","idGenero='"+genero.getIdGenero()+"'",null);
+            registros = registros + contador;
+            return registros;
+        }else{
+            registros="Registro no existe!";
+            return registros;
+        }
+    }
+
+    public String actualizarGenero (Genero genero){
+        if (verificarIntegridadDeDatos(genero,5)) {
+                String[] id = {genero.getIdGenero()};
+            ContentValues values = new ContentValues();
+            values.put("idGenero", genero.getIdGenero());
+            values.put("genero", genero.getGenero());
+            db.update("genero", values, "idGenero=?", id);
+            return "Registo actualizado correctamente!";
+        }else{
+            return "Registro no existe!";
+        }
+    }
+
     //Verificar integridad
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
         switch (relacion){
@@ -362,6 +482,19 @@ public class ControlBDGustavo {
                     return true;
                 }
                 return false;
+            }
+
+            //Verificar si existe el genero
+            case 5: {
+                Genero genero = (Genero) valor;
+                String[]id = {genero.getIdGenero()};
+                open();
+                Cursor cursor = db.query("genero",null,"idGenero = ?", id,null,null,null);
+                if (cursor.moveToFirst()){
+                    return true;
+                }else{
+                    return false;
+                }
             }
             default:
                 return false;

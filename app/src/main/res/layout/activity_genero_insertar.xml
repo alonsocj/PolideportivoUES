@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAgregar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:text="@string/AgregarGeneroFragment"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_key"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/idGenero">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditIdGenero"
+                android:inputType="text"
+                android:maxLength="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_genere"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/genero">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditGenero"
+                android:inputType="text"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
+            android:gravity="right">
+            <Button
+                android:id="@+id/botonAgregarGenero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/botonAgregar"
+                android:layout_marginRight="25dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones" />
+            <Button
+                android:id="@+id/botonVaciarGenero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/botonVaciar"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

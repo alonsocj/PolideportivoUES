@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.persona.PersonaFragment">
+    tools:context=".ui.genero.GeneroFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/botonAgregarPersona"
+            android:id="@+id/botonAgregarGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/botonAgregar"
@@ -20,7 +20,7 @@
             android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonConsultarPersona"
+            android:id="@+id/botonConsultarGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/botonConsultar"
@@ -28,7 +28,7 @@
             android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonActualizarPersona"
+            android:id="@+id/botonActualizarGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/botonActualizar"
@@ -36,7 +36,7 @@
             android:backgroundTint="@color/botones" />
 
         <Button
-            android:id="@+id/botonEliminarPersona"
+            android:id="@+id/botonEliminarGenero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/botonEliminar"

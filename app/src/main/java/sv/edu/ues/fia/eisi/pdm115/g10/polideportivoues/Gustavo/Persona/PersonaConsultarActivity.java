@@ -2,6 +2,7 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -9,14 +10,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.Nacionalidad;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDGustavo;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Genero.Genero;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class PersonaConsultarActivity extends AppCompatActivity {
 
     ControlBDGustavo controlBDGustavo;
-    TextInputEditText editIdPersona, editNombre, editApellido, editGenero, editNacimiento, editDireccion, editEmail, editTelefono;
+    TextInputEditText editIdPersona, editNombre, editApellido, editGenero, editNacimiento, editNacionalidad, editDireccion, editEmail, editTelefono;
     Button botonConsultar, botonVaciar;
+
+    List<Nacionalidad> arrayNacionalidad=new ArrayList<Nacionalidad>();
+    List<String> arrayNacionalidadString=new ArrayList<String>();
+    List<Genero> arrayGenero=new ArrayList<Genero>();
+    List<String> arrayGeneroString=new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +43,22 @@ public class PersonaConsultarActivity extends AppCompatActivity {
         editApellido = findViewById(R.id.EditApellidoPersona);
         editGenero =  findViewById(R.id.EditGeneroPersona);
         editNacimiento = findViewById(R.id.EditNacimientoPersona);
+        editNacionalidad = findViewById(R.id.EditNacionalidadPersona);
         editDireccion = findViewById(R.id.EditDireccionPersona);
         editEmail = findViewById(R.id.EditEmailPersona);
         editTelefono = findViewById(R.id.EditTelefonoPersona);
         botonConsultar = (Button) findViewById(R.id.botonConsultarPersona);
         botonVaciar = (Button) findViewById(R.id.botonVaciarPersona);
+
+        //Llenado del spinner de nacionalidad
+        controlBDGustavo.open();
+        arrayNacionalidad=controlBDGustavo.consultarNacionalidad();
+        arrayNacionalidadString=controlBDGustavo.consultarNacionalidadString(arrayNacionalidad);
+
+        //Llenado del spinner de genero
+        controlBDGustavo.open();
+        arrayGenero=controlBDGustavo.consultarGeneros();
+        arrayGeneroString=controlBDGustavo.consultarGeneroString(arrayGenero);
 
         botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,14 +74,16 @@ public class PersonaConsultarActivity extends AppCompatActivity {
                     editApellido.setText("");
                     editGenero.setText("");
                     editNacimiento.setText("");
+                    editNacionalidad.setText("");
                     editDireccion.setText("");
                     editEmail.setText("");
                     editTelefono.setText("");
                 }else{
                     editNombre.setText(persona.getNombre());
                     editApellido.setText(persona.getApellido());
-                    editGenero.setText(persona.getGenero());
+                    editGenero.setText(arrayGenero.get(arrayGeneroString.indexOf(persona.getGenero())).getGenero());
                     editNacimiento.setText(persona.getNacimiento());
+                    editNacionalidad.setText(arrayNacionalidad.get(arrayNacionalidadString.indexOf(persona.getNacimiento())).getNacionalidad());
                     editDireccion.setText(persona.getDireccion());
                     editEmail.setText(persona.getEmail());
                     editTelefono.setText(persona.getTelefono());
@@ -75,6 +99,7 @@ public class PersonaConsultarActivity extends AppCompatActivity {
                 editApellido.setText("");
                 editGenero.setText("");
                 editNacimiento.setText("");
+                editNacionalidad.setText("");
                 editDireccion.setText("");
                 editEmail.setText("");
                 editTelefono.setText("");

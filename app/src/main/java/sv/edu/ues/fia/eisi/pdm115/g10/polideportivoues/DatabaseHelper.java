@@ -171,11 +171,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "  telefono VARCHAR(8) NOT NULL\n" +
                     ");");
 
-            //tabla horarios Disponibles
+            //tabla Horarios Disponibles
             db.execSQL("CREATE TABLE horariosDisponibles  (\n" +
                     "  idHorario VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
                     "  idHora VARCHAR(4) NOT NULL,\n" +
                     "  nombreDia VARCHAR(10) NOT NULL\n" +
+                    ");");
+
+            //tabla Genero
+            db.execSQL("CREATE TABLE genero  (\n" +
+                    "  idGenero VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
+                    "  genero VARCHAR(10) NOT NULL\n" +
                     ");");
 
         }catch (SQLException e){

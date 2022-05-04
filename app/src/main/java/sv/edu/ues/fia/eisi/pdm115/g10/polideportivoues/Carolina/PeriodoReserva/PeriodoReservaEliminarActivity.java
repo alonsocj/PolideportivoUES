@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDCarolina;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.PersonaEliminarActivity;
@@ -17,7 +19,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 
 public class PeriodoReservaEliminarActivity extends AppCompatActivity  {
     ControlBDCarolina helper;
-    EditText editPR;
+    TextInputEditText editPR;
     Button botonEliminar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class PeriodoReservaEliminarActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_periodo_reserva_eliminar);
         helper = new ControlBDCarolina(this);
 
-        editPR = (EditText) findViewById(R.id.idPeriodoReserva);
+        editPR = (TextInputEditText) findViewById(R.id.idPeriodoReserva);
         botonEliminar = (Button) findViewById(R.id.botonEliminarPeriodoReserva);
 
         botonEliminar.setOnClickListener(new View.OnClickListener() {

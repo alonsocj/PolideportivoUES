@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,51 +20,55 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#000000" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/id_PeriodoReserva"/>
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/ic_key"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/Hint_idperiodoReserva">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/idPeriodoReserva"
+                android:inputType="text"
+                android:maxLength="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/ic_fechainicio"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/Hint_fechaInicio">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_FechaI"
+                android:inputType="date"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:clickable="true"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/ic_fechafin"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/Hint_fechaFin">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_FechaF"
+                android:inputType="date"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:clickable="true"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/idPeriodoReserva"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="6"
-            android:hint="@string/Hint_idperiodoReserva"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/fechaInicio"/>
-        <EditText
-            android:id="@+id/et_FechaI"
-            android:hint="@string/Hint_fechaInicio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:focusable="false"
-            android:clickable="true"
-            android:maxLines="1" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20sp"
-            android:text="@string/fechaFin"/>
-        <EditText
-            android:id="@+id/et_FechaF"
-            android:hint="@string/Hint_fechaFin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:focusable="false"
-            android:clickable="true"
-            android:maxLines="1" />
         <LinearLayout
             android:id="@+id/linearLayoutButton"
             android:layout_width="match_parent"

@@ -119,9 +119,6 @@ public class PersonaInsertarActivity extends AppCompatActivity {
                             persona.setIdPersona(idPersona);
                             persona.setNombre(nombre);
                             persona.setApellido(apellido);
-
-
-
                             persona.setGenero(arrayGenero.get(arrayGeneroString.indexOf(editGenero.getText().toString())).getIdGenero());
                             persona.setNacimiento(nacimiento);
                             persona.setNacionalidad(arrayNacionalidad.get(arrayNacionalidadString.indexOf(editNacionalidad.getText().toString())).getCodNac());

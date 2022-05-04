@@ -81,8 +81,6 @@ public class PersonaConsultarActivity extends AppCompatActivity {
                     editEmail.setText("");
                     editTelefono.setText("");
                 }else{
-
-
                     for(int i=0;i<arrayGenero.size();i++){
                         if(arrayGenero.get(i).getIdGenero().equals(persona.getGenero())){
                             editGenero.setText(arrayGenero.get(i).getGenero());

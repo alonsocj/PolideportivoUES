@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //Consultas para crear las tablas y triggers de la base de datos
 
             //Tabla Nacionalidad
-            db.execSQL("CREATE TABLE nacionalidad (codNac VARCHAR(2) NOT NULL PRIMARY KEY, nacionalidad VARCHAR(50) NOT NULL);");
+            db.execSQL("CREATE TABLE nacionalidad (codNac VARCHAR(2) NOT NULL PRIMARY KEY, nacionalidad VARCHAR(50) );");
             //tabla PeriodoReserva
             db.execSQL("CREATE TABLE periodoReserva (idPeriodoReserva VARCHAR(6) NOT NULL PRIMARY KEY,fechaInicio VARCHAR(10) NOT NULL,fechaFin VARCHAR(10) NOT NULL);");
             //tabla Dia

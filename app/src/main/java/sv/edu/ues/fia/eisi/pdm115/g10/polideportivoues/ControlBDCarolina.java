@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.Cobro;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.LocalEvento.LocalEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.Nacionalidad;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReserva;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.Reservacion;
@@ -232,14 +231,6 @@ public class ControlBDCarolina {
         return suma;
     }
 
-
-
-    //CRUD LocalEvento
-    public String insertarLocalEvento (LocalEvento localEvento){
-
-        return null;
-    }
-
     //CRUD Reservacion
     public String insertarReservacion (Reservacion reservacion){
 
@@ -307,9 +298,10 @@ public class ControlBDCarolina {
             persona.setApellido(cursor.getString(2));
             persona.setGenero(cursor.getString(3));
             persona.setNacimiento(cursor.getString(4));
-            persona.setDireccion(cursor.getString(5));
-            persona.setEmail(cursor.getString(6));
-            persona.setTelefono(cursor.getString(7));
+            persona.setNacionalidad(cursor.getString(5));
+            persona.setDireccion(cursor.getString(6));
+            persona.setEmail(cursor.getString(7));
+            persona.setTelefono(cursor.getString(8));
             arrayPersonas.add(persona);
 
             while(cursor.moveToNext()) {
@@ -319,6 +311,7 @@ public class ControlBDCarolina {
                 personas.setApellido(cursor.getString(2));
                 personas.setGenero(cursor.getString(3));
                 personas.setNacimiento(cursor.getString(4));
+                persona.setNacionalidad(cursor.getString(5));
                 personas.setDireccion(cursor.getString(5));
                 personas.setEmail(cursor.getString(6));
                 personas.setTelefono(cursor.getString(7));

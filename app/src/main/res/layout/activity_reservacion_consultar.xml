@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_key"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_idReservacion">
             <com.google.android.material.textfield.TextInputEditText
@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_menu_tiporeservacion"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_TipoReservacion">
             <com.google.android.material.textfield.TextInputEditText
@@ -108,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_event"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_id_Evento">
             <com.google.android.material.textfield.TextInputEditText
@@ -123,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_menu_periodoreserva"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_id_PeriodoReserva">
             <com.google.android.material.textfield.TextInputEditText
@@ -138,7 +138,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_horario"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_id_HorarioLocal">
             <com.google.android.material.textfield.TextInputEditText
@@ -153,7 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_registro"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_fechaRegistro">
             <com.google.android.material.textfield.TextInputEditText

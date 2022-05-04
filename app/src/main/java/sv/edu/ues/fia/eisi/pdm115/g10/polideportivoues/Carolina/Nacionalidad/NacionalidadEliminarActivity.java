@@ -50,7 +50,7 @@ public class NacionalidadEliminarActivity extends AppCompatActivity {
                 }else{
                     if(helper.verificarExisNacionalidad(nacionalidad)){
                         if(helper.verificarNacionalidadCascada(nacionalidad)){
-                            confirmacion.setMessage("No se puede eeliminar la nacionalidad. Se han encontrado nacionalidades asociadas a registros de personas.")
+                            confirmacion.setMessage("No se puede eliminar la nacionalidad. Se han encontrado nacionalidades asociadas con la tabla de personas.")
                                     .setTitle("Advertencia")
                                     .setCancelable(false)
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {

@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_key"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_idReservacion">
             <com.google.android.material.textfield.TextInputEditText
@@ -41,11 +41,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_money"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/Hint_id_Cobro">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/idCobro"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:inputType="none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -55,11 +57,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_personas"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/id_Persona">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/idPersona"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:inputType="none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -69,11 +73,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_menu_tiporeservacion"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/Hint_TipoReservacion">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/editText_idTipoReservacion"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:inputType="none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -83,11 +89,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_event"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/Hint_id_Evento">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/idEvento"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:inputType="none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -97,12 +105,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_menu_periodoreserva"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/Hint_id_PeriodoReserva">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/idPeriodoReserva"
                 android:inputType="none"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -111,12 +121,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_horario"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/Hint_id_HorarioLocal">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/idHrarioLocal"
                 android:inputType="none"
+                android:focusable="false"
+                android:cursorVisible="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -125,13 +137,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:startIconDrawable="@drawable/ic_tp"
+            app:startIconDrawable="@drawable/ic_registro"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_fechaRegistro">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_FechaR"
                 android:inputType="date"
                 android:focusable="false"
+                android:cursorVisible="false"
                 android:clickable="true"
                 android:maxLines="1"
                 android:layout_width="match_parent"

@@ -31,6 +31,7 @@ public class PersonaActualizarActivity extends AppCompatActivity {
     MaterialAutoCompleteTextView editGenero, editNacionalidad;
     Button botonActualizar, botonVaciar;
 
+    //Arrays
     List<Nacionalidad> arrayNacionalidad=new ArrayList<Nacionalidad>();
     List<String> arrayNacionalidadString=new ArrayList<String>();
     List<Genero> arrayGenero=new ArrayList<Genero>();
@@ -178,6 +179,7 @@ public class PersonaActualizarActivity extends AppCompatActivity {
             }
         });
     }
+
     private boolean validarEmail(String email){
         return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
                 + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"

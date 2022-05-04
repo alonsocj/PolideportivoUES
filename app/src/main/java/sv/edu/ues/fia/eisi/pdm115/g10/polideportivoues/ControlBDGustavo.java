@@ -238,6 +238,7 @@ public class ControlBDGustavo {
         return arrayDiasString;
     }
 
+
     //Extraemos todas las nacionalidades registrados en la base de datos
     public List<Nacionalidad> consultarNacionalidad(){
         List<Nacionalidad> arrayNacionalidad=new ArrayList<>();
@@ -319,6 +320,7 @@ public class ControlBDGustavo {
             return false;
         }
     }
+
     public String eliminarPersonasCascada(Persona persona){
         String regAfectados1="Registros eliminados en reservación = ";
         String regAfectados2="Registros eliminados en persona = ";
@@ -348,6 +350,7 @@ public class ControlBDGustavo {
             return false;
         }
     }
+
     public Boolean verificarHorariosDisponiblesCascada(HorariosDisponibles valor){
         //verifica si hay registros de persona en la tabla horarios locales
         HorariosDisponibles horariosDisponibles = (HorariosDisponibles) valor;
@@ -358,6 +361,7 @@ public class ControlBDGustavo {
             return false;
         }
     }
+
     public String eliminarHorariosDisponiblesCascada(HorariosDisponibles horariosDisponibles){
         String regAfectados1="Registros eliminados en reservación = ";
         String regAfectados2="Registros eliminados en horarios disponibles = ";

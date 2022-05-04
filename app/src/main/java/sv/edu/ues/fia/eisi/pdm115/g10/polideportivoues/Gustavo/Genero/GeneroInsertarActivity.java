@@ -15,6 +15,7 @@ public class GeneroInsertarActivity extends AppCompatActivity {
     ControlBDGustavo controlBDGustavo;
     TextInputEditText editIdGenero, editGenero;
     Button botonAgregar, botonVaciar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,11 +65,10 @@ public class GeneroInsertarActivity extends AppCompatActivity {
                 }
             }
         });
-
         botonVaciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Limpiamos los campos
+                //Limpiamos los campos para dejarlos vacios
                 editIdGenero.setText("");
                 editGenero.setText("");
             }

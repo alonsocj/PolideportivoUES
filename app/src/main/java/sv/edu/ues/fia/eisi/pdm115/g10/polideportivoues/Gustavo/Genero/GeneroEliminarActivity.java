@@ -27,7 +27,6 @@ public class GeneroEliminarActivity extends AppCompatActivity {
 
         //Control de la base de datos
         helper = new ControlBDGustavo(this);
-
         //Genero
         editIdGenero= findViewById(R.id.EditIdGenero);
         botonEliminar = (Button) findViewById(R.id.botonEliminarGenero);
@@ -48,7 +47,6 @@ public class GeneroEliminarActivity extends AppCompatActivity {
                 editIdGenero.setText("");
             }
         });
-
         botonVaciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

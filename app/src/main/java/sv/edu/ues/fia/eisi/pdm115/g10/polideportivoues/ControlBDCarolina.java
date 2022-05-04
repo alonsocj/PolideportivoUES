@@ -209,7 +209,7 @@ public class ControlBDCarolina {
         }
     }
     public String eliminarNacionalidad(Nacionalidad nac){
-        String regAfectados="Filas afectadas en la tabla nacionalidad= ";
+        String regAfectados="Filas afectadas = ";
         int contador=0;
 
         contador+=db.delete("nacionalidad","codNac='"+nac.getCodNac()+"'",null);

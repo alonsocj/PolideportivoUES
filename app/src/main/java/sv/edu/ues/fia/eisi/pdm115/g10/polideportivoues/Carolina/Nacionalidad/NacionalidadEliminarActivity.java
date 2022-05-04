@@ -23,7 +23,6 @@ public class NacionalidadEliminarActivity extends AppCompatActivity {
     TextInputEditText editIdNac;
     ControlBDCarolina helper;
     Button botonEliminar;
-    DatePickerDialog.OnDateSetListener setListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +47,21 @@ public class NacionalidadEliminarActivity extends AppCompatActivity {
                     Toast.makeText(NacionalidadEliminarActivity.this, "Debe completar los campos para eliminar una nacionalidad!", Toast.LENGTH_SHORT).show();
                 }else if(idNacionalidad.length()!=2){
                     Toast.makeText(NacionalidadEliminarActivity.this, "El código debe contener 2 carácteres", Toast.LENGTH_SHORT).show();
-                }else if(helper.verificarExisNacionalidad(nacionalidad)){
-                    if(helper.verificarNacionalidadCascada(nacionalidad)){
-                        confirmacion.setMessage("Se han encontrado registros asociados a la nacionalidad en la tabla persona. No se puede eliminar la nacionalidad")
+                }else{
+                    if(helper.verificarExisNacionalidad(nacionalidad)){
+                        if(helper.verificarNacionalidadCascada(nacionalidad)){
+                            confirmacion.setMessage("No se puede eeliminar la nacionalidad. Se han encontrado nacionalidades asociadas a registros de personas.")
+                                    .setTitle("Advertencia")
                                     .setCancelable(false)
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
-                                            Toast.makeText(NacionalidadEliminarActivity.this, "No se eliminaron los registros", Toast.LENGTH_SHORT).show();
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
                                         }
-                                    }).show();
-                    }else{
+                                    })
+                                    .create();
+                            confirmacion.show();
+                        }else{
                             helper.open();
                             registrosEliminados[0] = helper.eliminarNacionalidad(nacionalidad); //Elimino solo a nacionalidad
                             helper.close();
@@ -67,8 +69,9 @@ public class NacionalidadEliminarActivity extends AppCompatActivity {
                             Toast.makeText(NacionalidadEliminarActivity.this, registrosEliminados[0], Toast.LENGTH_SHORT).show();
                             editIdNac.setText("");
                         }
-                }else{
-                    Toast.makeText(getApplicationContext(), "El código de nacionalidad no existe!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "El código de nacionalidad no existe!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

@@ -81,11 +81,19 @@ public class PersonaConsultarActivity extends AppCompatActivity {
                     editEmail.setText("");
                     editTelefono.setText("");
                 }else{
+                    for(int i=0;i<arrayGenero.size();i++){
+                        if(arrayGenero.get(i).getIdGenero().equals(persona.getGenero())){
+                            editGenero.setText(arrayGenero.get(i).getGenero());
+                        }
+                    }
+                    for(int i=0;i<arrayNacionalidad.size();i++){
+                        if(arrayNacionalidad.get(i).getCodNac().equals(persona.getNacionalidad())){
+                            editNacionalidad.setText(arrayNacionalidad.get(i).getNacionalidad());
+                        }
+                    }
                     editNombre.setText(persona.getNombre());
                     editApellido.setText(persona.getApellido());
-                    editGenero.setText(arrayGenero.get(arrayGeneroString.indexOf(persona.getGenero())).getGenero());
                     editNacimiento.setText(persona.getNacimiento());
-                    editNacionalidad.setText(arrayNacionalidad.get(arrayNacionalidadString.indexOf(persona.getNacimiento())).getNacionalidad());
                     editDireccion.setText(persona.getDireccion());
                     editEmail.setText(persona.getEmail());
                     editTelefono.setText(persona.getTelefono());

@@ -111,7 +111,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/EditGeneroPersona"
                 android:inputType="text"
-                android:maxLength="1"
+                android:maxLength="25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled ="false"

@@ -167,31 +167,14 @@
     <string name="titulo_nav_nacionalidad">Nacionalidad</string>
     <string name="label_nacionalidad">Nacionalidad</string>
 
-    <string name="titulo_LocalEvento_insertar">Agregar Local Evento</string>
-    <string name="titulo_LocalEvento_consultar">Consultar Local Evento</string>
-    <string name="titulo_LocalEvento_eliminar">Eliminar Local Evento</string>
-    <string name="titulo_LocalEvento_actualizar">Actualizar Local Evento</string>
+    <string name="titulo_Nacionalidad_insertar">Agregar Nacionalidad</string>
+    <string name="titulo_Nacionalidad_consultar">Consultar Nacionalidad</string>
+    <string name="titulo_Nacionalidad_eliminar">Eliminar Nacionalidad</string>
+    <string name="titulo_Nacionalidad_actualizar">Actualizar Nacionalidad</string>
 
-    <string name="id_LocalEvento">Id de local evento:</string>
-    <string name="id_Local">Local:</string>
-    <string name="cantAutorizada">Cantidad autorizada:</string>
-
-    <string name="Hint_idLocalEvento">Ingrese el id de local evento</string>
-    <string name="Hint_id_Local">Ingrese el id del local</string>
-    <string name="Hint_cantAutorizada">Ingrese la cantidad autorizada</string>
-
-    <string name="title_activity_alumno_insertar">AlumnoInsertarActivity</string>
-    <string name="title_activity_alumno_eliminar">AlumnoEliminarActivity</string>
-    <string name="title_activity_alumno_actualizar">AlumnoActualizarActivity</string>
-    <string name="title_activity_alumno_consultar">AlumnoConsultarActivity</string>
-
-
-    <string name="insertar_registro">Insertar Registro</string>
-    <string name="eliminar_registro">Eliminar Registro</string>
-    <string name="consultar_registro">Consultar Registro</string>
-    <string name="actualizar_registro">Actualizar Registro</string>
-
-    <string name="carnet">Carnet</string>-->
+    <string name="Hint_codNacionalidad">Ingrese el código del país</string>
+    <string name="Hint_nacionalidad">Nacionalidad</string>
+    <string name="Hint_cantAutorizada">Ingrese cantidad autorizada</string>
 
     <!-- Horario Disponible -->
     <string name="titulo_nav_horariosDisponibles">Horarios Disponibles</string>

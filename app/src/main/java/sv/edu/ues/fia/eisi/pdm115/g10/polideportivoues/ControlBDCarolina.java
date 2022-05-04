@@ -11,6 +11,7 @@ import java.util.List;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.Cobro;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.LocalEvento.LocalEvento;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.Nacionalidad;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReserva;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.Reservacion;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
@@ -23,6 +24,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.T
 public class ControlBDCarolina {
     /*Tabla PeriodoReserva*/
     private static final String[] camposPeriodoReserva = new String[]{"idPeriodoReserva","fechaInicio","fechaFin"};
+    private static final String[] camposNacionalidad = new String[]{"codNac","nacionalidad"};
 
     private final DatabaseHelper DBhelper; /*Instrucciones SQL*/
     private SQLiteDatabase db;
@@ -143,6 +145,94 @@ public class ControlBDCarolina {
         suma=regAfectados2+"\n"+regAfectados1;
         return suma;
     }
+
+    //CRUD Nacionalidad
+    public String insertarNacionalidad (Nacionalidad nac){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+
+        ContentValues value = new ContentValues();
+        value.put("codNac", nac.getCodNac());
+        value.put("nacionalidad", nac.getNacionalidad());
+        contador = db.insert("nacionalidad",null,value);
+        if(contador==-1 || contador==0){
+            regInsertados="Registro duplicado. Verifique inserción";
+        }else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+    public String actualizarNacionalidad(Nacionalidad nac){
+
+        if(verificarIntegridad(nac, 2)){
+            String[] id = {nac.getCodNac()};
+            ContentValues cv = new ContentValues();
+            cv.put("nacionalidad", nac.getNacionalidad());
+            db.update("nacionalidad", cv, "codNac = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "La nacionalidad con el código " + nac.getCodNac() + " no existe";
+        }
+    }
+    public Nacionalidad consultarNacionalidad(String nac){
+        String[] id = {nac};
+        Cursor cursor = db.query("nacionalidad", camposNacionalidad, "codNac = ?",id, null, null, null);
+        if(cursor.moveToFirst()){
+            Nacionalidad naci = new Nacionalidad();
+            naci.setCodNac(cursor.getString(0));
+            naci.setNacionalidad(cursor.getString(1));
+            return naci;
+        }else{
+            return null;
+        }
+    }
+    public Boolean verificarExisNacionalidad(Nacionalidad nac){
+        //verifica la existencia de nacionalidad
+        Nacionalidad nacionalidad = (Nacionalidad) nac;
+        String[]id = {nacionalidad.getCodNac()};
+        open();
+        Cursor cursor = db.query("nacionalidad",null,"codNac = ?", id,null,null,null);
+        if (cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public Boolean verificarNacionalidadCascada(Nacionalidad nac){
+        //verifica si hay registros de nacionalidad en la tabla persona
+        Nacionalidad nacionalidad = (Nacionalidad)nac;
+        Cursor c=db.query(true, "persona", new String[] {"codNac" }, "codNac='"+nacionalidad.getCodNac()+"'",null,null, null, null, null);
+        if(c.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public String eliminarNacionalidad(Nacionalidad nac){
+        String regAfectados="Filas afectadas en la tabla nacionalidad= ";
+        int contador=0;
+
+        contador+=db.delete("nacionalidad","codNac='"+nac.getCodNac()+"'",null);
+        regAfectados = regAfectados + contador;
+        return regAfectados;
+    }
+    public String eliminarNacionalidadCascada(Nacionalidad nac){
+        String regAfectados1="Filas afectadas en la tabla persona= ";
+        String regAfectados2="Filas afectadas en la tabla nacionalidad= ";
+        String suma;
+        int contador1=0;
+        int contador2=0;
+
+        contador1+=db.delete("persona","codNac='"+nac.getCodNac()+"'",null);
+        regAfectados1 = regAfectados1 + contador1;
+        contador2+=db.delete("nacionalidad","codNac='"+nac.getCodNac()+"'",null);
+        regAfectados2 = regAfectados2 + contador2;
+
+        suma=regAfectados2+"\n"+regAfectados1;
+        return suma;
+    }
+
+
 
     //CRUD LocalEvento
     public String insertarLocalEvento (LocalEvento localEvento){
@@ -420,17 +510,15 @@ public class ControlBDCarolina {
                     return true;
                 }return false;
             }
-            case 2:
+            case 2://verificar que exista la nacionalidad
             {
-                PeriodoReserva periodo = (PeriodoReserva) dato;
-                String[]id = {periodo.getIdPeriodoReserva()};
+                Nacionalidad nac = (Nacionalidad) dato;
+                String[] id = {nac.getCodNac()};
                 open();
-                Cursor cursor = db.query("periodoReserva",null,"idPeriodoReserva = ?", id,null,null,null);
-                if (cursor.moveToFirst()){
+                Cursor c2 = db.query("nacionalidad", null, "codNac= ?", id, null, null,null);
+                if(c2.moveToFirst()){//Se encontro nacionalidad
                     return true;
-                }else{
-                    return false;
-                }
+                }return false;
             }
             case 3:
             {

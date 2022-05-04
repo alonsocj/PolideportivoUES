@@ -90,4 +90,10 @@
         android:label="Género"
         tools:layout="@layout/fragment_genero" />
 
+    <fragment
+        android:id="@+id/nav_dia"
+        android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.dia.DiaFragment"
+        android:label="@string/dia"
+        tools:layout="@layout/fragment_dia" />
+
 </navigation>

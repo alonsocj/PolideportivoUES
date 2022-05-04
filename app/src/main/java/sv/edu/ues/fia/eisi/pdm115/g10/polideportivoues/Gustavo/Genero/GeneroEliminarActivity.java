@@ -50,7 +50,7 @@ public class GeneroEliminarActivity extends AppCompatActivity {
                      Toast.makeText(GeneroEliminarActivity.this, "El id de género debe contener 6 carácteres", Toast.LENGTH_SHORT).show();
                 }else if(helper.verificarExisGenero(genero)){
                      if(helper.verificarGeneroCascada(genero)){
-                         confirmacion.setMessage("Se han encontrado registros asociados al género en la tabla persona. No se puede eliminar el género")
+                         confirmacion.setMessage("Se han encontrado registros asociados al género en la tabla persona.\nNo se puede eliminar el género!")
                                  .setCancelable(false)
                                  .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                      @Override

@@ -64,39 +64,42 @@ public class PersonaConsultarActivity extends AppCompatActivity {
         botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                controlBDGustavo.open();
-                Persona persona = controlBDGustavo.consultarPersona(editIdPersona.getText().toString());
-                controlBDGustavo.close();
-
-                /*Verificación que exista la Persona*/
-                if(persona == null){
-                    Toast.makeText(PersonaConsultarActivity.this, "Registro no encontrado!", Toast.LENGTH_SHORT).show();
-                    editNombre.setText("");
-                    editApellido.setText("");
-                    editGenero.setText("");
-                    editNacimiento.setText("");
-                    editNacionalidad.setText("");
-                    editDireccion.setText("");
-                    editEmail.setText("");
-                    editTelefono.setText("");
+                if(editIdPersona.getText().toString().isEmpty()){
+                    Toast.makeText(PersonaConsultarActivity.this, "Debe completar los campos para consultar una persona!", Toast.LENGTH_SHORT).show();
                 }else{
-                    for(int i=0;i<arrayGenero.size();i++){
-                        if(arrayGenero.get(i).getIdGenero().equals(persona.getGenero())){
-                            editGenero.setText(arrayGenero.get(i).getGenero());
+                    controlBDGustavo.open();
+                    Persona persona = controlBDGustavo.consultarPersona(editIdPersona.getText().toString());
+                    controlBDGustavo.close();
+
+                    /*Verificación que exista la Persona*/
+                    if(persona == null){
+                        Toast.makeText(PersonaConsultarActivity.this, "Registro no encontrado!", Toast.LENGTH_SHORT).show();
+                        editNombre.setText("");
+                        editApellido.setText("");
+                        editGenero.setText("");
+                        editNacimiento.setText("");
+                        editNacionalidad.setText("");
+                        editDireccion.setText("");
+                        editEmail.setText("");
+                        editTelefono.setText("");
+                    }else{
+                        for(int i=0;i<arrayGenero.size();i++){
+                            if(arrayGenero.get(i).getIdGenero().equals(persona.getGenero())){
+                                editGenero.setText(arrayGenero.get(i).getGenero());
+                            }
                         }
-                    }
-                    for(int i=0;i<arrayNacionalidad.size();i++){
-                        if(arrayNacionalidad.get(i).getCodNac().equals(persona.getNacionalidad())){
-                            editNacionalidad.setText(arrayNacionalidad.get(i).getNacionalidad());
+                        for(int i=0;i<arrayNacionalidad.size();i++){
+                            if(arrayNacionalidad.get(i).getCodNac().equals(persona.getNacionalidad())){
+                                editNacionalidad.setText(arrayNacionalidad.get(i).getNacionalidad());
+                            }
                         }
+                        editNombre.setText(persona.getNombre());
+                        editApellido.setText(persona.getApellido());
+                        editNacimiento.setText(persona.getNacimiento());
+                        editDireccion.setText(persona.getDireccion());
+                        editEmail.setText(persona.getEmail());
+                        editTelefono.setText(persona.getTelefono());
                     }
-                    editNombre.setText(persona.getNombre());
-                    editApellido.setText(persona.getApellido());
-                    editNacimiento.setText(persona.getNacimiento());
-                    editDireccion.setText(persona.getDireccion());
-                    editEmail.setText(persona.getEmail());
-                    editTelefono.setText(persona.getTelefono());
                 }
             }
         });

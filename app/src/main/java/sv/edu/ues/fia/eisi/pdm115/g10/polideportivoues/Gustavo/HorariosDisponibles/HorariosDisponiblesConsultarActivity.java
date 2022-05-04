@@ -56,24 +56,28 @@ public class HorariosDisponiblesConsultarActivity extends AppCompatActivity {
         botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controlBDGustavo.open();
-                HorariosDisponibles horariosDisponibles = controlBDGustavo.consultarHorarioDisponible(editIdHora.getText().toString());
-                controlBDGustavo.close();
+                if(editIdHora.getText().toString().isEmpty()){
+                    Toast.makeText(HorariosDisponiblesConsultarActivity.this, "Debe completar los campos para consultar una disponibilidad!", Toast.LENGTH_SHORT).show();
+                }else {
+                    controlBDGustavo.open();
+                    HorariosDisponibles horariosDisponibles = controlBDGustavo.consultarHorarioDisponible(editIdHora.getText().toString());
+                    controlBDGustavo.close();
 
-                /*Verificación que exista la Disponibilidad de Horario*/
-                if(horariosDisponibles == null){
-                    Toast.makeText(HorariosDisponiblesConsultarActivity.this, "Registro no encontrado", Toast.LENGTH_SHORT).show();
-                    editHora.setText("");
-                    editDia.setText("");
-                }else{
-                    //Recuperamos la hora
-                    for (int i=0;i<arrayHoras.size();i++) {
-                        Hora horasArray;
-                        horasArray=arrayHoras.get(i);
-                        if(horasArray.getIdHora().equals(horariosDisponibles.getHora())){
-                            String horario=horasArray.getHoraInicio()+" - "+horasArray.getHoraFin();
-                            editHora.setText(horario);
-                            editDia.setText(horariosDisponibles.getDia());
+                    /*Verificación que exista la Disponibilidad de Horario*/
+                    if (horariosDisponibles == null) {
+                        Toast.makeText(HorariosDisponiblesConsultarActivity.this, "Registro no encontrado", Toast.LENGTH_SHORT).show();
+                        editHora.setText("");
+                        editDia.setText("");
+                    } else {
+                        //Recuperamos la hora
+                        for (int i = 0; i < arrayHoras.size(); i++) {
+                            Hora horasArray;
+                            horasArray = arrayHoras.get(i);
+                            if (horasArray.getIdHora().equals(horariosDisponibles.getHora())) {
+                                String horario = horasArray.getHoraInicio() + " - " + horasArray.getHoraFin();
+                                editHora.setText(horario);
+                                editDia.setText(horariosDisponibles.getDia());
+                            }
                         }
                     }
                 }

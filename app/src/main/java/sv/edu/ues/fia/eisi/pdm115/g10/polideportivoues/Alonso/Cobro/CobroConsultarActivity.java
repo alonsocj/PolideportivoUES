@@ -60,7 +60,7 @@ public class CobroConsultarActivity extends AppCompatActivity {
                     cursor.moveToFirst();
                     String tipoPago = cursor.getString(1);
                     editCantPersonas.setText(String.valueOf(cobro.getCantPersonas()));
-                    editDuracion.setText(String.valueOf(cobro.getDuracion()));
+                    editDuracion.setText(String.valueOf(cobro.getDuracionTexto()));
                     editPrecio.setText(String.valueOf(cobro.getPrecio()));
                     editTipoPago.setText(tipoPago);
                 }

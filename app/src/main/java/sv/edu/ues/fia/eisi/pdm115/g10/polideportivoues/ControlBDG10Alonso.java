@@ -13,7 +13,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEve
 public class ControlBDG10Alonso {
 
     private static final String[] camposTipoEvento = new String[]{"idTipoE", "nomTipoE"};
-    private static final String[] camposCobro = new String[]{"idCobro", "idPago", "cantPersonas", "duracion", "precio"};
+    private static final String[] camposCobro = new String[]{"idCobro", "idPago", "cantPersonas", "duracion", "precio","duracionM"};
 
     private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
     private SQLiteDatabase db;
@@ -107,6 +107,7 @@ public class ControlBDG10Alonso {
         values.put("cantPersonas", cobro.getCantPersonas());
         values.put("duracion", cobro.getDuracion());
         values.put("precio", cobro.getPrecio());
+        values.put("duracionM", cobro.getDuracionTexto());
 
         contador = db.insert("cobro", null, values);
         if (contador == -1 || contador == 0) {
@@ -126,8 +127,9 @@ public class ControlBDG10Alonso {
             cobro.setIdCobro(cursor.getInt(0));
             cobro.setIdPago(cursor.getString(1));
             cobro.setCantPersonas(cursor.getInt(2));
-            cobro.setDuracion(cursor.getString(3));
+            cobro.setDuracion(cursor.getFloat(3));
             cobro.setPrecio(cursor.getFloat(4));
+            cobro.setDuracionTexto(cursor.getString(5));
             return cobro;
         } else {
             return null;
@@ -142,6 +144,7 @@ public class ControlBDG10Alonso {
             values.put("cantPersonas", cobro.getCantPersonas());
             values.put("duracion", cobro.getDuracion());
             values.put("precio", cobro.getPrecio());
+            values.put("duracionM", cobro.getDuracionTexto());
             db.update("cobro", values, "idCobro=" + id, null);
             return "Registro de Cobro actualizado correctamente";
         } catch (Exception e) {

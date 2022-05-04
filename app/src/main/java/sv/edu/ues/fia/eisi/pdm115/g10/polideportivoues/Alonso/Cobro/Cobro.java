@@ -4,17 +4,20 @@ public class Cobro {
     int idCobro;
     String idPago;
     int cantPersonas;
-    String duracion;
+    float duracion;
     float precio;
+    String duracionTexto;
 
-    public Cobro(){
+    public Cobro() {
     }
-    public Cobro(int idCobro, String idPago, int cantPersonas, String duracion, float precio){
+
+    public Cobro(int idCobro, String idPago, int cantPersonas, float duracion, float precio, String duracionTexto) {
         this.idCobro = idCobro;
         this.idPago = idPago;
         this.cantPersonas = cantPersonas;
         this.duracion = duracion;
         this.precio = precio;
+        this.duracionTexto = duracionTexto;
     }
 
     public int getIdCobro() {
@@ -41,11 +44,11 @@ public class Cobro {
         this.cantPersonas = cantPersonas;
     }
 
-    public String getDuracion() {
+    public float getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(String duracion) {
+    public void setDuracion(float duracion) {
         this.duracion = duracion;
     }
 
@@ -55,5 +58,13 @@ public class Cobro {
 
     public void setPrecio(float precio) {
         this.precio = precio;
+    }
+
+    public String getDuracionTexto() {
+        return duracionTexto;
+    }
+
+    public void setDuracionTexto(String duracionTexto) {
+        this.duracionTexto = duracionTexto;
     }
 }

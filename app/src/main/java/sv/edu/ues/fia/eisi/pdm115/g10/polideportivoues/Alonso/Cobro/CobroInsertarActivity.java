@@ -53,37 +53,47 @@ public class CobroInsertarActivity extends AppCompatActivity {
                 hideKeyboard(v);
             }
         });
+        float[] duracionf= new float[1];
         editDuracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 MaterialTimePicker timePicker = new MaterialTimePicker.Builder()
                         .setTimeFormat(TimeFormat.CLOCK_24H)
                         .setHour(1)
                         .setMinute(0)
                         .setTitleText(R.string.time_picker_title)
-                        .setInputMode(MaterialTimePicker.INPUT_MODE_CLOCK)
+                        .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
                         .build();
                 timePicker.show(getSupportFragmentManager(), "TIME_PICKER");
                 timePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        String duracionM;
+                        float duracion=0.0f;
+
                         if (timePicker.getHour() < 10) {
                             if (timePicker.getMinute() < 10) {
-                                String duracion = "0" + timePicker.getHour() + ":0" + timePicker.getMinute();
-                                editDuracion.setText(duracion);
+                                duracionM = "0" + timePicker.getHour() + ":0" + timePicker.getMinute();
+                                duracion = timePicker.getHour() + (timePicker.getMinute() *  0.0167f);
+                                editDuracion.setText(duracionM);
                             } else {
-                                String duracion = "0" + timePicker.getHour() + ":" + timePicker.getMinute();
-                                editDuracion.setText(duracion);
+                                duracionM = "0" + timePicker.getHour() + ":" + timePicker.getMinute();
+                                duracion = timePicker.getHour() + (timePicker.getMinute() *  0.0167f);
+                                editDuracion.setText(duracionM);
                             }
                         } else {
                             if (timePicker.getMinute() < 10) {
-                                String duracion = timePicker.getHour() + ":0" + timePicker.getMinute();
-                                editDuracion.setText(duracion);
+                                duracionM = timePicker.getHour() + ":0" + timePicker.getMinute();
+                                duracion = timePicker.getHour() + (timePicker.getMinute() *  0.0167f);
+                                editDuracion.setText(duracionM);
                             } else {
-                                String duracion = timePicker.getHour() + ":" + timePicker.getMinute();
-                                editDuracion.setText(duracion);
+                                duracionM = timePicker.getHour() + ":" + timePicker.getMinute();
+                                duracion = timePicker.getHour() + (timePicker.getMinute() *  0.0167f);
+                                editDuracion.setText(duracionM);
                             }
                         }
+                        duracionf[0]=duracion;
                     }
                 });
             }
@@ -115,7 +125,7 @@ public class CobroInsertarActivity extends AppCompatActivity {
                     String tipoPago = editTipoPago.getText().toString();
                     String idTipoPago = "";
                     int cantPersonas = Integer.parseInt(editCantPersonas.getText().toString());
-                    String duracion = editDuracion.getText().toString();
+                    String duracionM = editDuracion.getText().toString();
                     float precio = (Float) Float.valueOf(editPrecio.getText().toString());
 
                     for (int i = 0; i < arrtipoPago.length; i++) {
@@ -127,7 +137,8 @@ public class CobroInsertarActivity extends AppCompatActivity {
                     cobro.setIdCobro(idCobro);
                     cobro.setIdPago(idTipoPago);
                     cobro.setCantPersonas(cantPersonas);
-                    cobro.setDuracion(duracion);
+                    cobro.setDuracion(duracionf[0]);
+                    cobro.setDuracionTexto(duracionM);
                     cobro.setPrecio(precio);
                     helper.open();
                     eventosRegistrados = helper.insertar(cobro);

@@ -42,8 +42,6 @@ public class PeriodoReservaConsultarActivity extends AppCompatActivity {
                 editFF.setText(periodoReserva.getFechaFin());
             }
         }
-
-
     }
     public void limpiar(View v){
         editPR.setText("");

@@ -118,6 +118,7 @@
     <string name="NombreEventoHint">Ingrese el nombre del evento</string>
     <string name="CostoEventoHint">Ingrese el costo del evento</string>
     <string name="CantidadAutorizadaHint">Ingrese la cantidad de personas autorizadas</string>
+    <string name="Hint_cantAutorizada">Ingrese cantidad autorizada</string>
 
     <string name="titulo_evento_insertar">Insertar Evento</string>
     <string name="titulo_evento_editar">Actualizar Evento</string>
@@ -136,13 +137,8 @@
     <string name="titulo_reservacion_eliminar">Eliminar Reservación</string>
     <string name="titulo_reservacion_actualizar">Actualizar Reservación</string>
 
-    <string name="id_Reservacion">Id de la reservación:</string>
     <string name="id_Cobro">Cobro:</string>
     <string name="id_Persona">Persona</string>
-    <string name="TipoReservacion">Tipo de reservación:</string>
-    <string name="id_Evento">Evento:</string>
-    <string name="id_PeriodoReserva">Periodo de reserva:</string>
-    <string name="fechaRegistro">Fecha de registro:</string>
 
     <string name="Hint_idReservacion">Id de reservación</string>
     <string name="Hint_id_HorarioLocal">Horario</string>
@@ -162,10 +158,6 @@
     <string name="titulo_periodoreserva_eliminar">Eliminar Periodo de Reserva</string>
     <string name="titulo_periodoreserva_actualizar">Actualizar Periodo de Reserva</string>
 
-    <string name="id_periodoReserva">Id del periodo de reserva:</string>
-    <string name="fechaInicio">Fecha de inicio del periodo de reserva:</string>
-    <string name="fechaFin">Fecha fin del periodo de reserva:</string>
-
     <string name="Hint_idperiodoReserva">Ingresar id del periodo de reserva</string>
     <string name="Hint_fechaInicio">Ingresar fecha de inicio</string>
     <string name="Hint_fechaFin">Ingresar fecha fin</string>
@@ -181,7 +173,6 @@
 
     <string name="Hint_codNacionalidad">Ingrese el código del país</string>
     <string name="Hint_nacionalidad">Nacionalidad</string>
-    <string name="Hint_cantAutorizada">Ingrese cantidad autorizada</string>
 
     <!-- Horario Disponible -->
     <string name="titulo_nav_horariosDisponibles">Horarios Disponibles</string>

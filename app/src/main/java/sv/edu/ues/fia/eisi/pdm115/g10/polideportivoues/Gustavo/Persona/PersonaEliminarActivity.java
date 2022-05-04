@@ -20,9 +20,11 @@ public class PersonaEliminarActivity extends AppCompatActivity {
 
     ControlBDGustavo helper;
     TextInputEditText editIdPersona;
-    Button botonEliminar, botonVaciar;;
+    Button botonEliminar, botonVaciar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_persona_eliminar);
         helper = new ControlBDGustavo(this);

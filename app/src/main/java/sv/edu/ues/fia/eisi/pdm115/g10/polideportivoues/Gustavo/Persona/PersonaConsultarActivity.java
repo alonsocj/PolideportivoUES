@@ -24,6 +24,7 @@ public class PersonaConsultarActivity extends AppCompatActivity {
     TextInputEditText editIdPersona, editNombre, editApellido, editGenero, editNacimiento, editNacionalidad, editDireccion, editEmail, editTelefono;
     Button botonConsultar, botonVaciar;
 
+    //Arrays
     List<Nacionalidad> arrayNacionalidad=new ArrayList<Nacionalidad>();
     List<String> arrayNacionalidadString=new ArrayList<String>();
     List<Genero> arrayGenero=new ArrayList<Genero>();
@@ -63,6 +64,7 @@ public class PersonaConsultarActivity extends AppCompatActivity {
         botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 controlBDGustavo.open();
                 Persona persona = controlBDGustavo.consultarPersona(editIdPersona.getText().toString());
                 controlBDGustavo.close();

@@ -24,7 +24,6 @@ public class GeneroConsultarActivity extends AppCompatActivity {
 
         //Control de la base de datos
         controlBDGustavo = new ControlBDGustavo(this);
-
         //Genero
         editIdGenero= findViewById(R.id.EditIdGenero);
         editGenero = findViewById(R.id.EditGenero);
@@ -49,7 +48,6 @@ public class GeneroConsultarActivity extends AppCompatActivity {
                 }
             }
         });
-
         botonVaciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

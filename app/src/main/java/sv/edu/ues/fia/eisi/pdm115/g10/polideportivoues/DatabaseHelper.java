@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //Consultas para crear las tablas y triggers de la base de datos
 
             //Tabla Nacionalidad
-            db.execSQL("CREATE TABLE nacionalidad (codNac VARCHAR(2) NOT NULL PRIMARY KEY, nacionalidad VARCHAR(50) NOT NULL);");
+            db.execSQL("CREATE TABLE nacionalidad (codNac VARCHAR(2) NOT NULL PRIMARY KEY, nacionalidad VARCHAR(50) );");
             //tabla PeriodoReserva
             db.execSQL("CREATE TABLE periodoReserva (idPeriodoReserva VARCHAR(6) NOT NULL PRIMARY KEY,fechaInicio VARCHAR(10) NOT NULL,fechaFin VARCHAR(10) NOT NULL);");
             //tabla Dia
@@ -82,7 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "END;");
 
             //Triggers de integridad de relación de tabla Reservación
-            db.execSQL("CREATE TRIGGER fk_reservacion_cobro\n" +
+            /*db.execSQL("CREATE TRIGGER fk_reservacion_cobro\n" +
                     "BEFORE INSERT ON reservacion\n" +
                     "FOR EACH ROW\n" +
                     "BEGIN\n" +
@@ -130,7 +130,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "WHEN ((SELECT idPeriodoReserva FROM periodoReserva WHERE idPeriodoReserva = NEW.idPeriodoReserva) IS NULL)\n" +
                     "THEN RAISE(ABORT, 'No existe el periodo de reserva')\n" +
                     "END;\n" +
-                    "END;\n");
+                    "END;\n");*/
 
             //tabla Persona
             db.execSQL("CREATE TABLE persona  (\n" +

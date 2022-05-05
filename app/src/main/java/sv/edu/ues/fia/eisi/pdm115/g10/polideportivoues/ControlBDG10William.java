@@ -396,7 +396,7 @@ public class ControlBDG10William {
                 hora.setIdHora(cursor.getString(0));
                 hora.setHoraInicio(cursor.getString(1));
                 hora.setHoraFin(cursor.getString(2));
-                arrayHorariosString.add(horariosArray.getDia() + " " + hora.getHoraInicio()+":"+hora.getHoraFin()+""+horariosArray.getIdHorario());
+                arrayHorariosString.add(horariosArray.getDia() + " " + hora.getHoraInicio()+"-"+hora.getHoraFin());
             } else {
                 arrayHorariosString.add(horariosArray.getHora() + " " + horariosArray.getIdHorario());
             }

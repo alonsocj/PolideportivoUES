@@ -43,23 +43,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE localEvento (idEvento VARCHAR(6) NOT NULL ,idLocal VARCHAR(5) NOT NULL ,idLocalEvento VARCHAR(5) ,cantAutorizada INTEGER NOT NULL , PRIMARY KEY(idEvento,idLocal,idLocalEvento));");
             //Tabla TipoReservacion
             db.execSQL("CREATE TABLE tipoReservacion (idTipoR VARCHAR(1) NOT NULL PRIMARY KEY, nomTipoR VARCHAR(10) NOT NULL);");
-            //Tabla Reservacion
-            db.execSQL("CREATE TABLE reservacion(\n" +
-                    "idReservacion VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
-                    "idCobro VARCHAR (6) NOT NULL,\n" +
-                    "idPersona VARCHAR(6) NOT NULL,\n" +
-                    "idTipoR VARCHAR  (1) NOT NULL,\n" +
-                    "idEvento VARCHAR (6) NOT NULL,\n" +
-                    "idPeriodoReserva VARCHAR (6) NOT NULL,\n" +
-                    "idHorario VARCHAR (2) NOT NULL,\n" +
-                    "idLocal VARCHAR (5) NOT NULL,\n" +
-                    "fechaRegistro VARCHAR(10) NOT NULL,\n" +
-                    "CONSTRAINT fk_reservacion_cobro FOREIGN KEY (idCobro) REFERENCES cobro(idCobro) ON DELETE RESTRICT,\n" +
-                    "CONSTRAINT fk_reservacion_persona FOREIGN KEY (idPersona) REFERENCES persona(idPersona) ON DELETE RESTRICT,\n" +
-                    "CONSTRAINT fk_reservacion_tipoReservacion FOREIGN KEY (idTipoR) REFERENCES tipoReservacion(idTipoR) ON DELETE RESTRICT,\n" +
-                    "CONSTRAINT fk_reservacion_evento FOREIGN KEY (idEvento) REFERENCES Evento(idEvento) ON DELETE RESTRICT,\n" +
-                    "CONSTRAINT fk_reservacion_periodoReserva FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva(idPeriodoReserva) ON DELETE RESTRICT\n" +
-                    ");\n");
 
             db.execSQL("CREATE TABLE horariosLocales(\n" +
                     "   idHorario VARCHAR(6) NOT NULL,\n" +
@@ -68,6 +51,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "   PRIMARY KEY (idHorario, idLocal),\n" +
                     "   CONSTRAINT FK_DETALLEP_PERIODOR FOREIGN KEY (idHorario) REFERENCES horariosDisponibles (idHorario) ON DELETE RESTRICT,\n" +
                     "   CONSTRAINT FK_DETALLEP_HORARIOS FOREIGN KEY (idLocal) REFERENCES Local (idLocal) ON DELETE RESTRICT\n" +
+                    ");\n");
+
+            //tabla Persona
+            db.execSQL("CREATE TABLE persona  (\n" +
+                    "  idPersona VARCHAR(9) NOT NULL PRIMARY KEY,\n" +
+                    "  nombre VARCHAR(50) NOT NULL,\n" +
+                    "  apellido VARCHAR(50) NOT NULL,\n" +
+                    "  idGenero VARCHAR(6) NOT NULL,\n" +
+                    "  nacimiento VARCHAR(10) NOT NULL,\n" +
+                    "  codNac VARCHAR(2) NOT NULL,\n" +
+                    "  direccion VARCHAR(100) NOT NULL,\n" +
+                    "  email VARCHAR(50) NOT NULL,\n" +
+                    "  telefono VARCHAR(8) NOT NULL\n" +
+                    ");");
+
+            //tabla Horarios Disponibles
+            db.execSQL("CREATE TABLE horariosDisponibles  (\n" +
+                    "  idHorario VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
+                    "  idHora VARCHAR(4) NOT NULL,\n" +
+                    "  nombreDia VARCHAR(10) NOT NULL\n" +
+                    ");");
+
+            //tabla Genero
+            db.execSQL("CREATE TABLE genero  (\n" +
+                    "  idGenero VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
+                    "  genero VARCHAR(10) NOT NULL\n" +
+                    ");");
+            //Tabla Reservacion
+            db.execSQL("CREATE TABLE reservacion(\n" +
+                    "idReservacion VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
+                    "idCobro INTEGER NOT NULL,\n" +
+                    "idPersona VARCHAR(9) NOT NULL,\n" +
+                    "idTipoR VARCHAR  (1) NOT NULL,\n" +
+                    "idEvento VARCHAR (6) NOT NULL,\n" +
+                    "idPeriodoReserva VARCHAR (6) NOT NULL,\n" +
+                    "idHorario VARCHAR (6) NOT NULL,\n" +
+                    "idLocal VARCHAR (5) NOT NULL,\n" +
+                    "fechaRegistro VARCHAR(10) NOT NULL,\n" +
+                    "CONSTRAINT fk_reservacion_cobro FOREIGN KEY (idCobro) REFERENCES cobro(idCobro) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_persona FOREIGN KEY (idPersona) REFERENCES persona(idPersona) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_tipoReservacion FOREIGN KEY (idTipoR) REFERENCES tipoReservacion(idTipoR) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_evento FOREIGN KEY (idEvento) REFERENCES Evento(idEvento) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_periodoReserva FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva(idPeriodoReserva) ON DELETE RESTRICT\n" +
                     ");\n");
 
             //Trigger de relacion de llaves foraneas de la tabla Evento con tipoevento
@@ -132,31 +158,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "END;\n" +
                     "END;\n");
 
-            //tabla Persona
-            db.execSQL("CREATE TABLE persona  (\n" +
-                    "  idPersona VARCHAR(9) NOT NULL PRIMARY KEY,\n" +
-                    "  nombre VARCHAR(50) NOT NULL,\n" +
-                    "  apellido VARCHAR(50) NOT NULL,\n" +
-                    "  idGenero VARCHAR(6) NOT NULL,\n" +
-                    "  nacimiento VARCHAR(10) NOT NULL,\n" +
-                    "  codNac VARCHAR(2) NOT NULL,\n" +
-                    "  direccion VARCHAR(100) NOT NULL,\n" +
-                    "  email VARCHAR(50) NOT NULL,\n" +
-                    "  telefono VARCHAR(8) NOT NULL\n" +
-                    ");");
 
-            //tabla Horarios Disponibles
-            db.execSQL("CREATE TABLE horariosDisponibles  (\n" +
-                    "  idHorario VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
-                    "  idHora VARCHAR(4) NOT NULL,\n" +
-                    "  nombreDia VARCHAR(10) NOT NULL\n" +
-                    ");");
-
-            //tabla Genero
-            db.execSQL("CREATE TABLE genero  (\n" +
-                    "  idGenero VARCHAR(6) NOT NULL PRIMARY KEY,\n" +
-                    "  genero VARCHAR(10) NOT NULL\n" +
-                    ");");
 
         }catch (SQLException e){
             e.printStackTrace();

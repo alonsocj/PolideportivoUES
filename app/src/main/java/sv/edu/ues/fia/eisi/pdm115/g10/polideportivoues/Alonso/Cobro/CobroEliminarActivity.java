@@ -41,17 +41,22 @@ public class CobroEliminarActivity extends AppCompatActivity {
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String regEliminados;
-                Cobro cobro = new Cobro();
-                cobro.setIdCobro(Integer.parseInt(Objects.requireNonNull(editIdCobro.getText()).toString()));
-                helper.open();
-                regEliminados = helper.eliminar(cobro);
-                helper.close();
-                editIdCobro.setText("");
-                Toast.makeText(CobroEliminarActivity.this, regEliminados, Toast.LENGTH_SHORT).show();
+                try {
+                    String regEliminados;
+                    Cobro cobro = new Cobro();
+                    cobro.setIdCobro(Integer.parseInt(Objects.requireNonNull(editIdCobro.getText()).toString()));
+                    helper.open();
+                    regEliminados = helper.eliminar(cobro);
+                    helper.close();
+                    editIdCobro.setText("");
+                    Toast.makeText(CobroEliminarActivity.this, regEliminados, Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(CobroEliminarActivity.this, "Error al eliminar", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
+
     public void hideKeyboard(View view) {
         if (getCurrentFocus() != null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(CobroInsertarActivity.INPUT_METHOD_SERVICE);

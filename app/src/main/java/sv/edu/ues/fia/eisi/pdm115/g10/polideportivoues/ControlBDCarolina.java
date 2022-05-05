@@ -51,22 +51,6 @@ public class ControlBDCarolina {
         value.put("fechaFin", periodoReserva.getFechaFin());
         contador = db.insert("periodoReserva",null,value);
 
-        /*ContentValues values = new ContentValues();
-        values.put("idPeriodoReserva", "CAROLI");
-        values.put("fechaInicio", "17/04/2022");
-        values.put("fechaFin", "02/05/2022");
-        db.insert("periodoReserva",null,values);
-
-        ContentValues l=new ContentValues();
-        l.put("idReservacion", "R00001");
-        l.put("idCobro","C00001");
-        l.put("idPersona","P00001");
-        l.put("idTipoR","P");
-        l.put("idEvento","000001");
-        l.put("idPeriodoReserva","CAROLI");
-        l.put("fechaRegistro","05/05/2022");
-        db.insert("reservacion",null, l);*/
-
         if(contador==-1 || contador==0){
             regInsertados="Registro duplicado. Verifique inserción";
         }else {

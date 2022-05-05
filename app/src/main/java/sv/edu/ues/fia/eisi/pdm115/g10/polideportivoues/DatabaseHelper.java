@@ -39,9 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE hora (idHora VARCHAR(4) NOT NULL PRIMARY KEY, horaInicio VARCHAR(25) NOT NULL , horaFin VARCHAR(25) NOT NULL);");
             //Tabla Local
             db.execSQL("CREATE TABLE local (idLocal VARCHAR(5) NOT NULL PRIMARY KEY, nomLocal VARCHAR(50) NOT NULL, cantidadPersonas INTEGER NOT NULL);");
-            //Tabla LocalEvento
-            db.execSQL("CREATE TABLE localEvento (idEvento VARCHAR(6) NOT NULL ,idLocal VARCHAR(5) NOT NULL ,idLocalEvento VARCHAR(5) ,cantAutorizada INTEGER NOT NULL , PRIMARY KEY(idEvento,idLocal,idLocalEvento));");
-            //Tabla TipoReservacion
+             //Tabla TipoReservacion
             db.execSQL("CREATE TABLE tipoReservacion (idTipoR VARCHAR(1) NOT NULL PRIMARY KEY, nomTipoR VARCHAR(10) NOT NULL);");
 
             db.execSQL("CREATE TABLE horariosLocales(\n" +
@@ -113,7 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "FOR EACH ROW\n" +
                     "BEGIN\n" +
                     "SELECT CASE\n" +
-                    "WHEN ((SELECT idCobro FROM Cobro WHERE idCobro = NEW.idCobro) IS NULL)\n" +
+                    "WHEN ((SELECT idCobro FROM cobro WHERE idCobro = NEW.idCobro) IS NULL)\n" +
                     "THEN RAISE(ABORT, 'No existe cobro')\n" +
                     "END;\n" +
                     "END;\n");

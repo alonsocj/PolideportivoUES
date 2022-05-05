@@ -141,7 +141,7 @@
     <string name="id_Persona">Persona</string>
 
     <string name="Hint_idReservacion">Id de reservación</string>
-    <string name="Hint_id_HorarioLocal">Horario</string>
+    <string name="Hint_id_HorarioLocal">Local y Horario</string>
     <string name="Hint_id_Cobro">Id del cobro</string>
     <string name="Hint_id_Persona">Persona</string>
     <string name="Hint_TipoReservacion">Tipo de reservación</string>

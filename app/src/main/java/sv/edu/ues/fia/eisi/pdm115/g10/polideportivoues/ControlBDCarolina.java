@@ -15,6 +15,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.P
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.Reservacion;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.HorariosLocales.HorariosLocales;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
@@ -233,8 +234,31 @@ public class ControlBDCarolina {
 
     //CRUD Reservacion
     public String insertarReservacion (Reservacion reservacion){
+        String regInsertados="Registros Insertados Nº= ";
+        long contador=0;
 
-        return null;
+        ContentValues reservacion1 = new ContentValues();
+        reservacion1.put("idReservacion", reservacion.getIdReservacion());
+        reservacion1.put("idCobro", reservacion.getIdCobro());
+        reservacion1.put("idPersona", reservacion.getIdPersona());
+        reservacion1.put("idTipoR", reservacion.getIdTipoR());
+        reservacion1.put("idEvento", reservacion.getIdEvento());
+        reservacion1.put("idPeriodoReserva", reservacion.getIdPeriodoReserva());
+        reservacion1.put("idHorario", reservacion.getIdHorario());
+        reservacion1.put("idLocal", reservacion.getIdLocal());
+        reservacion1.put("fechaRegistro", reservacion.getFechaRegistro());
+
+
+        contador=db.insert("reservacion", null, reservacion1);
+
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Registro duplicado!";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
     }
     public String actualizarReservacion(Reservacion reservacion){
 
@@ -311,10 +335,10 @@ public class ControlBDCarolina {
                 personas.setApellido(cursor.getString(2));
                 personas.setGenero(cursor.getString(3));
                 personas.setNacimiento(cursor.getString(4));
-                persona.setNacionalidad(cursor.getString(5));
-                personas.setDireccion(cursor.getString(5));
-                personas.setEmail(cursor.getString(6));
-                personas.setTelefono(cursor.getString(7));
+                personas.setNacionalidad(cursor.getString(5));
+                personas.setDireccion(cursor.getString(6));
+                personas.setEmail(cursor.getString(7));
+                personas.setTelefono(cursor.getString(8));
                 arrayPersonas.add(personas);
             }
         }
@@ -371,6 +395,7 @@ public class ControlBDCarolina {
             evento.setIdTipoE(cursor.getString(1));
             evento.setNomEvento(cursor.getString(2));
             evento.setCostoEvento(cursor.getFloat(3));
+            evento.setCantidadAutorizada(cursor.getInt(4));
             arrayEventos.add(evento);
 
             while(cursor.moveToNext()) {
@@ -379,6 +404,7 @@ public class ControlBDCarolina {
                 eventos.setIdTipoE(cursor.getString(1));
                 eventos.setNomEvento(cursor.getString(2));
                 eventos.setCostoEvento(cursor.getFloat(3));
+                eventos.setCantidadAutorizada(cursor.getInt(4));
                 arrayEventos.add(eventos);
             }
         }
@@ -421,7 +447,7 @@ public class ControlBDCarolina {
         for (int i=0;i<arrayPeriodoReservacion.size();i++) {
             PeriodoReserva periodoRArray=new PeriodoReserva();
             periodoRArray=arrayPeriodoReservacion.get(i);
-            arrayPeriodoReservacionString.add(periodoRArray.getFechaFin()+" - "+periodoRArray.getFechaFin());
+            arrayPeriodoReservacionString.add(periodoRArray.getFechaInicio()+" - "+periodoRArray.getFechaFin());
         }
         return arrayPeriodoReservacionString;
     }
@@ -429,7 +455,7 @@ public class ControlBDCarolina {
     //Extraer listado de todos los horarios locales
     public List<HorariosLocales> consultarHorariosLocales(){
         List<HorariosLocales> arrayHorariosLocales=new ArrayList<>();
-        Cursor cursor = db.query("horariosLocales",null, null, null, null, null, null);
+        Cursor cursor = db.query("horariosLocales",null,"disponibilidad=0" , null, null, null, null);
 
         if(cursor.moveToFirst()){
             HorariosLocales horariosL = new HorariosLocales();
@@ -453,42 +479,43 @@ public class ControlBDCarolina {
         for (int i=0;i<arrayHorariosLocales.size();i++) {
             HorariosLocales horariosLArray=new HorariosLocales();
             horariosLArray=arrayHorariosLocales.get(i);
-            arrayHorariosLocalesString.add("Id local: "+ horariosLArray.getIdLocal()+ " - id horario: "+ horariosLArray.getIdHorario());
+
+            //Obtenemos el valor especifico del dia de la tabla horarios disponibles
+            HorariosDisponibles horariosDisponibles= new HorariosDisponibles();
+            horariosDisponibles.setIdHorario(horariosLArray.getIdHorario());
+            Cursor cursor1=db.query("horariosDisponibles",null,"idHorario='"+horariosDisponibles.getIdHorario()+"'",null,null,null,null);
+            HorariosDisponibles horariosD = new HorariosDisponibles();
+            if(cursor1.moveToFirst()){
+                horariosD.setIdHorario(cursor1.getString(0));
+                horariosD.setHora(cursor1.getString(1));
+                horariosD.setDia(cursor1.getString(2));
+            }
+
+            //Obtenemos el valor especifico de la hora de la tabla horarios disponibles
+            Hora horas= new Hora();
+            horas.setIdHora(horariosD.getHora());
+            Cursor cursor2=db.query("hora",null,"idHora='"+horas.getIdHora()+"'",null,null,null,null);
+            Hora horasD = new Hora();
+            if(cursor2.moveToFirst()){
+                horasD.setIdHora(cursor2.getString(0));
+                horasD.setHoraInicio(cursor2.getString(1));
+                horasD.setHoraFin(cursor2.getString(2));
+            }
+
+            //Obtenemos el valor especifico del local de la tabla local
+            Local local= new Local();
+            local.setIdLocal(horariosLArray.getIdLocal());
+            Cursor cursor3=db.query("local",null,"idLocal='"+local.getIdLocal()+"'",null,null,null,null);
+            Local locales = new Local();
+            if(cursor3.moveToFirst()){
+                locales.setIdLocal(cursor3.getString(0));
+                locales.setNomLocal(cursor3.getString(1));
+                locales.setCantidadPersonas(Integer.parseInt(cursor3.getString(2)));
+            }
+
+            arrayHorariosLocalesString.add(locales.getNomLocal()+ " - "+ horariosD.getDia()+" "+horasD.getHoraInicio()+ "-"+horasD.getHoraFin());
         }
         return arrayHorariosLocalesString;
-    }
-
-    //Extraer listado de todos los locales
-    public List<Local> consultarLocales(){
-        List<Local> arrayLocales=new ArrayList<>();
-        Cursor cursor = db.query("local",null, null, null, null, null, null);
-
-        if(cursor.moveToFirst()){
-            Local local = new Local();
-            local.setIdLocal(cursor.getString(0));
-            local.setNomLocal(cursor.getString(1));
-            local.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
-            arrayLocales.add(local);
-
-            while(cursor.moveToNext()) {
-                Local locals = new Local();
-                locals.setIdLocal(cursor.getString(0));
-                locals.setNomLocal(cursor.getString(1));
-                locals.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
-                arrayLocales.add(locals);
-            }
-        }
-        return arrayLocales;
-    }
-    public List<String> consultarLocalesString(List<Local> arrayLocales){
-        List<String>arrayLocalesString=new ArrayList<>();
-        arrayLocalesString.add("Seleccione un local");
-        for (int i=0;i<arrayLocales.size();i++) {
-            Local localessArray=new Local();
-            localessArray=arrayLocales.get(i);
-            arrayLocalesString.add(localessArray.getNomLocal());
-        }
-        return arrayLocalesString;
     }
 
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
@@ -521,74 +548,7 @@ public class ControlBDCarolina {
                     return true;
                 else
                     return false;
-            }
-            /*case 2:
-            {
-                //verificar que al modificar nota exista carnet del alumno, el
-                codigo de materia y el ciclo
-                Nota nota1 = (Nota)dato;
-                String[] ids = {nota1.getCarnet(), nota1.getCodmateria(),
-                        nota1.getCiclo()};
-                abrir();
-                Cursor c = db.query("nota", null, "carnet = ? AND codmateria = ? AND
-                        ciclo = ?", ids, null, null, null);
-                if(c.moveToFirst()){
-                //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }*/
-           /* case 3:
-            {
-                Alumno alumno = (Alumno)dato;
-                Cursor c=db.query(true, "nota", new String[] {
-                                "carnet" }, "carnet='"+alumno.getCarnet()+"'",null,
-                        null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            case 4:
-            {
-                Materia materia = (Materia)dato;
-                Cursor cmat=db.query(true, "nota", new String[] {
-                                "codmateria" },
-                        "codmateria='"+materia.getCodmateria()+"'",null, null, null, null, null);
-                if(cmat.moveToFirst())
-                return true;
-                else
-                return false;
-            }
-            case 5:
-            {
-                //verificar que al insertar nota exista carnet del alumno y el
-                codigo de materia
-                Nota nota = (Nota)dato;
-                String[] id1 = {nota.getCarnet()};
-                String[] id2 = {nota.getCodmateria()};
-
-                Cursor cursor1 = db.query("alumno", null, "carnet = ?", id1, null,null, null);
-                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,null, null, null);
-                if(cursor1.moveToFirst() && cursor2.moveToFirst()){
-                    //Se encontraron datos
-                    return true;
-                }return false;
-            }
-            case 6:
-            {
-                //verificar que exista Materia
-                Materia materia2 = (Materia)dato;
-                String[] idm = {materia2.getCodmateria()};
-                abrir();
-                Cursor cm = db.query("materia", null, "codmateria = ?", idm, null,
-                        null, null);
-                if(cm.moveToFirst()){
-                //Se encontro Materia
-                    return true;
-                }return false;
-            }*/
-            default:
+            }default:
                 return false;
         }
     }

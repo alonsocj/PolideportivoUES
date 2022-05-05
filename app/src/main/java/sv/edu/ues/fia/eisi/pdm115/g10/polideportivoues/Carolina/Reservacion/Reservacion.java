@@ -5,19 +5,22 @@ import android.provider.ContactsContract;
 import java.util.Date;
 
 public class Reservacion {
-    private String idReservacion, idCobro, idPersona, idTipoR,idEvento, idPeriodoReserva;
+    private String idReservacion, idPersona, idTipoR,idEvento, idPeriodoReserva,idHorario,idLocal;
+    private Integer idCobro;
     private String fechaRegistro;
 
     public Reservacion() {
     }
 
-    public Reservacion(String idReservacion, String idCobro, String idPersona, String idTipoR, String idEvento, String idPeriodoReserva, String fechaRegistro) {
+    public Reservacion(String idReservacion, String idPersona, String idTipoR, String idEvento, String idPeriodoReserva, String idHorario, String idLocal, Integer idCobro, String fechaRegistro) {
         this.idReservacion = idReservacion;
-        this.idCobro = idCobro;
         this.idPersona = idPersona;
         this.idTipoR = idTipoR;
         this.idEvento = idEvento;
         this.idPeriodoReserva = idPeriodoReserva;
+        this.idHorario = idHorario;
+        this.idLocal = idLocal;
+        this.idCobro = idCobro;
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -27,14 +30,6 @@ public class Reservacion {
 
     public void setIdReservacion(String idReservacion) {
         this.idReservacion = idReservacion;
-    }
-
-    public String getIdCobro() {
-        return idCobro;
-    }
-
-    public void setIdCobro(String idCobro) {
-        this.idCobro = idCobro;
     }
 
     public String getIdPersona() {
@@ -67,6 +62,30 @@ public class Reservacion {
 
     public void setIdPeriodoReserva(String idPeriodoReserva) {
         this.idPeriodoReserva = idPeriodoReserva;
+    }
+
+    public String getIdHorario() {
+        return idHorario;
+    }
+
+    public void setIdHorario(String idHorario) {
+        this.idHorario = idHorario;
+    }
+
+    public String getIdLocal() {
+        return idLocal;
+    }
+
+    public void setIdLocal(String idLocal) {
+        this.idLocal = idLocal;
+    }
+
+    public Integer getIdCobro() {
+        return idCobro;
+    }
+
+    public void setIdCobro(Integer idCobro) {
+        this.idCobro = idCobro;
     }
 
     public String getFechaRegistro() {

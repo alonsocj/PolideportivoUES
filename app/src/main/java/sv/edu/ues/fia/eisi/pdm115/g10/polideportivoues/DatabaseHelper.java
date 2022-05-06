@@ -156,7 +156,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "END;\n" +
                     "END;\n");
 
+            //Trigger de de calculo de precio al insertar un registro
+            db.execSQL("CREATE TRIGGER insertar_precio AFTER INSERT ON cobro\n" +
+                    "WHEN new.precio = 0\n" +
+                    "BEGIN\n" +
+                    "UPDATE cobro SET precio = cantPersonas * duracion*0.25 WHERE cobro.idCobro = new.idCobro;\n" +
+                    "END;");
 
+            //Trigger de re-calculo de precio al actualizar la cantidad de personas
+            db.execSQL("CREATE TRIGGER actualizar_precio_cantPersonas AFTER UPDATE OF cantPersonas ON cobro\n" +
+                    "BEGIN\n" +
+                    "UPDATE cobro SET precio = cantPersonas * duracion*0.25 WHERE cobro.idCobro = new.idCobro;\n" +
+                    "END;");
+
+            //Trigger de re-calculo de precio al actualizar la duracion
+            db.execSQL("CREATE TRIGGER actualizar_precio_duracion AFTER UPDATE OF duracion ON cobro\n" +
+                    "BEGIN\n" +
+                    "UPDATE cobro SET precio = cantPersonas * duracion*0.25 WHERE cobro.idCobro = new.idCobro;\n" +
+                    "END;");
 
         }catch (SQLException e){
             e.printStackTrace();

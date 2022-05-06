@@ -2,7 +2,9 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,11 +13,13 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalConsultarActivity;
 
 public class TipoReservacionInsertarActivity extends AppCompatActivity {
     ControlBDG10William helper;
     TextInputEditText editIdTipoReservacion;
     TextInputEditText editNombreTipoReservacion;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +27,17 @@ public class TipoReservacionInsertarActivity extends AppCompatActivity {
         helper = new ControlBDG10William(this);
         editIdTipoReservacion = findViewById(R.id.EditIdTipoReservacion);
         editNombreTipoReservacion = findViewById(R.id.EditNombreTipoReservacion);
+        linearLayout = findViewById(R.id.linearLayout);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
     }
     public void insertarTipoReservacion(View v){
+        hideKeyboard(v);
         String idTipoReservacion=editIdTipoReservacion.getText().toString();
         String nombreTipoReservacion=editNombreTipoReservacion.getText().toString();
         if (idTipoReservacion.isEmpty()||nombreTipoReservacion.isEmpty()){
@@ -52,7 +65,14 @@ public class TipoReservacionInsertarActivity extends AppCompatActivity {
         }
     }
     public void limpiar(View v){
+        hideKeyboard(v);
         editIdTipoReservacion.setText("");
         editNombreTipoReservacion.setText("");
+    }
+    public void hideKeyboard(View view) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(TipoReservacionInsertarActivity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

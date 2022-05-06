@@ -8,12 +8,15 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibl
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponiblesConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalConsultarActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
@@ -33,6 +36,7 @@ public class HorariosLocalesConsultarActivity extends AppCompatActivity {
     List<String> arrayHorasString=new ArrayList<String>();
     List<Local> arrayLocales=new ArrayList<Local>();
     List<String> arrayLocalesString=new ArrayList<String>();
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +45,14 @@ public class HorariosLocalesConsultarActivity extends AppCompatActivity {
         SHoras = findViewById(R.id.list_id_horario);
         SLocales = findViewById(R.id.list_locales);
         SDisponibilidad = findViewById(R.id.list_disponibiliad);
+        linearLayout = findViewById(R.id.linearLayout);
 
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
         helper.open();
         arrayHoras=helper.consultarHorarioDisponibles();
         arrayHorasString=helper.consultarHorarioDisponiblesString(arrayHoras);
@@ -55,6 +66,7 @@ public class HorariosLocalesConsultarActivity extends AppCompatActivity {
 
 
     public void consultarHorariosLocales(View v){
+        hideKeyboard(v);
         String idHorario = SHoras.getText().toString();
         String idLocal = SLocales.getText().toString();
         HorariosLocales horarioConsultado;
@@ -83,8 +95,15 @@ public class HorariosLocalesConsultarActivity extends AppCompatActivity {
 
     }
     public void limpiar(View v){
+        hideKeyboard(v);
         SHoras.setText("");
         SLocales.setText("");
         SDisponibilidad.setText("");
+    }
+    public void hideKeyboard(View view) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(HorariosLocalesConsultarActivity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

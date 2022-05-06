@@ -196,21 +196,22 @@ public class ControlBDG10Alonso {
             return null;
         }
     }
-    public String actualizar(Dia dia){
+    public String actualizar(Dia oldDia,Dia newDia){
         try{
-            String id = dia.getNombreDia();
+            String id = oldDia.getNombreDia();
             ContentValues values = new ContentValues();
-            values.put("nombreDia", dia.getNombreDia());
-            db.update("dia", values, "nombreDia=" + id, null);
+            values.put("nombreDia", newDia.getNombreDia());
+            db.update("dia", values, "nombreDia='" + id+"'", null);
             return "Registro de Dia actualizado correctamente";
         }catch (Exception e){
+            e.printStackTrace();
             return "Registro de Dia inexistente";
         }
     }
     public String eliminar(Dia dia){
         String regAfectados = "filas afectadas= ";
         int contador = 0;
-        String where = "nombreDia = " + dia.getNombreDia();
+        String where = "nombreDia = '" + dia.getNombreDia()+"'";
         contador += db.delete("dia", where, null);
         regAfectados += contador;
         return regAfectados;

@@ -18,21 +18,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/titulo_dia_insertar"
+            android:text="@string/titulo_dia_actualizar"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#000000" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_nom_dia"
+            android:id="@+id/input_nom_dia_actual"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:hint="@string/dia"
+            android:hint="@string/oldDia"
             app:startIconDrawable="@drawable/ic_day">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editText_nom_dia"
+                android:id="@+id/editText_nom_dia_actual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="10" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_nom_dia_nuevo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="@string/newDia"
+            app:startIconDrawable="@drawable/ic_day">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_nom_dia_nuevo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"

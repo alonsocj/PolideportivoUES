@@ -65,6 +65,8 @@
     <string name="titulo_dia_consultar">Consultar dia</string>
     <string name="titulo_dia_actualizar">Actualizar dia</string>
     <string name="titulo_dia_eliminar">Eliminar dia</string>
+    <string name="oldDia">Dia actual:</string>
+    <string name="newDia">Dia nuevo:</string>
 
 
     <!--Local-->

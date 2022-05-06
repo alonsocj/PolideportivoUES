@@ -14,6 +14,7 @@ public class ControlBDG10Alonso {
 
     private static final String[] camposTipoEvento = new String[]{"idTipoE", "nomTipoE"};
     private static final String[] camposCobro = new String[]{"idCobro", "idPago", "cantPersonas", "duracion", "precio","duracionM"};
+    private static final String[] camposDia = new String[]{"nombreDia"};
 
     private final DatabaseHelper DBhelper; /*Esta es la clase que contiene todas las instrucciones SQL*/
     private SQLiteDatabase db;
@@ -164,6 +165,58 @@ public class ControlBDG10Alonso {
     /*
      * FIN DE FUNCIONALIDADES DE COBRO
      */
+
+    /*
+    * INICIO DE FUNCIONALIDADES DE DIA*/
+
+    public String insertar(Dia dia){
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+
+        ContentValues values = new ContentValues();
+        values.put("nombreDia", dia.getNombreDia());
+
+        contador = db.insert("dia", null, values);
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
+        }
+
+        return regInsertados;
+    }
+    public Dia consultarDia(String nombreDia){
+        String[] id = {nombreDia};
+        Cursor cursor = db.query("dia", camposDia, "nombreDia = ?", id, null, null, null);
+        if (cursor.moveToFirst()) {
+            Dia dia = new Dia();
+            dia.setNombreDia(cursor.getString(0));
+            return dia;
+        } else {
+            return null;
+        }
+    }
+    public String actualizar(Dia dia){
+        try{
+            String id = dia.getNombreDia();
+            ContentValues values = new ContentValues();
+            values.put("nombreDia", dia.getNombreDia());
+            db.update("dia", values, "nombreDia=" + id, null);
+            return "Registro de Dia actualizado correctamente";
+        }catch (Exception e){
+            return "Registro de Dia inexistente";
+        }
+    }
+    public String eliminar(Dia dia){
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        String where = "nombreDia = " + dia.getNombreDia();
+        contador += db.delete("dia", where, null);
+        regAfectados += contador;
+        return regAfectados;
+    }
+    /*
+     * FIN DE FUNCIONALIDADES DE DIA*/
 
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException {
         switch (relacion) {

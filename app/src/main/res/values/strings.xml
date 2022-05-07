@@ -11,6 +11,11 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    <!-- LOGIN AND REGISTER -->
+    <string name="login_title">Login</string>
+    <string name="user">Usuario</string>
+    <string name="clave">Clave</string>
+
 
     <!-- Botones CRUD -->
     <string name="botonConsultar">Consultar</string>

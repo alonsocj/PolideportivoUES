@@ -175,6 +175,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "UPDATE cobro SET precio = cantPersonas * duracion*0.25 WHERE cobro.idCobro = new.idCobro;\n" +
                     "END;");
 
+            // Tablas adicionales
+            //Usuario
+            db.execSQL("CREATE TABLE usuario (idUsuario VARCHAR(2) PRIMARY KEY NOT NULL, nomUsuario VARCHAR(30) NOT NULL, clave VARCHAR(5) NOT NULL);");
+            //OPCION CRUD
+            db.execSQL("CREATE TABLE opcionCrud (idOpcion VARCHAR(3) PRIMARY KEY NOT NULL, numCrud INTEGER NOT NULL, desOpcion VARCHAR(30) NOT NULL);");
+            //acceso usuario
+            db.execSQL("CREATE TABLE accesoUsuario (idOpcion VARCHAR(3) NOT NULL, idUsuario VARCHAR(2) NOT NULL, "+
+                    "PRIMARY KEY(idOpcion,idUsuario), "+
+                    "CONSTRAINT fk_accesoUsuario_opcionCrud FOREIGN KEY (idOpcion) REFERENCES opcionCrud(idOpcion) ON DELETE CASCADE, "+
+                    "CONSTRAINT fk_accesoUsuario_usuario FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario) ON DELETE CASCADE);");
+
+
         }catch (SQLException e){
             e.printStackTrace();
         }

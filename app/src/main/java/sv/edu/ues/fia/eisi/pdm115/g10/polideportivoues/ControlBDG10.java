@@ -37,44 +37,6 @@ public class ControlBDG10 {
 
 
 
-    private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{
-        switch (relacion){
-            case 2: {
-                //Verifica si existe el local a actualizar
-                Local localV = (Local) valor;
-                String[]id = {localV.getIdLocal()};
-                open();
-                Cursor cursor = db.query("local",null,"idLocal = ?", id,null,null,null);
-                if (cursor.moveToFirst()){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            case 3:{
-                Local local = (Local) valor;
-                Cursor c=db.query(true, "localEvento", new String[] {"idLocal" }, "idLocal='"+local.getIdLocal()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            case 8:{
-                //Verificar que al insertar el Evento exista el tipoDeEvento
-                Evento evento = (Evento)valor;
-                String[] idTipoEvento = {evento.getIdTipoE()};
-                Cursor cursor = db.query("tipoevento", null, "idTipoE = ?",idTipoEvento,null,null,null);
-                if(cursor.moveToFirst()){
-                    //Se encontraron datos de tipoEvento
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            default:
-                return false;
-        }
-    }
     public String llenarBDG10(){
         //Metodo para llenar la base de datos con sentencias SQL
 
@@ -227,10 +189,21 @@ public class ControlBDG10 {
             db.execSQL("INSERT INTO reservacion (idReservacion,idCobro,idPersona,idTipoR,idEvento,idPeriodoReserva,idHorario,idLocal,fechaRegistro) VALUES ('"+idReservacion[i]+"','"+idCobroR[i]+"','"+idPersonaR[i]+"','"+idTipoRR[i]+"','"+idEventoR[i]+"','"+idPeriodoReservaR[i]+"','"+idHorarioR[i]+"','"+idLocalR[i]+"','"+fechaRegistro[i]+"');");
         }
 
-
-
         close();
 
         return "Llenado correctamente";
+    }
+    public String datosAcceso(){
+        final String[] VAidUsuario = {"01","02","03"};
+        final String[] VAnomUsuario = {"Carlos","Alberto","Hernan"};
+        final String[] VAClave = {"123","456","789"};
+
+        db.execSQL("DELETE FROM usuario;");
+
+        for(int i=0;i<VAidUsuario.length;i++){
+            db.execSQL("INSERT INTO usuario (idUsuario,nomUsuario,clave) VALUES ('"+VAidUsuario[i]+"','"+VAnomUsuario[i]+"','"+VAClave[i]+"');");
+        }
+
+        return "Valores de acceso";
     }
 }

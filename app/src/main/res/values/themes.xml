@@ -26,4 +26,9 @@
     <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/white</item>
     </style>
+
+    <style name="Login" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/barra</item>
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
 </resources>

@@ -73,6 +73,7 @@
         <entry key="..\:/Servidores/app/src/main/res/layout/activity_persona_insertar.xml" value="0.36666666666666664" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/drawable/backgroud_splash_color.xml" value="0.1965" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/drawable/backgroun_splash_screen.xml" value="0.1965" />
+        <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/drawable/progress_bar.xml" value="0.22" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_cobro_actualizar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_cobro_consultar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_cobro_eliminar.xml" value="0.358695652173913" />
@@ -85,7 +86,9 @@
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_hora_consultar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_hora_insertar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_local_insertar.xml" value="0.358695652173913" />
+        <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_registro.xml" value="0.35260416666666666" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_tipo_evento_actualizar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_tipo_evento_consultar.xml" value="0.358695652173913" />
         <entry key="..\:/UES/CICLO I 2022/PDM115/PolideportivoUES/app/src/main/res/layout/activity_tipo_evento_eliminar.xml" value="0.358695652173913" />

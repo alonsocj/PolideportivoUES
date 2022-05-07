@@ -25,6 +25,7 @@ public class ControlBDCarolina {
     /*Tabla PeriodoReserva*/
     private static final String[] camposPeriodoReserva = new String[]{"idPeriodoReserva","fechaInicio","fechaFin"};
     private static final String[] camposNacionalidad = new String[]{"codNac","nacionalidad"};
+    private static final String[]camposReservacion = new String[]{"idReservacion", "idCobro", "idPersona", "idTipoR", "idEvento","idPeriodoReserva", "idHorario","idLocal", "fechaRegistro"};
 
     private final DatabaseHelper DBhelper; /*Instrucciones SQL*/
     private SQLiteDatabase db;
@@ -248,9 +249,25 @@ public class ControlBDCarolina {
 
         return null;
     }
-    public String consultarReservacion(Reservacion reservacion){
+    public Reservacion consultarReservacion(String reservacion){
 
-        return null;
+        String[] id = {reservacion};
+        Cursor cursor = db.query("reservacion",camposReservacion, "idReservacion = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Reservacion reserva = new Reservacion();
+            reserva.setIdReservacion(cursor.getString(0));
+            reserva.setIdCobro(cursor.getInt(1));
+            reserva.setIdPersona(cursor.getString(2));
+            reserva.setIdTipoR(cursor.getString(3));
+            reserva.setIdEvento(cursor.getString(4));
+            reserva.setIdPeriodoReserva(cursor.getString(5));
+            reserva.setIdHorario(cursor.getString(6));
+            reserva.setIdLocal(cursor.getString(7));
+            reserva.setFechaRegistro(cursor.getString(8));
+            return reserva;
+        }else {
+            return null;
+        }
     }
     public String eliminarReservacion(Reservacion reservacion){
 
@@ -501,6 +518,38 @@ public class ControlBDCarolina {
         }
         return arrayHorariosLocalesString;
     }
+
+    //Consultar tabla horarios disponibles
+    public List<HorariosDisponibles> consultarHorariosDisponibles(){
+        List<HorariosDisponibles> horariosD=new ArrayList<>();
+        Cursor cursor = db.query("periodoReserva",null, null, null, null, null, null);
+
+        if(cursor.moveToFirst()){
+            HorariosDisponibles horario = new HorariosDisponibles();
+            horario.setIdHorario(cursor.getString(0));
+            horario.setHora(cursor.getString(1));
+            horario.setDia(cursor.getString(2));
+            horariosD.add(horario);
+
+            while(cursor.moveToNext()) {
+                HorariosDisponibles horario1 = new HorariosDisponibles();
+                horario1.setIdHorario(cursor.getString(0));
+                horario1.setHora(cursor.getString(1));
+                horario1.setDia(cursor.getString(2));
+                horariosD.add(horario1);
+            }
+        }
+        return horariosD;
+    }
+    /*public List<String> consultarPeriodoReservacionString(List<PeriodoReserva> arrayPeriodoReservacion){
+        List<String>arrayPeriodoReservacionString=new ArrayList<>();
+        for (int i=0;i<arrayPeriodoReservacion.size();i++) {
+            PeriodoReserva periodoRArray=new PeriodoReserva();
+            periodoRArray=arrayPeriodoReservacion.get(i);
+            arrayPeriodoReservacionString.add(periodoRArray.getFechaInicio()+" - "+periodoRArray.getFechaFin());
+        }
+        return arrayPeriodoReservacionString;
+    }*/
 
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
         switch(relacion){

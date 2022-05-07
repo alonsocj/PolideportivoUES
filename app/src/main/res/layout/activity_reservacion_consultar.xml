@@ -143,7 +143,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/Hint_id_HorarioLocal">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/idHrarioLocal"
+                android:id="@+id/idHorarioLocal"
                 android:inputType="none"
                 android:enabled="false"
                 android:layout_width="match_parent"

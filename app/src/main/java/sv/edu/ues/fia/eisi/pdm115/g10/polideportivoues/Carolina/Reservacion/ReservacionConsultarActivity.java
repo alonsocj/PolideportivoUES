@@ -30,11 +30,12 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
 
 public class ReservacionConsultarActivity extends AppCompatActivity {
-    String horario;
+    String horario,local;
     TextInputEditText editIdReservacion, etFechaR;
     ControlBDCarolina helper;
     ControlBDGustavo helper1;
     TextInputEditText spCobro,spPersona, spTReservacion,spEvento,spPeriodoR, spHLocal;
+
     List<Cobro> arrayCobros=new ArrayList<Cobro>();
     List<Persona> arrayPersonas=new ArrayList<Persona>();
     List<TipoReservacion> arrayTipoReservaciones=new ArrayList<TipoReservacion>();
@@ -42,17 +43,10 @@ public class ReservacionConsultarActivity extends AppCompatActivity {
     List<HorariosDisponibles> arrayHorariosDisponibles=new ArrayList<HorariosDisponibles>();
     List<HorariosLocales> arrayHorariosLocales=new ArrayList<HorariosLocales>();
     List<PeriodoReserva> arrayPeriodoReserva=new ArrayList<PeriodoReserva>();
-    List<String> arrayCobrosString=new ArrayList<String>();
-    List<String> arrayPersonasString=new ArrayList<String>();
-    List<String> arrayTipoReservacionesString=new ArrayList<String>();
-    List<String> arrayEventosString=new ArrayList<String>();
-    List<String> arrayHorariosLocalesString=new ArrayList<String>();
-    List<String> arrayPeriodoReservaString=new ArrayList<String>();
+    List<Local> arraylocales=new ArrayList<Local>();
 
     List<Hora> arrayHoras=new ArrayList<Hora>();
-    List<String> arrayHorasString=new ArrayList<String>();
     List<Dia> arrayDias=new ArrayList<Dia>();
-    List<String> arrayDiasString=new ArrayList<String>();
 
     Button botonConsultar;
 
@@ -81,37 +75,31 @@ public class ReservacionConsultarActivity extends AppCompatActivity {
         //Llenado del spinner de cobros
         helper.open();
         arrayCobros=helper.consultarCobros();
-        arrayCobrosString=helper.consultarCobrosString(arrayCobros);
         helper.close();
 
         //Llenado del spinner de personas
         helper.open();
         arrayPersonas=helper.consultarPersonas();
-        arrayPersonasString=helper.consultarPersonasString(arrayPersonas);
         helper.close();
 
         //Llenado del spinner de tipo de reservacion
         helper.open();
         arrayTipoReservaciones=helper.consultarTipoReservacion();
-        arrayTipoReservacionesString=helper.consultarTipoReservacionString(arrayTipoReservaciones);
         helper.close();
 
         //Llenado del spinner de eventos
         helper.open();
         arrayEventos=helper.consultarEventos();
-        arrayEventosString=helper.consultarEventosString(arrayEventos);
         helper.close();
 
         //Llenado del spinner de periodo reservas
         helper.open();
         arrayPeriodoReserva=helper.consultarPeriodoReservacion();
-        arrayPeriodoReservaString=helper.consultarPeriodoReservacionString(arrayPeriodoReserva);
         helper.close();
 
         //Llenado del spinner de horarios y locales
         helper.open();
-        arrayHorariosLocales=helper.consultarHorariosLocales();
-        arrayHorariosLocalesString=helper.consultarHorariosLocalesString(arrayHorariosLocales);
+        arrayHorariosLocales=helper.consultarHorariosLocales1();
         helper.close();
 
         //LLenado del array de horarios disponibles
@@ -122,14 +110,14 @@ public class ReservacionConsultarActivity extends AppCompatActivity {
         //LLenado del array de horarios
         helper1.open();
         arrayHoras=helper1.consultarHoras();
-        arrayHorasString=helper1.consultarHorasString(arrayHoras);
 
         helper1.open();
         arrayDias=helper1.consultarDias();
-        arrayDiasString=helper1.consultarDiasString(arrayDias);
 
         //Llenado del array de locales
-
+        helper.open();
+        arraylocales=helper.consultarLocales();
+        helper.close();
 
         botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,27 +173,32 @@ public class ReservacionConsultarActivity extends AppCompatActivity {
                                 spPeriodoR.setText(periodoReserva.getFechaInicio()+" - "+periodoReserva.getFechaFin());
                             }
                        }
-                       /*for(int i=0;i<arrayHorariosLocales.size();i++){
+                       for(int i=0;i<arrayHorariosLocales.size();i++){
                            HorariosLocales horarioLocales = arrayHorariosLocales.get(i);
                            if(horarioLocales.getIdHorario().equals(reservacion.getIdHorario()) && horarioLocales.getIdLocal().equals(reservacion.getIdLocal())){
-                               HorariosDisponibles horariosDisponibles=arrayHorariosDisponibles.get(i);
-
                                for (int k=0;k<arrayHorariosDisponibles.size();k++){
+                                   HorariosDisponibles horariosDisponibles=arrayHorariosDisponibles.get(k);
                                    if(horarioLocales.getIdHorario().equals(horariosDisponibles.getIdHorario())){
                                        for (int j = 0; j < arrayHoras.size(); j++) {
-                                           Hora horasArray;
-                                           horasArray = arrayHoras.get(j);
+                                           Hora horasArray = arrayHoras.get(j);
                                            if (horasArray.getIdHora().equals(horariosDisponibles.getHora())) {
                                                horario = horariosDisponibles.getDia()+" "+ horasArray.getHoraInicio() + " - " + horasArray.getHoraFin();
                                            }
                                        }
-                                       spHLocal.setText(horario);
                                    }
                                }
-                           }
-                       }
-                       etFechaR.setText(reservacion.getFechaRegistro());*/
+                               for (int l=0;l<arraylocales.size();l++){
+                                   Local locales=arraylocales.get(l);
+                                   if(locales.getIdLocal().equals(horarioLocales.getIdLocal())){
+                                       local=locales.getNomLocal();
+                                   }
+                               }
 
+                               spHLocal.setText(local+" "+horario);
+                           }
+
+                       }
+                       etFechaR.setText(reservacion.getFechaRegistro());
                    }
                 }
             }

@@ -173,6 +173,10 @@
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/fragment_tipo_pago.xml" value="0.20108695652173914" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/layout/fragment_tipo_reservacion.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
+        <entry key="..\:/Users/gusta/OneDrive/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_reservacion_actualizar.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/gusta/OneDrive/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_reservacion_consultar.xml" value="0.2" />
+        <entry key="..\:/Users/gusta/OneDrive/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_reservacion_eliminar.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/gusta/OneDrive/Escritorio/PolideportivoUES/app/src/main/res/layout/activity_reservacion_insertar.xml" value="0.17074275362318841" />
       </map>
     </option>
   </component>

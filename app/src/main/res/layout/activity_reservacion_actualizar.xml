@@ -125,7 +125,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:hint="@string/Hint_id_HorarioLocal">
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/idHrarioLocal"
+                android:id="@+id/idHorarioLocal"
                 android:inputType="none"
                 android:focusable="false"
                 android:cursorVisible="false"

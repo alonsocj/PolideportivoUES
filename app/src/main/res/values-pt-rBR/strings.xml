@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PolideportivoUES</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Polideportivo UES</string>
+    <string name="nav_header_subtitle">PDM115-2022-G10</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">PolideportivoUES</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <!-- LOGIN AND REGISTER -->
+    <string name="login_title">Conecte-se</string>
+    <string name="user">Do utilizador</string>
+    <string name="clave">Senha</string>
+
+    <!-- Botones CRUD -->
+    <string name="botonConsultar">Consultar</string>
+    <string name="botonActualizar">Atualizar</string>
+    <string name="botonAgregar">Adicionar</string>
+    <string name="botonVaciar">Vazio</string>
+    <string name="btnGuardar">Salve </string>
+    <string name="botonEliminar">Remover</string>
+
+    <!--Tabla Hora-->
+    <string name="Horaidentificador">Id em tempo</string>
+    <string name="InicioHora">hora de início</string>
+    <string name="FinHora">Hora de término</string>
+    <string name="hintId">Digite o número da hora</string>
+    <string name="hintHI">Digite o horário de início</string>
+    <string name="hintHF">Digite o horário de término</string>
+    <string name="botonAgregarHoraInicio">Tempo</string>
+    <string name="inicioH">Hora de início</string>
+    <string name="finH">Hora de término</string>
+
+    <string name="titulo_hora_insertar">Inserir hora</string>
+    <string name="titulo_hora_editar">Tempo de atualização</string>
+    <string name="titulo_hora_consultar">Verificar o tempo</string>
+    <string name="titulo_hora_eliminar">Excluir hora</string>
+    <string name="hora">Tempo</string>
+
+    <string name="AgregarHoraFragment">Tempo extra</string>
+    <string name="ConsultarHoraFragment">Verificar o tempo</string>
+    <string name="EliminarHoraFragment">Excluir hora</string>
+    <string name="ActualizarHoraFragment">Tempo de atualização</string>
+
+    <!-- TIPO EVENTO -->
+    <string name="tipoEvento">Tipo de Evento</string>
+    <string name="titulo_tipo_evento_insertar">Inserir tipo de evento</string>
+    <string name="titulo_tipo_evento_consultar">Consultar tipo de evento</string>
+    <string name="titulo_tipo_evento_actualizar">Atualizar tipo de evento</string>
+    <string name="titulo_tipo_evento_eliminar">Excluir tipo de evento</string>
+    <string name="idTipoEvento">Id do tipo de evento:</string>
+    <string name="NomTipoEvento">Nome do tipo de evento:</string>
+
+    <!-- COBRO -->
+    <string name="cobro">Pagamento</string>
+    <string name="titulo_cobro_insertar">Inserir pagamento</string>
+    <string name="titulo_cobro_consultar">Consultar pagamento</string>
+    <string name="titulo_cobro_actualizar">Atualizar cobrança</string>
+    <string name="titulo_cobro_eliminar">Excluir pagamento</string>
+    <string name="idCobro">Código da coleção:</string>
+    <string name="TipoPago">Tipo de pagamento:</string>
+    <string name="cantPersonas">Quantidade de pessoas:</string>
+    <string name="duracion">Duração:</string>
+    <string name="precios">Preço:</string>
+    <string name="time_picker_title">Selecione a duração</string>
+
+    <!-- DIA -->
+    <string name="dia">Dia</string>
+    <string name="titulo_dia_insertar">Inserir dia</string>
+    <string name="titulo_dia_consultar">Dia do cheque</string>
+    <string name="titulo_dia_actualizar">Dia de atualização</string>
+    <string name="titulo_dia_eliminar">Excluir dia</string>
+    <string name="oldDia">Dia atual:</string>
+    <string name="newDia">Novo dia:</string>
+
+    <!--Local-->
+    <string name="titulo_nav_local">Local</string>
+    <string name="agregarLocal">Adicionar local</string>
+    <string name="idLocaltxt">Id do local</string>
+    <string name="hintIdLocal">Insira o id do local</string>
+    <string name="nombreLocaltxt">Nome do local</string>
+    <string name="hintnombreLocal">Digite o nome do lugar</string>
+    <string name="cupoLocaltxt">Cota do local</string>
+    <string name="hintcupoLocal">Insira a cota do local</string>
+    <string name="actualizarLocal">Atualizar local</string>
+    <string name="eliminarLocal">Excluir local</string>
+    <string name="consultarLocal">Consultar Local</string>
+
+    <!--Tabla Tipo Pago-->
+    <string name="AgregarTipoPagoFragment">Adicionar tipo de pagamento</string>
+    <string name="EliminarTipoPagoFragment">Excluir tipo de pagamento</string>
+    <string name="ActualizarTipoPagoFragment">Atualizar tipo de pagamento</string>
+    <string name="ConsultarTipoPagoFragment">Consultar Tipo de Pagamento</string>
+    <string name="TipoPagoIdentificador">Código do tipo de pagamento</string>
+    <string name="TipoPagoNombreTipo">Tipo de pagamento</string>
+    <string name="hintIdePago">Insira o código do tipo de pagamento</string>
+    <string name="hintTipoPago">Digite o tipo de pagamento</string>
+
+    <string name="titulo_tipoPago_insertar">Inserir tipo de pagamento</string>
+    <string name="titulo_tipoPago_editar">Atualizar tipo de pagamento</string>
+    <string name="titulo_tipoPago_consultar">Consultar Tipo de Pagamento</string>
+    <string name="titulo_tipoPago_eliminar">Excluir tipo de pagamento</string>
+    <string name="tipo_pago">Tipo de pagamento</string>
+
+    <!--Tabla Evento-->
+    <string name="AgregarEventoFragment">Adicionar Evento</string>
+    <string name="ConsultarEventoFragment">Consultar Evento</string>
+    <string name="EliminarEventoFragment">Excluir evento</string>
+    <string name="ActualizarEventoFragment">Atualizar evento</string>
+
+    <string name="NumEvenTxt">Nº do evento</string>
+    <string name="TiEventTxt">Tipo de Evento</string>
+    <string name="NomEventTxt">Nome do evento</string>
+    <string name="costoEventTxt">Custo do evento</string>
+    <string name="cantAutEventTxt">Valor autorizado para o evento</string>
+    <string name="NumeroEventoHint">Digite o número do evento</string>
+    <string name="NombreEventoHint">Digite o nome do evento</string>
+    <string name="CostoEventoHint">Insira o custo do evento</string>
+    <string name="CantidadAutorizadaHint">Insira o número de pessoas autorizadas</string>
+    <string name="Hint_cantAutorizada">Insira o valor autorizado</string>
+
+    <string name="titulo_evento_insertar">Inserir Evento</string>
+    <string name="titulo_evento_editar">Atualizar Evento</string>
+    <string name="titulo_evento_consultar">Consultar Evento</string>
+    <string name="titulo_evento_eliminar">Excluir Evento</string>
+    <string name="evento">Evento</string>
+
+    <!-- TABLA RESERVACION-->
+    <string name="btnLimpiar">Limpar</string>
+
+    <string name="titulo_nav_reservacion">Reserva</string>
+    <string name="label_reservacion">Reserva</string>
+
+    <string name="titulo_reservacion_insertar">Adicionar Reserva</string>
+    <string name="titulo_reservacion_consultar">Consultar Reserva</string>
+    <string name="titulo_reservacion_eliminar">Excluir reserva</string>
+    <string name="titulo_reservacion_actualizar">Atualizar reserva</string>
+
+    <string name="id_Cobro">Pagamento:</string>
+    <string name="id_Persona">Pessoa</string>
+
+    <string name="Hint_idReservacion">Id de reserva</string>
+    <string name="Hint_id_HorarioLocal">Local e Horário</string>
+    <string name="Hint_id_Cobro">Id da coleção</string>
+    <string name="Hint_id_Persona">Pessoa</string>
+    <string name="Hint_TipoReservacion">Tipo de reserva</string>
+    <string name="Hint_id_Evento">Evento</string>
+    <string name="Hint_id_PeriodoReserva">Periodo de reserva</string>
+    <string name="Hint_fechaRegistro">Data de registro</string>
+
+    <!-- TABLA PeriodoReserva-->
+    <string name="titulo_nav_periodoReserva">Periodo de Reserva</string>
+    <string name="label_periodoReserva">Periodo de Reserva</string>
+
+    <string name="titulo_periodoreserva_insertar">Adicionar Periodo de Reserva</string>
+    <string name="titulo_periodoreserva_consultar">Consultar Periodo de Reserva</string>
+    <string name="titulo_periodoreserva_eliminar">Excluir Periodo de Reserva</string>
+    <string name="titulo_periodoreserva_actualizar">Atualizar Periodo de Reserva</string>
+
+    <string name="Hint_idperiodoReserva">Insira o código do período de reserva</string>
+    <string name="Hint_fechaInicio">Insira a data de início</string>
+    <string name="Hint_fechaFin">Insira a data de término</string>
+
+    <!-- TABLA Nacionalidad-->
+    <string name="titulo_nav_nacionalidad">Nacionalidade</string>
+    <string name="label_nacionalidad">Nacionalidade</string>
+
+    <string name="titulo_Nacionalidad_insertar">Adicionar nacionalidade</string>
+    <string name="titulo_Nacionalidad_consultar">Consultar Nacionalidade</string>
+    <string name="titulo_Nacionalidad_eliminar">Remover nacionalidade</string>
+    <string name="titulo_Nacionalidad_actualizar">Atualizar nacionalidade</string>
+
+    <string name="Hint_codNacionalidad">Digite o código do país</string>
+    <string name="Hint_nacionalidad">Nacionalidade</string>
+
+    <!-- Horario Disponible -->
+    <string name="titulo_nav_horariosDisponibles">Programações disponíveis</string>
+    <string name="AgregarHorararioDisponibleFragment">Adicionar disponibilidade</string>
+    <string name="EliminarHorararioDisponibleFragment">Excluir disponibilidade</string>
+    <string name="ConsultarHorararioDisponibleFragment">Consultar disponibilidade</string>
+    <string name="ActualizarHorararioDisponibleFragment">Atualizar disponibilidade</string>
+    <string name="idHorario">Id Disponibilidade</string>
+    <string name="idHora">Tempo</string>
+    <string name="nombreDia">Día</string>
+
+    <!-- Persona -->
+    <string name="titulo_nav_persona">Pessoa</string>
+    <string name="AgregarPersonaFragment">Adicionar pessoa</string>
+    <string name="EliminarPersonaFragment">Excluir pessoa</string>
+    <string name="ConsultarPersonaFragment">Consultar pessoa</string>
+    <string name="ActualizarPersonaFragment">Atualizar pessoa</string>
+    <string name="NombrePersona">Nome:</string>
+    <string name="ApellidoPersona">Sobrenome:</string>
+    <string name="GeneroPersona">Gênero:</string>
+    <string name="DUIPersona">DUI:</string>
+    <string name="NacimientoPersona">Data de nascimento:</string>
+    <string name="NacionalidadPersona">Nacionalidade:</string>
+    <string name="DireccionPersona">Direção:</string>
+    <string name="EmailPersona">Correio eletrônico:</string>
+    <string name="TelefonoPersona">Telefone:</string>
+
+    <!-- Género -->
+    <string name="titulo_nav_genero">Gênero</string>
+    <string name="AgregarGeneroFragment">Adicionar Gênero</string>
+    <string name="EliminarGeneroFragment">Eliminar Gênero</string>
+    <string name="ConsultarGeneroFragment">Excluir Gênero</string>
+    <string name="ActualizarGeneroFragment">Atualizar Gênero</string>
+    <string name="idGenero">Id Gênero:</string>
+    <string name="genero">Gênero:</string>
+
+    <!-- Tipo Reservacion -->
+    <string name="titulo_nav_tipoReservacion">Tipo de reserva</string>
+    <string name="idTipoReservaciontxt">Id do tipo de reserva</string>
+    <string name="hintIdTipoReservacion">Insira o Id do tipo de reserva</string>
+    <string name="nombreTipoReservaciontxt">Nome do tipo de reserva</string>
+    <string name="hintnombreTipoReservacion">Digite o nome do tipo de reserva</string>
+    <string name="agregarTipoReservacion">Adicionar tipo de reserva</string>
+    <string name="consultarTipoReservacion">Verifique o tipo de reserva</string>
+    <string name="actualizarTipoReservacion">Atualizar tipo de reserva</string>
+    <string name="eliminarTipoReservacion">Excluir tipo de reserva</string>
+
+    <!-- horariosLocales -->
+    <string name="titulo_nav_horariosLocales">Horário local</string>
+    <string name="agregarHorariosLocales">Adicionar horário da loja</string>
+    <string name="disponibilidadHorariosDisponibles">status do agendamento</string>
+    <string name="consultarHorariosLocales">Consultar horario del local</string>
+    <string name="eliminarHorariosLocales">Verifique os horários locais</string>
+    <string name="actualizarHorariosLocales">Atualizar o horário da loja</string>
+    <string name="idHorarioLocales">Horas</string>
+    <string name="disponible">Disponível</string>
+    <string name="ocupado">Ocupado</string>
+    <string name="Local">Local</string>
+    <string name="cantidadPersonas">Quantidade de pessoas</string>
+    <string name="hintCantidadPersonas">Digite o número de pessoas permitidas</string>
+    <string name="title_activity_nacionalidad_eliminar">NacionalidadEliminarActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

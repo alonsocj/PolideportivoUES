@@ -24,7 +24,11 @@
     <style name="Theme.PolideportivoUES.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@mipmap/ic_launcher_polideportivo</item>
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
+
+    <style name="Login" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/barra</item>
         <item name="android:statusBarColor">@color/white</item>
     </style>
 </resources>

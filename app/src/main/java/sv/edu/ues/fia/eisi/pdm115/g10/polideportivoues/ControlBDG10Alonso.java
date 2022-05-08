@@ -144,7 +144,6 @@ public class ControlBDG10Alonso {
             values.put("idPago", cobro.getIdPago());
             values.put("cantPersonas", cobro.getCantPersonas());
             values.put("duracion", cobro.getDuracion());
-            values.put("precio", cobro.getPrecio());
             values.put("duracionM", cobro.getDuracionTexto());
             db.update("cobro", values, "idCobro=" + id, null);
             return "Registro de Cobro actualizado correctamente";

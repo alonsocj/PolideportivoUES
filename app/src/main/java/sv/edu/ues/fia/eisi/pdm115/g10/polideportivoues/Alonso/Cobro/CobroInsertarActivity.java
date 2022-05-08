@@ -126,7 +126,7 @@ public class CobroInsertarActivity extends AppCompatActivity {
                     String idTipoPago = "";
                     int cantPersonas = Integer.parseInt(editCantPersonas.getText().toString());
                     String duracionM = editDuracion.getText().toString();
-                    float precio = (Float) Float.valueOf(editPrecio.getText().toString());
+                    float precio = 0;
 
                     for (int i = 0; i < arrtipoPago.length; i++) {
                         if (tipoPago.equals(arrtipoPago[i])) {
@@ -143,9 +143,13 @@ public class CobroInsertarActivity extends AppCompatActivity {
                     helper.open();
                     eventosRegistrados = helper.insertar(cobro);
                     helper.close();
+                    db = openOrCreateDatabase("polideportivo.s3db", MODE_PRIVATE, null);
+                    Cursor cursor = db.rawQuery("SELECT (precio) FROM cobro WHERE idCobro="+idCobro, null);
+                    cursor.moveToFirst();
+                    editPrecio.setText(cursor.getString(0));
                     Toast.makeText(getApplicationContext(), eventosRegistrados, Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Error al insertar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error al insertar, debe de llenar todos los campos", Toast.LENGTH_SHORT).show();
                 }
 
             }

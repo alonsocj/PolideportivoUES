@@ -8,14 +8,17 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacionEliminarActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
@@ -32,6 +35,7 @@ public class HorariosLocalesEliminarActivity extends AppCompatActivity {
     List<String> arrayHorasString=new ArrayList<String>();
     List<Local> arrayLocales=new ArrayList<Local>();
     List<String> arrayLocalesString=new ArrayList<String>();
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,14 @@ public class HorariosLocalesEliminarActivity extends AppCompatActivity {
         helper = new ControlBDG10William(this);
         SHoras = findViewById(R.id.list_id_horario);
         SLocales = findViewById(R.id.list_locales);
+        linearLayout = findViewById(R.id.linearLayout);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
         helper.open();
         arrayHoras=helper.consultarHorarioDisponibles();
         arrayHorasString=helper.consultarHorarioDisponiblesString(arrayHoras);
@@ -50,6 +62,7 @@ public class HorariosLocalesEliminarActivity extends AppCompatActivity {
 
     }
     public void eliminarHorariosLocales(View v){
+        hideKeyboard(v);
         String idHorario = SHoras.getText().toString();
         String idLocal = SLocales.getText().toString();
         AlertDialog.Builder confirmacion=new AlertDialog.Builder(HorariosLocalesEliminarActivity.this);
@@ -95,7 +108,14 @@ public class HorariosLocalesEliminarActivity extends AppCompatActivity {
         }
     }
     public void limpiar(View v){
+        hideKeyboard(v);
         SHoras.setText("");
         SLocales.setText("");
+    }
+    public void hideKeyboard(View view) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(HorariosLocalesEliminarActivity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

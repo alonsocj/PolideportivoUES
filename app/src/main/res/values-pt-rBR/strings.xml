@@ -16,6 +16,9 @@
     <string name="login_title">Conecte-se</string>
     <string name="user">Do utilizador</string>
     <string name="clave">Senha</string>
+    <string name="registro">Clique aqui para Registrarte</string>
+    <string name="registro_title">Registrar</string>
+    <string name="confirmar_clave">Confirmar clave</string>
 
     <!-- Botones CRUD -->
     <string name="botonConsultar">Consultar</string>

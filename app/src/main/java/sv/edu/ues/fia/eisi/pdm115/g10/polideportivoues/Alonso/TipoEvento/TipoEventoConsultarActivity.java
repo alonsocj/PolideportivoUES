@@ -2,6 +2,7 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ public class TipoEventoConsultarActivity extends AppCompatActivity {
     ControlBDG10Alonso helper;
     TextInputEditText editIdTipoEvento;
     TextInputEditText editNombreTipoEvento;
+    Button limpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,13 @@ public class TipoEventoConsultarActivity extends AppCompatActivity {
         helper = new ControlBDG10Alonso(this);
         editIdTipoEvento = findViewById(R.id.editText_idTipoE);
         editNombreTipoEvento = findViewById(R.id.EditTipoE);
+        limpiar = findViewById(R.id.button_limpiar);
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
     }
 
     public void consultarTipoEvento(View view) {
@@ -40,5 +49,10 @@ public class TipoEventoConsultarActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, "Error al consultar el tipo de evento", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void limpiarTexto(View view) {
+        editIdTipoEvento.setText("");
+        editNombreTipoEvento.setText("");
     }
 }

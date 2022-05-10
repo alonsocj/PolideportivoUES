@@ -20,7 +20,7 @@ public class CobroEliminarActivity extends AppCompatActivity {
 
     ControlBDG10Alonso helper;
     TextInputEditText editIdCobro;
-    Button btnEliminar;
+    Button btnEliminar, limpiar;
     LinearLayout linearLayout;
 
 
@@ -32,6 +32,7 @@ public class CobroEliminarActivity extends AppCompatActivity {
         editIdCobro = (TextInputEditText) findViewById(R.id.editText_id);
         btnEliminar = (Button) findViewById(R.id.button_eliminar);
         linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
+        limpiar = (Button) findViewById(R.id.button_limpiar);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +56,16 @@ public class CobroEliminarActivity extends AppCompatActivity {
                 }
             }
         });
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
+    }
+
+    public void limpiarTexto(View v) {
+        editIdCobro.setText("");
     }
 
     public void hideKeyboard(View view) {

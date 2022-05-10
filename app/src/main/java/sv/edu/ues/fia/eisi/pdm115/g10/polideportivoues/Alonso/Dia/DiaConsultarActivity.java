@@ -16,7 +16,7 @@ public class DiaConsultarActivity extends AppCompatActivity {
 
     ControlBDG10Alonso helper;
     TextInputEditText editDia;
-    Button btnConsultar;
+    Button btnConsultar, limpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,24 +25,35 @@ public class DiaConsultarActivity extends AppCompatActivity {
         helper = new ControlBDG10Alonso(this);
         editDia = findViewById(R.id.editText_nom_dia);
         btnConsultar = findViewById(R.id.button_consultar);
+        limpiar = findViewById(R.id.button_limpiar);
 
         btnConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try{
+                try {
                     helper.open();
                     Dia dia = helper.consultarDia(editDia.getText().toString());
                     helper.close();
-                    if (dia==null){
+                    if (dia == null) {
                         Toast.makeText(DiaConsultarActivity.this, "No se ha encontrado el dia solicitado", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(DiaConsultarActivity.this, "El dia: "+dia.getNombreDia()+" si se encuentra en la base de datos", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(DiaConsultarActivity.this, "El dia: " + dia.getNombreDia() + " si se encuentra en la base de datos", Toast.LENGTH_LONG).show();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(DiaConsultarActivity.this, "Error al consultar, llene el campo correspodiente", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
 
+    }
+
+    public void limpiarTexto(View v) {
+        editDia.setText("");
     }
 }

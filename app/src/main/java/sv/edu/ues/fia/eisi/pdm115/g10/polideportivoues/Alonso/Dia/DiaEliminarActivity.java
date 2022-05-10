@@ -16,7 +16,7 @@ public class DiaEliminarActivity extends AppCompatActivity {
 
     ControlBDG10Alonso helper;
     TextInputEditText editNomDia;
-    Button btnEliminar;
+    Button btnEliminar, limpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class DiaEliminarActivity extends AppCompatActivity {
         helper = new ControlBDG10Alonso(this);
         editNomDia = (TextInputEditText) findViewById(R.id.editText_nom_dia);
         btnEliminar = (Button) findViewById(R.id.button_eliminar);
+        limpiar = findViewById(R.id.button_limpiar);
 
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,15 @@ public class DiaEliminarActivity extends AppCompatActivity {
 
             }
         });
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
+    }
 
+    public void limpiarTexto(View v) {
+        editNomDia.setText("");
     }
 }

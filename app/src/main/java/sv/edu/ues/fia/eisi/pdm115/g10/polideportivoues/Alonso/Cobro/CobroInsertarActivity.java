@@ -29,7 +29,7 @@ public class CobroInsertarActivity extends AppCompatActivity {
     TextInputEditText editIdCobro, editCantPersonas, editDuracion, editPrecio;
     MaterialAutoCompleteTextView editTipoPago;
     LinearLayout linearLayout;
-    Button btnInsertar;
+    Button btnInsertar,limpiar;
     SQLiteDatabase db;
     String[] arridTipoPago;
     String[] arrtipoPago;
@@ -46,7 +46,7 @@ public class CobroInsertarActivity extends AppCompatActivity {
         editTipoPago = findViewById(R.id.list_tipo_pago);
         btnInsertar = findViewById(R.id.button_guardar);
         linearLayout = findViewById(R.id.linearLayout);
-
+        limpiar = findViewById(R.id.button_limpiar);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,8 +154,21 @@ public class CobroInsertarActivity extends AppCompatActivity {
 
             }
         });
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
     }
 
+    public void limpiarTexto(View v) {
+        editIdCobro.setText("");
+        editTipoPago.setText("");
+        editCantPersonas.setText("");
+        editDuracion.setText("");
+        editPrecio.setText("");
+    }
     public void hideKeyboard(View view) {
         if (getCurrentFocus() != null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(CobroInsertarActivity.INPUT_METHOD_SERVICE);

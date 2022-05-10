@@ -3,7 +3,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Polideportivo UES</string>
-    <string name="nav_header_subtitle">PDM115-2022-G10</string>
+    <string name="nav_header_subtitle">PDM115–2022-G10</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -15,6 +15,9 @@
     <string name="login_title">Login</string>
     <string name="user">Usuario</string>
     <string name="clave">Clave</string>
+    <string name="registro">Click aqui para Registrarte</string>
+    <string name="registro_title">Registrarse</string>
+    <string name="confirmar_clave">Confirmar clave</string>
 
 
     <!-- Botones CRUD -->

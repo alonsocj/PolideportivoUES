@@ -16,7 +16,7 @@ public class DiaActualizarActivity extends AppCompatActivity {
 
     ControlBDG10Alonso helper;
     TextInputEditText editOldDia, editNewDia;
-    Button btnActualizar;
+    Button btnActualizar, limpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class DiaActualizarActivity extends AppCompatActivity {
         editOldDia = (TextInputEditText) findViewById(R.id.editText_nom_dia_actual);
         editNewDia = (TextInputEditText) findViewById(R.id.editText_nom_dia_nuevo);
         btnActualizar = (Button) findViewById(R.id.button_actualizar);
-
+        limpiar = findViewById(R.id.button_limpiar);
 
         btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,10 +40,21 @@ public class DiaActualizarActivity extends AppCompatActivity {
                     String estado = helper.actualizar(oldDia, newDia);
                     helper.close();
                     Toast.makeText(getApplicationContext(), estado, Toast.LENGTH_SHORT).show();
-                }catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(DiaActualizarActivity.this, "Error al actualizar", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
+    }
+
+    public void limpiarTexto(View v) {
+        editOldDia.setText("");
+        editNewDia.setText("");
     }
 }

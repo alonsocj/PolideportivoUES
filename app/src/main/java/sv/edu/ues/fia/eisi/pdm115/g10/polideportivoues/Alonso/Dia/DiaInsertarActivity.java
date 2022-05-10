@@ -16,7 +16,7 @@ public class DiaInsertarActivity extends AppCompatActivity {
 
     ControlBDG10Alonso helper;
     TextInputEditText editIdDia;
-    Button btnInsertar;
+    Button btnInsertar, limpiar;
 
 
     @Override
@@ -24,8 +24,9 @@ public class DiaInsertarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dia_insertar);
         helper = new ControlBDG10Alonso(this);
-        editIdDia = (TextInputEditText) findViewById(R.id.editText_nom_dia);
-        btnInsertar = (Button) findViewById(R.id.button_insertar);
+        editIdDia = findViewById(R.id.editText_nom_dia);
+        btnInsertar = findViewById(R.id.button_insertar);
+        limpiar = findViewById(R.id.button_limpiar);
         btnInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,11 +40,21 @@ public class DiaInsertarActivity extends AppCompatActivity {
                         helper.close();
                         Toast.makeText(getApplicationContext(), "Se ha insertado un nuevo dia", Toast.LENGTH_SHORT).show();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(DiaInsertarActivity.this, "Error al insertar Dia", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
+    }
+
+    public void limpiarTexto(View v) {
+        editIdDia.setText("");
     }
 }

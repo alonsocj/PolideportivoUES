@@ -180,14 +180,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "AFTER INSERT ON reservacion\n" +
                     "BEGIN\n" +
                     "UPDATE horariosLocales SET disponibilidad=1 WHERE horariosLocales.idHorario=new.idHorario AND horariosLocales.idLocal=new.idLocal;\n" +
-                    "END");
+                    "END;");
 
             //Trigger de actualizacion disponibilidad de horarios al eliminar reservacion
             db.execSQL("CREATE TRIGGER reservacion_eliminar\n" +
                     "BEFORE DELETE ON reservacion\n" +
                     "BEGIN\n" +
                     "UPDATE horariosLocales SET disponibilidad=0 WHERE horariosLocales.idHorario=old.idHorario AND horariosLocales.idLocal=old.idLocal;\n" +
-                    "END");
+                    "END;");
 
             //Trigger de actualizacion disponibilidad de horarios al elegir otro horario
             db.execSQL("CREATE TRIGGER fk_nota_actualizar_nuevo\n" +
@@ -195,7 +195,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "WHEN new.idHorario != old.idHorario and new.idLocal != old.idLocal\n" +
                     "BEGIN\n" +
                     "UPDATE horariosLocales SET disponibilidad=1 WHERE horariosLocales.idHorario=new.idHorario AND horariosLocales.idLocal=new.idLocal;\n" +
-                    "END");
+                    "END;");
             db.execSQL("CREATE TRIGGER fk_nota_actualizar_viejo\n" +
                     "AFTER UPDATE ON reservacion\n" +
                     "WHEN new.idHorario != old.idHorario and new.idLocal != old.idLocal\n" +

@@ -196,7 +196,7 @@ public class ControlBDG10 {
     public String datosAcceso(){
         final String[] VAidUsuario = {"01","02","03"};
         final String[] VAnomUsuario = {"Carlos","Alberto","Hernan"};
-        final String[] VAClave = {"123","456","789"};
+        final String[] VAClave = {"Ch1q2","jA3f2","gD21d"};
 
         db.execSQL("DELETE FROM usuario;");
 

@@ -56,13 +56,17 @@ public class ControlBDG10 {
         final String[] nomTipoE = {"Cultural","Político","Deportivo"};
 
         //Tabla tipoPago
-        final String[] idPago = {"01","02"};
-        final String[] tipo = {"Efectivo","Tarjeta"};
+        final String[] idPago = {"EF","TC"};
+        final String[] tipo = {"Efectivo","Tarjeta de credito"};
 
         //Tabla hora
-        final String[] idHora = {"H001","H002"};
-        final String[] horaInicio = {"8:00","13:30"};
-        final String[] horaFin = {"10:00","15:30"};
+        final String[] idHora =
+                {"H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H10", "H11", "H12", "H13", "H14",
+                        "H15", "H16", "H17", "H18", "H19", "H20", "H21", "H22", "H23", "H24", "H25"};
+        final String[] horaInicio = {"06:30","06:30", "08:00","09:00","10:00","10:00","10:00", "10:30", "11:00", "11:25","11:25", "12:00", "12:00", "12:00",
+                                    "12:15", "12:30", "13:30", "13:30", "13:30", "14:00","14:00","14:00","14:30","15:00","16:00"};
+        final String[] horaFin = {"07:45","08:30","10:00","10:00","11:00","11:30","14:00","12:00","12:00","13:30","14:00","13:00","13:45","14:00", "14:00",
+                                    "18:30","14:30","15:30","16:30","15:00","15:45","18:00","15:30","17:00","18:00"};
 
         //Tabla local
         final String[] idLocal = {"CEU01","PAEU1"};

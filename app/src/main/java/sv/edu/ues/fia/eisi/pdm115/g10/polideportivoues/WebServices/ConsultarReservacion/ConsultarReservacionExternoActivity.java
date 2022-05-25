@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.Cobro;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.Reservacion;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.ReservacionInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDCarolina;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarCobro.CobroService;
 
@@ -12,10 +13,12 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -29,8 +32,9 @@ public class ConsultarReservacionExternoActivity extends AppCompatActivity {
     static List<Reservacion> listaReservacion;
     static List<String> nombreReservacion;
     ListView listViewReservacion;
+    ControlBDCarolina db;
 
-    private final String urlService = "http://192.168.0.21/WSPolideportivoUES/ws_reservacion_query.php";
+    private final String urlService = "http://192.168.0.24/WSPolideportivoUES/ws_reservacion_query.php";
 
     @SuppressLint("WrongConstant")
     @Override
@@ -43,7 +47,7 @@ public class ConsultarReservacionExternoActivity extends AppCompatActivity {
         listaReservacion = new ArrayList<Reservacion>();
         nombreReservacion = new ArrayList<String>();
         listViewReservacion= findViewById(R.id.listViewReservacion);
-
+        db = new ControlBDCarolina(this);
         //Mostrar Calendario
         Calendar calendar=Calendar.getInstance();
         final int year=calendar.get(Calendar.YEAR);
@@ -68,23 +72,57 @@ public class ConsultarReservacionExternoActivity extends AppCompatActivity {
         });
     }
     public void servicioPHP(View v) {
-        String[] fecha = etFechaR.getText().toString().split("/");
-        String url = "";
-        url = urlService + "?year=" + fecha[2] + "&month="+ fecha[1] + "&day=" + fecha[0];
-        String reservacionExternos = ReservacionService.obtenerRespuestaPeticion(url, this);
-        try {
-            listaReservacion.addAll(ReservacionService.obtenerReservacionExterno(reservacionExternos, this));
-            actualizarListView();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+        if((etFechaR.getText().toString()).equals("")){
+            Toast.makeText(this, "Debe ingresar una fecha!", Toast.LENGTH_LONG).show();
+        }else {
+            String[] fecha = etFechaR.getText().toString().split("/");
+            String url = "";
+            url = urlService + "?year=" + fecha[2] + "&month=" + fecha[1] + "&day=" + fecha[0];
+            String reservacionExternos = ReservacionService.obtenerRespuestaPeticion(url, this);
+            try {
+                listaReservacion.addAll(ReservacionService.obtenerReservacionExterno(reservacionExternos, this));
+                actualizarListView();
+                Toast.makeText(this, "Registros encontrados: " + listaReservacion.size() + "", Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
+    public void limpiar(View v){
+        etFechaR.setText("");
+        listaReservacion.removeAll(listaReservacion);
+        actualizarListView();
+    }
+    public void guardar(View v) {
+        String mensaje = "";
+        if((etFechaR.getText().toString()).equals("")){
+            Toast.makeText(this, "Debe ingresar una fecha!", Toast.LENGTH_LONG).show();
+        }else{
+            db.open();
+            for(int i=0; i < listaReservacion.size();i++){
+                mensaje = db.insertarReservacion(listaReservacion.get(i));
+            }
+            db.close();
+            if(mensaje == ""){
+                Toast.makeText(this, "No se encontro ningun registro para su insercion", Toast.LENGTH_LONG).show();
+            }else{
+                if(mensaje == "Registro duplicado!"){
+                    Toast.makeText(this, "Error al realizar insercion, puede que existan registros duplicados o registros asociados a la reservacion que no existan en la base de datos", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(this, "Guardado con exito", Toast.LENGTH_LONG).show();
+                }
+            }
+            listaReservacion.removeAll(listaReservacion);
+            actualizarListView();
+            etFechaR.setText("");
+        }
+    }
+
     private void actualizarListView() {
         String dato = "";
         nombreReservacion.clear();
         for (int i = 0; i < listaReservacion.size(); i++) {
-            dato = listaReservacion.get(i).getIdReservacion() + "    " + listaReservacion.get(i).getIdPersona();
+            dato = "Id: "+listaReservacion.get(i).getIdReservacion() + ", Persona: " + listaReservacion.get(i).getIdPersona()+", Fecha de registro: "+listaReservacion.get(i).getFechaRegistro();
             nombreReservacion.add(dato);
         }
         eliminarElementosDuplicados();

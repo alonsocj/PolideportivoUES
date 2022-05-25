@@ -12,6 +12,7 @@ import android.os.StrictMode;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -25,7 +26,7 @@ public class ConsultarCobroExternoActivity extends AppCompatActivity {
     static List<String> nombreCobros;
     ListView listViewCobros;
 
-    private final String urlService = "http://192.168.0.21/WSPolideportivoUES/ws_cobro_query.php";
+    private final String urlService = "http://192.168.0.24/WSPolideportivoUES/ws_cobro_query.php";
 
     @SuppressLint("WrongConstant")
     @Override
@@ -43,28 +44,32 @@ public class ConsultarCobroExternoActivity extends AppCompatActivity {
     }
 
     public void servicioPHP(View v) {
-        String id = idCobro.getText().toString();
-        String url = "";
-        url = urlService + "?idcobro=" + id;
-        String cobrosExternos = CobroService.obtenerRespuestaPeticion(url, this);
-        try {
-            listaCobros.addAll(CobroService.obtenerCobrosExterno(cobrosExternos, this));
-            actualizarListView();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+        if((idCobro.getText().toString()).equals("")){
+            Toast.makeText(this, "Debe ingresar el id del cobro!", Toast.LENGTH_LONG).show();
+        }else {
+            String id = idCobro.getText().toString();
+            String url = "";
+            url = urlService + "?idcobro=" + id;
+            String cobrosExternos = CobroService.obtenerRespuestaPeticion(url, this);
+            try {
+                listaCobros.addAll(CobroService.obtenerCobrosExterno(cobrosExternos, this));
+                actualizarListView();
+                Toast.makeText(this, "Registros encontrados: " + listaCobros.size() + "", Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
-    public void limpiar(){
+    public void limpiar(View v){
         idCobro.setText("");
-        //listaCobros.removeAll(listaCobros);
-        //actualizarListView();
+        listaCobros.removeAll(listaCobros);
+        actualizarListView();
     }
     private void actualizarListView() {
         String dato = "";
         nombreCobros.clear();
         for (int i = 0; i < listaCobros.size(); i++) {
-            dato = listaCobros.get(i).getIdCobro() + "    " + listaCobros.get(i).getIdPago();
+            dato = "Id: " +listaCobros.get(i).getIdCobro()+ " Tipo de pago: " + listaCobros.get(i).getIdPago()+" Personas: "+ listaCobros.get(i).getCantPersonas()+" Duracion: "+listaCobros.get(i).getDuracionTexto()+" h Precio: "+listaCobros.get(i).getPrecio()+" $";
             nombreCobros.add(dato);
         }
         eliminarElementosDuplicados();

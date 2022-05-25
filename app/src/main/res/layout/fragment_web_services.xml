@@ -14,6 +14,20 @@
         android:layout_weight="0.10"
         android:onClick="lanzarActividad"
         android:text="@string/insertar_evento" />
+    <Button
+        android:id="@+id/button_query_cobro"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        android:text="@string/titulo_cobro_consultar" />
+    <Button
+        android:id="@+id/button_query_reservacion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        android:text="@string/titulo_reservacion_consultar" />
 
 
 </LinearLayout>

@@ -115,6 +115,8 @@
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/drawable/ic_money.xml" value="0.1" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_cobro_insertar.xml" value="0.18" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_cobro_menu.xml" value="0.2" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_consultar_cobro_externo.xml" value="0.22" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_consultar_reservacion_externo.xml" value="0.1" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_detalle_periodos_reservados_actualizar.xml" value="0.1859375" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_detalle_periodos_reservados_consultar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_detalle_periodos_reservados_eliminar.xml" value="0.2" />
@@ -125,6 +127,7 @@
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_horarios_locales_consultar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_horarios_locales_eliminar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_horarios_locales_insertar.xml" value="0.2" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_insertar_evento_externo.xml" value="0.1" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_actualizar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_consultar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_eliminar.xml" value="0.2" />
@@ -136,6 +139,7 @@
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_local_menu.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_consultar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_periodo_reserva_insertar.xml" value="0.2" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_reservacion_insertar.xml" value="0.25" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_tipo_reservacion_actualizar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_tipo_reservacion_consultar.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/activity_tipo_reservacion_eliminar.xml" value="0.2" />
@@ -146,6 +150,7 @@
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/fragment_local.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/fragment_local_evento.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/fragment_tipo_reservacion.xml" value="0.2" />
+        <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/layout/fragment_web_services.xml" value="0.22" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/menu/activity_main_drawer.xml" value="0.2" />
         <entry key="..\:/User/Documents/AndroidStudioProjects/PolideportivoUES/app/src/main/res/menu/main.xml" value="0.2" />
         <entry key="..\:/Users/Chris/Desktop/PolideportivoUES/app/src/main/res/drawable/ic_time.xml" value="0.3405" />

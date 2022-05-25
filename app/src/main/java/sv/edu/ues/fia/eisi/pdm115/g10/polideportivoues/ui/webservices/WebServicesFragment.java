@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarCobro.ConsultarCobroExternoActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarReservacion.ConsultarReservacionExternoActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarEvento.InsertarEventoExternoActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentWebServicesBinding;
 
@@ -25,6 +27,8 @@ public class WebServicesFragment extends Fragment {
         View root = binding.getRoot();
 
         binding.buttonInsertEvent.setOnClickListener(this::lanzarActividad);
+        binding.buttonQueryCobro.setOnClickListener(this::lanzarActividad);
+        binding.buttonQueryReservacion.setOnClickListener(this::lanzarActividad);
 
         return root;
     }
@@ -34,6 +38,12 @@ public class WebServicesFragment extends Fragment {
         switch (view.getId()){
             case R.id.button_insert_event:
                 i = new Intent(WebServicesFragment.this.getContext(), InsertarEventoExternoActivity.class);
+                break;
+            case R.id.button_query_cobro:
+                i = new Intent(WebServicesFragment.this.getContext(), ConsultarCobroExternoActivity.class);
+                break;
+            case R.id.button_query_reservacion:
+                i = new Intent(WebServicesFragment.this.getContext(), ConsultarReservacionExternoActivity.class);
                 break;
         }
         if(i!=null){

@@ -7,14 +7,14 @@ android {
 
     defaultConfig {
         applicationId "sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues"
-        minSdk 21
+        minSdk 22
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        useLibrary 'org.apache.http.legacy'
+        useLibrary'org.apache.http.legacy'
+
     }
 
     buildTypes {

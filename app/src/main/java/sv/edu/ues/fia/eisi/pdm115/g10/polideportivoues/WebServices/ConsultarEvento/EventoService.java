@@ -25,6 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 
 public class EventoService {
@@ -107,8 +108,7 @@ public class EventoService {
                 JSONObject jsonObject = eventosJSON.getJSONObject(i);
                 Evento evento = new Evento();
                 evento.setIdEvento(jsonObject.getString("IDEVENTO"));
-                evento.setIdTipoE(jsonObject.getString("IDTIPOE"));
-                evento.setIdEvento(jsonObject.getString("NOMEVENTO"));
+                evento.setNomEvento(jsonObject.getString("NOMEVENTO"));
                 evento.setCostoEvento(jsonObject.getInt("COSTOEVENTO"));
                 evento.setCantidadAutorizada(jsonObject.getInt("CANTIDADAUTORIZADA"));
                 conjuntoEventos.add(evento);
@@ -122,5 +122,30 @@ public class EventoService {
         }
 
     }
+
+    public static  List<TipoEvento> obtenerTipoEventosExternos(String json, Context context){
+
+        List<TipoEvento> conjuntoEventos = new ArrayList<TipoEvento>();
+
+        try{
+            JSONArray eventosJSON = new JSONArray(json);
+
+            for(int i = 0; i <eventosJSON.length(); i++){
+                JSONObject jsonObject = eventosJSON.getJSONObject(i);
+                TipoEvento tipoEvento = new TipoEvento();
+                tipoEvento.setNombreTipoE(jsonObject.getString("NOMTIPOE"));
+                conjuntoEventos.add(tipoEvento);
+            }
+
+            return conjuntoEventos;
+
+        } catch (Exception e) {
+            Toast.makeText(context, "Error de parseo de JSON de tipoeventos", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+    }
+
+
 
 }

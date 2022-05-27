@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDChristian;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -27,9 +28,13 @@ public class ConsultarEventoExternoActivity extends AppCompatActivity {
     ControlBDChristian controlBDChristian;
     static List<Evento> listaEventos;
     static List<String> nombreEventos; //Todos los datos
+    static List<TipoEvento> listaTipoEventos;
+
     EditText idEventoText;
     ListView listViewEventos; //Desplegara todos los resultados
     Button consultarEventosServices;
+    Button limpiarEvento;
+
 
     //Cambiar direccion ip porque es local
     private final String urlLocal = "http://192.168.1.9/WSPolideportivoUES/ws_evento_query.php";
@@ -48,10 +53,12 @@ public class ConsultarEventoExternoActivity extends AppCompatActivity {
 
         //Solicitamos datos
         listaEventos = new ArrayList<Evento>();
+        listaTipoEventos = new ArrayList<TipoEvento>();
         nombreEventos = new ArrayList<String>();
         idEventoText = findViewById(R.id.EditIdNumeroEventoConsulta);
         listViewEventos =  (ListView) findViewById(R.id.listConsultaEventoServices);
         consultarEventosServices = findViewById(R.id.botonConsultarEventService);
+        limpiarEvento = findViewById(R.id.botonLimpiarServices);
 
         consultarEventosServices.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +75,7 @@ public class ConsultarEventoExternoActivity extends AppCompatActivity {
                     String eventosExternos = EventoService.obtenerRespuestaPeticion(url, ConsultarEventoExternoActivity.this);
 
                     try {
+                        listaTipoEventos.addAll(EventoService.obtenerTipoEventosExternos(eventosExternos, ConsultarEventoExternoActivity.this));
                         listaEventos.addAll(EventoService.obtenerEventosExternos(eventosExternos, ConsultarEventoExternoActivity.this));
                         actualizarListViewEventos();
                         Toast.makeText(ConsultarEventoExternoActivity.this, "Registros encontrados: " + listaEventos.size() + "", Toast.LENGTH_SHORT).show();
@@ -78,19 +86,37 @@ public class ConsultarEventoExternoActivity extends AppCompatActivity {
             }
             });
 
+
+        limpiarEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                idEventoText.setText("");
+                listaEventos.removeAll(listaEventos);
+                actualizarListViewEventos();
+            }
+        });
+
+
     }
 
     private void actualizarListViewEventos(){
         String dato = "";
         nombreEventos.clear();
 
+        String nombre = "";
+
+        for (int i=0; i< listaTipoEventos.size(); i++){
+            nombre = listaTipoEventos.get(i).getNombreTipoE();
+        }
+
         for(int i=0 ; i<listaEventos.size(); i++){
-            dato = "id evento: " + listaEventos.get(i).getIdEvento() +
-                    " Tipo de evento: " + listaEventos.get(i).getIdTipoE() +
-                    " Nombre del evento: " + listaEventos.get(i).getNomEvento() +
-                    " Costo del evento: " + listaEventos.get(i).getCostoEvento() +
-                    " Cantidad autorizada: " + listaEventos.get(i).getCantidadAutorizada();
-            nombreEventos.add(dato);
+                dato = " id evento: " + listaEventos.get(i).getIdEvento() +
+                        //"\n Tipo de evento: " + listaEventos.get(i).getIdTipoE() +
+                        "\n Tipo de evento: " + nombre +
+                        "\n Nombre del evento: " + listaEventos.get(i).getNomEvento()+
+                        "\n Costo del evento: " + listaEventos.get(i).getCostoEvento() +
+                        "\n Cantidad autorizada: " + listaEventos.get(i).getCantidadAutorizada();
+                nombreEventos.add(dato);
         }
         eliminarEventosDuplicados();
 

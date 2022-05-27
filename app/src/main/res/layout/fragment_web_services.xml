@@ -12,6 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.10"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:onClick="lanzarActividad"
         android:text="@string/insertar_evento" />
     <Button
@@ -19,6 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.10"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:onClick="lanzarActividad"
         android:text="@string/titulo_cobro_consultar" />
     <Button
@@ -27,6 +33,9 @@
         android:layout_height="0dp"
         android:layout_weight="0.10"
         android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:text="@string/titulo_reservacion_consultar" />
 
     <Button
@@ -35,6 +44,9 @@
         android:layout_height="0dp"
         android:layout_weight="0.10"
         android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
         android:text="@string/ConsultarEventoFragment" />
 
 

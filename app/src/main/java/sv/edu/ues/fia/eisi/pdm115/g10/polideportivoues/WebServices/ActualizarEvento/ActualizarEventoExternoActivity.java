@@ -31,7 +31,7 @@ public class ActualizarEventoExternoActivity extends AppCompatActivity {
     static List<String> nombreDeEventos;
     EditText fechaTxt;
     ListView listaViewEventos;
-    Button servicioPHP, guardar;
+    Button servicioPHP, guardar, limpiar;
 
     private final String UrlLocal = "http://192.168.1.9/WSPolideportivoUES/ws_evento_update.php";
 
@@ -76,10 +76,14 @@ public class ActualizarEventoExternoActivity extends AppCompatActivity {
         listaViewEventos = findViewById(R.id.listActualizarEventoServices);
         servicioPHP = findViewById(R.id.botonserviciophp);
         guardar = findViewById(R.id.botonActualizarServices);
+        limpiar = findViewById(R.id.botonLimpiarServices);
 
         servicioPHP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if((fechaTxt.getText().toString().equals(""))){
+                    Toast.makeText(ActualizarEventoExternoActivity.this, "Debe de ingresar una fecha", Toast.LENGTH_SHORT).show();
+                }else{
                 String[] fecha = fechaTxt.getText().toString().split("/");
                 String url = "";
                 url = UrlLocal + "?day=" + fecha[0] + "&month=" + fecha[1] + "&year=" + fecha[2];
@@ -91,6 +95,7 @@ public class ActualizarEventoExternoActivity extends AppCompatActivity {
                     actualizarListViewDeEventos();
                 }catch (Exception e){
                     e.printStackTrace();
+                }
                 }
             }
         });
@@ -104,6 +109,15 @@ public class ActualizarEventoExternoActivity extends AppCompatActivity {
                 }
                 controlBDChristian.close();
                 Toast.makeText(ActualizarEventoExternoActivity.this, "Eventos Guardados con exito", Toast.LENGTH_SHORT).show();
+                listaDeEventos.removeAll(listaDeEventos);
+                actualizarListViewDeEventos();
+            }
+        });
+
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fechaTxt.setText("");
                 listaDeEventos.removeAll(listaDeEventos);
                 actualizarListViewDeEventos();
             }

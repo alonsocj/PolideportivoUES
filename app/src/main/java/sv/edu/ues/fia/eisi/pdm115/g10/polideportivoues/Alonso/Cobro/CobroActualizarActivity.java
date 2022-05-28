@@ -26,7 +26,7 @@ public class CobroActualizarActivity extends AppCompatActivity {
     TextInputEditText editIdCobro, editCantPersonas, editDuracion, editPrecio;
     MaterialAutoCompleteTextView editTipoPago;
     LinearLayout linearLayout;
-    Button btnInsertar;
+    Button btnInsertar, limpiar;
     SQLiteDatabase db;
     String[] arridTipoPago;
     String[] arrtipoPago;
@@ -43,6 +43,7 @@ public class CobroActualizarActivity extends AppCompatActivity {
         editTipoPago = findViewById(R.id.list_tipo_pago);
         btnInsertar = findViewById(R.id.button_guardar);
         linearLayout = findViewById(R.id.linearLayout);
+        limpiar = findViewById(R.id.button_limpiar);
 
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +51,7 @@ public class CobroActualizarActivity extends AppCompatActivity {
                 hideKeyboard(v);
             }
         });
-        float[] duracionf= new float[1];
+        float[] duracionf = new float[1];
         editDuracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,30 +68,30 @@ public class CobroActualizarActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         String duracionM;
-                        float duracion=0.0f;
+                        float duracion = 0.0f;
 
                         if (timePicker.getHour() < 10) {
                             if (timePicker.getMinute() < 10) {
                                 duracionM = "0" + timePicker.getHour() + ":0" + timePicker.getMinute();
-                                duracion = timePicker.getHour() + (timePicker.getMinute() *  0.0167f);
+                                duracion = timePicker.getHour() + (timePicker.getMinute() * 0.0167f);
                                 editDuracion.setText(duracionM);
                             } else {
                                 duracionM = "0" + timePicker.getHour() + ":" + timePicker.getMinute();
-                                duracion = timePicker.getHour() + (timePicker.getMinute() *  0.0167f);
+                                duracion = timePicker.getHour() + (timePicker.getMinute() * 0.0167f);
                                 editDuracion.setText(duracionM);
                             }
                         } else {
                             if (timePicker.getMinute() < 10) {
                                 duracionM = timePicker.getHour() + ":0" + timePicker.getMinute();
-                                duracion = timePicker.getHour() + (timePicker.getMinute() *  0.0167f);
+                                duracion = timePicker.getHour() + (timePicker.getMinute() * 0.0167f);
                                 editDuracion.setText(duracionM);
                             } else {
                                 duracionM = timePicker.getHour() + ":" + timePicker.getMinute();
-                                duracion = timePicker.getHour() + (timePicker.getMinute() *  0.0167f);
+                                duracion = timePicker.getHour() + (timePicker.getMinute() * 0.0167f);
                                 editDuracion.setText(duracionM);
                             }
                         }
-                        duracionf[0]=duracion;
+                        duracionf[0] = duracion;
                     }
                 });
             }
@@ -123,7 +124,6 @@ public class CobroActualizarActivity extends AppCompatActivity {
                     String idTipoPago = "";
                     int cantPersonas = Integer.parseInt(editCantPersonas.getText().toString());
                     String duracionM = editDuracion.getText().toString();
-                    float precio = (Float) Float.valueOf(editPrecio.getText().toString());
 
                     for (int i = 0; i < arrtipoPago.length; i++) {
                         if (tipoPago.equals(arrtipoPago[i])) {
@@ -136,17 +136,34 @@ public class CobroActualizarActivity extends AppCompatActivity {
                     cobro.setCantPersonas(cantPersonas);
                     cobro.setDuracion(duracionf[0]);
                     cobro.setDuracionTexto(duracionM);
-                    cobro.setPrecio(precio);
                     helper.open();
                     eventosRegistrados = helper.actualizar(cobro);
                     helper.close();
+                    db = openOrCreateDatabase("polideportivo.s3db", MODE_PRIVATE, null);
+                    Cursor cursor = db.rawQuery("SELECT (precio) FROM cobro WHERE idCobro=" + idCobro, null);
+                    cursor.moveToFirst();
+                    editPrecio.setText(cursor.getString(0));
                     Toast.makeText(getApplicationContext(), eventosRegistrados, Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Error al Actualizar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error al Actualizar, verifique los datos", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
+    }
+
+    public void limpiarTexto(View v) {
+        editIdCobro.setText("");
+        editTipoPago.setText("");
+        editCantPersonas.setText("");
+        editDuracion.setText("");
+        editPrecio.setText("");
     }
 
     public void hideKeyboard(View view) {

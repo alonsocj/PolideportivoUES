@@ -3,7 +3,9 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -18,14 +20,24 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class LocalEliminarActivity extends AppCompatActivity {
     ControlBDG10William helper;
     TextInputEditText editIdLocal;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_eliminar);
         helper = new ControlBDG10William(this);
         editIdLocal = findViewById(R.id.EditIdLocal);
+        linearLayout = findViewById(R.id.linearLayout);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
     }
     public void eliminarLocal(View v){
+        hideKeyboard(v);
         String registrosEliminados;
         String idLocal = editIdLocal.getText().toString();
         AlertDialog.Builder confirmacion=new AlertDialog.Builder(LocalEliminarActivity.this);
@@ -87,6 +99,14 @@ public class LocalEliminarActivity extends AppCompatActivity {
         }
     }
     public void limpiar(View v){
+        hideKeyboard(v);
         editIdLocal.setText("");
+    }
+
+    public void hideKeyboard(View view) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(LocalEliminarActivity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

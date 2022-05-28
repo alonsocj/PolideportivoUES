@@ -2,10 +2,12 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -21,7 +23,7 @@ public class LocalActualizarActivity extends AppCompatActivity {
     TextInputEditText editIdLocal;
     TextInputEditText editnomLocal;
     TextInputEditText editCantLocal;
-    Button btnagregarLocal;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +32,17 @@ public class LocalActualizarActivity extends AppCompatActivity {
         editIdLocal = findViewById(R.id.EditIdLocal);
         editnomLocal = findViewById(R.id.EditNombreLocal);
         editCantLocal = findViewById(R.id.EditCantidadPersonas);
+        linearLayout = findViewById(R.id.linearLayout);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
     }
     public void actualizarLocal(View v) {
+        hideKeyboard(v);
         String idLocal = editIdLocal.getText().toString();
         String nombreLocal = editnomLocal.getText().toString();
         String cantPS = editCantLocal.getText().toString();
@@ -74,9 +85,15 @@ public class LocalActualizarActivity extends AppCompatActivity {
         }
     }
     public void limpiar(View v){
+        hideKeyboard(v);
         editIdLocal.setText("");
         editnomLocal.setText("");
         editCantLocal.setText("");
     }
-
+    public void hideKeyboard(View view) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(LocalActualizarActivity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
 }

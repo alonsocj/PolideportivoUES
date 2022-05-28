@@ -31,6 +31,8 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.P
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDCarolina;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponiblesInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.MainActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -111,12 +113,12 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
         spPeriodoR.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, arrayPeriodoReservaString));
         helper.close();
 
-        /*//Llenado del spinner de horarios y locales
+        //Llenado del spinner de horarios y locales
         helper.open();
         arrayHorariosLocales=helper.consultarHorariosLocales();
         arrayHorariosLocalesString=helper.consultarHorariosLocalesString(arrayHorariosLocales);
         spHLocal.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, arrayHorariosLocalesString));
-        helper.close();*/
+        helper.close();
 
     //Mostrar Calendario
         Calendar calendar=Calendar.getInstance();
@@ -141,6 +143,89 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
             }
         }); //Fin calendario
 
-    }
 
+        botonAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String idReservacion=editIdReservacion.getText().toString();
+                String fechaRegistro=etFechaR.getText().toString();
+                String spcobro=spCobro.getText().toString();
+                String sppersona=spPersona.getText().toString();
+                String sptipoReservacion=spTReservacion.getText().toString();
+                String spevento=spEvento.getText().toString();
+                String spperiodoReservacion=spPeriodoR.getText().toString();
+                String sphorarioLocal=spHLocal.getText().toString();
+                String insertarRegistros;
+
+
+                if(idReservacion.isEmpty() || fechaRegistro.isEmpty() || spcobro.isEmpty() || sppersona.isEmpty() || sptipoReservacion.isEmpty() ||  spevento.isEmpty() ||  spperiodoReservacion.isEmpty() || sphorarioLocal.isEmpty()){
+                    Toast.makeText(ReservacionInsertarActivity.this, "Debe completar los campos para realizar una reservación!", Toast.LENGTH_SHORT).show();
+                }else{
+                    if(idReservacion.length()!=6){
+                        Toast.makeText(ReservacionInsertarActivity.this, "El id de reservacion debe de ser de 6 carácteres!", Toast.LENGTH_SHORT).show();
+                    }else{
+
+                        Integer idCobroSeleccionada=arrayCobros.get(arrayCobrosString.indexOf(spcobro)).getIdCobro();
+                        String idPersonaSeleccionada=arrayPersonas.get(arrayPersonasString.indexOf(sppersona)).getIdPersona();
+                        String idTipoReservacionSeleccionada=arrayTipoReservaciones.get(arrayTipoReservacionesString.indexOf(sptipoReservacion)).getIdTipoR();
+                        String idEventoSeleccionada=arrayEventos.get(arrayEventosString.indexOf(spevento)).getIdEvento();
+                        String idPeriodoReservaSeleccionada=arrayPeriodoReserva.get(arrayPeriodoReservaString.indexOf(spperiodoReservacion)).getIdPeriodoReserva();
+                        String idHorariosSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdHorario();
+                        String idLocalesSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdLocal();
+
+
+                        Reservacion reservacion = new Reservacion();
+                        reservacion.setIdReservacion(idReservacion);
+                        reservacion.setIdCobro(idCobroSeleccionada);
+                        reservacion.setIdPersona(idPersonaSeleccionada);
+                        reservacion.setIdTipoR(idTipoReservacionSeleccionada);
+                        reservacion.setIdEvento(idEventoSeleccionada);
+                        reservacion.setIdPeriodoReserva(idPeriodoReservaSeleccionada);
+                        reservacion.setIdHorario(idHorariosSeleccionada);
+                        reservacion.setIdLocal(idLocalesSeleccionada);
+                        reservacion.setFechaRegistro(fechaRegistro);
+
+                        helper.open();
+                        insertarRegistros = helper.insertarReservacion(reservacion);
+                        helper.close();
+                        Toast.makeText(ReservacionInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+
+                        if(insertarRegistros.equals("Registro duplicado!")){
+                            //Limpiamos los campos
+                            editIdReservacion.setText("");
+                            etFechaR.setText("");
+                            spCobro.setText("");
+                            spPersona.setText("");
+                            spTReservacion.setText("");
+                            spEvento.setText("");
+                            spPeriodoR.setText("");
+                            spHLocal.setText("");
+                        }else{
+                            //Limpiamos los campos
+                            editIdReservacion.setText("");
+                            etFechaR.setText("");
+                            spCobro.setText("");
+                            spPersona.setText("");
+                            spTReservacion.setText("");
+                            spEvento.setText("");
+                            spPeriodoR.setText("");
+                            spHLocal.setText("");
+                        }
+                    }
+                }
+            }
+        });
+    }
+    public void limpiar(View v) {
+
+        editIdReservacion.setText("");
+        etFechaR.setText("");
+        spCobro.setText("");
+        spPersona.setText("");
+        spTReservacion.setText("");
+        spEvento.setText("");
+        spPeriodoR.setText("");
+        spHLocal.setText("");
+    }
 }

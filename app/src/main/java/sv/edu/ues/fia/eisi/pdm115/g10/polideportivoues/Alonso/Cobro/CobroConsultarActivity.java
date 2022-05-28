@@ -20,7 +20,7 @@ public class CobroConsultarActivity extends AppCompatActivity {
 
     ControlBDG10Alonso helper;
     TextInputEditText editIdCobro, editTipoPago, editCantPersonas, editDuracion, editPrecio;
-    Button btnConsultar;
+    Button btnConsultar, limpiar;
     LinearLayout linearLayout;
     SQLiteDatabase db;
 
@@ -36,8 +36,9 @@ public class CobroConsultarActivity extends AppCompatActivity {
         editTipoPago = findViewById(R.id.list_tipo_pago);
         btnConsultar = findViewById(R.id.button_consultar);
         linearLayout = findViewById(R.id.linearLayout);
+        limpiar = findViewById(R.id.button_limpiar);
 
-        linearLayout.setOnClickListener(new View.OnClickListener(){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 hideKeyboard(v);
@@ -54,9 +55,9 @@ public class CobroConsultarActivity extends AppCompatActivity {
 
                 if (cobro == null) {
                     Toast.makeText(CobroConsultarActivity.this, "Cobro no encontrado", Toast.LENGTH_SHORT).show();
-                }else{
-                    db = openOrCreateDatabase("polideportivo.s3db",MODE_PRIVATE,null);
-                    Cursor cursor = db.rawQuery("SELECT * FROM tipopago WHERE idPago = '"+cobro.getIdPago()+"'",null);
+                } else {
+                    db = openOrCreateDatabase("polideportivo.s3db", MODE_PRIVATE, null);
+                    Cursor cursor = db.rawQuery("SELECT * FROM tipopago WHERE idPago = '" + cobro.getIdPago() + "'", null);
                     cursor.moveToFirst();
                     String tipoPago = cursor.getString(1);
                     editCantPersonas.setText(String.valueOf(cobro.getCantPersonas()));
@@ -66,9 +67,24 @@ public class CobroConsultarActivity extends AppCompatActivity {
                 }
             }
         });
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
     }
+
+    public void limpiarTexto(View v) {
+        editIdCobro.setText("");
+        editTipoPago.setText("");
+        editCantPersonas.setText("");
+        editDuracion.setText("");
+        editPrecio.setText("");
+    }
+
     public void hideKeyboard(View view) {
-        if(getCurrentFocus()!=null) {
+        if (getCurrentFocus() != null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(CobroInsertarActivity.INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }

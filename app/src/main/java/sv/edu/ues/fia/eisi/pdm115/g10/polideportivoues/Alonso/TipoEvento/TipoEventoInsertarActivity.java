@@ -2,10 +2,13 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10Alonso;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
@@ -13,28 +16,48 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 public class TipoEventoInsertarActivity extends AppCompatActivity {
 
     ControlBDG10Alonso helper;
-    EditText editIdTipoEvento;
-    EditText editNombreTipoEvento;
+    TextInputEditText editIdTipoEvento;
+    TextInputEditText editNombreTipoEvento;
+    Button limpiar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_evento_insertar);
         helper = new ControlBDG10Alonso(this);
-        editIdTipoEvento = (EditText) findViewById(R.id.editText_id);
-        editNombreTipoEvento = (EditText) findViewById(R.id.editText_nombre);
+        editIdTipoEvento = findViewById(R.id.editText_idTipoE);
+        editNombreTipoEvento = findViewById(R.id.EditTipoE);
+        limpiar = findViewById(R.id.button_limpiar);
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarTexto(v);
+            }
+        });
     }
 
-    public void insertarTipoEvento(View view){
-        String idTipoEvento = editIdTipoEvento.getText().toString();
-        String nombreTipoEvento = editNombreTipoEvento.getText().toString();
-        String regInsertados;
-        TipoEvento tipoEvento = new TipoEvento();
-        tipoEvento.setIdTipoE(idTipoEvento);
-        tipoEvento.setNombreTipoE(nombreTipoEvento);
-        helper.open();
-        regInsertados = helper.insertar(tipoEvento);
-        helper.close();
-        Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+    public void insertarTipoEvento(View view) {
+        try {
+            String idTipoEvento = editIdTipoEvento.getText().toString();
+            if(!idTipoEvento.isEmpty()) {
+                String nombreTipoEvento = editNombreTipoEvento.getText().toString();
+                String regInsertados;
+                TipoEvento tipoEvento = new TipoEvento();
+                tipoEvento.setIdTipoE(idTipoEvento);
+                tipoEvento.setNombreTipoE(nombreTipoEvento);
+                helper.open();
+                regInsertados = helper.insertar(tipoEvento);
+                helper.close();
+                Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "Error al insertar el tipo de evento", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void limpiarTexto(View view) {
+        editIdTipoEvento.setText("");
+        editNombreTipoEvento.setText("");
     }
 }

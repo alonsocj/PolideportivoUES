@@ -3,7 +3,9 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -13,20 +15,31 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10William;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalEliminarActivity;
 
 
 public class TipoReservacionEliminarActivity extends AppCompatActivity {
     ControlBDG10William helper;
     TextInputEditText editIdTipoReservacion;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_reservacion_eliminar);
         helper = new ControlBDG10William(this);
         editIdTipoReservacion = findViewById(R.id.EditIdTipoReservacion);
+        linearLayout = findViewById(R.id.linearLayout);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
     }
     public void eliminarTipoReservacion(View v){
+        hideKeyboard(v);
         String idTipoR = editIdTipoReservacion.getText().toString();
         AlertDialog.Builder confirmacion=new AlertDialog.Builder(TipoReservacionEliminarActivity.this);
         if (idTipoR.isEmpty()){
@@ -66,6 +79,14 @@ public class TipoReservacionEliminarActivity extends AppCompatActivity {
         }
     }
     public void limpiar(View v){
+        hideKeyboard(v);
         editIdTipoReservacion.setText("");
+    }
+
+    public void hideKeyboard(View view) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(TipoReservacionEliminarActivity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

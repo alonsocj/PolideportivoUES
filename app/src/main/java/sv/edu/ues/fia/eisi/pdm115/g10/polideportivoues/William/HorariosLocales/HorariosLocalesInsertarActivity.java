@@ -6,9 +6,11 @@ import android.app.DatePickerDialog;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -29,6 +31,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibl
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponiblesInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalConsultarActivity;
 
 public class HorariosLocalesInsertarActivity extends AppCompatActivity {
     ControlBDG10William helper;
@@ -38,6 +41,7 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
     List<Local> arrayLocales=new ArrayList<Local>();
     List<String> arrayLocalesString=new ArrayList<String>();
     List<String> values =new ArrayList<>();
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,14 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
         SHoras = findViewById(R.id.list_id_horario);
         SLocales = findViewById(R.id.list_locales);
         SDisponibilidad = findViewById(R.id.list_disponibiliad);
+        linearLayout = findViewById(R.id.linearLayout);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
 
         helper.open();
         arrayHoras=helper.consultarHorarioDisponibles();
@@ -62,6 +74,7 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
 
 
     public void insertarHorariosLocales(View v){
+        hideKeyboard(v);
         String idHorario = SHoras.getText().toString();
         String idLocal = SLocales.getText().toString();
         String disponibilidad = SDisponibilidad.getText().toString();
@@ -95,8 +108,15 @@ public class HorariosLocalesInsertarActivity extends AppCompatActivity {
         }
 
     public void limpiar(View v){
+        hideKeyboard(v);
         SHoras.setText("");
         SLocales.setText("");
         SDisponibilidad.setText("");
+    }
+    public void hideKeyboard(View view) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(HorariosLocalesInsertarActivity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

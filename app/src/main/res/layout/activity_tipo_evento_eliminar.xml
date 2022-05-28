@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="30dp">
+
     <TextView
         android:id="@+id/textView_titulo"
         android:layout_width="wrap_content"
@@ -13,24 +15,50 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:textSize="20sp"
-        android:text="@string/idTipoEvento"/>
-    <EditText
-        android:id="@+id/editText_id"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_id_tipo_evento"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:maxLength="1"/>
-    <Button
-        android:id="@+id/button_guardar"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="@string/idTipoEvento"
+        app:startIconDrawable="@drawable/ic_key">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_idTipoE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLength="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/acciones"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:onClick="eliminarTipoEvento"
-        android:text="@string/botonEliminar" />
+        android:layout_marginTop="20dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_limpiar"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/botones"
+            android:text="@string/btnLimpiar"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/button_guardar"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/botones"
+            android:onClick="eliminarTipoEvento"
+            android:text="@string/botonEliminar"
+            android:textColor="@color/black" />
+    </LinearLayout>
 
 </LinearLayout>

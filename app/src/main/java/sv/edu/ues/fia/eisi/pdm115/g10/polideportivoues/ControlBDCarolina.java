@@ -10,12 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.Cobro;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.LocalEvento.LocalEvento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.Nacionalidad;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReserva;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.Reservacion;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.ReservacionEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.Hora;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.HorariosLocales.HorariosLocales;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
@@ -25,6 +26,7 @@ public class ControlBDCarolina {
     /*Tabla PeriodoReserva*/
     private static final String[] camposPeriodoReserva = new String[]{"idPeriodoReserva","fechaInicio","fechaFin"};
     private static final String[] camposNacionalidad = new String[]{"codNac","nacionalidad"};
+    private static final String[]camposReservacion = new String[]{"idReservacion", "idCobro", "idPersona", "idTipoR", "idEvento","idPeriodoReserva", "idHorario","idLocal", "fechaRegistro"};
 
     private final DatabaseHelper DBhelper; /*Instrucciones SQL*/
     private SQLiteDatabase db;
@@ -50,22 +52,6 @@ public class ControlBDCarolina {
         value.put("fechaInicio", periodoReserva.getFechaInicio());
         value.put("fechaFin", periodoReserva.getFechaFin());
         contador = db.insert("periodoReserva",null,value);
-
-        /*ContentValues values = new ContentValues();
-        values.put("idPeriodoReserva", "CAROLI");
-        values.put("fechaInicio", "17/04/2022");
-        values.put("fechaFin", "02/05/2022");
-        db.insert("periodoReserva",null,values);
-
-        ContentValues l=new ContentValues();
-        l.put("idReservacion", "R00001");
-        l.put("idCobro","C00001");
-        l.put("idPersona","P00001");
-        l.put("idTipoR","P");
-        l.put("idEvento","000001");
-        l.put("idPeriodoReserva","CAROLI");
-        l.put("fechaRegistro","05/05/2022");
-        db.insert("reservacion",null, l);*/
 
         if(contador==-1 || contador==0){
             regInsertados="Registro duplicado. Verifique inserción";
@@ -209,7 +195,7 @@ public class ControlBDCarolina {
         }
     }
     public String eliminarNacionalidad(Nacionalidad nac){
-        String regAfectados="Filas afectadas en la tabla nacionalidad= ";
+        String regAfectados="Filas afectadas = ";
         int contador=0;
 
         contador+=db.delete("nacionalidad","codNac='"+nac.getCodNac()+"'",null);
@@ -232,30 +218,92 @@ public class ControlBDCarolina {
         return suma;
     }
 
-
-
-    //CRUD LocalEvento
-    public String insertarLocalEvento (LocalEvento localEvento){
-
-        return null;
-    }
-
     //CRUD Reservacion
     public String insertarReservacion (Reservacion reservacion){
+        String regInsertados="Registros Insertados Nº= ";
+        long contador=0;
 
-        return null;
+        ContentValues reservacion1 = new ContentValues();
+        reservacion1.put("idReservacion", reservacion.getIdReservacion());
+        reservacion1.put("idCobro", reservacion.getIdCobro());
+        reservacion1.put("idPersona", reservacion.getIdPersona());
+        reservacion1.put("idTipoR", reservacion.getIdTipoR());
+        reservacion1.put("idEvento", reservacion.getIdEvento());
+        reservacion1.put("idPeriodoReserva", reservacion.getIdPeriodoReserva());
+        reservacion1.put("idHorario", reservacion.getIdHorario());
+        reservacion1.put("idLocal", reservacion.getIdLocal());
+        reservacion1.put("fechaRegistro", reservacion.getFechaRegistro());
+
+        contador=db.insert("reservacion", null, reservacion1);
+
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Registro duplicado!";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
     }
     public String actualizarReservacion(Reservacion reservacion){
+        if(verificarIntegridad(reservacion, 3)){
+            String[] id = {reservacion.getIdReservacion()};
+            ContentValues reservacion1 = new ContentValues();
 
-        return null;
+            reservacion1.put("idCobro", reservacion.getIdCobro());
+            reservacion1.put("idPersona", reservacion.getIdPersona());
+            reservacion1.put("idTipoR", reservacion.getIdTipoR());
+            reservacion1.put("idEvento", reservacion.getIdEvento());
+            reservacion1.put("idPeriodoReserva", reservacion.getIdPeriodoReserva());
+            reservacion1.put("idHorario", reservacion.getIdHorario());
+            reservacion1.put("idLocal", reservacion.getIdLocal());
+            reservacion1.put("fechaRegistro", reservacion.getFechaRegistro());
+
+            db.update("reservacion", reservacion1, "idReservacion = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "La reservación con el código " + reservacion.getIdReservacion() + " no existe";
+        }
     }
-    public String consultarReservacion(Reservacion reservacion){
+    public Reservacion consultarReservacion(String reservacion){
 
-        return null;
+        String[] id = {reservacion};
+        Cursor cursor = db.query("reservacion",camposReservacion, "idReservacion = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Reservacion reserva = new Reservacion();
+            reserva.setIdReservacion(cursor.getString(0));
+            reserva.setIdCobro(cursor.getInt(1));
+            reserva.setIdPersona(cursor.getString(2));
+            reserva.setIdTipoR(cursor.getString(3));
+            reserva.setIdEvento(cursor.getString(4));
+            reserva.setIdPeriodoReserva(cursor.getString(5));
+            reserva.setIdHorario(cursor.getString(6));
+            reserva.setIdLocal(cursor.getString(7));
+            reserva.setFechaRegistro(cursor.getString(8));
+            return reserva;
+        }else {
+            return null;
+        }
     }
     public String eliminarReservacion(Reservacion reservacion){
+        String regAfectados="Filas afectadas = ";
+        int contador=0;
 
-        return null;
+        contador+=db.delete("reservacion","idReservacion='"+reservacion.getIdReservacion()+"'",null);
+        regAfectados = regAfectados + contador;
+        return regAfectados;
+    }
+    public Boolean verificarExisReservacion(Reservacion reservacion){
+        //verifica la existencia de nacionalidad
+        Reservacion re = (Reservacion) reservacion;
+        String[]id = {re.getIdReservacion()};
+        open();
+        Cursor cursor = db.query("reservacion",null,"idReservacion = ?", id,null,null,null);
+        if (cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
@@ -307,9 +355,10 @@ public class ControlBDCarolina {
             persona.setApellido(cursor.getString(2));
             persona.setGenero(cursor.getString(3));
             persona.setNacimiento(cursor.getString(4));
-            persona.setDireccion(cursor.getString(5));
-            persona.setEmail(cursor.getString(6));
-            persona.setTelefono(cursor.getString(7));
+            persona.setNacionalidad(cursor.getString(5));
+            persona.setDireccion(cursor.getString(6));
+            persona.setEmail(cursor.getString(7));
+            persona.setTelefono(cursor.getString(8));
             arrayPersonas.add(persona);
 
             while(cursor.moveToNext()) {
@@ -319,9 +368,10 @@ public class ControlBDCarolina {
                 personas.setApellido(cursor.getString(2));
                 personas.setGenero(cursor.getString(3));
                 personas.setNacimiento(cursor.getString(4));
-                personas.setDireccion(cursor.getString(5));
-                personas.setEmail(cursor.getString(6));
-                personas.setTelefono(cursor.getString(7));
+                personas.setNacionalidad(cursor.getString(5));
+                personas.setDireccion(cursor.getString(6));
+                personas.setEmail(cursor.getString(7));
+                personas.setTelefono(cursor.getString(8));
                 arrayPersonas.add(personas);
             }
         }
@@ -378,6 +428,7 @@ public class ControlBDCarolina {
             evento.setIdTipoE(cursor.getString(1));
             evento.setNomEvento(cursor.getString(2));
             evento.setCostoEvento(cursor.getFloat(3));
+            evento.setCantidadAutorizada(cursor.getInt(4));
             arrayEventos.add(evento);
 
             while(cursor.moveToNext()) {
@@ -386,6 +437,7 @@ public class ControlBDCarolina {
                 eventos.setIdTipoE(cursor.getString(1));
                 eventos.setNomEvento(cursor.getString(2));
                 eventos.setCostoEvento(cursor.getFloat(3));
+                eventos.setCantidadAutorizada(cursor.getInt(4));
                 arrayEventos.add(eventos);
             }
         }
@@ -428,15 +480,37 @@ public class ControlBDCarolina {
         for (int i=0;i<arrayPeriodoReservacion.size();i++) {
             PeriodoReserva periodoRArray=new PeriodoReserva();
             periodoRArray=arrayPeriodoReservacion.get(i);
-            arrayPeriodoReservacionString.add(periodoRArray.getFechaFin()+" - "+periodoRArray.getFechaFin());
+            arrayPeriodoReservacionString.add(periodoRArray.getFechaInicio()+" - "+periodoRArray.getFechaFin());
         }
         return arrayPeriodoReservacionString;
+    }
+    //Extraer listado de todos los horarios locales no disponibles
+    public List<HorariosLocales> consultarHorariosLocales1(){//modificar disponibilidad despues
+        List<HorariosLocales> arrayHorariosLocales=new ArrayList<>();
+        Cursor cursor = db.query("horariosLocales",null,null , null, null, null, null);
+
+        if(cursor.moveToFirst()){
+            HorariosLocales horariosL = new HorariosLocales();
+            horariosL.setIdHorario(cursor.getString(0));
+            horariosL.setIdLocal(cursor.getString(1));
+            horariosL.setDisponibilidad(Integer.parseInt(cursor.getString(2)));
+            arrayHorariosLocales.add(horariosL);
+
+            while(cursor.moveToNext()) {
+                HorariosLocales horariosL1 = new HorariosLocales();
+                horariosL1.setIdHorario(cursor.getString(0));
+                horariosL1.setIdLocal(cursor.getString(1));
+                horariosL1.setDisponibilidad(Integer.parseInt(cursor.getString(2)));
+                arrayHorariosLocales.add(horariosL1);
+            }
+        }
+        return arrayHorariosLocales;
     }
 
     //Extraer listado de todos los horarios locales
     public List<HorariosLocales> consultarHorariosLocales(){
         List<HorariosLocales> arrayHorariosLocales=new ArrayList<>();
-        Cursor cursor = db.query("horariosLocales",null, null, null, null, null, null);
+        Cursor cursor = db.query("horariosLocales",null,"disponibilidad=0" , null, null, null, null);
 
         if(cursor.moveToFirst()){
             HorariosLocales horariosL = new HorariosLocales();
@@ -460,42 +534,89 @@ public class ControlBDCarolina {
         for (int i=0;i<arrayHorariosLocales.size();i++) {
             HorariosLocales horariosLArray=new HorariosLocales();
             horariosLArray=arrayHorariosLocales.get(i);
-            arrayHorariosLocalesString.add("Id local: "+ horariosLArray.getIdLocal()+ " - id horario: "+ horariosLArray.getIdHorario());
+
+            //Obtenemos el valor especifico del dia de la tabla horarios disponibles
+            HorariosDisponibles horariosDisponibles= new HorariosDisponibles();
+            horariosDisponibles.setIdHorario(horariosLArray.getIdHorario());
+            Cursor cursor1=db.query("horariosDisponibles",null,"idHorario='"+horariosDisponibles.getIdHorario()+"'",null,null,null,null);
+            HorariosDisponibles horariosD = new HorariosDisponibles();
+            if(cursor1.moveToFirst()){
+                horariosD.setIdHorario(cursor1.getString(0));
+                horariosD.setHora(cursor1.getString(1));
+                horariosD.setDia(cursor1.getString(2));
+            }
+
+            //Obtenemos el valor especifico de la hora de la tabla horarios disponibles
+            Hora horas= new Hora();
+            horas.setIdHora(horariosD.getHora());
+            Cursor cursor2=db.query("hora",null,"idHora='"+horas.getIdHora()+"'",null,null,null,null);
+            Hora horasD = new Hora();
+            if(cursor2.moveToFirst()){
+                horasD.setIdHora(cursor2.getString(0));
+                horasD.setHoraInicio(cursor2.getString(1));
+                horasD.setHoraFin(cursor2.getString(2));
+            }
+
+            //Obtenemos el valor especifico del local de la tabla local
+            Local local= new Local();
+            local.setIdLocal(horariosLArray.getIdLocal());
+            Cursor cursor3=db.query("local",null,"idLocal='"+local.getIdLocal()+"'",null,null,null,null);
+            Local locales = new Local();
+            if(cursor3.moveToFirst()){
+                locales.setIdLocal(cursor3.getString(0));
+                locales.setNomLocal(cursor3.getString(1));
+                locales.setCantidadPersonas(Integer.parseInt(cursor3.getString(2)));
+            }
+
+            arrayHorariosLocalesString.add(locales.getNomLocal()+ " - "+ horariosD.getDia()+" "+horasD.getHoraInicio()+ "-"+horasD.getHoraFin());
         }
         return arrayHorariosLocalesString;
     }
 
-    //Extraer listado de todos los locales
+    //Consultar tabla horarios disponibles
+    public List<HorariosDisponibles> consultarHorariosDisponibles(){
+        List<HorariosDisponibles> horariosD=new ArrayList<>();
+        Cursor cursor = db.query("horariosDisponibles",null, null, null, null, null, null);
+
+        if(cursor.moveToFirst()){
+            HorariosDisponibles horario = new HorariosDisponibles();
+            horario.setIdHorario(cursor.getString(0));
+            horario.setHora(cursor.getString(1));
+            horario.setDia(cursor.getString(2));
+            horariosD.add(horario);
+
+            while(cursor.moveToNext()) {
+                HorariosDisponibles horario1 = new HorariosDisponibles();
+                horario1.setIdHorario(cursor.getString(0));
+                horario1.setHora(cursor.getString(1));
+                horario1.setDia(cursor.getString(2));
+                horariosD.add(horario1);
+            }
+        }
+        return horariosD;
+    }
+
+    //Consultar tabla locales
     public List<Local> consultarLocales(){
-        List<Local> arrayLocales=new ArrayList<>();
+        List<Local> Locales=new ArrayList<>();
         Cursor cursor = db.query("local",null, null, null, null, null, null);
 
         if(cursor.moveToFirst()){
             Local local = new Local();
             local.setIdLocal(cursor.getString(0));
             local.setNomLocal(cursor.getString(1));
-            local.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
-            arrayLocales.add(local);
+            local.setCantidadPersonas(cursor.getInt(2));
+            Locales.add(local);
 
             while(cursor.moveToNext()) {
-                Local locals = new Local();
-                locals.setIdLocal(cursor.getString(0));
-                locals.setNomLocal(cursor.getString(1));
-                locals.setCantidadPersonas(Integer.parseInt(cursor.getString(2)));
-                arrayLocales.add(locals);
+                Local local1 = new Local();
+                local1.setIdLocal(cursor.getString(0));
+                local1.setNomLocal(cursor.getString(1));
+                local1.setCantidadPersonas(cursor.getInt(2));
+                Locales.add(local1);
             }
         }
-        return arrayLocales;
-    }
-    public List<String> consultarLocalesString(List<Local> arrayLocales){
-        List<String>arrayLocalesString=new ArrayList<>();
-        arrayLocalesString.add("Seleccione un local");
-        for (int i=0;i<arrayLocales.size();i++) {
-            Local localessArray=new Local();
-            localessArray=arrayLocales.get(i);
-            arrayLocalesString.add(localessArray.getNomLocal());
-        }
-        return arrayLocalesString;
+        return Locales;
     }
 
     private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
@@ -522,80 +643,14 @@ public class ControlBDCarolina {
             }
             case 3:
             {
-                PeriodoReserva periodo = (PeriodoReserva)dato;
-                Cursor c=db.query(true, "reservacion", new String[] {"idPeriodoReserva" }, "idperiodoReserva='"+periodo.getIdPeriodoReserva()+"'",null,null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            /*case 2:
-            {
-                //verificar que al modificar nota exista carnet del alumno, el
-                codigo de materia y el ciclo
-                Nota nota1 = (Nota)dato;
-                String[] ids = {nota1.getCarnet(), nota1.getCodmateria(),
-                        nota1.getCiclo()};
-                abrir();
-                Cursor c = db.query("nota", null, "carnet = ? AND codmateria = ? AND
-                        ciclo = ?", ids, null, null, null);
-                if(c.moveToFirst()){
-                //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }*/
-           /* case 3:
-            {
-                Alumno alumno = (Alumno)dato;
-                Cursor c=db.query(true, "nota", new String[] {
-                                "carnet" }, "carnet='"+alumno.getCarnet()+"'",null,
-                        null, null, null, null);
-                if(c.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }
-            case 4:
-            {
-                Materia materia = (Materia)dato;
-                Cursor cmat=db.query(true, "nota", new String[] {
-                                "codmateria" },
-                        "codmateria='"+materia.getCodmateria()+"'",null, null, null, null, null);
-                if(cmat.moveToFirst())
-                return true;
-                else
-                return false;
-            }
-            case 5:
-            {
-                //verificar que al insertar nota exista carnet del alumno y el
-                codigo de materia
-                Nota nota = (Nota)dato;
-                String[] id1 = {nota.getCarnet()};
-                String[] id2 = {nota.getCodmateria()};
-
-                Cursor cursor1 = db.query("alumno", null, "carnet = ?", id1, null,null, null);
-                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,null, null, null);
-                if(cursor1.moveToFirst() && cursor2.moveToFirst()){
-                    //Se encontraron datos
+                Reservacion re = (Reservacion) dato;
+                String[] id = {re.getIdReservacion()};
+                open();
+                Cursor c2 = db.query("reservacion", null, "idReservacion= ?", id, null, null,null);
+                if(c2.moveToFirst()){//Se encontro nacionalidad
                     return true;
                 }return false;
-            }
-            case 6:
-            {
-                //verificar que exista Materia
-                Materia materia2 = (Materia)dato;
-                String[] idm = {materia2.getCodmateria()};
-                abrir();
-                Cursor cm = db.query("materia", null, "codmateria = ?", idm, null,
-                        null, null);
-                if(cm.moveToFirst()){
-                //Se encontro Materia
-                    return true;
-                }return false;
-            }*/
-            default:
+            }default:
                 return false;
         }
     }

@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">PolideportivoUES</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Polideportivo UES</string>
-    <string name="nav_header_subtitle">PDM115–2022-G10</string>
+    <string name="app_name" translatable="false">PolideportivoUES</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Polideportivo UES</string>
+    <string name="nav_header_subtitle">PDM115-2022-G10</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 

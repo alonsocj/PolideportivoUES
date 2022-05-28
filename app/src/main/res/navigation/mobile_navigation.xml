@@ -87,7 +87,7 @@
     <fragment
         android:id="@+id/nav_genero"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.genero.GeneroFragment"
-        android:label="Género"
+        android:label="@string/titulo_nav_genero"
         tools:layout="@layout/fragment_genero" />
 
     <fragment

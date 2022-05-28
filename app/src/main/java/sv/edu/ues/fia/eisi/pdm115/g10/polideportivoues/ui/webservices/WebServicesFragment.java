@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ActualizarEvento.ActualizarEventoExternoActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarCobro.ConsultarCobroExternoActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarEvento.ConsultarEventoExternoActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarReservacion.ConsultarReservacionExternoActivity;
@@ -31,6 +32,7 @@ public class WebServicesFragment extends Fragment {
         binding.buttonQueryCobro.setOnClickListener(this::lanzarActividad);
         binding.buttonQueryReservacion.setOnClickListener(this::lanzarActividad);
         binding.buttonQueryEvento.setOnClickListener(this::lanzarActividad);
+        binding.buttonupdateevento.setOnClickListener(this::lanzarActividad);
 
         return root;
     }
@@ -49,6 +51,9 @@ public class WebServicesFragment extends Fragment {
                 break;
             case R.id.button_query_evento:
                 i = new Intent(WebServicesFragment.this.getContext(), ConsultarEventoExternoActivity.class);
+                break;
+            case R.id.buttonupdateevento:
+                i = new Intent(WebServicesFragment.this.getContext(), ActualizarEventoExternoActivity.class);
                 break;
         }
         if(i!=null){

@@ -257,6 +257,8 @@
     <string name="web_services">Web Services</string>
     <string name="insertar_evento">Insertar Evento</string>
     <string name="consultar_Evento_Service">Consultar Evento Services</string>
-
+    <string name="Actualizar_Evento_Service">Actualizar Evento Services</string>
+    <string name="fechaactualizarevent">Ingrese A partir de que fecha se va a actualizar</string>
+    <string name="servicioPHP">Servicio PHP</string>
 
 </resources>

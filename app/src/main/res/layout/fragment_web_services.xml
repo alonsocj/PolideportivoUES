@@ -49,5 +49,15 @@
         android:backgroundTint="@color/botones"
         android:text="@string/ConsultarEventoFragment" />
 
+    <Button
+        android:id="@+id/buttonupdateevento"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:text="@string/ActualizarEventoFragment" />
 
 </LinearLayout>

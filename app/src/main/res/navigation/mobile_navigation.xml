@@ -26,19 +26,19 @@
     <fragment
         android:id="@+id/nav_hora"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.hora.HoraFragment"
-        android:label="Hora"
+        android:label="@string/hora"
         tools:layout="@layout/fragment_hora" />
 
     <fragment
         android:id="@+id/nav_local"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.local.LocalFragment"
-        android:label="Local"
+        android:label="@string/Local"
         tools:layout="@layout/fragment_local" />
 
     <fragment
         android:id="@+id/nav_tipoevento"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.tipoevento.TipoEventoFragment"
-        android:label="tipoEvento"
+        android:label="@string/tipoEvento"
         tools:layout="@layout/fragment_tipo_evento" />
 
     <fragment
@@ -49,18 +49,18 @@
     <fragment
         android:id="@+id/nav_tipoPago"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.tipoPago.tipoPagoFragment"
-        android:label="tipoPago"
+        android:label="@string/tipo_pago"
         tools:layout="@layout/fragment_tipo_pago"/>
 
     <fragment
         android:id="@+id/nav_evento"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.evento.EventoFragment"
-        android:label="Evento"
+        android:label="@string/evento"
         tools:layout="@layout/fragment_evento"/>
     <fragment
         android:id="@+id/nav_tipoReservacion"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.tipoReservacion.tipoReservacionFragment"
-        android:label="Tipo de Reservacion"
+        android:label="@string/titulo_nav_tipoReservacion"
         tools:layout="@layout/fragment_tipo_reservacion"/>
 
     <fragment
@@ -87,7 +87,7 @@
     <fragment
         android:id="@+id/nav_genero"
         android:name="sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ui.genero.GeneroFragment"
-        android:label="Género"
+        android:label="@string/genero"
         tools:layout="@layout/fragment_genero" />
 
     <fragment

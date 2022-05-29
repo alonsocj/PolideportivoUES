@@ -16,8 +16,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         try{
-            //Consultas para crear las tablas y triggers de la base de datos
-
             //Tabla Nacionalidad
             db.execSQL("CREATE TABLE nacionalidad (codNac VARCHAR(2) NOT NULL PRIMARY KEY, nacionalidad VARCHAR(50) NOT NULL);");
             //tabla PeriodoReserva
@@ -84,14 +82,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "idTipoR VARCHAR  (1) NOT NULL,\n" +
                     "idEvento VARCHAR (6) NOT NULL,\n" +
                     "idPeriodoReserva VARCHAR (6) NOT NULL,\n" +
-                    "idHorario VARCHAR (6) NOT NULL,\n" +
-                    "idLocal VARCHAR (5) NOT NULL,\n" +
+                    "idHorario VARCHAR(6) NOT NULL,\n" +
+                    "idLocal VARCHAR(5) NOT NULL,\n" +
                     "fechaRegistro VARCHAR(10) NOT NULL,\n" +
                     "CONSTRAINT fk_reservacion_cobro FOREIGN KEY (idCobro) REFERENCES cobro(idCobro) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_persona FOREIGN KEY (idPersona) REFERENCES persona(idPersona) ON DELETE RESTRICT,\n" +
                     "CONSTRAINT fk_reservacion_tipoReservacion FOREIGN KEY (idTipoR) REFERENCES tipoReservacion(idTipoR) ON DELETE RESTRICT,\n" +
-                    "CONSTRAINT fk_reservacion_evento FOREIGN KEY (idEvento) REFERENCES Evento(idEvento) ON DELETE RESTRICT,\n" +
-                    "CONSTRAINT fk_reservacion_periodoReserva FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva(idPeriodoReserva) ON DELETE RESTRICT\n" +
+                    "CONSTRAINT fk_reservacion_evento FOREIGN KEY (idEvento) REFERENCES evento(idEvento) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_periodoReserva FOREIGN KEY (idPeriodoReserva) REFERENCES periodoReserva(idPeriodoReserva) ON DELETE RESTRICT,\n" +
+                    "CONSTRAINT fk_reservacion_horariosLocales FOREIGN KEY (idHorario,idLocal) REFERENCES horariosLocales(idHorario,idLocal) ON DELETE RESTRICT\n" +
                     ");\n");
 
             //Trigger de relacion de llaves foraneas de la tabla Evento con tipoevento
@@ -155,8 +154,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "THEN RAISE(ABORT, 'No existe el periodo de reserva')\n" +
                     "END;\n" +
                     "END;\n");
+            db.execSQL("CREATE TRIGGER fk_reservacion_Horarios1 \n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW \n" +
+                    "BEGIN \n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idHorario FROM horariosLocales WHERE idHorario = NEW.idHorario) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe el horario')\n" +
+                    "END;\n" +
+                    "END;\n");
+            db.execSQL("CREATE TRIGGER fk_reservacion_Locales1\n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idLocal FROM horariosLocales WHERE idLocal=NEW.idLocal) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'No existe local')\n" +
+                    "END;\n" +
+                    "END;\n");
 
-            //Trigger de de calculo de precio al insertar un registro
+            //Trigger de de calculo de precio al insertar un registro de cobro
             db.execSQL("CREATE TRIGGER insertar_precio AFTER INSERT ON cobro\n" +
                     "WHEN new.precio = 0\n" +
                     "BEGIN\n" +

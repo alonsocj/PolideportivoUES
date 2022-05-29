@@ -44,11 +44,11 @@ public class ControlBDG10 {
         final String[] VADias = {"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
 
         //Tabla nacionalidad
-        final String[] codNac = {"AR"};
-        final String[] nacionalidad = {"Argentino"};
+        final String[] codNac = {"AR","SV"};
+        final String[] nacionalidad = {"Argentina","El Salvador"};
 
         //Tabla genero
-        final String[] idGenero = {"000001"};
+        final String[] idGenero = {"G00001"};
         final String[] genero = {"Masculino"};
 
         //Tabla tipoEvento

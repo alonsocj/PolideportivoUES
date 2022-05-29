@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ActualizarEve
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarCobro.ConsultarCobroExternoActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarEvento.ConsultarEventoExternoActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.ConsultarReservacion.ConsultarReservacionExternoActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.HorariosLocalesUpdate.UpdateHorarioLocalActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarEvento.InsertarEventoExternoActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentWebServicesBinding;
 
@@ -33,6 +34,7 @@ public class WebServicesFragment extends Fragment {
         binding.buttonQueryReservacion.setOnClickListener(this::lanzarActividad);
         binding.buttonQueryEvento.setOnClickListener(this::lanzarActividad);
         binding.buttonupdateevento.setOnClickListener(this::lanzarActividad);
+        binding.btnUpdateLocalReservacion.setOnClickListener(this::lanzarActividad);
 
         return root;
     }
@@ -54,6 +56,9 @@ public class WebServicesFragment extends Fragment {
                 break;
             case R.id.buttonupdateevento:
                 i = new Intent(WebServicesFragment.this.getContext(), ActualizarEventoExternoActivity.class);
+                break;
+            case R.id.btn_update_local_reservacion:
+                i = new Intent(WebServicesFragment.this.getContext(), UpdateHorarioLocalActivity.class);
                 break;
         }
         if(i!=null){

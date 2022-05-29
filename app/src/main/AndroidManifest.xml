@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PolideportivoUES"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".WebServices.HorariosLocalesUpdate.UpdateHorarioLocalActivity"
+            android:exported="false" />
+        <activity
             android:name=".WebServices.ActualizarEvento.ActualizarEventoExternoActivity"
             android:exported="false" />
         <activity

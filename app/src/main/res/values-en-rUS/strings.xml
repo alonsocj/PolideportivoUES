@@ -17,9 +17,10 @@
     <string name="botonConsultar">Consult</string>
     <string name="botonActualizar">Update</string>
     <string name="botonAgregar">Add</string>
-    <string name="botonVaciar">Empty</string>
+    <string name="botonVaciar">Clean</string>
     <string name="btnGuardar">Save</string>
     <string name="botonEliminar">Remove</string>
+    <string name="btnLimpiar">Clean</string>
 
     <!--Tabla Hora-->
     <string name="Horaidentificador">Time Id</string>
@@ -32,7 +33,7 @@
     <string name="inicioH">Start Time</string>
     <string name="finH">Ending time</string>
 
-    <string name="titulo_hora_insertar">Insert Time</string>
+    <string name="titulo_hora_insertar">Add Time</string>
     <string name="titulo_hora_editar">Update Time</string>
     <string name="titulo_hora_consultar">Check Time</string>
     <string name="titulo_hora_eliminar">Delete Time</string>
@@ -40,7 +41,7 @@
 
     <!-- TIPO EVENTO -->
     <string name="tipoEvento">Event type</string>
-    <string name="titulo_tipo_evento_insertar">Insert Event Type</string>
+    <string name="titulo_tipo_evento_insertar">Add Event Type</string>
     <string name="titulo_tipo_evento_consultar">Consult Event Type</string>
     <string name="titulo_tipo_evento_actualizar">Update Event Type</string>
     <string name="titulo_tipo_evento_eliminar">Delete Event Type</string>
@@ -49,7 +50,7 @@
 
     <!-- COBRO -->
     <string name="cobro">Payment</string>
-    <string name="titulo_cobro_insertar">Insert payment</string>
+    <string name="titulo_cobro_insertar">Add payment</string>
     <string name="titulo_cobro_consultar">Consult payment</string>
     <string name="titulo_cobro_actualizar">Update charge</string>
     <string name="titulo_cobro_eliminar">Delete payment</string>
@@ -63,12 +64,12 @@
 
     <!--Local-->
     <string name="titulo_nav_local">Local</string>
-    <string name="agregarLocal">Add Venue</string>
-    <string name="idLocaltxt">Venue id</string>
+    <string name="agregarLocal">Add Local</string>
+    <string name="idLocaltxt">Local id</string>
     <string name="hintIdLocal">Enter the Id of the place</string>
-    <string name="nombreLocaltxt">Venue Name</string>
+    <string name="nombreLocaltxt">Local Name</string>
     <string name="hintnombreLocal">Enter the name of the place</string>
-    <string name="cupoLocaltxt">Venue Quota</string>
+    <string name="cupoLocaltxt">Local Quota</string>
     <string name="hintcupoLocal">Enter the quota of the place</string>
     <string name="actualizarLocal">Update Local</string>
     <string name="eliminarLocal">Delete Local</string>
@@ -120,8 +121,6 @@
     <string name="evento">Event</string>
 
     <!-- TABLA RESERVACION-->
-    <string name="btnLimpiar">Clean up</string>
-
     <string name="titulo_nav_reservacion">Reservation</string>
     <string name="label_reservacion">Reservation</string>
 

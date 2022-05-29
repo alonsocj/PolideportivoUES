@@ -37,7 +37,12 @@ public class TipoPagoConsultarActivity extends AppCompatActivity {
                 helper.open();
                 TipoPago tipoPago = helper.consultarTipoPago(editIdPago.getText().toString());
                 helper.close();
-                if(tipoPago == null){
+
+                if(editIdPago.getText().toString().equals("")){
+                    Toast.makeText(TipoPagoConsultarActivity.this, "Debes de ingresar un idPago!", Toast.LENGTH_SHORT).show();
+                }else if(editIdPago.getText().toString().length() != 2){
+                    Toast.makeText(TipoPagoConsultarActivity.this, "Debes de ingresar un idPago de 2 caracteres", Toast.LENGTH_SHORT).show();
+                }else if(tipoPago == null){
                     Toast.makeText(TipoPagoConsultarActivity.this, "Tipo de pago con codigo: " +editIdPago.getText().toString() +" no existe", Toast.LENGTH_SHORT).show();
                 }else{
                     editTipo.setText(tipoPago.getTipo());

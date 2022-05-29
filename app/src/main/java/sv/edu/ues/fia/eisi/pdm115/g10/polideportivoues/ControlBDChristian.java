@@ -88,7 +88,7 @@ public class ControlBDChristian {
         if(verificarIntegridadDeDatos(hora,4)){
             cuenta +=db.delete("hora","idHora='"+hora.getIdHora()+"'",null);
         }
-        cuenta+=db.delete("hora","idHora='"+hora.getIdHora()+"'",null);
+        //cuenta+=db.delete("hora","idHora='"+hora.getIdHora()+"'",null);
         registrosAfec = registrosAfec + cuenta;
         return registrosAfec;
     }
@@ -146,7 +146,7 @@ public class ControlBDChristian {
         if(verificarIntegridadDeDatos(tipoPago,7)){
             cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
         }
-        cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
+        //cuenta+=db.delete("tipopago","idPago='"+tipoPago.getIdPago()+"'",null);
         tiposdepagosafectados+=cuenta;
         return tiposdepagosafectados;
     }
@@ -208,15 +208,59 @@ public class ControlBDChristian {
         }
     }
 
+    //Sin cascada
     public String eliminarEvento(Evento evento){
         String eventosEliminados = "Evento eliminado: ";
         int contador = 0;
         if(verificarIntegridadDeDatos(evento,10)){
             contador+=db.delete("evento","idEvento='"+evento.getIdEvento()+"'",null);
         }
-        contador+=db.delete("evento","idEvento='"+evento.getIdEvento()+"'",null);
+        //contador+=db.delete("evento","idEvento='"+evento.getIdEvento()+"'",null);
         eventosEliminados += contador;
         return eventosEliminados;
+    }
+
+
+    //Metodos para eliminar Con cascada y utilizarlos en el AlertDialog
+    public Boolean verificarExisEvento(Evento evento){
+        //Se verifica la existencia del idEvento
+
+        Evento evento1 = (Evento) evento;
+        String[] idE = {evento1.getIdEvento()};
+        open();
+        Cursor cursor = db.query("evento",null,"idEvento = ?",idE,null,null,null);
+        if(cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public Boolean verificarEventosCascada(Evento evento){
+        //Verificar si hay registros de evento en la tabla reservacion
+        Evento eve = (Evento) evento;
+        Cursor cursor = db.query(true,"reservacion", new String[]{"idEvento"}, "idEvento='"+eve.getIdEvento()+"'", null,null,null,null,null);
+        if(cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public String eliminarEventosCascada(Evento evento){
+        String regAfectadosEvento = "Filas afectadas en la tabla evento = ";
+        String regAfectadosReservacion = "Filas afectadas en la tabla reservacion = ";
+        String suma;
+        int contadorE = 0;
+        int contadorR = 0;
+
+        contadorR = db.delete("reservacion","idEvento ='"+evento.getIdEvento()+"'",null);
+        regAfectadosReservacion = regAfectadosReservacion + contadorR;
+        contadorE = db.delete("evento","idEvento= '"+evento.getIdEvento()+"'",null);
+        regAfectadosEvento = regAfectadosEvento + contadorE;
+
+        suma = regAfectadosEvento + "\n\n" + regAfectadosReservacion;
+        return suma;
     }
 
     private boolean verificarIntegridadDeDatos(Object valor, int relacion) throws SQLException{

@@ -62,7 +62,12 @@ public class EventoConsultarActivity extends AppCompatActivity {
                 helper.open();
                 Evento evento = helper.consultarEvento(idEvent);
                 helper.close();
-                if(evento == null){
+
+                if(idEvent.equals("")){
+                    Toast.makeText(EventoConsultarActivity.this, "Debe de ingresar un idEvento!", Toast.LENGTH_SHORT).show();
+                } else if(idEvent.length() != 6){
+                    Toast.makeText(EventoConsultarActivity.this, "Debe de ingresar un idEvento de 6 caracteres", Toast.LENGTH_SHORT).show();
+                }else if(evento == null){
                     Toast.makeText(EventoConsultarActivity.this, "No existe el evento", Toast.LENGTH_SHORT).show();
                 }else{
                    for (int i=0; i< idEvento.length; i++){

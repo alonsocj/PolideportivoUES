@@ -35,13 +35,21 @@ public class HoraEliminarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String registrosEliminados;
-                Hora hora = new Hora();
-                hora.setIdHora(EditidHoraE.getText().toString());
-                helper.open();
-                registrosEliminados = helper.eliminarHora(hora);
-                helper.close();
-                Toast.makeText(HoraEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
-            }
+                String idHora = EditidHoraE.getText().toString();
+                
+                if(idHora.equals("")){
+                    Toast.makeText(HoraEliminarActivity.this, "Debe de ingresar un idHora", Toast.LENGTH_SHORT).show();
+                }else if(idHora.length() != 4) {
+                    Toast.makeText(HoraEliminarActivity.this, "Debe de ingresar un idHora de 4 Caracteres", Toast.LENGTH_SHORT).show();
+                }else{
+                        Hora hora = new Hora();
+                        hora.setIdHora(EditidHoraE.getText().toString());
+                        helper.open();
+                        registrosEliminados = helper.eliminarHora(hora);
+                        helper.close();
+                        Toast.makeText(HoraEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+                    }
+                }
         });
 
         botonLimpiar.setOnClickListener(new View.OnClickListener() {

@@ -61,8 +61,8 @@ public class ControlBDG10 {
 
         //Tabla hora
         final String[] idHora =
-                {"H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H10", "H11", "H12", "H13", "H14",
-                        "H15", "H16", "H17", "H18", "H19", "H20", "H21", "H22", "H23", "H24", "H25"};
+                {"H001", "H002", "H003", "H004", "H005", "H006", "H007", "H008", "H009", "H010", "H011", "H012", "H013", "H014",
+                        "H015", "H016", "H017", "H018", "H019", "H020", "H021", "H022", "H023", "H024", "H025"};
         final String[] horaInicio = {"06:30","06:30", "08:00","09:00","10:00","10:00","10:00", "10:30", "11:00", "11:25","11:25", "12:00", "12:00", "12:00",
                                     "12:15", "12:30", "13:30", "13:30", "13:30", "14:00","14:00","14:00","14:30","15:00","16:00"};
         final String[] horaFin = {"07:45","08:30","10:00","10:00","11:00","11:30","14:00","12:00","12:00","13:30","14:00","13:00","13:45","14:00", "14:00",
@@ -117,7 +117,6 @@ public class ControlBDG10 {
         final String[] nomEvento = {"Festival deportivo de la FRAY"};
         final Float[] costoEvento = {15f};
         final Integer[] cantidadAutorizada = {10};
-
         //Tabla Reservacion
         final String[]  idReservacion={"R00001"};
         final Integer[] idCobroR ={1};

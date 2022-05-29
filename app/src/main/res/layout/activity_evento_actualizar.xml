@@ -41,7 +41,8 @@
         android:id="@+id/EditIdNumeroEventoActu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"/>
+        android:inputType="text"
+        android:maxLength="6"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!--<TextView

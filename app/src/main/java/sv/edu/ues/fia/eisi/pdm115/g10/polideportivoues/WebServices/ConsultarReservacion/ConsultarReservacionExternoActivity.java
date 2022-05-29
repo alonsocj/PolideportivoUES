@@ -34,7 +34,7 @@ public class ConsultarReservacionExternoActivity extends AppCompatActivity {
     ListView listViewReservacion;
     ControlBDCarolina db;
 
-    private final String urlService = "http://192.168.0.24/WSPolideportivoUES/ws_reservacion_query.php";
+    private final String urlService = "https://grupo10pdm2022.000webhostapp.com/ws_reservacion_query.php";
 
     @SuppressLint("WrongConstant")
     @Override

@@ -26,7 +26,7 @@ public class ConsultarCobroExternoActivity extends AppCompatActivity {
     static List<String> nombreCobros;
     ListView listViewCobros;
 
-    private final String urlService = "http://192.168.0.24/WSPolideportivoUES/ws_cobro_query.php";
+    private final String urlService = "https://grupo10pdm2022.000webhostapp.com/ws_cobro_query.php";
 
     @SuppressLint("WrongConstant")
     @Override

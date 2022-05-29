@@ -45,7 +45,7 @@ public class TipoPagoInsertarActivity extends AppCompatActivity {
                         Toast.makeText(TipoPagoInsertarActivity.this, "El id debe de contener dos caracteres", Toast.LENGTH_SHORT).show();
                     }else{
                         TipoPago tipoPago1 = new TipoPago();
-                        tipoPago1.setIdPago(idPago);
+                        tipoPago1.setIdPago(idPago.replace(" ",""));
                         tipoPago1.setTipo(tipoPago);
                         helper.open();
                         pagosRegistrados = helper.insertarTipoPago(tipoPago1);

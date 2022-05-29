@@ -188,7 +188,7 @@ public class HoraInsertarActivity extends AppCompatActivity {
                             verdadero = false;
                         } else {
                             Hora hora = new Hora();
-                            hora.setIdHora(id);
+                            hora.setIdHora(id.replace(" ",""));
                             hora.setHoraInicio(inicio);
                             hora.setHoraFin(fin);
                             controlBDChristian.open();

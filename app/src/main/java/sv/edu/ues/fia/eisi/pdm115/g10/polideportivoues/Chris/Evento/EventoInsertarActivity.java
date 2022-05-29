@@ -91,7 +91,7 @@ public class EventoInsertarActivity extends AppCompatActivity {
                             Toast.makeText(EventoInsertarActivity.this, "La cantidad de personas debe ser mayor a 0", Toast.LENGTH_SHORT).show();
                         } else {
                             Evento event = new Evento();
-                            event.setIdEvento(idEvento);
+                            event.setIdEvento(idEvento.replace(" ",""));
                             for (int i = 0; i < arrayidTE.length; i++) {
                                 if (spinnerTiposEventos.getText().toString().equals(arrayTiposdeEventos[i])) {
                                     event.setIdTipoE(arrayidTE[i]);

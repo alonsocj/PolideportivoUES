@@ -74,7 +74,7 @@ public class HorariosDisponiblesActualizarActivity extends AppCompatActivity {
                         String idDiaSeleccionado=arrayDias.get(arrayDiasString.indexOf(dia)).getNombreDia();
 
                         HorariosDisponibles horarioDisponible = new HorariosDisponibles();
-                        horarioDisponible.setIdHorario(idHora);
+                        horarioDisponible.setIdHorario(idHora.replace(" ",""));
                         horarioDisponible.setHora(idHoraSeleccionada);
                         horarioDisponible.setDia(idDiaSeleccionado);
 

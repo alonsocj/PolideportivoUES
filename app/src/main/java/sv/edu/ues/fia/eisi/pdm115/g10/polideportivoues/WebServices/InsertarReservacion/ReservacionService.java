@@ -1,4 +1,4 @@
-package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarPersona;
+package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarReservacion;
 
 import android.content.Context;
 import android.util.Log;
@@ -14,8 +14,7 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 
-public class PersonaService {
-
+public class ReservacionService {
     public static String obtenerRespuestaPeticion(String url, Context ctx) {
         String respuesta = " ";
 
@@ -44,7 +43,7 @@ public class PersonaService {
         return respuesta;
     }
 
-    public static void insertarPersonaExterno(String peticion, Context ctx) {
+    public static void insertarReservacionExterno(String peticion, Context ctx) {
         String json = obtenerRespuestaPeticion(peticion, ctx);
         if (json.equals("{\"resultado\":1}"))
             Toast.makeText(ctx, "Registro ingresado", Toast.LENGTH_LONG).show();

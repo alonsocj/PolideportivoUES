@@ -77,30 +77,34 @@ public class EventoInsertarActivity extends AppCompatActivity {
                 String cantidadString = cantAutorizada.getText().toString();
 
                 /*Validaciones*/
-                if(idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty() || spinnerTiposEventos.getText().toString().isEmpty()){
+                if (idEvento.isEmpty() || nombreEvento.isEmpty() || costoString.isEmpty() || cantidadString.isEmpty() || spinnerTiposEventos.getText().toString().isEmpty()) {
                     Toast.makeText(EventoInsertarActivity.this, "Debe de llenar todos los campos para poder ingresar un evento", Toast.LENGTH_SHORT).show();
-                }else{
-                    Float costo = Float.valueOf(costoString);
-                    Integer cantAuto = Integer.valueOf(cantidadString);
-                    if (costo <= 0){
-                        Toast.makeText(EventoInsertarActivity.this, "Debe de ingresar un costo mayor a 0", Toast.LENGTH_SHORT).show();
-                    }else if(cantAuto <= 0){
-                        Toast.makeText(EventoInsertarActivity.this, "La cantidad de personas debe ser mayor a 0", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Evento event = new Evento();
-                        event.setIdEvento(idEvento);
-                        for (int i=0; i< arrayidTE.length; i++){
-                            if(spinnerTiposEventos.getText().toString().equals(arrayTiposdeEventos[i])){
-                                event.setIdTipoE(arrayidTE[i]);
+                } else {
+                    if (idEvento.length() != 6) {
+                        Toast.makeText(EventoInsertarActivity.this, "El id del evento debe de ser de 6 caracteres", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Float costo = Float.valueOf(costoString);
+                        Integer cantAuto = Integer.valueOf(cantidadString);
+                        if (costo <= 0) {
+                            Toast.makeText(EventoInsertarActivity.this, "Debe de ingresar un costo mayor a 0", Toast.LENGTH_SHORT).show();
+                        } else if (cantAuto <= 0) {
+                            Toast.makeText(EventoInsertarActivity.this, "La cantidad de personas debe ser mayor a 0", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Evento event = new Evento();
+                            event.setIdEvento(idEvento);
+                            for (int i = 0; i < arrayidTE.length; i++) {
+                                if (spinnerTiposEventos.getText().toString().equals(arrayTiposdeEventos[i])) {
+                                    event.setIdTipoE(arrayidTE[i]);
+                                }
                             }
+                            event.setNomEvento(nombreEvento);
+                            event.setCostoEvento(costo);
+                            event.setCantidadAutorizada(cantAuto);
+                            controlBDChristian.open();
+                            eventosRegistrados = controlBDChristian.agregarEvento(event);
+                            controlBDChristian.close();
+                            Toast.makeText(EventoInsertarActivity.this, eventosRegistrados, Toast.LENGTH_SHORT).show();
                         }
-                        event.setNomEvento(nombreEvento);
-                        event.setCostoEvento(costo);
-                        event.setCantidadAutorizada(cantAuto);
-                        controlBDChristian.open();
-                        eventosRegistrados = controlBDChristian.agregarEvento(event);
-                        controlBDChristian.close();
-                        Toast.makeText(EventoInsertarActivity.this, eventosRegistrados, Toast.LENGTH_SHORT).show();
                     }
                 }
             }

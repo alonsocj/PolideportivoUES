@@ -36,10 +36,17 @@ public class TipoPagoEliminarActivity extends AppCompatActivity {
                 String registrosEliminados;
                 TipoPago tipoPago = new TipoPago();
                 tipoPago.setIdPago(editIdTipoPago.getText().toString());
-                helper.open();
-                registrosEliminados = helper.eliminarTipoPago(tipoPago);
-                helper.close();
-                Toast.makeText(TipoPagoEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+
+                if (editIdTipoPago.getText().toString().equals("")) {
+                    Toast.makeText(TipoPagoEliminarActivity.this, "Debes de ingresar un idPago!", Toast.LENGTH_SHORT).show();
+                } else if (editIdTipoPago.getText().toString().length() != 2) {
+                    Toast.makeText(TipoPagoEliminarActivity.this, "Debes de ingresar un idPago de 2 caracteres", Toast.LENGTH_SHORT).show();
+                } else {
+                    helper.open();
+                    registrosEliminados = helper.eliminarTipoPago(tipoPago);
+                    helper.close();
+                    Toast.makeText(TipoPagoEliminarActivity.this, registrosEliminados, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

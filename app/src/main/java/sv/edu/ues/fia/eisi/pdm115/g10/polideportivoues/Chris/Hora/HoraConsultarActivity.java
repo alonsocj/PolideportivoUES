@@ -39,14 +39,20 @@ public class HoraConsultarActivity extends AppCompatActivity {
                 Hora hora = controlBDChristian.ConsultarHora(editIdHora.getText().toString());
                 controlBDChristian.close();
 
-                /*Verificación que exista la Hora*/
-                if(hora == null){
-                    Toast.makeText(HoraConsultarActivity.this, "Horario con Hora " + editIdHora.getText().toString() + " No encontrado", Toast.LENGTH_SHORT).show();
+                if(editIdHora.getText().toString().equals("")){
+                    Toast.makeText(HoraConsultarActivity.this, "Ingrese un idHora!", Toast.LENGTH_SHORT).show();
+                }else if(editIdHora.getText().toString().length() != 4) {
+                    Toast.makeText(HoraConsultarActivity.this, "Ingrese un idHora con 4 Caracteres", Toast.LENGTH_SHORT).show();
                 }else{
-                    editHoraI.setText(hora.getHoraInicio());
-                    editHoraF.setText(hora.getHoraFin());
+                        /*Verificación que exista la Hora*/
+                        if(hora == null){
+                            Toast.makeText(HoraConsultarActivity.this, "Hora con Numero de hora " + editIdHora.getText().toString() + " No encontrado", Toast.LENGTH_SHORT).show();
+                        }else{
+                            editHoraI.setText(hora.getHoraInicio());
+                            editHoraF.setText(hora.getHoraFin());
+                        }
+                    }
                 }
-            }
         });
 
         botonLimpiar.setOnClickListener(new View.OnClickListener() {

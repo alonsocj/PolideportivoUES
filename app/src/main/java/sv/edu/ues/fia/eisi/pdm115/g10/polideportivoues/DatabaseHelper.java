@@ -220,6 +220,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "UPDATE horariosLocales SET disponibilidad=0 WHERE horariosLocales.idHorario=old.idHorario AND horariosLocales.idLocal=old.idLocal;\n" +
                     "END");
 
+            //Trigger de relacion semantica
+            db.execSQL("CREATE TRIGGER semantico_reservacion_locales\n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT count(idLocal) FROM reservacion WHERE (idEvento = NEW.idEvento)) =5)\n" +
+                    "THEN RAISE(ABORT, 'No se puede reservar mas de 5 locales para el evento')\n" +
+                    "END;\n" +
+                    "END;\n");
+            db.execSQL("CREATE TRIGGER semantico_reservacion_fechaHorario\n" +
+                    "BEFORE INSERT ON reservacion\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT count(idReservacion) FROM reservacion WHERE (idPeriodoReserva = NEW.idPeriodoReserva AND idHorario=NEW.idHorario AND idLocal=NEW.idLocal)) =1)\n" +
+                    "THEN RAISE(ABORT, 'No se puede hacer mas de una reserva para el mismo periodo, horario y local')\n" +
+                    "END;\n" +
+                    "END;\n");
             // Tablas adicionales
             //Usuario
             db.execSQL("CREATE TABLE usuario (idUsuario VARCHAR(2) PRIMARY KEY NOT NULL, nomUsuario VARCHAR(30) NOT NULL, clave VARCHAR(5) NOT NULL);");

@@ -208,7 +208,6 @@ public class ControlBDCarolina {
         String suma;
         int contador1=0;
         int contador2=0;
-
         contador1+=db.delete("persona","codNac='"+nac.getCodNac()+"'",null);
         regAfectados1 = regAfectados1 + contador1;
         contador2+=db.delete("nacionalidad","codNac='"+nac.getCodNac()+"'",null);

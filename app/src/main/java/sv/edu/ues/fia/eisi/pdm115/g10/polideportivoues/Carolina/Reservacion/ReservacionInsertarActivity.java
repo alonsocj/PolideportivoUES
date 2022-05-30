@@ -174,7 +174,6 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
                         String idHorariosSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdHorario();
                         String idLocalesSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdLocal();
 
-
                         Reservacion reservacion = new Reservacion();
                         reservacion.setIdReservacion(idReservacion);
                         reservacion.setIdCobro(idCobroSeleccionada);

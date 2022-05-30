@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity implements Comunicacion {
         txtContrasena = findViewById(R.id.editText_clave);
         btnIngresar = findViewById(R.id.btnLogin);
         progressBar = findViewById(R.id.progressBar);
-        registrar = findViewById(R.id.Registrar);
+        //registrar = findViewById(R.id.Registrar);
         tilUsuario = findViewById(R.id.input_user_layout);
         tilContrasena = findViewById(R.id.input_clave);
         linearLayout = findViewById(R.id.linearLayout);
@@ -59,13 +59,13 @@ public class LoginActivity extends AppCompatActivity implements Comunicacion {
                 new ProcesarDatos(LoginActivity.this).execute(txtUsuario.getText().toString(), txtContrasena.getText().toString(), 3000, cursor);
             }
         });
-        registrar.setOnClickListener(new View.OnClickListener() {
+       /* registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     @Override

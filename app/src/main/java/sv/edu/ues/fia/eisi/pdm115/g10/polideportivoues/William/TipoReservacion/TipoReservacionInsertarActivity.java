@@ -55,7 +55,7 @@ public class TipoReservacionInsertarActivity extends AppCompatActivity {
         }else {
             String regInsertados;
             TipoReservacion tipoReservacion = new TipoReservacion();
-            tipoReservacion.setIdTipoR(idTipoReservacion);
+            tipoReservacion.setIdTipoR(idTipoReservacion.replace(" ",""));
             tipoReservacion.setNomTipoR(nombreTipoReservacion);
             helper.open();
             regInsertados = helper.ingresarTipoReservacion(tipoReservacion);

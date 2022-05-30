@@ -71,7 +71,7 @@ public class LocalActualizarActivity extends AppCompatActivity {
             } else {
                 String regInsertados;
                 Local local = new Local();
-                local.setIdLocal(idLocal);
+                local.setIdLocal(idLocal.replace(" ",""));
                 local.setNomLocal(nombreLocal);
                 local.setCantidadPersonas(cantP);
                 helper.open();

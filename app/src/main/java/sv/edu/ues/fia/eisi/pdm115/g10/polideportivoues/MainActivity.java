@@ -3,6 +3,7 @@ package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues;
 import android.os.Bundle;
 //import android.view.View;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Toast;
 
 //import com.google.android.material.snackbar.Snackbar;
@@ -26,13 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String tost="";
         BDhelper = new ControlBDG10(this);
-        BDhelper.open();
-        //String tost=BDhelper.llenarBDG10();
-        BDhelper.close();
-        Toast.makeText(this,tost, Toast.LENGTH_SHORT).show();
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -69,5 +64,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void llenarBase(View view) {
+        BDhelper.open();
+        String tost = BDhelper.llenarBDG10();
+        BDhelper.close();
+        Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
     }
 }

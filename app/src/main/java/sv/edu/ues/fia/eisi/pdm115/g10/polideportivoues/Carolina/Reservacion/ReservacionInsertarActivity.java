@@ -1,7 +1,5 @@
 package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion;
 
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -175,7 +173,7 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
                         String idLocalesSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdLocal();
 
                         Reservacion reservacion = new Reservacion();
-                        reservacion.setIdReservacion(idReservacion);
+                        reservacion.setIdReservacion(idReservacion.replace(" ",""));
                         reservacion.setIdCobro(idCobroSeleccionada);
                         reservacion.setIdPersona(idPersonaSeleccionada);
                         reservacion.setIdTipoR(idTipoReservacionSeleccionada);

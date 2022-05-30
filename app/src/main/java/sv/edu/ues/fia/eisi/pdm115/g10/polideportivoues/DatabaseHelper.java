@@ -104,6 +104,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "END;" +
                     "END;");
 
+            //Trigger de relacion de llaves foraneas de la tabla HorariosLocales
+            db.execSQL("CREATE TRIGGER fk_horariosLocales_horariosDisponibles " +
+                    "BEFORE INSERT ON horariosLocales " +
+                    "FOR EACH ROW " +
+                    "BEGIN " +
+                    "SELECT CASE " +
+                    "WHEN ((SELECT idHorario FROM horariosDisponibles WHERE idHorario = NEW.idHorario ) IS NULL)" +
+                    "THEN RAISE(ABORT, 'No existe el horario')" +
+                    "END;" +
+                    "END;");
+
+            db.execSQL("CREATE TRIGGER fk_horariosLocales_local " +
+                    "BEFORE INSERT ON horariosLocales " +
+                    "FOR EACH ROW " +
+                    "BEGIN " +
+                    "SELECT CASE " +
+                    "WHEN ((SELECT idLocal FROM local WHERE idLocal = NEW.idLocal ) IS NULL)" +
+                    "THEN RAISE(ABORT, 'No existe el local')" +
+                    "END;" +
+                    "END;");
+
             //Triggers de integridad de relación de tabla Reservación
             db.execSQL("CREATE TRIGGER fk_reservacion_cobro\n" +
                     "BEFORE INSERT ON reservacion\n" +

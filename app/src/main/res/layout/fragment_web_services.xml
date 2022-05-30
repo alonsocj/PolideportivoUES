@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <Button
+        android:id="@+id/button_insert_event"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:onClick="lanzarActividad"
+        android:text="@string/insertar_evento" />
+    <Button
+        android:id="@+id/button_query_evento"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:text="@string/ConsultarEventoFragment" />
+    <Button
+        android:id="@+id/buttonupdateevento"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:text="@string/ActualizarEventoFragment" />
+    <Button
+        android:id="@+id/btn_insert_reservacion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:text="@string/titulo_reservacion_insertar" />
+    <Button
+        android:id="@+id/button_query_reservacion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:text="@string/titulo_reservacion_consultar" />
+    <Button
+        android:id="@+id/button_query_cobro"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:onClick="lanzarActividad"
+        android:text="@string/titulo_cobro_consultar" />
+    <Button
+        android:id="@+id/btn_update_local_reservacion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:text="@string/actualizarHorariosLocales" />
+    <Button
+        android:id="@+id/btn_insert_persona"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:onClick="lanzarActividad"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/botones"
+        android:text="@string/AgregarPersonaFragment" />
+</LinearLayout>

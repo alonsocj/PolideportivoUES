@@ -10,6 +10,11 @@
             android:title="@string/menu_home" />
 
         <item
+            android:id="@+id/nav_webservice"
+            android:icon="@drawable/ic_polideportivo"
+            android:title="@string/web_services" />
+
+        <item
             android:id="@+id/nav_reservacion"
             android:icon="@drawable/ic_menu_reservacion"
             android:title="@string/titulo_nav_reservacion"/>

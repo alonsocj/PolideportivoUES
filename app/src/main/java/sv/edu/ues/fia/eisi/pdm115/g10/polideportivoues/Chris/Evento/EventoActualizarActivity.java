@@ -89,7 +89,7 @@ public class EventoActualizarActivity extends AppCompatActivity {
                             Toast.makeText(EventoActualizarActivity.this, "La cantidad de personas debe ser mayor a 0", Toast.LENGTH_SHORT).show();
                         } else {
                             Evento event = new Evento();
-                            event.setIdEvento(idEvento);
+                            event.setIdEvento(idEvento.replace(" ",""));
                             for (int i = 0; i < arrayidTE.length; i++) {
                                 if (spinner.getText().toString().equals(arrayTiposdeEventos[i])) {
                                     event.setIdTipoE(arrayidTE[i]);

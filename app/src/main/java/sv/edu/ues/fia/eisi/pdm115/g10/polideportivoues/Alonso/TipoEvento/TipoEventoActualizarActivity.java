@@ -39,7 +39,7 @@ public class TipoEventoActualizarActivity extends AppCompatActivity {
     public void actualizarTipoEvento(View view) {
         try {
             TipoEvento tipoEvento = new TipoEvento();
-            tipoEvento.setIdTipoE(editIdTipoEvento.getText().toString());
+            tipoEvento.setIdTipoE(editIdTipoEvento.getText().toString().replace(" ",""));
             tipoEvento.setNombreTipoE(editNombreTipoEvento.getText().toString());
             helper.open();
             String estado = helper.actualizar(tipoEvento);

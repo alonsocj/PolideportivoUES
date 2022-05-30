@@ -246,4 +246,34 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="titulo_reservacion_insertarW">Add Reservation WebService</string>
+    <string name="web_services">Web Services</string>
+    <string name="insertar_evento">insert event</string>
+    <string name="consultar_Evento_Service">Consult Event Services</string>
+    <string name="Actualizar_Evento_Service">Update Event Services</string>
+    <string name="fechaactualizarevent">Enter from which date it will be updated</string>
+    <string name="servicioPHP">PHP service</string>
+    <string name="FechaActualizar">Enter the date to update</string>
+    <string name="actualizar_horarios_de_los_locales">Update Store Hours</string>
+
+    <!-- DIA -->
+    <string name="dia">Day</string>
+    <string name="titulo_dia_insertar">Insert day</string>
+    <string name="titulo_dia_consultar">Check day</string>
+    <string name="titulo_dia_actualizar">Update day</string>
+    <string name="titulo_dia_eliminar">Delete day</string>
+    <string name="oldDia">Current day</string>
+    <string name="newDia">New day</string>
+
+    <!-- LOGIN AND REGISTER -->
+    <string name="login_title">Login</string>
+    <string name="user">User</string>
+    <string name="clave">Key code</string>
+    <string name="registro">Click here to register</string>
+    <string name="registro_title">Check in</string>
+    <string name="confirmar_clave">Confirm password</string>
+    <string name="llenar_base">Fill Base</string>
+
+
 </resources>

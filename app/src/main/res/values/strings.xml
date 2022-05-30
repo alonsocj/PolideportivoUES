@@ -76,7 +76,6 @@
     <string name="oldDia">Dia actual:</string>
     <string name="newDia">Dia nuevo:</string>
 
-
     <!--Local-->
     <string name="titulo_nav_local">Local</string>
     <string name="agregarLocal">Agregar Local</string>
@@ -254,6 +253,25 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="web_services">Web Services</string>
+    <string name="insertar_evento">Insertar Evento</string>
+    <string name="consultar_Evento_Service">Consultar Evento Services</string>
+    <string name="Actualizar_Evento_Service">Actualizar Evento Services</string>
+    <string name="fechaactualizarevent">Ingrese A partir de que fecha se va a actualizar</string>
+    <string name="servicioPHP">Servicio PHP</string>
+    <string name="FechaActualizar">Ingrese la fecha a actualizar</string>
+    <string name="actualizar_horarios_de_los_locales">Actualizar Horarios de los Locales</string>
+    <string name="titulo_reservacion_insertarW">WebService Agregar Reservación</string>
 
+    <string name="id_periodoReserva">Id del periodo de reserva</string>
+    <string name="fechaInicio">Fecha de inicio del periodo de reserva</string>
+    <string name="fechaFin">Fecha de finalización del período de reserva</string>
+
+    <string name="id_Reservacion">Id reservacion</string>
+    <string name="TipoReservacion">Tipo de reserva</string>
+    <string name="id_Evento">Evento</string>
+    <string name="id_PeriodoReserva">Periodo de reserva</string>
+    <string name="fechaRegistro">fecha de registro</string>
+    <string name="llenar_base">Llenar Base</string>
 
 </resources>

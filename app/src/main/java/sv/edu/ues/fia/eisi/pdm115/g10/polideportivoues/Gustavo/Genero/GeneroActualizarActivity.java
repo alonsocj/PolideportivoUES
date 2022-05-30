@@ -45,7 +45,7 @@ public class GeneroActualizarActivity extends AppCompatActivity {
                     }
                     if(verdadero){
                         Genero generoObj = new Genero();
-                        generoObj.setIdGenero(idGenero);
+                        generoObj.setIdGenero(idGenero.replace(" ",""));
                         generoObj.setGenero(genero);
                         controlBDGustavo.open();
                         insertarRegistros = controlBDGustavo.actualizarGenero(generoObj);

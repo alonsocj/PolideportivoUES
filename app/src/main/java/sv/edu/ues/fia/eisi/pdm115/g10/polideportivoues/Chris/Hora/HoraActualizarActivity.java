@@ -189,7 +189,7 @@ public class HoraActualizarActivity extends AppCompatActivity {
                             Toast.makeText(HoraActualizarActivity.this, "La hora de inicio debe ser anterior a la hora de finalizacion", Toast.LENGTH_SHORT).show();
                             verdadero = false;
                         } else {
-                            hora.setIdHora(id);
+                            hora.setIdHora(id.replace(" ",""));
                             hora.setHoraInicio(inicio);
                             hora.setHoraFin(fin);
 

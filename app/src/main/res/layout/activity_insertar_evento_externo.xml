@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical"
+        tools:context=".Chris.Evento.EventoInsertarActivity">
+
+        <TextView
+            android:id="@+id/textView_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="@string/titulo_evento_insertar"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Input_EditIdNumeroEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_key"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/NumeroEventoHint">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditIdNumeroEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="6"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Input_spinnerTipoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_tipo_evento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:hint="@string/tipoEvento">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/spinnerTipoEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Input_EditNombreEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_evento"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/NombreEventoHint">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditNombreEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Input_EditCostoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_money"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/CostoEventoHint">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditCostoEvento"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="4"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Input_EditCantAutorEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_cantidad"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/Hint_cantAutorizada">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditCantAutorEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
+
+            <Button
+                android:id="@+id/botonAgregarNuevoEvento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones"
+                android:text="@string/botonAgregar"/>
+
+            <Button
+                android:id="@+id/botonLimpiar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones"
+                android:text="@string/btnLimpiar"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

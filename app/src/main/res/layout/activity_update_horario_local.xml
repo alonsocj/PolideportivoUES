@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp"
+        tools:context=".WebServices.HorariosLocalesUpdate.UpdateHorarioLocalActivity">
+
+        <TextView
+            android:id="@+id/textView_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/actualizar_horarios_de_los_locales"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Input_EditIdNumeroEventoConsulta"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/FechaActualizar"
+            app:startIconDrawable="@drawable/ic_calendario_local">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editFechaHorarioLocal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false" />
+
+            <requestFocus />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
+
+            <Button
+                android:id="@+id/botonserviciophpHL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/botones"
+                android:text="@string/servicioPHP"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/botonLimpiarServices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/botones"
+                android:text="@string/btnLimpiar"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/botonActualizarServicesHL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/botones"
+                android:text="@string/ActualizarEventoFragment"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+            <ListView
+                android:id="@+id/listView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ListView>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

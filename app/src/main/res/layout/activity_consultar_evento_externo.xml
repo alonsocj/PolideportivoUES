@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical"
+        tools:context=".Chris.Evento.EventoConsultarActivity">
+
+        <TextView
+            android:id="@+id/textView_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="@string/consultar_Evento_Service"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Input_EditIdNumeroEventoConsulta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_key"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/NumeroEventoHint">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditIdNumeroEventoConsulta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="6"/>
+            <requestFocus/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
+
+            <Button
+                android:id="@+id/botonConsultarEventService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/botonConsultar"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones"/>
+
+            <Button
+                android:id="@+id/botonLimpiarServices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones"
+                android:text="@string/btnLimpiar"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/listConsultaEventoServices"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

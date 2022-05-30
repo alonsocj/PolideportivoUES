@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAgregar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:text="@string/AgregarPersonaFragment"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_tp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/DUIPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditDUIPersona"
+                android:inputType="number"
+                android:maxLength="9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/NombrePersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditNombrePersona"
+                android:inputType="text"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_secondname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/ApellidoPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditApellidoPersona"
+                android:inputType="text"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_genere"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:hint="@string/GeneroPersona">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/EditGeneroPersona"
+                android:inputType="text"
+                android:maxLength="25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:cursorVisible="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_day"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/NacimientoPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditNacimientoPersona"
+                android:inputType="text"
+                android:maxLength="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_nac"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:hint="@string/NacionalidadPersona">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/EditNacionalidadPersona"
+                android:inputType="text"
+                android:maxLength="25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:cursorVisible="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_localitation"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/DireccionPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditDireccionPersona"
+                android:inputType="text"
+                android:maxLength="100"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/EmailPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditEmailPersona"
+                android:inputType="text"
+                android:maxLength="50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:startIconDrawable="@drawable/ic_phone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/TelefonoPersona">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditTelefonoPersona"
+                android:inputType="number"
+                android:maxLength="8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
+            android:gravity="right">
+            <Button
+                android:id="@+id/botonAgregarPersona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/botonAgregar"
+                android:layout_marginRight="25dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones" />
+            <Button
+                android:id="@+id/botonVaciarPersona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/botonVaciar"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/botones" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

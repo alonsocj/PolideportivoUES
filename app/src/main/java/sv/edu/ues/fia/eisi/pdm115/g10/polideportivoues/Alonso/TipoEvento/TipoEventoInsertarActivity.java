@@ -43,7 +43,7 @@ public class TipoEventoInsertarActivity extends AppCompatActivity {
                 String nombreTipoEvento = editNombreTipoEvento.getText().toString();
                 String regInsertados;
                 TipoEvento tipoEvento = new TipoEvento();
-                tipoEvento.setIdTipoE(idTipoEvento);
+                tipoEvento.setIdTipoE(idTipoEvento.replace(" ",""));
                 tipoEvento.setNombreTipoE(nombreTipoEvento);
                 helper.open();
                 regInsertados = helper.insertar(tipoEvento);

@@ -250,4 +250,30 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="web_services">Web Services</string>
+    <string name="insertar_evento">Insertar Evento</string>
+    <string name="consultar_Evento_Service">Consultar Serviços de Eventos</string>
+    <string name="Actualizar_Evento_Service">Atualizar serviços de eventos</string>
+    <string name="fechaactualizarevent">Digite a partir de qual data será atualizado</string>
+    <string name="servicioPHP">serviço PHP</string>
+    <string name="FechaActualizar">Insira a data para atualizar</string>
+    <string name="actualizar_horarios_de_los_locales">Atualizar horário da loja</string>
+
+    <string name="id_periodoReserva">Id do período de reserva</string>
+    <string name="fechaInicio">Data de início do período de reserva</string>
+    <string name="fechaFin">Data final do período de reserva</string>
+
+    <string name="id_Reservacion">Reserva de ID</string>
+    <string name="TipoReservacion">Tipo de reserva</string>
+    <string name="id_Evento">Evento</string>
+    <string name="id_PeriodoReserva">Período de reserva</string>
+    <string name="fechaRegistro">Data de registro</string>
+
+
+
+    <!--    WEB SERVICE -->
+    <string name="titulo_reservacion_insertarW">WebService Adicionar reserva</string>
+    <string name="llenar_base">Base de preenchimento</string>
+
+
 </resources>

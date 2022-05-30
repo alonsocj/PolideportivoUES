@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:backgroundTint="@color/botones"
-                android:text="@string/ActualizarEventoFragment"
+                android:text="@string/actualizar_horario_local"
                 android:textColor="@color/black" />
         </LinearLayout>
 

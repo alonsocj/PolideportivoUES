@@ -257,7 +257,7 @@
     <string name="fechaactualizarevent">Digite a partir de qual data será atualizado</string>
     <string name="servicioPHP">serviço PHP</string>
     <string name="FechaActualizar">Insira a data para atualizar</string>
-    <string name="actualizar_horarios_de_los_locales">Atualizar horário da loja</string>
+    <string name="actualizar_horarios_de_los_locales">Atualizar serviço de horário da loja</string>
 
     <string name="id_periodoReserva">Id do período de reserva</string>
     <string name="fechaInicio">Data de início do período de reserva</string>
@@ -274,6 +274,7 @@
     <!--    WEB SERVICE -->
     <string name="titulo_reservacion_insertarW">WebService Adicionar reserva</string>
     <string name="llenar_base">Base de preenchimento</string>
+    <string name="actualizar_horario_local">Atualizar horário da loja</string>
 
 
 </resources>

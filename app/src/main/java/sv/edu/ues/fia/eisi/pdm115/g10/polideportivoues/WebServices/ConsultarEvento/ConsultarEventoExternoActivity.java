@@ -37,7 +37,11 @@ public class ConsultarEventoExternoActivity extends AppCompatActivity {
 
 
     //Cambiar direccion ip porque es local
-    private final String urlLocal = "http://192.168.1.9/WSPolideportivoUES/ws_evento_query.php";
+    //private final String urlLocal = "http://192.168.1.9/WSPolideportivoUES/ws_evento_query.php";
+
+    //Servidor 000webhost
+    private final String urlHostingGratuito = "https://grupo10pdm2022.000webhostapp.com/ws_evento_query.php";
+
 
     @SuppressLint("NewApi")
     @Override
@@ -67,11 +71,14 @@ public class ConsultarEventoExternoActivity extends AppCompatActivity {
                 //Validacion que no se ingrese un ideventoVacio
                 if (idEventoText.getText().toString().equals("")) {
                     Toast.makeText(ConsultarEventoExternoActivity.this, "Debe de ingresar un idEvento", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if(idEventoText.getText().length() != 6){
+                    Toast.makeText(ConsultarEventoExternoActivity.this, "Debe de ingresar un idEvento con 6 caracteres", Toast.LENGTH_SHORT).show();
+                } else{
                     String url = "";
 
                     //Obtenemos los eventosdelservidor
-                    url = urlLocal + "?idevento=" + idEventoText.getText().toString();
+                    //url = urlLocal + "?idevento=" + idEventoText.getText().toString();
+                    url = urlHostingGratuito + "?IDEVENTO=" + idEventoText.getText().toString();
                     String eventosExternos = EventoService.obtenerRespuestaPeticion(url, ConsultarEventoExternoActivity.this);
 
                     try {

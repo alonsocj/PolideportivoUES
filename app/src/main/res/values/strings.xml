@@ -260,7 +260,7 @@
     <string name="Actualizar_Evento_Service">Actualizar Evento Services</string>
     <string name="fechaactualizarevent">Ingrese A partir de que fecha se va a actualizar</string>
     <string name="servicioPHP">Servicio PHP</string>
-    <string name="FechaActualizar">Igrese la fecha a actualizar</string>
+    <string name="FechaActualizar">Ingrese la fecha a actualizar</string>
     <string name="actualizar_horarios_de_los_locales">Actualizar Horarios de los Locales</string>
 
 </resources>

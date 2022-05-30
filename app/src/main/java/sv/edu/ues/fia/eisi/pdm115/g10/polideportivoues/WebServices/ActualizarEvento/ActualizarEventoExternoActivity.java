@@ -33,7 +33,11 @@ public class ActualizarEventoExternoActivity extends AppCompatActivity {
     ListView listaViewEventos;
     Button servicioPHP, guardar, limpiar;
 
-    private final String UrlLocal = "http://192.168.1.9/WSPolideportivoUES/ws_evento_update.php";
+    //De manera Local
+    //private final String UrlLocal = "http://192.168.1.9/WSPolideportivoUES/ws_evento_update.php";
+
+    //ServidorGratuito
+    private final String UrlServidorGratuito = "https://grupo10pdm2022.000webhostapp.com/ws_evento_update.php";
 
     @SuppressLint("NewApi")
     @Override
@@ -86,8 +90,8 @@ public class ActualizarEventoExternoActivity extends AppCompatActivity {
                 }else{
                 String[] fecha = fechaTxt.getText().toString().split("/");
                 String url = "";
-                url = UrlLocal + "?day=" + fecha[0] + "&month=" + fecha[1] + "&year=" + fecha[2];
-
+                //url = UrlLocal + "?day=" + fecha[0] + "&month=" + fecha[1] + "&year=" + fecha[2];
+                url = UrlServidorGratuito + "?day=" + fecha[0] + "&month=" + fecha[1] + "&year=" + fecha[2];
                 String eventosExternos = EventoActualizarService.obtenerRespuestaPeticion(url, ActualizarEventoExternoActivity.this);
 
                 try{

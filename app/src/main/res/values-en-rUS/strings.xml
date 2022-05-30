@@ -246,4 +246,14 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="web_services">Web Services</string>
+    <string name="insertar_evento">insert event</string>
+    <string name="consultar_Evento_Service">Consult Event Services</string>
+    <string name="Actualizar_Evento_Service">Update Event Services</string>
+    <string name="fechaactualizarevent">Enter from which date it will be updated</string>
+    <string name="servicioPHP">PHP service</string>
+    <string name="FechaActualizar">Enter the date to update</string>
+    <string name="actualizar_horarios_de_los_locales">Update Store Hours</string>
+
 </resources>

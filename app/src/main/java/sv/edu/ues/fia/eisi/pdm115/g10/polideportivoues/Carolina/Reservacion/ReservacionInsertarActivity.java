@@ -118,7 +118,7 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
         spHLocal.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, arrayHorariosLocalesString));
         helper.close();
 
-    //Mostrar Calendario
+        //Mostrar Calendario
         Calendar calendar=Calendar.getInstance();
         final int year=calendar.get(Calendar.YEAR);
         final int month=calendar.get(Calendar.MONTH);
@@ -172,7 +172,6 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
                         String idHorariosSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdHorario();
                         String idLocalesSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdLocal();
 
-
                         Reservacion reservacion = new Reservacion();
                         reservacion.setIdReservacion(idReservacion.replace(" ",""));
                         reservacion.setIdCobro(idCobroSeleccionada);
@@ -185,30 +184,43 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
                         reservacion.setFechaRegistro(fechaRegistro);
 
                         helper.open();
-                        insertarRegistros = helper.insertarReservacion(reservacion);
+                        int prueba1=helper.listarReservacionEventos(reservacion);
+                        int prueba2=helper.listarReservaPerHoraLoca(reservacion);
                         helper.close();
-                        Toast.makeText(ReservacionInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
 
-                        if(insertarRegistros.equals("Registro duplicado!")){
-                            //Limpiamos los campos
-                            editIdReservacion.setText("");
-                            etFechaR.setText("");
-                            spCobro.setText("");
-                            spPersona.setText("");
-                            spTReservacion.setText("");
-                            spEvento.setText("");
-                            spPeriodoR.setText("");
-                            spHLocal.setText("");
+                        if (prueba2==1){
+                            Toast.makeText(ReservacionInsertarActivity.this, "No se puede hacer mas de una reserva para el mismo periodo, horario y local", Toast.LENGTH_SHORT).show();
                         }else{
-                            //Limpiamos los campos
-                            editIdReservacion.setText("");
-                            etFechaR.setText("");
-                            spCobro.setText("");
-                            spPersona.setText("");
-                            spTReservacion.setText("");
-                            spEvento.setText("");
-                            spPeriodoR.setText("");
-                            spHLocal.setText("");
+                            if (prueba1==5){
+                                Toast.makeText(ReservacionInsertarActivity.this, "Hay 5 locales asociados al evento. No puede reservar más de 5 locales para un mismo evento", Toast.LENGTH_SHORT).show();
+                            }else{
+                                helper.open();
+                                insertarRegistros = helper.insertarReservacion(reservacion);
+                                helper.close();
+                                Toast.makeText(ReservacionInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+
+                                if(insertarRegistros.equals("Registro duplicado!")){
+                                    //Limpiamos los campos
+                                    editIdReservacion.setText("");
+                                    etFechaR.setText("");
+                                    spCobro.setText("");
+                                    spPersona.setText("");
+                                    spTReservacion.setText("");
+                                    spEvento.setText("");
+                                    spPeriodoR.setText("");
+                                    spHLocal.setText("");
+                                }else{
+                                    //Limpiamos los campos
+                                    editIdReservacion.setText("");
+                                    etFechaR.setText("");
+                                    spCobro.setText("");
+                                    spPersona.setText("");
+                                    spTReservacion.setText("");
+                                    spEvento.setText("");
+                                    spPeriodoR.setText("");
+                                    spHLocal.setText("");
+                                }
+                            }
                         }
                     }
                 }

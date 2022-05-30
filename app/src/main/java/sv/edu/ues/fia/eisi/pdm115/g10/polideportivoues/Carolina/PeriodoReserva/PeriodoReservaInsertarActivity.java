@@ -111,7 +111,7 @@ public class PeriodoReservaInsertarActivity extends AppCompatActivity {
                         verdadero=false;
                     }else{
                         PeriodoReserva periodoReserva=new PeriodoReserva();
-                        periodoReserva.setIdPeriodoReserva(idperiodoReserva);
+                        periodoReserva.setIdPeriodoReserva(idperiodoReserva.replace(" ",""));
                         periodoReserva.setFechaInicio(fechaI);
                         periodoReserva.setFechaFin(fechaF);
 

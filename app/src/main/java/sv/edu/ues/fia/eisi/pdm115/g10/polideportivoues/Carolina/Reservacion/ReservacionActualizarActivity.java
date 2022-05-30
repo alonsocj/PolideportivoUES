@@ -160,7 +160,7 @@ public class ReservacionActualizarActivity extends AppCompatActivity {
 
 
                         Reservacion reservacion = new Reservacion();
-                        reservacion.setIdReservacion(idReservacion);
+                        reservacion.setIdReservacion(idReservacion.replace(" ",""));
                         reservacion.setIdCobro(idCobroSeleccionada);
                         reservacion.setIdPersona(idPersonaSeleccionada);
                         reservacion.setIdTipoR(idTipoReservacionSeleccionada);

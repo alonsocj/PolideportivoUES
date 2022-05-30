@@ -34,8 +34,8 @@ public class DiaActualizarActivity extends AppCompatActivity {
                 try {
                     Dia oldDia = new Dia();
                     Dia newDia = new Dia();
-                    oldDia.setNombreDia(editOldDia.getText().toString());
-                    newDia.setNombreDia(editNewDia.getText().toString());
+                    oldDia.setNombreDia(editOldDia.getText().toString().replace(" ",""));
+                    newDia.setNombreDia(editNewDia.getText().toString().replace(" ",""));
                     helper.open();
                     String estado = helper.actualizar(oldDia, newDia);
                     helper.close();

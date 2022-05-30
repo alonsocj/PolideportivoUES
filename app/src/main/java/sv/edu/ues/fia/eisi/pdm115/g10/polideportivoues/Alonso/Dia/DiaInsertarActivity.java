@@ -34,7 +34,7 @@ public class DiaInsertarActivity extends AppCompatActivity {
                     String idDia = editIdDia.getText().toString();
                     if (!idDia.isEmpty()) {
                         Dia dia = new Dia();
-                        dia.setNombreDia(idDia);
+                        dia.setNombreDia(idDia.replace(" ",""));
                         helper.open();
                         helper.insertar(dia);
                         helper.close();

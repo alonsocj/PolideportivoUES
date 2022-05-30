@@ -45,7 +45,7 @@ public class TipoPagoActualizarActivity extends AppCompatActivity {
                         Toast.makeText(TipoPagoActualizarActivity.this, "El id debe de contener dos caracteres", Toast.LENGTH_SHORT).show();
                     } else {
                         TipoPago tipoPago = new TipoPago();
-                        tipoPago.setIdPago(idtipopago);
+                        tipoPago.setIdPago(idtipopago.replace(" ",""));
                         tipoPago.setTipo(nomtippag);
 
                         controlBDChristian.open();

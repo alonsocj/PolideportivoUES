@@ -1,20 +1,13 @@
-package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion;
+package sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarReservacion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
@@ -26,19 +19,15 @@ import java.util.List;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.Cobro;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReserva;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.Reservacion;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDCarolina;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDG10;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponibles;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.HorariosDisponibles.HorariosDisponiblesInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.MainActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.HorariosLocales.HorariosLocales;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.Local;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
 
-public class ReservacionInsertarActivity extends AppCompatActivity{
+public class InsertarReservacionExternoActivity extends AppCompatActivity{
 
     TextInputEditText editIdReservacion, etFechaR;
     ControlBDCarolina helper;
@@ -62,7 +51,7 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reservacion_insertar);
+        setContentView(R.layout.activity_insertar_reservacion_externo);
         helper = new ControlBDCarolina(this);
 
         editIdReservacion=(TextInputEditText) findViewById(R.id.idReservacion);
@@ -118,7 +107,7 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
         spHLocal.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, arrayHorariosLocalesString));
         helper.close();
 
-    //Mostrar Calendario
+        //Mostrar Calendario
         Calendar calendar=Calendar.getInstance();
         final int year=calendar.get(Calendar.YEAR);
         final int month=calendar.get(Calendar.MONTH);
@@ -129,7 +118,7 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
         etFechaR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog datePickerDialog=new DatePickerDialog(ReservacionInsertarActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog=new DatePickerDialog(InsertarReservacionExternoActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                         month=month+1;
@@ -158,10 +147,10 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
 
 
                 if(idReservacion.isEmpty() || fechaRegistro.isEmpty() || spcobro.isEmpty() || sppersona.isEmpty() || sptipoReservacion.isEmpty() ||  spevento.isEmpty() ||  spperiodoReservacion.isEmpty() || sphorarioLocal.isEmpty()){
-                    Toast.makeText(ReservacionInsertarActivity.this, "Debe completar los campos para realizar una reservación!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InsertarReservacionExternoActivity.this, "Debe completar los campos para realizar una reservación!", Toast.LENGTH_SHORT).show();
                 }else{
                     if(idReservacion.length()!=6){
-                        Toast.makeText(ReservacionInsertarActivity.this, "El id de reservacion debe de ser de 6 carácteres!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(InsertarReservacionExternoActivity.this, "El id de reservacion debe de ser de 6 carácteres!", Toast.LENGTH_SHORT).show();
                     }else{
 
                         Integer idCobroSeleccionada=arrayCobros.get(arrayCobrosString.indexOf(spcobro)).getIdCobro();
@@ -174,7 +163,7 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
 
 
                         Reservacion reservacion = new Reservacion();
-                        reservacion.setIdReservacion(idReservacion.replace(" ",""));
+                        reservacion.setIdReservacion(idReservacion);
                         reservacion.setIdCobro(idCobroSeleccionada);
                         reservacion.setIdPersona(idPersonaSeleccionada);
                         reservacion.setIdTipoR(idTipoReservacionSeleccionada);
@@ -184,32 +173,18 @@ public class ReservacionInsertarActivity extends AppCompatActivity{
                         reservacion.setIdLocal(idLocalesSeleccionada);
                         reservacion.setFechaRegistro(fechaRegistro);
 
-                        helper.open();
-                        insertarRegistros = helper.insertarReservacion(reservacion);
-                        helper.close();
-                        Toast.makeText(ReservacionInsertarActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
 
-                        if(insertarRegistros.equals("Registro duplicado!")){
-                            //Limpiamos los campos
-                            editIdReservacion.setText("");
-                            etFechaR.setText("");
-                            spCobro.setText("");
-                            spPersona.setText("");
-                            spTReservacion.setText("");
-                            spEvento.setText("");
-                            spPeriodoR.setText("");
-                            spHLocal.setText("");
-                        }else{
-                            //Limpiamos los campos
-                            editIdReservacion.setText("");
-                            etFechaR.setText("");
-                            spCobro.setText("");
-                            spPersona.setText("");
-                            spTReservacion.setText("");
-                            spEvento.setText("");
-                            spPeriodoR.setText("");
-                            spHLocal.setText("");
-                        }
+                        //Método URL para insertar
+
+                        //Limpiamos los campos
+                        editIdReservacion.setText("");
+                        etFechaR.setText("");
+                        spCobro.setText("");
+                        spPersona.setText("");
+                        spTReservacion.setText("");
+                        spEvento.setText("");
+                        spPeriodoR.setText("");
+                        spHLocal.setText("");
                     }
                 }
             }

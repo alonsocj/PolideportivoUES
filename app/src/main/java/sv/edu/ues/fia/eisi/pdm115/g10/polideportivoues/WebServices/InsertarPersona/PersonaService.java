@@ -47,8 +47,8 @@ public class PersonaService {
     public static void insertarPersonaExterno(String peticion, Context ctx) {
         String json = obtenerRespuestaPeticion(peticion, ctx);
         if (json.equals("{\"resultado\":1}"))
-            Toast.makeText(ctx, "Registro ingresado", Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, "Registro ingresado en Web Service", Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(ctx, "Error registro duplicado", Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, "Error registro duplicado en Web Service", Toast.LENGTH_LONG).show();
     }
 }

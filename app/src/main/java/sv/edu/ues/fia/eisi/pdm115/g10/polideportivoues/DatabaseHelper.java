@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        try{
+        try {
             //Tabla Nacionalidad
             db.execSQL("CREATE TABLE nacionalidad (codNac VARCHAR(2) NOT NULL PRIMARY KEY, nacionalidad VARCHAR(50) NOT NULL);");
             //tabla PeriodoReserva
@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE hora (idHora VARCHAR(4) NOT NULL PRIMARY KEY, horaInicio VARCHAR(25) NOT NULL , horaFin VARCHAR(25) NOT NULL);");
             //Tabla Local
             db.execSQL("CREATE TABLE local (idLocal VARCHAR(5) NOT NULL PRIMARY KEY, nomLocal VARCHAR(50) NOT NULL, cantidadPersonas INTEGER NOT NULL);");
-             //Tabla TipoReservacion
+            //Tabla TipoReservacion
             db.execSQL("CREATE TABLE tipoReservacion (idTipoR VARCHAR(1) NOT NULL PRIMARY KEY, nomTipoR VARCHAR(10) NOT NULL);");
 
             db.execSQL("CREATE TABLE horariosLocales(\n" +
@@ -95,14 +95,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             //Trigger de relacion de llaves foraneas de la tabla Evento con tipoevento
             db.execSQL("CREATE TRIGGER fk_evento_tipoevento " +
-                        "BEFORE INSERT ON evento " +
-                        "FOR EACH ROW " +
-                        "BEGIN " +
-                        "SELECT CASE " +
-                        "WHEN ((SELECT idTipoE FROM tipoevento WHERE idTipoE = NEW.idTipoE ) IS NULL)" +
-                        "THEN RAISE(ABORT, 'No existe el tipo de evento')" +
-                        "END;" +
-                        "END;");
+                    "BEFORE INSERT ON evento " +
+                    "FOR EACH ROW " +
+                    "BEGIN " +
+                    "SELECT CASE " +
+                    "WHEN ((SELECT idTipoE FROM tipoevento WHERE idTipoE = NEW.idTipoE ) IS NULL)" +
+                    "THEN RAISE(ABORT, 'No existe el tipo de evento')" +
+                    "END;" +
+                    "END;");
 
             //Triggers de integridad de relación de tabla Reservación
             db.execSQL("CREATE TRIGGER fk_reservacion_cobro\n" +
@@ -173,6 +173,61 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "END;\n" +
                     "END;\n");
 
+            /* --------------------- */
+
+            db.execSQL("CREATE TRIGGER fk_horariosDisponibles_hora\n" +
+                    "BEFORE INSERT ON horariosDisponibles\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    " SELECT CASE\n" +
+                    "WHEN ((SELECT idHora FROM hora WHERE idHora = NEW.idHora) IS NULL)\n" +
+                    " THEN RAISE(ABORT, 'No existe horario')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_horariosDisponibles_dia\n" +
+                    "BEFORE INSERT ON horariosDisponibles\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    " SELECT CASE\n" +
+                    "WHEN ((SELECT nombreDia FROM dia WHERE nombreDia = NEW.nombreDia) IS NULL)\n" +
+                    " THEN RAISE(ABORT, 'No existe horario')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_persona_genero\n" +
+                    "BEFORE INSERT ON persona\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    " SELECT CASE\n" +
+                    "WHEN ((SELECT idGenero FROM genero WHERE idGenero = NEW.idGenero) IS NULL)\n" +
+                    " THEN RAISE(ABORT, 'No existe el género')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_persona_nacionalidad\n" +
+                    "BEFORE INSERT ON persona\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    " SELECT CASE\n" +
+                    "WHEN ((SELECT codNac FROM nacionalidad WHERE codNac = NEW.codNac) IS NULL)\n" +
+                    " THEN RAISE(ABORT, 'No existe la nacionalidad')\n" +
+                    "END;\n" +
+                    "END;\n");
+
+            db.execSQL("CREATE TRIGGER fk_cobro_tipo_pago\n" +
+                    "BEFORE INSERT ON cobro\n" +
+                    "FOR EACH ROW\n" +
+                    "BEGIN\n" +
+                    "SELECT CASE\n" +
+                    "WHEN ((SELECT idPago FROM tipopago WHERE idPago = NEW.idPago) IS NULL)\n" +
+                    "THEN RAISE(ABORT, 'NO EXISTE ESE METODO DE PAGO')\n" +
+                    "END;\n" +
+                    "END;");
+
+            /* --------------------- */
+
+
             //Trigger de de calculo de precio al insertar un registro de cobro
             db.execSQL("CREATE TRIGGER insertar_precio AFTER INSERT ON cobro\n" +
                     "WHEN new.precio = 0\n" +
@@ -220,6 +275,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "UPDATE horariosLocales SET disponibilidad=0 WHERE horariosLocales.idHorario=old.idHorario AND horariosLocales.idLocal=old.idLocal;\n" +
                     "END");
 
+
             //Trigger de relacion semantica
             db.execSQL("CREATE TRIGGER semantico_reservacion_locales\n" +
                     "BEFORE INSERT ON reservacion\n" +
@@ -245,13 +301,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //OPCION CRUD
             db.execSQL("CREATE TABLE opcionCrud (idOpcion VARCHAR(3) PRIMARY KEY NOT NULL, numCrud INTEGER NOT NULL, desOpcion VARCHAR(30) NOT NULL);");
             //acceso usuario
-            db.execSQL("CREATE TABLE accesoUsuario (idOpcion VARCHAR(3) NOT NULL, idUsuario VARCHAR(2) NOT NULL, "+
-                    "PRIMARY KEY(idOpcion,idUsuario), "+
-                    "CONSTRAINT fk_accesoUsuario_opcionCrud FOREIGN KEY (idOpcion) REFERENCES opcionCrud(idOpcion) ON DELETE CASCADE, "+
+            db.execSQL("CREATE TABLE accesoUsuario (idOpcion VARCHAR(3) NOT NULL, idUsuario VARCHAR(2) NOT NULL, " +
+                    "PRIMARY KEY(idOpcion,idUsuario), " +
+                    "CONSTRAINT fk_accesoUsuario_opcionCrud FOREIGN KEY (idOpcion) REFERENCES opcionCrud(idOpcion) ON DELETE CASCADE, " +
                     "CONSTRAINT fk_accesoUsuario_usuario FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario) ON DELETE CASCADE);");
 
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

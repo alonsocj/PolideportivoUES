@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        String tost="";
         BDhelper = new ControlBDG10(this);
         BDhelper.open();
-        String tost=BDhelper.llenarBDG10();
+        //String tost=BDhelper.llenarBDG10();
         BDhelper.close();
         Toast.makeText(this,tost, Toast.LENGTH_SHORT).show();
 

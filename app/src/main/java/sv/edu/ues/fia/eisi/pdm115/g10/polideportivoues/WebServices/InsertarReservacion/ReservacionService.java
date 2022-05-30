@@ -8,6 +8,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
@@ -43,8 +45,8 @@ public class ReservacionService {
         return respuesta;
     }
 
-    public static void insertarReservacionExterno(String peticion, Context ctx) {
-        String json = obtenerRespuestaPeticion(peticion, ctx);
+    public static void insertarReservacionExterno(String url, Context ctx) {
+        String json = obtenerRespuestaPeticion(url, ctx);
         if (json.equals("{\"resultado\":1}"))
             Toast.makeText(ctx, "Registro ingresado", Toast.LENGTH_LONG).show();
         else

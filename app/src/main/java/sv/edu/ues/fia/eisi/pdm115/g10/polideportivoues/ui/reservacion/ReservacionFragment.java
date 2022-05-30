@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.Rese
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.ReservacionConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.ReservacionEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Reservacion.ReservacionInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentReservacionBinding;
 
 public class ReservacionFragment extends Fragment {
@@ -31,6 +32,13 @@ public class ReservacionFragment extends Fragment {
 
         /*Agregar Reservacion*/
         final Button buttonAgregarReservacion = binding.botonAgregarReservacion;
+
+        if(ProcesarDatos.getAcceso().equals("010")) {
+            buttonAgregarReservacion.setVisibility(View.VISIBLE);
+        }else{
+            buttonAgregarReservacion.setVisibility(View.INVISIBLE);
+        }
+
         buttonAgregarReservacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -56,7 +56,9 @@ public class LoginActivity extends AppCompatActivity implements Comunicacion {
                 hideKeyboard(view);
                 Cursor cursor = db.rawQuery("SELECT * FROM usuario", null);
                 cursor.moveToFirst();
-                new ProcesarDatos(LoginActivity.this).execute(txtUsuario.getText().toString(), txtContrasena.getText().toString(), 3000, cursor);
+                Cursor accesoUsuario = db.rawQuery("SELECT * FROM accesoUsuario", null);
+                accesoUsuario.moveToFirst();
+                new ProcesarDatos(LoginActivity.this).execute(txtUsuario.getText().toString(), txtContrasena.getText().toString(), 3000, cursor,accesoUsuario);
             }
         });
        /* registrar.setOnClickListener(new View.OnClickListener() {

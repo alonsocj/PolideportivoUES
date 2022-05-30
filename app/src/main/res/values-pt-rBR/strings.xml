@@ -258,4 +258,9 @@
     <string name="servicioPHP">serviço PHP</string>
     <string name="FechaActualizar">Igrese la fecha a actualizar</string>
 
+
+    <!--    WEB SERVICE -->
+    <string name="titulo_reservacion_insertarW">WebService Adicionar reserva</string>
+
+
 </resources>

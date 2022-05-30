@@ -104,6 +104,7 @@ public class InsertarPersonaExternoActivity extends AppCompatActivity {
                 String email = editEmail.getText().toString();
                 String telefono = editTelefono.getText().toString();
                 boolean verdadero=true;
+                String insertarRegistros;
                 String url="", urlDireccion="",urlNombre="",urlApellido="";
                 JSONObject datosPersona = new JSONObject();
                 JSONObject persona1= new JSONObject();
@@ -123,6 +124,7 @@ public class InsertarPersonaExternoActivity extends AppCompatActivity {
                             verdadero=false;
                         }
                     }
+                    //Prueba
                     if(verdadero){
                         String [] fecha=nacimiento.split("/");
                         int anio=Integer.parseInt(fecha[2]);
@@ -132,31 +134,40 @@ public class InsertarPersonaExternoActivity extends AppCompatActivity {
                         }else{
                             Persona persona = new Persona();
                             persona.setIdPersona(idPersona);
+                            persona.setNombre(nombre);
+                            persona.setApellido(apellido);
+                            persona.setGenero(arrayGenero.get(arrayGeneroString.indexOf(editGenero.getText().toString())).getIdGenero().toString());
+                            persona.setNacimiento(nacimiento);
+                            persona.setNacionalidad(arrayNacionalidad.get(arrayNacionalidadString.indexOf(editNacionalidad.getText().toString())).getCodNac());
+                            persona.setDireccion(direccion);
+                            persona.setEmail(email);
+                            persona.setTelefono(telefono);
+
+                            //Validando textos en la URL
                             try {
                                 urlNombre=URLEncoder.encode(nombre,"UTF-8");
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             }
-                            persona.setNombre(urlNombre);
                             try {
                                 urlApellido=URLEncoder.encode(apellido,"UTF-8");
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             }
-                            persona.setApellido(urlApellido);
-                            persona.setGenero(arrayGenero.get(arrayGeneroString.indexOf(editGenero.getText().toString())).getIdGenero().toString());
-                            persona.setNacimiento(nacimiento);
-                            persona.setNacionalidad(arrayNacionalidad.get(arrayNacionalidadString.indexOf(editNacionalidad.getText().toString())).getCodNac());
                             try {
                                 urlDireccion=URLEncoder.encode(direccion,"UTF-8");
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             }
-                            persona.setDireccion(urlDireccion);
-                            persona.setEmail(email);
-                            persona.setTelefono(telefono);
 
-                            url = urlHosting+ "?IDPERSONA=" + persona.getIdPersona() + "&NOMBRE=" + persona.getNombre() + "&APELLIDO=" + persona.getApellido() + "&IDGENERO=" + persona.getGenero() +"&NACIMIENTO="+persona.getNacimiento()+"&CODNAC="+persona.getNacionalidad()+ "&DIRECCION="+persona.getDireccion()+"&EMAIL="+persona.getEmail()+"&TELEFONO="+persona.getTelefono();
+                            //Almacenando en la base de datos local
+                            controlBDGustavo.open();
+                            insertarRegistros = controlBDGustavo.insertarPersona(persona);
+                            controlBDGustavo.close();
+                            Toast.makeText(InsertarPersonaExternoActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+
+                            //Almacenando en el webhosting
+                            url = urlHosting+ "?IDPERSONA=" + persona.getIdPersona() + "&NOMBRE=" + urlNombre + "&APELLIDO=" + urlApellido + "&IDGENERO=" + persona.getGenero() +"&NACIMIENTO="+persona.getNacimiento()+"&CODNAC="+persona.getNacionalidad()+ "&DIRECCION="+urlDireccion+"&EMAIL="+persona.getEmail()+"&TELEFONO="+persona.getTelefono();
                             PersonaService.insertarPersonaExterno(url, InsertarPersonaExternoActivity.this);
 
                             //Limpiamos los campos

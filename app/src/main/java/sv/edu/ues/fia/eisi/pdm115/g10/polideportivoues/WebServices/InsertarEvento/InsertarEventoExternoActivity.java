@@ -72,11 +72,12 @@ public class InsertarEventoExternoActivity extends AppCompatActivity {
         agregarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String UrlNombreEvento = "";
                 String eventosRegistrados;
                 String idEvento = IdEvento.getText().toString();
                 String nombreEvento = NombreEvento.getText().toString();
                 try {
-                    nombreEvento = URLEncoder.encode(nombreEvento, "UTF-8");
+                    UrlNombreEvento = URLEncoder.encode(nombreEvento, "UTF-8");
 
                 } catch (Exception e) {
 
@@ -110,7 +111,7 @@ public class InsertarEventoExternoActivity extends AppCompatActivity {
                         controlBDChristian.open();
                         eventosRegistrados = controlBDChristian.agregarEvento(event);
                         controlBDChristian.close();
-                        sendData(idEvento, idtipoE, nombreEvento, costoString, cantidadString);
+                        sendData(idEvento, idtipoE, UrlNombreEvento, costoString, cantidadString);
                         Toast.makeText(InsertarEventoExternoActivity.this, eventosRegistrados, Toast.LENGTH_SHORT).show();
                     }
                 }

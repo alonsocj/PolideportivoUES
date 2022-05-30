@@ -255,7 +255,7 @@
     <string name="fechaactualizarevent">Enter from which date it will be updated</string>
     <string name="servicioPHP">PHP service</string>
     <string name="FechaActualizar">Enter the date to update</string>
-    <string name="actualizar_horarios_de_los_locales">Update Store Hours</string>
+    <string name="actualizar_horarios_de_los_locales">Update Store Hours Service</string>
 
     <!-- DIA -->
     <string name="dia">Day</string>
@@ -274,6 +274,7 @@
     <string name="registro_title">Check in</string>
     <string name="confirmar_clave">Confirm password</string>
     <string name="llenar_base">Fill Base</string>
+    <string name="actualizar_horario_local">Update Store Hours</string>
 
 
 </resources>

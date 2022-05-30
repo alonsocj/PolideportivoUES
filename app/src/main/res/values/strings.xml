@@ -272,5 +272,6 @@
     <string name="id_Evento">Evento</string>
     <string name="id_PeriodoReserva">Periodo de reserva</string>
     <string name="fechaRegistro">fecha de registro</string>
+    <string name="llenar_base">Llenar Base</string>
 
 </resources>

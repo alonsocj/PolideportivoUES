@@ -273,6 +273,7 @@
     <string name="registro">Click here to register</string>
     <string name="registro_title">Check in</string>
     <string name="confirmar_clave">Confirm password</string>
+    <string name="llenar_base">Fill Base</string>
 
 
 </resources>

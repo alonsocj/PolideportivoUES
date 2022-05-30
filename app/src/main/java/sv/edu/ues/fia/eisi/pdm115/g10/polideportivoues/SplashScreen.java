@@ -23,12 +23,12 @@ public class SplashScreen extends AppCompatActivity {
         helper.open();
         String tost = helper.datosAcceso();
         helper.close();
-        Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, LoginActivity.class));
                 finish();
             }
         }, 1500);

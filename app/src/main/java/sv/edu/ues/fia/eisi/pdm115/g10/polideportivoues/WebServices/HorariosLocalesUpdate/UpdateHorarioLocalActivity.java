@@ -38,7 +38,7 @@ public class UpdateHorarioLocalActivity extends AppCompatActivity {
     TextInputEditText fechaTxt;
     ListView listViewHorariosLocales;
     Button servicioPHP, guardar, limpiar;
-    private final String UrlLocal = "http://192.168.1.9/WSPolideportivoUES/ws_local_update.php";
+    private final String UrlLocal = "https://grupo10pdm2022.000webhostapp.com/ws_local_update.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

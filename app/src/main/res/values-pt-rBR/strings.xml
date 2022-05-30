@@ -273,6 +273,7 @@
 
     <!--    WEB SERVICE -->
     <string name="titulo_reservacion_insertarW">WebService Adicionar reserva</string>
+    <string name="llenar_base">Base de preenchimento</string>
 
 
 </resources>

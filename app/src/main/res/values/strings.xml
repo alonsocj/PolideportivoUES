@@ -261,6 +261,7 @@
     <string name="servicioPHP">Servicio PHP</string>
     <string name="FechaActualizar">Ingrese la fecha a actualizar</string>
     <string name="actualizar_horarios_de_los_locales">Actualizar Horarios de los Locales</string>
+    <string name="titulo_reservacion_insertarW">WebService Agregar Reservación</string>
 
     <string name="id_periodoReserva">Id del periodo de reserva</string>
     <string name="fechaInicio">Fecha de inicio del periodo de reserva</string>

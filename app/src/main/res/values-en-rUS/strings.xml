@@ -247,6 +247,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="titulo_reservacion_insertarW">Add Reservation WebService</string>
     <string name="web_services">Web Services</string>
     <string name="insertar_evento">insert event</string>
     <string name="consultar_Evento_Service">Consult Event Services</string>

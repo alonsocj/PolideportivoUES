@@ -44,6 +44,8 @@ public class ConsultarCobroExternoActivity extends AppCompatActivity {
     }
 
     public void servicioPHP(View v) {
+        listaCobros.removeAll(listaCobros);
+        actualizarListView();
         if((idCobro.getText().toString()).equals("")){
             Toast.makeText(this, "Debe ingresar el id del cobro!", Toast.LENGTH_LONG).show();
         }else {
@@ -69,7 +71,7 @@ public class ConsultarCobroExternoActivity extends AppCompatActivity {
         String dato = "";
         nombreCobros.clear();
         for (int i = 0; i < listaCobros.size(); i++) {
-            dato = "Id: " +listaCobros.get(i).getIdCobro()+ " Tipo de pago: " + listaCobros.get(i).getIdPago()+" Personas: "+ listaCobros.get(i).getCantPersonas()+" Duracion: "+listaCobros.get(i).getDuracionTexto()+" h Precio: "+listaCobros.get(i).getPrecio()+" $";
+            dato = "Cobro: " +listaCobros.get(i).getIdCobro()+ " Tipo de pago: " + listaCobros.get(i).getIdPago()+" Personas: "+ listaCobros.get(i).getCantPersonas()+" Duracion: "+listaCobros.get(i).getDuracionTexto()+" h Precio: "+listaCobros.get(i).getPrecio()+" $";
             nombreCobros.add(dato);
         }
         eliminarElementosDuplicados();

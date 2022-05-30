@@ -72,6 +72,8 @@ public class ConsultarReservacionExternoActivity extends AppCompatActivity {
         });
     }
     public void servicioPHP(View v) {
+        listaReservacion.removeAll(listaReservacion);
+        actualizarListView();
         if((etFechaR.getText().toString()).equals("")){
             Toast.makeText(this, "Debe ingresar una fecha!", Toast.LENGTH_LONG).show();
         }else {

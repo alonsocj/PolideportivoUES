@@ -256,7 +256,19 @@
     <string name="Actualizar_Evento_Service">Atualizar serviços de eventos</string>
     <string name="fechaactualizarevent">Digite a partir de qual data será atualizado</string>
     <string name="servicioPHP">serviço PHP</string>
-    <string name="FechaActualizar">Igrese la fecha a actualizar</string>
+    <string name="FechaActualizar">Insira a data para atualizar</string>
+    <string name="actualizar_horarios_de_los_locales">Atualizar horário da loja</string>
+
+    <string name="id_periodoReserva">Id do período de reserva</string>
+    <string name="fechaInicio">Data de início do período de reserva</string>
+    <string name="fechaFin">Data final do período de reserva</string>
+
+    <string name="id_Reservacion">Reserva de ID</string>
+    <string name="TipoReservacion">Tipo de reserva</string>
+    <string name="id_Evento">Evento</string>
+    <string name="id_PeriodoReserva">Período de reserva</string>
+    <string name="fechaRegistro">Data de registro</string>
+
 
 
     <!--    WEB SERVICE -->

@@ -76,7 +76,6 @@
     <string name="oldDia">Dia actual:</string>
     <string name="newDia">Dia nuevo:</string>
 
-
     <!--Local-->
     <string name="titulo_nav_local">Local</string>
     <string name="agregarLocal">Agregar Local</string>
@@ -262,5 +261,15 @@
     <string name="servicioPHP">Servicio PHP</string>
     <string name="FechaActualizar">Ingrese la fecha a actualizar</string>
     <string name="actualizar_horarios_de_los_locales">Actualizar Horarios de los Locales</string>
+
+    <string name="id_periodoReserva">Id del periodo de reserva</string>
+    <string name="fechaInicio">Fecha de inicio del periodo de reserva</string>
+    <string name="fechaFin">Fecha de finalización del período de reserva</string>
+
+    <string name="id_Reservacion">Id reservacion</string>
+    <string name="TipoReservacion">Tipo de reserva</string>
+    <string name="id_Evento">Evento</string>
+    <string name="id_PeriodoReserva">Periodo de reserva</string>
+    <string name="fechaRegistro">fecha de registro</string>
 
 </resources>

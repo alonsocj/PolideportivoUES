@@ -16,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.io.UnsupportedEncodingException;
 
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.Cobro;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReserva;
@@ -24,8 +25,22 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDCarolina;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarPersona.InsertarPersonaExternoActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarPersona.PersonaService;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.HorariosLocales.HorariosLocales;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
+
+import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import android.os.StrictMode;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.annotation.SuppressLint;
+@SuppressLint("NewApi")
 
 public class InsertarReservacionExternoActivity extends AppCompatActivity{
 
@@ -48,10 +63,18 @@ public class InsertarReservacionExternoActivity extends AppCompatActivity{
     Button botonAgregar;
     DatePickerDialog.OnDateSetListener setListener;
 
+    private final String urlHosting = "https://grupo10pdm2022.000webhostapp.com/ws_insert_reservacion.php";
+    @SuppressLint("NewApi")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insertar_reservacion_externo);
+
+        //WEBSERVICES
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         helper = new ControlBDCarolina(this);
 
         editIdReservacion=(TextInputEditText) findViewById(R.id.idReservacion);
@@ -145,6 +168,11 @@ public class InsertarReservacionExternoActivity extends AppCompatActivity{
                 String sphorarioLocal=spHLocal.getText().toString();
                 String insertarRegistros;
 
+                //WEBSERVICES
+                String url="";
+                JSONObject datosReserva = new JSONObject();
+                JSONObject reservacion1= new JSONObject();
+
 
                 if(idReservacion.isEmpty() || fechaRegistro.isEmpty() || spcobro.isEmpty() || sppersona.isEmpty() || sptipoReservacion.isEmpty() ||  spevento.isEmpty() ||  spperiodoReservacion.isEmpty() || sphorarioLocal.isEmpty()){
                     Toast.makeText(InsertarReservacionExternoActivity.this, "Debe completar los campos para realizar una reservación!", Toast.LENGTH_SHORT).show();
@@ -174,7 +202,10 @@ public class InsertarReservacionExternoActivity extends AppCompatActivity{
                         reservacion.setFechaRegistro(fechaRegistro);
 
 
-                        //Método URL para insertar
+                        //WEBSERVICE
+                        url = urlHosting+ "?IDRESERVACION=" + reservacion.getIdReservacion() + "&IDCOBRO=" + reservacion.getIdCobro() + "&IDPERSONA=" + reservacion.getIdPersona() + "&IDTIPOR=" + reservacion.getIdTipoR() +"&IDEVENTO="+reservacion.getIdEvento()+"&IDPERIODORESERVA=" + reservacion.getIdPeriodoReserva()+ "&IDHORARIO="+reservacion.getIdHorario()+"&IDLOCAL="+reservacion.getIdLocal()+"&FECHAREGISTRO="+reservacion.getFechaRegistro();
+                        ReservacionService.insertarReservacionExterno(url, InsertarReservacionExternoActivity.this);
+
 
                         //Limpiamos los campos
                         editIdReservacion.setText("");

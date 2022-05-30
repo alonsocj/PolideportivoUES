@@ -270,4 +270,9 @@
     <string name="fechaRegistro">Data de registro</string>
 
 
+
+    <!--    WEB SERVICE -->
+    <string name="titulo_reservacion_insertarW">WebService Adicionar reserva</string>
+
+
 </resources>

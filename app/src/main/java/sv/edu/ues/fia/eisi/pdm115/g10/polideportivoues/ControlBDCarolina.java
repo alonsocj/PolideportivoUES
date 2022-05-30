@@ -112,9 +112,9 @@ public class ControlBDCarolina {
         String regAfectados="Filas afectadas= ";
         int contador=0;
 
-          contador+=db.delete("periodoReserva","idPeriodoReserva='"+periodoReserva.getIdPeriodoReserva()+"'",null);
-          regAfectados = regAfectados + contador;
-          return regAfectados;
+        contador+=db.delete("periodoReserva","idPeriodoReserva='"+periodoReserva.getIdPeriodoReserva()+"'",null);
+        regAfectados = regAfectados + contador;
+        return regAfectados;
     }
     public String eliminarPeriodoReservaCascada(PeriodoReserva periodoReserva){
         String regAfectados1="Filas afectadas en la tabla reservación= ";
@@ -306,6 +306,19 @@ public class ControlBDCarolina {
         }
     }
 
+    public int listarReservacionEventos(Reservacion reservacion){
+        Cursor mCount= db.rawQuery("select count(idLocal) from reservacion where idEvento='" + reservacion.getIdEvento()+"'", null);
+        mCount.moveToFirst();
+        int count= mCount.getInt(0);
+        return count;
+    }
+    public int listarReservaPerHoraLoca(Reservacion reservacion){
+        Cursor mCount= db.rawQuery("SELECT count(idReservacion) FROM reservacion WHERE (idPeriodoReserva='"+reservacion.getIdPeriodoReserva()+"' AND idHorario='"+reservacion.getIdHorario()+"' AND idLocal='"+reservacion.getIdLocal()+"')", null);
+        mCount.moveToFirst();
+        int count= mCount.getInt(0);
+        return count;
+        //SELECT count(idReservacion) FROM reservacion WHERE (idPeriodoReserva = NEW.idPeriodoReserva AND idHorario=NEW.idHorario AND idLocal=NEW.idLocal)) =1
+    }
 
     //Extraer listado de todos los cobros
     public List<Cobro> consultarCobros(){
@@ -510,7 +523,7 @@ public class ControlBDCarolina {
     //Extraer listado de todos los horarios locales
     public List<HorariosLocales> consultarHorariosLocales(){
         List<HorariosLocales> arrayHorariosLocales=new ArrayList<>();
-        Cursor cursor = db.query("horariosLocales",null,"disponibilidad=0" , null, null, null, null);
+        Cursor cursor = db.query("horariosLocales",null,"disponibilidad=0", null, null, null, null);
 
         if(cursor.moveToFirst()){
             HorariosLocales horariosL = new HorariosLocales();
@@ -655,25 +668,3 @@ public class ControlBDCarolina {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

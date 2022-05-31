@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.EventoActual
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.EventoConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.EventoEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.EventoInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentEventoBinding;
 
 
@@ -69,6 +70,44 @@ public class EventoFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("031")) {
+                buttonAgregarEvento.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonAgregarEvento.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("030") || ProcesarDatos.getAcceso().get(i).equals("032") || ProcesarDatos.getAcceso().get(i).equals("033")) {
+                buttonEliminarEvento.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonEliminarEvento.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("031")) {
+                buttonActualizarEvento.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonActualizarEvento.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("031")) {
+                buttonConsultarEvento.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonConsultarEvento.setVisibility(View.INVISIBLE);
+            }
+        }
 
 
         return root;

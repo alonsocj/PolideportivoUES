@@ -322,10 +322,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //OPCION CRUD
             db.execSQL("CREATE TABLE opcionCrud (idOpcion VARCHAR(3) PRIMARY KEY NOT NULL, numCrud INTEGER NOT NULL, desOpcion VARCHAR(30) NOT NULL);");
             //acceso usuario
-            db.execSQL("CREATE TABLE accesoUsuario (idOpcion VARCHAR(3) NOT NULL, idUsuario VARCHAR(2) NOT NULL, " +
-                    "PRIMARY KEY(idOpcion,idUsuario), " +
-                    "CONSTRAINT fk_accesoUsuario_opcionCrud FOREIGN KEY (idOpcion) REFERENCES opcionCrud(idOpcion) ON DELETE CASCADE, " +
-                    "CONSTRAINT fk_accesoUsuario_usuario FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario) ON DELETE CASCADE);");
+            db.execSQL("CREATE TABLE accesoUsuario (idOpcion VARCHAR(3) NOT NULL, idUsuario VARCHAR(2) NOT NULL); ");/// /+
+                    //"PRIMARY KEY(idOpcion,idUsuario), \n" +
+                    //"CONSTRAINT fk_accesoUsuario_opcionCrud FOREIGN KEY (idOpcion) REFERENCES opcionCrud(idOpcion) ON DELETE CASCADE," +
+                    //"CONSTRAINT fk_accesoUsuario_usuario FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario) ON DELETE CASCADE);");
 
 
         } catch (SQLException e) {

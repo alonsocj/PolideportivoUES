@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraActualizar
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Hora.HoraInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentHoraBinding;
 
 
@@ -72,6 +73,45 @@ public class HoraFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("071")) {
+                buttonAgregarHora.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonAgregarHora.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("070") || ProcesarDatos.getAcceso().get(i).equals("072") || ProcesarDatos.getAcceso().get(i).equals("073")) {
+                buttonEliminarHora.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonEliminarHora.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("071")) {
+                buttonActualizarHora.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonActualizarHora.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("071")) {
+                buttonConsultarHora.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonConsultarHora.setVisibility(View.INVISIBLE);
+            }
+        }
+
 
         return root;
     }

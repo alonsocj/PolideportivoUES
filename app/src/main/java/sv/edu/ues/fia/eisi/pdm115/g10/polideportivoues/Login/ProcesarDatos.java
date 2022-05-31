@@ -4,11 +4,14 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.MainActivity;
 
 public class ProcesarDatos extends AsyncTask<Object, Void, Boolean> {
     private Comunicacion comunicacion;
-    private static String acceso;
+    private static List<String> acceso = new ArrayList<>();
 
     public ProcesarDatos(Comunicacion comunicacion) {
         this.comunicacion = comunicacion;
@@ -60,11 +63,19 @@ public class ProcesarDatos extends AsyncTask<Object, Void, Boolean> {
         return false;
     }
 
-    public static String getAcceso() {
+    /*public static String getAcceso() {
         return acceso;
     }
 
     public static void setAcceso(String acceso) {
         ProcesarDatos.acceso = acceso;
+    }*/
+
+    public static List<String> getAcceso() {
+        return acceso;
+    }
+
+    public static void setAcceso(String acceso) {
+        ProcesarDatos.acceso.add(acceso);
     }
 }

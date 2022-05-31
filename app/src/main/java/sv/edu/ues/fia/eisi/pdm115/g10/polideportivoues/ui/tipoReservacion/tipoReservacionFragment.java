@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.Local.LocalInsertarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacionActualizarActivity;
@@ -30,6 +31,16 @@ public class tipoReservacionFragment extends Fragment {
         binding = FragmentTipoReservacionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         final Button btnAgregartipoReservacion = binding.botonAgregarTipoReservacionF;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("111")) {
+                btnAgregartipoReservacion.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnAgregartipoReservacion.setVisibility(View.INVISIBLE);
+            }
+        }
+
         btnAgregartipoReservacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,6 +49,16 @@ public class tipoReservacionFragment extends Fragment {
             }
         });
         final Button btnConsultartipoReservacion = binding.botonConsultarTipoReservacionF;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("111")) {
+                btnConsultartipoReservacion.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnConsultartipoReservacion.setVisibility(View.INVISIBLE);
+            }
+        }
+
         btnConsultartipoReservacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +67,17 @@ public class tipoReservacionFragment extends Fragment {
             }
         });
         final Button btnActualizartipoReservacion = binding.botonActualizarTipoReservacionF;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("111")) {
+                btnActualizartipoReservacion.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnActualizartipoReservacion.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
         btnActualizartipoReservacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +86,17 @@ public class tipoReservacionFragment extends Fragment {
             }
         });
         final Button btnEliminartipoReservacion = binding.botonEliminarTipoReservacionF;
+
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("110")||ProcesarDatos.getAcceso().get(i).equals("112")||ProcesarDatos.getAcceso().get(i).equals("113")) {
+                btnEliminartipoReservacion.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnEliminartipoReservacion.setVisibility(View.INVISIBLE);
+            }
+        }
+
         btnEliminartipoReservacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

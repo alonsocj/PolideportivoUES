@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.P
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReservaConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReservaEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.PeriodoReserva.PeriodoReservaInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentPeriodoReservaBinding;
 
 
@@ -32,6 +33,16 @@ public class PeriodoReservaFragment extends Fragment {
 
         /*Agregar PeriodoReserva*/
         final Button buttonAgregarPeriodoReserva = binding.botonAgregarPeriodoReserva;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("051")) {
+                buttonAgregarPeriodoReserva.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonAgregarPeriodoReserva.setVisibility(View.INVISIBLE);
+            }
+        }
+
         buttonAgregarPeriodoReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +54,16 @@ public class PeriodoReservaFragment extends Fragment {
         /*Consultar PeriodoReserva*/
 
         final Button buttonConsultarPeriodoReserva = binding.botonConsultarPeriodoReserva;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("051")) {
+                buttonConsultarPeriodoReserva.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonConsultarPeriodoReserva.setVisibility(View.INVISIBLE);
+            }
+        }
+
         buttonConsultarPeriodoReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +75,16 @@ public class PeriodoReservaFragment extends Fragment {
         /*Modificar PeriodoReserva*/
 
         final Button buttonActualizarPeriodoReserva = binding.botonActualizarPeriodoReserva;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("051")) {
+                buttonActualizarPeriodoReserva.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonActualizarPeriodoReserva.setVisibility(View.INVISIBLE);
+            }
+        }
+
         buttonActualizarPeriodoReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +96,16 @@ public class PeriodoReservaFragment extends Fragment {
         /*Eliminar PeriodoReserva*/
 
         final Button buttonEliminarPeriodoReserva = binding.botonEliminarPeriodoReserva;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("050")||ProcesarDatos.getAcceso().get(i).equals("052")||ProcesarDatos.getAcceso().get(i).equals("053")) {
+                buttonEliminarPeriodoReserva.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonEliminarPeriodoReserva.setVisibility(View.INVISIBLE);
+            }
+        }
+
         buttonEliminarPeriodoReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

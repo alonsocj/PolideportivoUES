@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEve
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEventoConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEventoEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.TipoEvento.TipoEventoInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentTipoEventoBinding;
 
 
@@ -34,6 +35,44 @@ public class TipoEventoFragment extends Fragment {
         // Acciones con los botones
 
         // agregar tipo evento
+
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("081")) {
+                btnAgregarTipoE.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnAgregarTipoE.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("081")) {
+                btnConsultarTipoE.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnConsultarTipoE.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("081")) {
+                btnActualizarTipoE.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnActualizarTipoE.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("080")||ProcesarDatos.getAcceso().get(i).equals("082")||ProcesarDatos.getAcceso().get(i).equals("083")) {
+                btnEliminarTipoE.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnEliminarTipoE.setVisibility(View.INVISIBLE);
+            }
+        }
+
 
         btnAgregarTipoE.setOnClickListener(new View.OnClickListener() {
             @Override

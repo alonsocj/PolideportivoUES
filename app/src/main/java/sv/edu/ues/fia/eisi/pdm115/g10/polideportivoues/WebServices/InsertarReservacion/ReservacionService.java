@@ -48,8 +48,8 @@ public class ReservacionService {
     public static void insertarReservacionExterno(String url, Context ctx) {
         String json = obtenerRespuestaPeticion(url, ctx);
         if (json.equals("{\"resultado\":1}"))
-            Toast.makeText(ctx, "Registro ingresado", Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, "Registro ingresado en Servidor", Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(ctx, "Error registro duplicado", Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, "No se pudo ingresar el registro en el servidor", Toast.LENGTH_LONG).show();
     }
 }

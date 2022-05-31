@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.CobroActuali
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.CobroConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.CobroEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Cobro.CobroInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentCobroBinding;
 
@@ -32,6 +33,45 @@ public class CobroFragment extends Fragment {
         final Button btnActualizar = binding.botonActualizarCobro;
         final Button btnEliminar = binding.botonEliminarCobro;
 
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("091")) {
+                btnInsertar.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnInsertar.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("090") || ProcesarDatos.getAcceso().get(i).equals("092") || ProcesarDatos.getAcceso().get(i).equals("093")) {
+                btnEliminar.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnEliminar.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("091")) {
+                btnActualizar.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnActualizar.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("091")) {
+                btnConsultar.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnConsultar.setVisibility(View.INVISIBLE);
+            }
+        }
+        
+        
         btnInsertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

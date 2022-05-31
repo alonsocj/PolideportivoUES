@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.DiaActualizarA
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.DiaConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.DiaEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Alonso.Dia.DiaInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentCobroBinding;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentDiaBinding;
@@ -37,6 +38,44 @@ public class DiaFragment extends Fragment {
         final Button btnConsultar = binding.botonConsultarDia;
         final Button btnActualizar = binding.botonActualizarDia;
         final Button btnEliminar = binding.botonEliminarDia;
+
+            for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("151")) {
+                btnInsertar.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnInsertar.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("150") || ProcesarDatos.getAcceso().get(i).equals("152") || ProcesarDatos.getAcceso().get(i).equals("153")) {
+                btnEliminar.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnEliminar.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("151")) {
+                btnActualizar.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnActualizar.setVisibility(View.INVISIBLE);
+            }
+        }
+
+
+         for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("151")) {
+                btnConsultar.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                btnConsultar.setVisibility(View.INVISIBLE);
+            }
+        }
 
         btnInsertar.setOnClickListener(new View.OnClickListener() {
             @Override

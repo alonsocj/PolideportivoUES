@@ -14,6 +14,7 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.Nac
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.NacionalidadConsultarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.NacionalidadEliminarActivity;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Carolina.Nacionalidad.NacionalidadInsertarActivity;
+import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Login.ProcesarDatos;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.databinding.FragmentNacionalidadBinding;
 
 public class NacionalidadFragment extends Fragment {
@@ -30,6 +31,16 @@ public class NacionalidadFragment extends Fragment {
 
         /*Agregar Nacionalidad*/
         final Button buttonAgregarNacionalidad = binding.botonAgregarNacionalidad;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("151")) {
+                buttonAgregarNacionalidad.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonAgregarNacionalidad.setVisibility(View.INVISIBLE);
+            }
+        }
+
         buttonAgregarNacionalidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +52,16 @@ public class NacionalidadFragment extends Fragment {
         /*Consultar Nacionalidad*/
 
         final Button buttonConsultarNacionalidad = binding.botonConsultarNacionalidad;
+        
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("151")) {
+                buttonConsultarNacionalidad.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonConsultarNacionalidad.setVisibility(View.INVISIBLE);
+            }
+        }
+        
         buttonConsultarNacionalidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +73,16 @@ public class NacionalidadFragment extends Fragment {
         /*Modificar Nacionalidad*/
 
         final Button buttonActualizarNacionalidad = binding.botonActualizarNacionalidad;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("151")) {
+                buttonActualizarNacionalidad.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonActualizarNacionalidad.setVisibility(View.INVISIBLE);
+            }
+        }
+
         buttonActualizarNacionalidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +94,16 @@ public class NacionalidadFragment extends Fragment {
         /*Eliminar Nacionalidad*/
 
         final Button buttonEliminarNacionalidad = binding.botonEliminarNacionalidad;
+
+        for (int i = 0; i < ProcesarDatos.getAcceso().size(); i++) {
+            if (ProcesarDatos.getAcceso().get(i).equals("150")||ProcesarDatos.getAcceso().get(i).equals("152")||ProcesarDatos.getAcceso().get(i).equals("153")) {
+                buttonEliminarNacionalidad.setVisibility(View.VISIBLE);
+                break;
+            } else {
+                buttonEliminarNacionalidad.setVisibility(View.INVISIBLE);
+            }
+        }
+
         buttonEliminarNacionalidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

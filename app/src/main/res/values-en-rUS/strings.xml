@@ -143,7 +143,7 @@
     <string name="Hint_id_Persona">Person</string>
     <string name="Hint_TipoReservacion">Reservation Type</string>
     <string name="Hint_id_Evento">Event</string>
-    <string name="Hint_id_PeriodoReserva">reservation period</string>
+    <string name="Hint_id_PeriodoReserva">Reservation period</string>
     <string name="Hint_fechaRegistro">Registration date</string>
 
     <!-- TABLA PeriodoReserva-->

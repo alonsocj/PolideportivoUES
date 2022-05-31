@@ -81,7 +81,7 @@ public class ControlBDG10 {
 
         //Tabla horariosLocales
         final String[] idHorarioHL = {"H00001", "H00002"};
-        final String[] idLocalHL = {"CEU01", "PAEU1"};
+        final String[] idLocalHL = {"CEU1", "PAE1"};
         final String[] disponibilidad = {"0", "1"};
 
         //genero

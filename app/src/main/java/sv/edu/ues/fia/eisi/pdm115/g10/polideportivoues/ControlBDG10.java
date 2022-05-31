@@ -200,11 +200,28 @@ public class ControlBDG10 {
         final String[] VAidUsuario = {"01","02","03"};
         final String[] VAnomUsuario = {"Carlos","Alberto","Hernan"};
         final String[] VAClave = {"Ch1q2","jA3f2","gD21d"};
+        final String[] VAIdOpcion = {"010","011","012","013","014"}; //,"101","024","034"
+        final String[] DesOpcion = {"Menu de Reservacion ","Adición de Reservacion","Modificación de Reservacion",
+                "Actualización de Reservacion","Consulta de Reservacion"};
+        final int[] VANumCrud = {1,2,3,4,5};
+
+        final String[] VAIdUsuario = {"01","02","03"};
+        final String[] VAIdOpcionU = {"010","011","012"};
 
         db.execSQL("DELETE FROM usuario;");
+        db.execSQL("DELETE FROM opcionCrud;");
+        db.execSQL("DELETE FROM accesoUsuario;");
 
         for(int i=0;i<VAidUsuario.length;i++){
             db.execSQL("INSERT INTO usuario (idUsuario,nomUsuario,clave) VALUES ('"+VAidUsuario[i]+"','"+VAnomUsuario[i]+"','"+VAClave[i]+"');");
+        }
+
+        for(int i=0;i<VAIdOpcion.length;i++){
+            db.execSQL("INSERT INTO opcionCrud (idOpcion,desOpcion,numCrud) VALUES ('"+VAIdOpcion[i]+"','"+DesOpcion[i]+"','"+VANumCrud[i]+"');");
+        }
+
+        for(int i=0;i<VAIdUsuario.length;i++){
+            db.execSQL("INSERT INTO accesoUsuario (idUsuario,idOpcion) VALUES ('"+VAIdUsuario[i]+"','"+VAIdOpcionU[i]+"');");
         }
 
         return "Valores de acceso";

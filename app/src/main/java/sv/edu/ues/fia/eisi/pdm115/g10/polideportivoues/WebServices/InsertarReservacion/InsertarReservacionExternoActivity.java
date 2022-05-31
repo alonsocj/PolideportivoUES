@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -25,20 +26,10 @@ import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Chris.Evento.Evento;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.ControlBDCarolina;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.Gustavo.Persona.Persona;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.R;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarPersona.InsertarPersonaExternoActivity;
-import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.WebServices.InsertarPersona.PersonaService;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.HorariosLocales.HorariosLocales;
 import sv.edu.ues.fia.eisi.pdm115.g10.polideportivoues.William.TipoReservacion.TipoReservacion;
 
-import org.json.JSONObject;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import android.os.StrictMode;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.annotation.SuppressLint;
 @SuppressLint("NewApi")
 
@@ -170,9 +161,14 @@ public class InsertarReservacionExternoActivity extends AppCompatActivity{
 
                 //WEBSERVICES
                 String url="";
-                JSONObject datosReserva = new JSONObject();
-                JSONObject reservacion1= new JSONObject();
-
+                String urlidreserva="";
+                String urlidpersona="";
+                String urlidtiporeserva="";
+                String urlidevento="";
+                String urlidperiodo="";
+                String urlidhorario="";
+                String urlidlocal="";
+                String urlfecha="";
 
                 if(idReservacion.isEmpty() || fechaRegistro.isEmpty() || spcobro.isEmpty() || sppersona.isEmpty() || sptipoReservacion.isEmpty() ||  spevento.isEmpty() ||  spperiodoReservacion.isEmpty() || sphorarioLocal.isEmpty()){
                     Toast.makeText(InsertarReservacionExternoActivity.this, "Debe completar los campos para realizar una reservación!", Toast.LENGTH_SHORT).show();
@@ -180,7 +176,6 @@ public class InsertarReservacionExternoActivity extends AppCompatActivity{
                     if(idReservacion.length()!=6){
                         Toast.makeText(InsertarReservacionExternoActivity.this, "El id de reservacion debe de ser de 6 carácteres!", Toast.LENGTH_SHORT).show();
                     }else{
-
                         Integer idCobroSeleccionada=arrayCobros.get(arrayCobrosString.indexOf(spcobro)).getIdCobro();
                         String idPersonaSeleccionada=arrayPersonas.get(arrayPersonasString.indexOf(sppersona)).getIdPersona();
                         String idTipoReservacionSeleccionada=arrayTipoReservaciones.get(arrayTipoReservacionesString.indexOf(sptipoReservacion)).getIdTipoR();
@@ -188,7 +183,6 @@ public class InsertarReservacionExternoActivity extends AppCompatActivity{
                         String idPeriodoReservaSeleccionada=arrayPeriodoReserva.get(arrayPeriodoReservaString.indexOf(spperiodoReservacion)).getIdPeriodoReserva();
                         String idHorariosSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdHorario();
                         String idLocalesSeleccionada=arrayHorariosLocales.get(arrayHorariosLocalesString.indexOf(sphorarioLocal)).getIdLocal();
-
 
                         Reservacion reservacion = new Reservacion();
                         reservacion.setIdReservacion(idReservacion);
@@ -201,21 +195,63 @@ public class InsertarReservacionExternoActivity extends AppCompatActivity{
                         reservacion.setIdLocal(idLocalesSeleccionada);
                         reservacion.setFechaRegistro(fechaRegistro);
 
+                        helper.open();
+                        int prueba1=helper.listarReservacionEventos(reservacion);
+                        int prueba2=helper.listarReservaPerHoraLoca(reservacion);
+                        helper.close();
 
+                        if (prueba2==1){
+                            Toast.makeText(InsertarReservacionExternoActivity.this, "No se puede hacer mas de una reserva para el mismo periodo, horario y local", Toast.LENGTH_SHORT).show();
+                        }else{
+                            if (prueba1==5){
+                                Toast.makeText(InsertarReservacionExternoActivity.this, "Hay 5 locales asociados al evento. No puede reservar más de 5 locales para un mismo evento", Toast.LENGTH_SHORT).show();
+                            }else{
+                                helper.open();
+                                insertarRegistros = helper.insertarReservacion(reservacion);
+                                helper.close();
+
+                                Toast.makeText(InsertarReservacionExternoActivity.this, insertarRegistros, Toast.LENGTH_SHORT).show();
+
+                                if(insertarRegistros.equals("Registro duplicado!")){
+                                    //Limpiamos los campos
+                                    editIdReservacion.setText("");
+                                    etFechaR.setText("");
+                                    spCobro.setText("");
+                                    spPersona.setText("");
+                                    spTReservacion.setText("");
+                                    spEvento.setText("");
+                                    spPeriodoR.setText("");
+                                    spHLocal.setText("");
+                                }else{
+                                    //Limpiamos los campos
+                                    editIdReservacion.setText("");
+                                    etFechaR.setText("");
+                                    spCobro.setText("");
+                                    spPersona.setText("");
+                                    spTReservacion.setText("");
+                                    spEvento.setText("");
+                                    spPeriodoR.setText("");
+                                    spHLocal.setText("");
+                                }
+                            }
+                        }
+
+                        try {
+                            urlidreserva= URLEncoder.encode(idReservacion,"UTF-8");
+                            urlidpersona= URLEncoder.encode(idPersonaSeleccionada,"UTF-8");
+                            urlidtiporeserva= URLEncoder.encode(idTipoReservacionSeleccionada,"UTF-8");
+                            urlidevento= URLEncoder.encode(idEventoSeleccionada,"UTF-8");
+                            urlidperiodo= URLEncoder.encode(idPeriodoReservaSeleccionada,"UTF-8");
+                            urlidhorario= URLEncoder.encode(idHorariosSeleccionada,"UTF-8");
+                            urlidlocal= URLEncoder.encode(idLocalesSeleccionada,"UTF-8");
+                            urlfecha= URLEncoder.encode(fechaRegistro,"UTF-8");
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
                         //WEBSERVICE
-                        url = urlHosting+ "?IDRESERVACION=" + reservacion.getIdReservacion() + "&IDCOBRO=" + reservacion.getIdCobro() + "&IDPERSONA=" + reservacion.getIdPersona() + "&IDTIPOR=" + reservacion.getIdTipoR() +"&IDEVENTO="+reservacion.getIdEvento()+"&IDPERIODORESERVA=" + reservacion.getIdPeriodoReserva()+ "&IDHORARIO="+reservacion.getIdHorario()+"&IDLOCAL="+reservacion.getIdLocal()+"&FECHAREGISTRO="+reservacion.getFechaRegistro();
+                        url = urlHosting+ "?IDRESERVACION=" + urlidreserva + "&IDCOBRO=" + reservacion.getIdCobro() + "&IDPERSONA=" + urlidpersona + "&IDTIPOR=" + urlidtiporeserva+"&IDEVENTO="+urlidevento+"&IDPERIODORESERVA=" + urlidperiodo+ "&IDHORARIO="+urlidhorario+"&IDLOCAL="+urlidlocal+"&FECHAREGISTRO="+urlfecha;
                         ReservacionService.insertarReservacionExterno(url, InsertarReservacionExternoActivity.this);
 
-
-                        //Limpiamos los campos
-                        editIdReservacion.setText("");
-                        etFechaR.setText("");
-                        spCobro.setText("");
-                        spPersona.setText("");
-                        spTReservacion.setText("");
-                        spEvento.setText("");
-                        spPeriodoR.setText("");
-                        spHLocal.setText("");
                     }
                 }
             }

@@ -431,7 +431,7 @@ public class ControlBDGustavo {
         return suma;
     }
 
-    //Verificamos la eliminación en cascada de persona
+    //Verificamos la eliminación en cascada de genero
     public Boolean verificarExisGenero(Genero valor){
         //verifica la existencia del id periodo reserva
         Genero genero = (Genero) valor;
@@ -447,7 +447,7 @@ public class ControlBDGustavo {
     public Boolean verificarGeneroCascada(Genero valor){
         //verifica si hay registros de persona en la tabla reservación
         Genero genero = (Genero)valor;
-        Cursor c=db.query(true, "genero", new String[] {"idGenero" }, "idGenero='"+genero.getIdGenero()+"'",null,null, null, null, null);
+        Cursor c=db.query(true, "persona", new String[] {"idGenero" }, "idGenero='"+genero.getIdGenero()+"'",null,null, null, null, null);
         if(c.moveToFirst()){
             return true;
         }else{

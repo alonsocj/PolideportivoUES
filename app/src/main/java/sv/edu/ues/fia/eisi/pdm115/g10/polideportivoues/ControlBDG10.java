@@ -44,8 +44,8 @@ public class ControlBDG10 {
         final String[] VADias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
 
         //Tabla nacionalidad
-        final String[] codNac = {"AR", "SV"};
-        final String[] nacionalidad = {"Argentina", "El Salvador"};
+        final String[] codNac = {"SV","US","BZ","GT","HN","NI","CR","PA","ES","BR","MX","JP","KR","CN"};
+        final String[] nacionalidad = { "El Salvador","Estados Unidos de América","Belice","Guatemala","Honduras","Nicaragua","Costa Rica","Panamá","España","Brasil","México","Japón","Corea del Sur","China"};
 
 
         //Tabla tipoEvento
@@ -66,9 +66,9 @@ public class ControlBDG10 {
                 "18:30", "14:30", "15:30", "16:30", "15:00", "15:45", "18:00", "15:30", "17:00", "18:00"};
 
         //Tabla local
-        final String[] idLocal = {"CEU01", "PAEU1"};
-        final String[] nomLocal = {"Cancha del estadio Universitario", "Pista de atletismo"};
-        final Integer[] cantidadPersonas = {100, 50};
+        final String[] idLocal = {"CPU0","CEU1", "PAE1","SUM1","SUM2","SUM3","CDA1","CDPF1","CEB1","DUE1","GYM1","PIO1","STM1","SAK1","2PPI"};
+        final String[] nomLocal = {"Complejo deportivo","Cancha del estadio Universitario", "Pista de atletismo","Salon de Usos Multiples 1","Salon de Usos Multiples 2","Salon de Usos Multiples 3","Cancha de Arena","Cancha de papi futbol","Cancha externa de baloncesto","Duela","Gimnasio de musculación","Piscina olimpica","Salon tenis de mesa","Sala de Karate","2a planta piscina"};
+        final Integer[] cantidadPersonas = {1000, 150,20,20,15,20,20,35,25,100,15,25,15,20,15};
 
         //Tabla tipoReservacion
         final String[] idTipoR = {"T", "P"};
@@ -85,9 +85,7 @@ public class ControlBDG10 {
         final String[] disponibilidad = {"0", "1"};
 
         //genero
-
         final String[] idGenero = {"G00001","G00002"};
-
         final String[] genero = {"Masculino","Femenino"};
 
 

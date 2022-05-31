@@ -47,9 +47,6 @@ public class ControlBDG10 {
         final String[] codNac = {"AR", "SV"};
         final String[] nacionalidad = {"Argentina", "El Salvador"};
 
-        //Tabla genero
-        final String[] idGenero = {"G00001"};
-        final String[] genero = {"Masculino"};
 
         //Tabla tipoEvento
         final String[] idTipoE = {"C", "P", "D"};
@@ -87,24 +84,20 @@ public class ControlBDG10 {
         final String[] idLocalHL = {"CEU01", "PAEU1"};
         final String[] disponibilidad = {"0", "1"};
 
-        //Tabla persona
-        final String[] idPersona = {"111111111"};
-        final String[] nombre = {"Paul"};
-        final String[] apellido = {"Paz"};
-        final String[] idGeneroP = {"000001"};
-        final String[] nacimiento = {"15/04/1998"};
-        final String[] codNacP = {"AR"};
-        final String[] direccion = {"Calle las bermudas casa #4"};
-        final String[] email = {"paul@gmail.com"};
-        final String[] telefono = {"75189930"};
+        //genero
+
+        final String[] idGenero = {"G00001","G00002"};
+
+        final String[] genero = {"Masculino","Femenino"};
+
 
         //Tabla cobro
-        final Integer[] idCobro = {1};
-        final String[] idPagoC = {"01"};
-        final Integer[] cantPersonas = {25};
-        final Float[] duracion = {2.50f};
-        final Float[] precio = {2.0f};
-        final String[] duracionM = {"02:30"};
+        final Integer[] idCobro = {1,2,3,4,5,6,7,8,9,10};
+        final String[] idPagoC = {"TC","TC","TC","TC","TC","EF","EF","EF","EF","EF"};
+        final Integer[] cantPersonas = {50,100,150,200,30,20,15,60,75,250};
+        final Float[] duracion = {2.50f,2.50f,2.50f,2.50f,2.50f,2.50f,2.50f,2.50f,2.50f,2.50f};
+        final Float[] precio = {0.00f,0.00f,0.00f,0.00f,0.00f,0.00f,0.00f,0.00f,0.00f,0.00f};
+        final String[] duracionM = {"02:30","02:30","02:30","02:30","02:30","02:30","02:30","02:30","02:30","02:30"};
 
         //Tabla periodoReserva
         final String[] idPeriodoReserva = {"PR0001"};
@@ -117,16 +110,6 @@ public class ControlBDG10 {
         final String[] nomEvento = {"Festival deportivo de la FRAY"};
         final Float[] costoEvento = {15f};
         final Integer[] cantidadAutorizada = {10};
-        //Tabla Reservacion
-        final String[] idReservacion = {"R00001"};
-        final Integer[] idCobroR = {1};
-        final String[] idPersonaR = {"111111111"};
-        final String[] idTipoRR = {"T"};
-        final String[] idEventoR = {"E00001"};
-        final String[] idPeriodoReservaR = {"PR0001"};
-        final String[] idHorarioR = {"H00002"};
-        final String[] idLocalR = {"PAEU1"};
-        final String[] fechaRegistro = {"30/4/2022"};
 
         open();
         db.execSQL("DELETE FROM dia");
@@ -139,11 +122,9 @@ public class ControlBDG10 {
         db.execSQL("DELETE FROM tipoReservacion");
         db.execSQL("DELETE FROM horariosDisponibles");
         db.execSQL("DELETE FROM horariosLocales");
-        db.execSQL("DELETE FROM persona");
         db.execSQL("DELETE FROM cobro");
         db.execSQL("DELETE FROM periodoReserva");
         db.execSQL("DELETE FROM evento");
-        db.execSQL("DELETE FROM reservacion");
 
         //Se llenan las tablas con datos
         for (String vaDia : VADias) {
@@ -176,9 +157,7 @@ public class ControlBDG10 {
         for (int i = 0; i < idHorarioHL.length; i++) {
             db.execSQL("INSERT INTO horariosLocales (idHorario,idLocal,disponibilidad) VALUES ('" + idHorarioHL[i] + "','" + idLocalHL[i] + "','" + disponibilidad[i] + "');");
         }
-        for (int i = 0; i < idPersona.length; i++) {
-            db.execSQL("INSERT INTO persona (idPersona,nombre,apellido,idGenero,nacimiento,codNac,direccion,email,telefono) VALUES ('" + idPersona[i] + "','" + nombre[i] + "','" + apellido[i] + "','" + idGeneroP[i] + "','" + nacimiento[i] + "','" + codNacP[i] + "','" + direccion[i] + "','" + email[i] + "','" + telefono[i] + "');");
-        }
+
         for (int i = 0; i < idCobro.length; i++) {
             db.execSQL("INSERT INTO cobro (idCobro,idPago,cantPersonas,duracion,precio,duracionM) VALUES ('" + idCobro[i] + "','" + idPagoC[i] + "','" + cantPersonas[i] + "','" + duracion[i] + "','" + precio[i] + "','" + duracionM[i] + "');");
         }
@@ -187,9 +166,6 @@ public class ControlBDG10 {
         }
         for (int i = 0; i < idEvento.length; i++) {
             db.execSQL("INSERT INTO evento (idEvento,idTipoE,nomEvento,costoEvento,cantidadAutorizada) VALUES ('" + idEvento[i] + "','" + VidTipoE[i] + "','" + nomEvento[i] + "','" + costoEvento[i] + "','" + cantidadAutorizada[i] + "');");
-        }
-        for (int i = 0; i < idReservacion.length; i++) {
-            db.execSQL("INSERT INTO reservacion (idReservacion,idCobro,idPersona,idTipoR,idEvento,idPeriodoReserva,idHorario,idLocal,fechaRegistro) VALUES ('" + idReservacion[i] + "','" + idCobroR[i] + "','" + idPersonaR[i] + "','" + idTipoRR[i] + "','" + idEventoR[i] + "','" + idPeriodoReservaR[i] + "','" + idHorarioR[i] + "','" + idLocalR[i] + "','" + fechaRegistro[i] + "');");
         }
 
         close();

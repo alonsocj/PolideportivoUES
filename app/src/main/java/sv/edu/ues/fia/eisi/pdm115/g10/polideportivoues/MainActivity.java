@@ -33,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
+        BDhelper = new ControlBDG10(this);
+
+        findViewById(R.id.llenarBase).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llenarBaseDatos();
+            }
+        });
+
         /*binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void llenarBase(View view) {
+    public void llenarBaseDatos() {
         BDhelper.open();
         String tost = BDhelper.llenarBDG10();
         BDhelper.close();

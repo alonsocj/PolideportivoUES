@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/botones"
         android:gravity="center"
-        android:onClick="llenarBase"
         android:text="@string/llenar_base"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
